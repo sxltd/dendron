@@ -1,5 +1,5 @@
-import { DendronError } from "@dendronhq/common-all";
-import { runMochaHarness } from "@dendronhq/common-test-utils";
+import { DendronError } from "@sxltd/common-all";
+import { runMochaHarness } from "@sxltd/common-test-utils";
 import { describe } from "mocha";
 import sinon from "sinon";
 import * as vscode from "vscode";

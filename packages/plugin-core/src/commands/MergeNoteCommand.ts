@@ -5,8 +5,8 @@ import {
   NoteProps,
   RefactoringCommandUsedPayload,
   StatisticsUtils,
-} from "@dendronhq/common-all";
-import { HistoryEvent } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { HistoryEvent } from "@sxltd/engine-server";
 import {
   CreateQuickPickOpts,
   ILookupControllerV3,
@@ -24,7 +24,7 @@ import * as vscode from "vscode";
 import _ from "lodash";
 import { ProxyMetricUtils } from "../utils/ProxyMetricUtils";
 import { VSCodeUtils } from "../vsCodeUtils";
-import { LinkUtils } from "@dendronhq/unified";
+import { LinkUtils } from "@sxltd/unified";
 import { AutoCompleter } from "../utils/autoCompleter";
 import { AutoCompletableRegistrar } from "../utils/registers/AutoCompletableRegistrar";
 

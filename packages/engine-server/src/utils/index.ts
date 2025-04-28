@@ -7,7 +7,7 @@ import {
   NoteProps,
   NotesCacheEntry,
   ReducedDEngine,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

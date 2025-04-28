@@ -1,4 +1,4 @@
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import { before, describe } from "mocha";
 import { ExtensionProvider } from "../../ExtensionProvider";
 import { SchemaSyncService } from "../../services/SchemaSyncService";

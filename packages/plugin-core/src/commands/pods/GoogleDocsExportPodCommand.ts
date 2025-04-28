@@ -5,8 +5,8 @@ import {
   ResponseUtil,
   stringifyError,
   Time,
-} from "@dendronhq/common-all";
-import { EngineUtils, openPortFile } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { EngineUtils, openPortFile } from "@sxltd/engine-server";
 import {
   ConfigFileUtils,
   createRunnableGoogleDocsV2PodConfigSchema,
@@ -23,7 +23,7 @@ import {
   PodUtils,
   PodV2Types,
   RunnableGoogleDocsV2PodConfig,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import _ from "lodash";
 import * as vscode from "vscode";
 import { window } from "vscode";

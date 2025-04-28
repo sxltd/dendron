@@ -3,10 +3,10 @@ import {
   NoteChangeEntry,
   TreeViewItemLabelTypeEnum,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
-import { NoteTestUtilsV4, NOTE_PRESETS_V4 } from "@dendronhq/common-test-utils";
-import { MetadataService } from "@dendronhq/engine-server";
-import { ENGINE_HOOKS_MULTI } from "@dendronhq/engine-test-utils";
+} from "@sxltd/common-all";
+import { NoteTestUtilsV4, NOTE_PRESETS_V4 } from "@sxltd/common-test-utils";
+import { MetadataService } from "@sxltd/engine-server";
+import { ENGINE_HOOKS_MULTI } from "@sxltd/engine-test-utils";
 import _ from "lodash";
 import { describe, after } from "mocha";
 import { container } from "tsyringe";

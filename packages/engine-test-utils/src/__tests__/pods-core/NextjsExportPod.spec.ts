@@ -7,10 +7,10 @@ import {
   PublishUtils,
   VaultUtils,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
-import { tmpDir } from "@dendronhq/common-server";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { NextjsExportConfig, NextjsExportPod } from "@dendronhq/pods-core";
+} from "@sxltd/common-all";
+import { tmpDir } from "@sxltd/common-server";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { NextjsExportConfig, NextjsExportPod } from "@sxltd/pods-core";
 import path from "path";
 import { TestConfigUtils } from "../../config";
 import { runEngineTestV5 } from "../../engine";

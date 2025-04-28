@@ -3,7 +3,7 @@ import {
   genUUID,
   NoteProps,
   NoteUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 
 type BackfillServiceOpts = {

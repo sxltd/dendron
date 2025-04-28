@@ -1,6 +1,6 @@
-import { DVault } from "@dendronhq/common-all";
-import { tmpDir } from "@dendronhq/common-server";
-import { WorkspaceService } from "@dendronhq/engine-server";
+import { DVault } from "@sxltd/common-all";
+import { tmpDir } from "@sxltd/common-server";
+import { WorkspaceService } from "@sxltd/engine-server";
 
 export class TestWorkspaceUtils {
   static async create({

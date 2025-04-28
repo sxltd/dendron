@@ -14,7 +14,7 @@ import {
   TAGS_HIERARCHY,
   TaskNoteUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import type { Image, Link, Root } from "mdast";
 import { paragraph, text } from "mdast-builder";

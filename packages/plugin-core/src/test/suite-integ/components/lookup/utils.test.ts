@@ -1,10 +1,10 @@
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import {
   DNodePropsQuickInputV2,
   NoteLookupUtils,
   NoteProps,
   TransformedQueryString,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { filterPickerResults } from "../../../../components/lookup/utils";
 import { describe, it, beforeEach } from "mocha";
 import { expect } from "../../../testUtilsv2";

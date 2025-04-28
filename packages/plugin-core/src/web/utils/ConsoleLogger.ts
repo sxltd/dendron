@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { DLogger } from "@dendronhq/common-all";
+import { DLogger } from "@sxltd/common-all";
 
 /**
  * Simple DLogger implementation that just logs to console. Works universally on

@@ -1,5 +1,5 @@
-import { DendronError } from "@dendronhq/common-all";
-import { PodUtils } from "@dendronhq/pods-core";
+import { DendronError } from "@sxltd/common-all";
+import { PodUtils } from "@sxltd/pods-core";
 import { ensureDirSync } from "fs-extra";
 import _ from "lodash";
 import { IDendronExtension } from "./dendronExtensionInterface";

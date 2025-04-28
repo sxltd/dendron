@@ -3,7 +3,7 @@ import os from "os";
 import fs from "fs-extra";
 import { Uri } from "vscode";
 import { VSCodeUtils } from "./vsCodeUtils";
-import { FOLDERS } from "@dendronhq/common-all";
+import { FOLDERS } from "@sxltd/common-all";
 
 // TODO: If you'd like to target a specific theme, pre-pend each class with either ".theme-dark" or ".theme-light"
 

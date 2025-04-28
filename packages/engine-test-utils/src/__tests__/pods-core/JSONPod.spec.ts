@@ -1,9 +1,9 @@
-import { NoteProps, VaultUtils } from "@dendronhq/common-all";
+import { NoteProps, VaultUtils } from "@sxltd/common-all";
 import {
   JSONExportPod,
   JSONImportPod,
   JSONPublishPod,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import _ from "lodash";
 import { runEngineTestV5 } from "../../engine";
 import { ENGINE_HOOKS, PODS_CORE } from "../../presets";

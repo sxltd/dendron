@@ -1,4 +1,4 @@
-import { DVault, NoteProps } from "@dendronhq/common-all";
+import { DVault, NoteProps } from "@sxltd/common-all";
 import {
   AirtableConnection,
   AirtableV2PodConfig,
@@ -6,7 +6,7 @@ import {
   JSONSchemaType,
   PodExportScope,
   RunnablePodConfigV2,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import { HierarchySelector } from "../../../../../src/components/lookup/HierarchySelector";
 import { BaseExportPodCommand } from "../../../../../src/commands/pods/BaseExportPodCommand";
 import { ExtensionProvider } from "../../../../ExtensionProvider";

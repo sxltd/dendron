@@ -1,4 +1,4 @@
-import { position2VSCodeRange } from "@dendronhq/common-all";
+import { position2VSCodeRange } from "@sxltd/common-all";
 import { UserTag } from "../types";
 import { Decorator } from "./utils";
 import { DecorationWikilink, linkedNoteType } from "./wikilinks";

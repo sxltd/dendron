@@ -1,4 +1,4 @@
-import { ConfigFileUtils, PodUtils } from "@dendronhq/pods-core";
+import { ConfigFileUtils, PodUtils } from "@sxltd/pods-core";
 import { Uri } from "vscode";
 import { PodUIControls } from "../../components/pods/PodControls";
 import { DENDRON_COMMANDS } from "../../constants";

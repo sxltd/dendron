@@ -2,7 +2,7 @@ import {
   MetadataService,
   PriorTools,
   ShowcaseEntry,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import _ from "lodash";
 import vscode from "vscode";
 import {

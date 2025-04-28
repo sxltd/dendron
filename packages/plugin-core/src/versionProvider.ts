@@ -1,5 +1,5 @@
 import { VSCodeUtils } from "./vsCodeUtils";
-import { NodeJSUtils } from "@dendronhq/common-server";
+import { NodeJSUtils } from "@sxltd/common-server";
 import vscode from "vscode";
 import { extensionQualifiedId } from "./constants";
 import _ from "lodash";

@@ -4,15 +4,15 @@ import {
   FOLDERS,
   VaultUtils,
   DendronConfig,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   DConfig,
   readYAML,
   readYAMLAsync,
   tmpDir,
-} from "@dendronhq/common-server";
-import { FileTestUtils } from "@dendronhq/common-test-utils";
-import { checkVaults, GitTestUtils } from "@dendronhq/engine-test-utils";
+} from "@sxltd/common-server";
+import { FileTestUtils } from "@sxltd/common-test-utils";
+import { checkVaults, GitTestUtils } from "@sxltd/engine-test-utils";
 import fs from "fs-extra";
 import { before, describe } from "mocha";
 import path from "path";

@@ -1,9 +1,9 @@
-import { NoteProps } from "@dendronhq/common-all";
-import { InMemoryNoteCache } from "@dendronhq/engine-server";
+import { NoteProps } from "@sxltd/common-all";
+import { InMemoryNoteCache } from "@sxltd/engine-server";
 import {
   CreateNoteOptsV4,
   NoteTestUtilsV4,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 
 /** Create note prop with some sensible default (for tests only). */
 async function createNoteProp(opts: {

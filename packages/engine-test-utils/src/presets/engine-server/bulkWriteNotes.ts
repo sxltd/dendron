@@ -1,5 +1,5 @@
-import { NoteUtils } from "@dendronhq/common-all";
-import { TestPresetEntryV4 } from "@dendronhq/common-test-utils";
+import { NoteUtils } from "@sxltd/common-all";
+import { TestPresetEntryV4 } from "@sxltd/common-test-utils";
 import _ from "lodash";
 
 const SCHEMAS = {};

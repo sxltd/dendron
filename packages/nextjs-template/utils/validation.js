@@ -1,6 +1,6 @@
 const fs = require("fs-extra");
 const path = require("path");
-const { parse, treeMenuSchema } = require("@dendronhq/common-all");
+const { parse, treeMenuSchema } = require("@sxltd/common-all");
 const { env } = require('../env/server')
 
 const dataDir = env.DATA_DIR

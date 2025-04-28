@@ -1,4 +1,4 @@
-import { NoteProps, NoteUtils } from "@dendronhq/common-all";
+import { NoteProps, NoteUtils } from "@sxltd/common-all";
 import * as fs from "fs-extra";
 import * as _ from "lodash";
 import * as path from "path";

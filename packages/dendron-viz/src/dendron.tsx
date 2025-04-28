@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { VaultUtils } from "@dendronhq/common-all";
+import { VaultUtils } from "@sxltd/common-all";
 import fs from "fs-extra";
 import React from "react";
 import ReactDOMServer from "react-dom/server";

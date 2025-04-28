@@ -3,8 +3,8 @@ import {
   getCleanThresholdValue,
   NoteIndexProps,
   NotePropsByIdDict,
-} from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+} from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import Fuse from "fuse.js";
 
 type TestData = {

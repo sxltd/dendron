@@ -3,8 +3,8 @@ import {
   DVault,
   ERROR_STATUS,
   SchemaModuleProps,
-} from "@dendronhq/common-all";
-import { DLogger, SchemaParserV2, vault2Path } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { DLogger, SchemaParserV2, vault2Path } from "@sxltd/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

@@ -1,4 +1,4 @@
-import { ConfigUtils, DendronConfig } from "@dendronhq/common-all";
+import { ConfigUtils, DendronConfig } from "@sxltd/common-all";
 import type { DeepPartial } from "@reduxjs/toolkit";
 
 function getConfig(override?: DeepPartial<DendronConfig>): DendronConfig {

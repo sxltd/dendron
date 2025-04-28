@@ -9,9 +9,9 @@
     "version": {
       "conventionalCommits": true,
       "message": "chore(release): publish",
-      "changelogPreset": "@dendronhq/conventional-changelog-dendron",
+      "changelogPreset": "@sxltd/conventional-changelog-dendron",
       "yes": true
     }
   },
-  "version": "0.124.0"
+  "version": "independent"
 }

@@ -10,7 +10,7 @@ import {
   RespV2,
   stringifyError,
   Time,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { JSONSchemaType } from "ajv";
 import FormData from "form-data";
 import { RateLimiter } from "limiter";

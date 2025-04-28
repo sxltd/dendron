@@ -3,7 +3,7 @@ import {
   FOOTNOTE_DEF_CLASS,
   FOOTNOTE_REF_CLASS,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { Content, FootnoteDefinition, FootnoteReference, Root } from "mdast";
 import { heading, html, list, listItem, paragraph, text } from "mdast-builder";

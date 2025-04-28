@@ -1,4 +1,4 @@
-import { setupEngine } from "@dendronhq/dendron-cli";
+import { setupEngine } from "@sxltd/dendron-cli";
 import { createEngineFromServer, runEngineTestV5 } from "../../..";
 
 const createEngine = createEngineFromServer;

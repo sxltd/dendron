@@ -7,7 +7,7 @@ import {
   NoteUtils,
   Position,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { Eat } from "remark-parse";
 import Unified, { Plugin } from "unified";

@@ -8,9 +8,9 @@ import {
   RenameNoteOpts,
   StatisticsUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
-import { HistoryEvent } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
+import { HistoryEvent } from "@sxltd/engine-server";
 import _ from "lodash";
 import _md from "markdown-it";
 import path from "path";

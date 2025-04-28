@@ -1,4 +1,4 @@
-import { CONSTANTS } from "@dendronhq/common-all";
+import { CONSTANTS } from "@sxltd/common-all";
 import { afterEach, beforeEach, describe } from "mocha";
 import path from "path";
 import sinon from "sinon";

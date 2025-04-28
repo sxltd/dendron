@@ -1,6 +1,6 @@
-import { InstallStatus, Time } from "@dendronhq/common-all";
-import { MetadataService } from "@dendronhq/engine-server";
-import { TestEngineUtils } from "@dendronhq/engine-test-utils";
+import { InstallStatus, Time } from "@sxltd/common-all";
+import { MetadataService } from "@sxltd/engine-server";
+import { TestEngineUtils } from "@sxltd/engine-test-utils";
 import { after, afterEach, beforeEach, describe } from "mocha";
 import sinon, { SinonSpy, SinonStub } from "sinon";
 import { ExtensionContext } from "vscode";

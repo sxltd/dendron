@@ -7,8 +7,8 @@ import {
   RenameNoteResp,
   RenderNoteOpts,
   RenderNoteResp,
-} from "@dendronhq/common-all";
-import { NodeJSUtils } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { NodeJSUtils } from "@sxltd/common-server";
 import { getLogger } from "../../core";
 import { MemoryStore } from "../../store/memoryStore";
 import { getWSEngine } from "../../utils";

@@ -1,4 +1,4 @@
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import * as vscode from "vscode";
 import { ExtensionProvider } from "../../ExtensionProvider";
 import { getReferenceAtPosition } from "../../utils/md";

@@ -6,10 +6,10 @@ import {
   minimatch,
   NoteProps,
   RespV3,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { DateTime } from "luxon";
-import { LinkUtils } from "@dendronhq/unified";
+import { LinkUtils } from "@sxltd/unified";
 
 export type NoteMetadataValidationProps = {
   /**

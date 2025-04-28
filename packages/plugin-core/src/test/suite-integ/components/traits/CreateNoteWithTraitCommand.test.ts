@@ -1,5 +1,5 @@
-import { VaultUtils } from "@dendronhq/common-all";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { VaultUtils } from "@sxltd/common-all";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import { afterEach, beforeEach, describe } from "mocha";
 import path from "path";
 import { CreateNoteWithTraitCommand } from "../../../../commands/CreateNoteWithTraitCommand";

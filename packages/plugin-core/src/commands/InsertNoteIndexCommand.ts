@@ -1,4 +1,4 @@
-import { ConfigUtils, NotePropsMeta, NoteUtils } from "@dendronhq/common-all";
+import { ConfigUtils, NotePropsMeta, NoteUtils } from "@sxltd/common-all";
 import _ from "lodash";
 import { window } from "vscode";
 import { DendronClientUtilsV2 } from "../clientUtils";

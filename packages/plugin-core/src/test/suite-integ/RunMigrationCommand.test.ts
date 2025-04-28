@@ -3,12 +3,12 @@ import {
   ConfigUtils,
   DendronConfig,
   WorkspaceType,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import sinon from "sinon";
 import { RunMigrationCommand } from "../../commands/RunMigrationCommand";
 import { expect } from "../testUtilsv2";
 import { describeMultiWS, runTestButSkipForWindows } from "../testUtilsV3";
-import { DConfig } from "@dendronhq/common-server";
+import { DConfig } from "@sxltd/common-server";
 import { ExtensionProvider } from "../../ExtensionProvider";
 
 suite("RunMigrationCommand", function () {

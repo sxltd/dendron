@@ -5,35 +5,35 @@
     "strict": true,
     "noImplicitAny": true,
     "paths": {
-      //"@dendronhq/*": ["packages/*/src"],
-      "@dendronhq/api-server": [
+      //"@sxltd/*": ["packages/*/src"],
+      "@sxltd/api-server": [
         "packages/api-server/src"
       ],
-      "@dendronhq/common-all": [
+      "@sxltd/common-all": [
         "packages/common-all/src"
       ],
-      "@dendronhq/unified": [
+      "@sxltd/unified": [
         "packages/unified/src"
       ],
-      "@dendronhq/common-server": [
+      "@sxltd/common-server": [
         "packages/common-server/src"
       ],
-      "@dendronhq/common-test-utils": [
+      "@sxltd/common-test-utils": [
         "packages/common-test-utils/src"
       ],
-      "@dendronhq/engine-test-utils": [
+      "@sxltd/engine-test-utils": [
         "packages/engine-test-utils/src"
       ],
-      "@dendronhq/dendron-cli": [
+      "@sxltd/dendron-cli": [
         "packages/dendron-cli/src"
       ],
-      "@dendronhq/engine-server": [
+      "@sxltd/engine-server": [
         "packages/engine-server/src"
       ],
-      "@dendronhq/plugin-core": [
+      "@sxltd/plugin-core": [
         "packages/plugin-core/src"
       ],
-      "@dendronhq/pods-core": [
+      "@sxltd/pods-core": [
         "packages/pods-core/src"
       ]
     }

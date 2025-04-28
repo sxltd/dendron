@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { SubProcessExitType } from "@dendronhq/api-server";
+import { SubProcessExitType } from "@sxltd/api-server";
 import * as Sentry from "@sentry/node";
 import {
   CONSTANTS,
@@ -14,14 +14,14 @@ import {
   VaultUtils,
   VSCodeEvents,
   WorkspaceType,
-} from "@dendronhq/common-all";
-import { getDurationMilliseconds, GitUtils } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { getDurationMilliseconds, GitUtils } from "@sxltd/common-server";
 import {
   HistoryService,
   MetadataService,
   WorkspaceService,
   WorkspaceUtils,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import _ from "lodash";
 import path from "path";
 import semver from "semver";

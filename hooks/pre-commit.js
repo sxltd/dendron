@@ -8,11 +8,11 @@ const ErrorMessages = {
   AVOID_DIRECT_IMPORT_FROM_PACKAGES: [
     `Direct import from a package.`,
     `This check catches direct imports such as:`,
-    `import { your_import1 } from "@dendronhq/common-all/path1";`,
-    `import { your_import2 } from "@dendronhq/common-server/path2";`,
+    `import { your_import1 } from "@sxltd/common-all/path1";`,
+    `import { your_import2 } from "@sxltd/common-server/path2";`,
     `While the above imports should look as:`,
-    `import { your_import1 } from "@dendronhq/common-all";`,
-    `import { your_import2 } from "@dendronhq/common-server";`,
+    `import { your_import1 } from "@sxltd/common-all";`,
+    `import { your_import2 } from "@sxltd/common-server";`,
   ].join("\n"),
 };
 

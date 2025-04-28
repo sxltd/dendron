@@ -11,7 +11,7 @@ import {
   EngineWriteOptsV2,
   SchemaTemplate,
   ErrorUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   file2Note,
   file2Schema,
@@ -19,7 +19,7 @@ import {
   resolvePath,
   schemaModuleProps2File,
   vault2Path,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import _ from "lodash";
 import path from "path";
 

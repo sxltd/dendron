@@ -4,7 +4,7 @@ import {
   OnCreateContext,
   onWillCreateProps,
   SetNameModifierResp,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { DendronClientUtilsV2 } from "../clientUtils";
 import { IDendronExtension } from "../dendronExtensionInterface";
 

@@ -1,6 +1,6 @@
 import { describe, afterEach, beforeEach, test } from "mocha";
-import type { NoteProps } from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import type { NoteProps } from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { TogglePreviewLockCommand } from "../../commands/TogglePreviewLock";
 import { PreviewPanelFactory } from "../../components/views/PreviewViewFactory";
 import { ExtensionProvider } from "../../ExtensionProvider";

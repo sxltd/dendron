@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { ConfigUtils, Time, GitUtils } from "@dendronhq/common-all";
+import { ConfigUtils, Time, GitUtils } from "@sxltd/common-all";
 import { Row, Col, Typography } from "antd";
 import _ from "lodash";
 import React from "react";

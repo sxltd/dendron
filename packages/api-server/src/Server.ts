@@ -3,13 +3,13 @@ import {
   error2PlainObject,
   getStage,
   StatusCodes,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   findInParent,
   SegmentClient,
   initializeSentry,
   NodeJSUtils,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import * as Sentry from "@sentry/node";
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";

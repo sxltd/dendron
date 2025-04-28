@@ -14,11 +14,11 @@ import {
   NoteLookupCommand,
 } from "./NoteLookupCommand";
 import { IDendronExtension } from "../dendronExtensionInterface";
-import { ConfigUtils } from "@dendronhq/common-all";
+import { ConfigUtils } from "@sxltd/common-all";
 import { VaultSelectionModeConfigUtils } from "../components/lookup/vaultSelectionModeConfigUtils";
 import { FeatureShowcaseToaster } from "../showcase/FeatureShowcaseToaster";
 import { CreateScratchNoteKeybindingTip } from "../showcase/CreateScratchNoteKeybindingTip";
-import { MetadataService } from "@dendronhq/engine-server";
+import { MetadataService } from "@sxltd/engine-server";
 import semver from "semver";
 
 type CommandOpts = NoteLookupRunOpts;

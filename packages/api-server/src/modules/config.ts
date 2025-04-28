@@ -3,8 +3,8 @@ import {
   DendronConfig,
   RespV3,
   WorkspaceRequest,
-} from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { DConfig } from "@sxltd/common-server";
 import { MemoryStore } from "../store/memoryStore";
 import { getWSEngine } from "../utils";
 

@@ -1,8 +1,8 @@
-import { DConfig } from "@dendronhq/common-server";
+import { DConfig } from "@sxltd/common-server";
 import {
   NoteTestUtilsV4,
   TestPresetEntryV4,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import {
   DendronASTDest,
   DendronASTTypes,
@@ -10,7 +10,7 @@ import {
   RemarkUtils,
   UnistNode,
   WikiLinkNoteV4,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import _ from "lodash";
 import { runEngineTestV5 } from "../../../engine";
 import { ENGINE_HOOKS } from "../../../presets";

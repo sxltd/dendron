@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
-import { NotePropsMeta, NoteUtils, VaultUtils } from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
-import { AssertUtils, NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { DoctorActionsEnum } from "@dendronhq/engine-server";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { NotePropsMeta, NoteUtils, VaultUtils } from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
+import { AssertUtils, NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { DoctorActionsEnum } from "@sxltd/engine-server";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

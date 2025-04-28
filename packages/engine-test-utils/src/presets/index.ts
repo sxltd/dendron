@@ -1,5 +1,5 @@
-import { DVault, VaultUtils } from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { DVault, VaultUtils } from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { WorkspaceOpts } from "../engine";
 
 export * from "./engine-server";

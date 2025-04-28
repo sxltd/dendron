@@ -6,7 +6,7 @@ import {
   PodClassEntryV4,
   PodItemV4,
   PodUtils,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import { Uri } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";
 import { VSCodeUtils } from "../vsCodeUtils";

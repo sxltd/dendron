@@ -1,6 +1,6 @@
-import { ConfigUtils, DendronConfig } from "@dendronhq/common-all";
-import { NOTE_PRESETS_V4 } from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { ConfigUtils, DendronConfig } from "@sxltd/common-all";
+import { NOTE_PRESETS_V4 } from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import _ from "lodash";
 import { describe, test } from "mocha";
 import * as vscode from "vscode";

@@ -2,7 +2,7 @@ import {
   DVault,
   NoteQuickInput,
   type ReducedDEngine,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import assert from "assert";
 import sinon from "sinon";
 import { stubInterface } from "ts-sinon";

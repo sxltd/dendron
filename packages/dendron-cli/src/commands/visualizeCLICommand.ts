@@ -1,4 +1,4 @@
-import { generateSVG, InputArgs } from "@dendronhq/dendron-viz";
+import { generateSVG, InputArgs } from "@sxltd/dendron-viz";
 import { Argv } from "yargs";
 import { CLICommand, CommandCommonProps } from "./base";
 import { setupEngine, setupEngineArgs, SetupEngineResp } from "./utils";

@@ -1,4 +1,4 @@
-import { HistoryService } from "@dendronhq/engine-server";
+import { HistoryService } from "@sxltd/engine-server";
 
 describe("history", () => {
   test("subscribev2", (done) => {

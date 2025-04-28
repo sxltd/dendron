@@ -1,6 +1,6 @@
 /* eslint-disable no-empty-function */
 /* eslint-disable no-useless-constructor */
-import { ShowcaseEntry } from "@dendronhq/engine-server";
+import { ShowcaseEntry } from "@sxltd/engine-server";
 import {
   DisplayLocation,
   IFeatureShowcaseMessage,

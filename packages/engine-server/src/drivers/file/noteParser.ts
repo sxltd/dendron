@@ -29,8 +29,8 @@ import {
   DendronConfig,
   asyncLoopOneAtATime,
   SchemaModuleDict,
-} from "@dendronhq/common-all";
-import { DConfig, DLogger, vault2Path } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { DConfig, DLogger, vault2Path } from "@sxltd/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

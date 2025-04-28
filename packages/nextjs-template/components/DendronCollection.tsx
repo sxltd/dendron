@@ -1,4 +1,4 @@
-import { NoteProps, NotePropsByIdDict } from "@dendronhq/common-all";
+import { NoteProps, NotePropsByIdDict } from "@sxltd/common-all";
 import { getNoteUrl } from "../utils/links";
 import _ from "lodash";
 import Link from "next/link";

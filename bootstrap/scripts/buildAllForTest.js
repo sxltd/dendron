@@ -14,32 +14,32 @@ const $ = (cmd) => {
 const TEST_NEXT_TEMPLATE = process.env.TEST_NEXT_TEMPLATE;
 
 console.log("build all...");
-$(`npx lerna run buildCI --scope @dendronhq/common-all`);
+$(`npx lerna run buildCI --scope @sxltd/common-all`);
 $(
-  `npx lerna run build --parallel --scope "@dendronhq/{unified,common-server}"`
+  `npx lerna run build --parallel --scope "@sxltd/{unified,common-server}"`
 );
-$(`npx lerna run buildCI --scope @dendronhq/dendron-viz `);
-$(`npx lerna run buildCI --scope @dendronhq/engine-server `);
-$(`npx lerna run buildCI --scope @dendronhq/pods-core `);
+$(`npx lerna run buildCI --scope @sxltd/dendron-viz `);
+$(`npx lerna run buildCI --scope @sxltd/engine-server `);
+$(`npx lerna run buildCI --scope @sxltd/pods-core `);
 if (TEST_NEXT_TEMPLATE) {
   $(
-    `npx lerna run buildCI --parallel --scope "@dendronhq/{common-test-utils,api-server,common-assets}"`
+    `npx lerna run buildCI --parallel --scope "@sxltd/{common-test-utils,api-server,common-assets}"`
   );
 } else {
   $(
-    `npx lerna run buildCI --parallel --scope "@dendronhq/{common-test-utils,api-server}"`
+    `npx lerna run buildCI --parallel --scope "@sxltd/{common-test-utils,api-server}"`
   );
 }
 $(
-  `npx lerna run buildCI --parallel --scope "@dendronhq/{common-frontend,dendron-cli}"`
+  `npx lerna run buildCI --parallel --scope "@sxltd/{common-frontend,dendron-cli}"`
 );
 
-$(`npx lerna run buildCI --scope "@dendronhq/engine-test-utils"`);
+$(`npx lerna run buildCI --scope "@sxltd/engine-test-utils"`);
 
-$(`npx lerna run buildCI --scope "@dendronhq/plugin-core"`);
+$(`npx lerna run buildCI --scope "@sxltd/plugin-core"`);
 
 if (TEST_NEXT_TEMPLATE) {
-  $(`npx lerna run build --scope "@dendronhq/dendron-plugin-views"`);
+  $(`npx lerna run build --scope "@sxltd/dendron-plugin-views"`);
   $(`npx yarn dendron dev sync_assets --fast`);
 }
 console.log("done");

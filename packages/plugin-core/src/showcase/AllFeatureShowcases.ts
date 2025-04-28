@@ -1,4 +1,4 @@
-import { ShowcaseEntry } from "@dendronhq/engine-server";
+import { ShowcaseEntry } from "@sxltd/engine-server";
 import { BacklinksPanelHoverTip } from "./BacklinksPanelHoverTip";
 import { CreateScratchNoteKeybindingTip } from "./CreateScratchNoteKeybindingTip";
 import { GraphPanelTip } from "./GraphPanelTip";

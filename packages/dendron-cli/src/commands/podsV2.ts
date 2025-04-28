@@ -6,12 +6,12 @@ import {
   RespV3,
   URI,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   ConfigFileUtils,
   PodExportScope,
   PodUtils,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import _ from "lodash";
 import yargs from "yargs";
 import { setupEngine, SetupEngineCLIOpts, SetupEngineResp } from "./utils";

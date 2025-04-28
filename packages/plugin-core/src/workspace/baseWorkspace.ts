@@ -6,8 +6,8 @@ import {
   DWorkspaceV2,
   WorkspaceType,
   ConfigUtils,
-} from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { DConfig } from "@sxltd/common-server";
 import * as vscode from "vscode";
 import { Logger } from "../logger";
 

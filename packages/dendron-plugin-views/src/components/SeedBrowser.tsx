@@ -1,4 +1,4 @@
-import { SeedConfig, SEED_REGISTRY } from "@dendronhq/common-all";
+import { SeedConfig, SEED_REGISTRY } from "@sxltd/common-all";
 import { Avatar, Card, Layout, List, PageHeader } from "antd";
 import _ from "lodash";
 import seedStyles from "../styles/scss/seeds.module.scss";

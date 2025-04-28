@@ -1,4 +1,4 @@
-import { LOG_LEVEL } from "@dendronhq/common-frontend";
+import { LOG_LEVEL } from "@sxltd/common-frontend";
 
 export function getLogLevel(): LOG_LEVEL {
   // TODO: issue with `process` being replaced. tracked in [[Process Being Replaced in Nextjs|dendron://private/task.2022.01.19.process-being-replaced-in-nextjs]]

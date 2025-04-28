@@ -1,4 +1,4 @@
-import { EngineConnector } from "@dendronhq/engine-server";
+import { EngineConnector } from "@sxltd/engine-server";
 import _ from "lodash";
 import { createEngineFromServer, runEngineTestV5 } from "../engine";
 import { ENGINE_HOOKS } from "../presets";

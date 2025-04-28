@@ -1,5 +1,5 @@
-import { DNodeUtils, SchemaProps, SchemaUtils } from "@dendronhq/common-all";
-import { getDurationMilliseconds } from "@dendronhq/common-server";
+import { DNodeUtils, SchemaProps, SchemaUtils } from "@sxltd/common-all";
+import { getDurationMilliseconds } from "@sxltd/common-server";
 import { ExtensionProvider } from "../../ExtensionProvider";
 import { Logger } from "../../logger";
 import { CREATE_NEW_SCHEMA_DETAIL } from "./constants";

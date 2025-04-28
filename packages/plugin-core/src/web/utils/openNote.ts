@@ -1,8 +1,8 @@
-import { DNoteAnchorBasic, DVault, VaultUtils } from "@dendronhq/common-all";
+import { DNoteAnchorBasic, DVault, VaultUtils } from "@sxltd/common-all";
 import { Position, Selection, TextEditor, ViewColumn } from "vscode";
 import * as vscode from "vscode";
 import { URI, Utils } from "vscode-uri";
-import { AnchorUtils } from "@dendronhq/unified";
+import { AnchorUtils } from "@sxltd/unified";
 
 export async function openNote({
   wsRoot,

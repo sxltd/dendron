@@ -1,4 +1,4 @@
-import { SeedConfig, SEED_REGISTRY } from "@dendronhq/common-all";
+import { SeedConfig, SEED_REGISTRY } from "@sxltd/common-all";
 
 type SeedRegistryEntry = {} & SeedConfig;
 

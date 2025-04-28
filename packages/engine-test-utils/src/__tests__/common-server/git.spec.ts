@@ -3,8 +3,8 @@ import {
   RESERVED_KEYS,
   VaultUtils,
   GithubEditViewModeEnum,
-} from "@dendronhq/common-all";
-import { GitUtils } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { GitUtils } from "@sxltd/common-server";
 import _ from "lodash";
 import path from "path";
 import { runEngineTestV5, testWithEngine } from "../../engine";

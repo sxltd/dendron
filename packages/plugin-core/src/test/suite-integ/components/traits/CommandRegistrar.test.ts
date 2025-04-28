@@ -1,4 +1,4 @@
-import { genUUID, NoteTrait } from "@dendronhq/common-all";
+import { genUUID, NoteTrait } from "@sxltd/common-all";
 import { afterEach, describe } from "mocha";
 import vscode from "vscode";
 import { ExtensionProvider } from "../../../../ExtensionProvider";

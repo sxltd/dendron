@@ -1,4 +1,4 @@
-import { DendronError, error2PlainObject } from "@dendronhq/common-all";
+import { DendronError, error2PlainObject } from "@sxltd/common-all";
 import _ from "lodash";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { prepChildrenForCollection } from "../../components/DendronCollection";

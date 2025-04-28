@@ -3,7 +3,7 @@ import {
   DMessageEnum,
   DMessageSource,
   VSCodeMessage,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import React from "react";
 
 /**

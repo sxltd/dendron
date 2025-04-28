@@ -1,6 +1,6 @@
-import { DVault } from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
-import { Snippets } from "@dendronhq/engine-server";
+import { DVault } from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
+import { Snippets } from "@sxltd/engine-server";
 import path from "path";
 import {
   OnWorkspaceCreationOpts,

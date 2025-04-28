@@ -27,7 +27,7 @@ import {
   Time,
   VaultUtils,
   WorkspaceSettings,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   assignJSONWithComment,
   createDisposableLogger,
@@ -44,7 +44,7 @@ import {
   vault2Path,
   writeJSONWithComments,
   writeJSONWithCommentsSync,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import os from "os";

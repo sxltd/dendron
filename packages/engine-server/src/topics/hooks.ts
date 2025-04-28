@@ -8,8 +8,8 @@ import {
   NoteProps,
   NoteUtils,
   ConfigUtils,
-} from "@dendronhq/common-all";
-import { createLogger } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { createLogger } from "@sxltd/common-server";
 import axios from "axios";
 import execa from "execa";
 import fs from "fs-extra";

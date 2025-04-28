@@ -4,15 +4,15 @@
 
 echo "watching..."
 npx lerna run watch --parallel 
-    \ --scope @dendronhq/common-all 
-    \ --scope @dendronhq/unified
-    \ --scope @dendronhq/common-server 
-    \ --scope @dendronhq/dendron-viz
-    \ --scope @dendronhq/engine-server 
-    \ --scope @dendronhq/plugin-core 
-    \ --scope @dendronhq/dendron-cli 
-    \ --scope @dendronhq/pods-core 
-    \ --scope @dendronhq/api-server
-    \ --scope @dendronhq/common-test-utils
-    \ --scope @dendronhq/engine-test-utils
-    \ --scope @dendronhq/bootstrap
+    \ --scope @sxltd/common-all 
+    \ --scope @sxltd/unified
+    \ --scope @sxltd/common-server 
+    \ --scope @sxltd/dendron-viz
+    \ --scope @sxltd/engine-server 
+    \ --scope @sxltd/plugin-core 
+    \ --scope @sxltd/dendron-cli 
+    \ --scope @sxltd/pods-core 
+    \ --scope @sxltd/api-server
+    \ --scope @sxltd/common-test-utils
+    \ --scope @sxltd/engine-test-utils
+    \ --scope @sxltd/bootstrap

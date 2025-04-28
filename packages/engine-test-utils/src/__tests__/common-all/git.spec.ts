@@ -4,7 +4,7 @@ import {
   NoteUtils,
   DVault,
   GithubEditViewModeEnum,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 
 const fname = "foo";
 const vault: DVault = {

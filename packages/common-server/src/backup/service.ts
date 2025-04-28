@@ -6,7 +6,7 @@ import {
   ERROR_STATUS,
   RespV3,
   Time,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import fs from "fs-extra";
 import path from "path";
 import { GitUtils } from "../git";

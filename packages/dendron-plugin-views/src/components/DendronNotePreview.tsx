@@ -5,8 +5,8 @@ import {
   FOOTNOTE_DEF_CLASS,
   FOOTNOTE_REF_CLASS,
   NoteViewMessageEnum,
-} from "@dendronhq/common-all";
-import { createLogger, DendronNote } from "@dendronhq/common-frontend";
+} from "@sxltd/common-all";
+import { createLogger, DendronNote } from "@sxltd/common-frontend";
 import { Button } from "antd";
 import _ from "lodash";
 import mermaid from "mermaid";

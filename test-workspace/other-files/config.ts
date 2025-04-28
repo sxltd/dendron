@@ -4,8 +4,8 @@ import {
   DendronConfig,
   DendronPublishingConfig,
   Time,
-} from "@dendronhq/common-all";
-import { readYAML, writeYAML } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { readYAML, writeYAML } from "@sxltd/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

@@ -8,10 +8,10 @@ import {
   NoteUtils,
   ProcFlavor,
   VSCodeEvents,
-} from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
-import { MetadataService } from "@dendronhq/engine-server";
-import { MDUtilsV5 } from "@dendronhq/unified";
+} from "@sxltd/common-all";
+import { DConfig } from "@sxltd/common-server";
+import { MetadataService } from "@sxltd/engine-server";
+import { MDUtilsV5 } from "@sxltd/unified";
 import * as Sentry from "@sentry/node";
 import fs from "fs";
 import _, { Dictionary } from "lodash";

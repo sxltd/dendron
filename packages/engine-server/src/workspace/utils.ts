@@ -14,7 +14,7 @@ import {
   WorkspaceOpts,
   WorkspaceSettings,
   WorkspaceType,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   assignJSONWithComment,
   CommentJSONValue,
@@ -26,7 +26,7 @@ import {
   readJSONWithCommentsSync,
   uniqueOutermostFolders,
   writeJSONWithComments,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

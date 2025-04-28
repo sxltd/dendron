@@ -1,11 +1,11 @@
-import { assert, DVault, NoteProps, NoteUtils } from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
+import { assert, DVault, NoteProps, NoteUtils } from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
 import {
   NoteTestUtilsV4,
   testAssertsInsideCallback,
-} from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS, ENGINE_HOOKS_MULTI } from "@dendronhq/engine-test-utils";
-import { PodExportScope } from "@dendronhq/pods-core";
+} from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS, ENGINE_HOOKS_MULTI } from "@sxltd/engine-test-utils";
+import { PodExportScope } from "@sxltd/pods-core";
 import { after, afterEach, beforeEach, describe } from "mocha";
 import path from "path";
 import sinon from "sinon";

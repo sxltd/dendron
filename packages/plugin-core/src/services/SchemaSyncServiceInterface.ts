@@ -1,4 +1,4 @@
-import { WriteSchemaResp } from "@dendronhq/common-all";
+import { WriteSchemaResp } from "@sxltd/common-all";
 import vscode, { Uri } from "vscode";
 
 /**

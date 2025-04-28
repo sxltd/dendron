@@ -1,4 +1,4 @@
-import { DendronError, StatusCodes } from "@dendronhq/common-all";
+import { DendronError, StatusCodes } from "@sxltd/common-all";
 import { Request, Response, Router } from "express";
 import asyncHandler from "express-async-handler";
 import { getLogger } from "../core";

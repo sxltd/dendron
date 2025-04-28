@@ -1,5 +1,5 @@
-import { WorkspaceType } from "@dendronhq/common-all";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { WorkspaceType } from "@sxltd/common-all";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import { ExtensionProvider } from "../../ExtensionProvider";
 import { expect } from "../testUtilsv2";
 import {

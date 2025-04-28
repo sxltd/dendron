@@ -1,6 +1,6 @@
-import { tmpDir } from "@dendronhq/common-server";
-import { FileTestUtils, NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { GraphvizExportConfig, GraphvizExportPod } from "@dendronhq/pods-core";
+import { tmpDir } from "@sxltd/common-server";
+import { FileTestUtils, NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { GraphvizExportConfig, GraphvizExportPod } from "@sxltd/pods-core";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

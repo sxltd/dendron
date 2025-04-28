@@ -3,19 +3,19 @@ import {
   NoteDictsUtils,
   NoteProps,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   AssertUtils,
   NoteTestUtilsV4,
   TestPresetEntryV4,
-} from "@dendronhq/common-test-utils";
-import { DConfig } from "@dendronhq/common-server";
+} from "@sxltd/common-test-utils";
+import { DConfig } from "@sxltd/common-server";
 import {
   DendronASTDest,
   MDUtilsV5,
   Processor,
   renderFromNote,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

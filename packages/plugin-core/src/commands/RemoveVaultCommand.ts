@@ -1,5 +1,5 @@
-import { DVault, VaultUtils } from "@dendronhq/common-all";
-import { WorkspaceService } from "@dendronhq/engine-server";
+import { DVault, VaultUtils } from "@sxltd/common-all";
+import { WorkspaceService } from "@sxltd/engine-server";
 import _ from "lodash";
 import { commands, window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";

@@ -1,4 +1,4 @@
-import { ShowcaseEntry } from "@dendronhq/engine-server";
+import { ShowcaseEntry } from "@sxltd/engine-server";
 import _ from "lodash";
 import { VSCodeUtils } from "../vsCodeUtils";
 import {

@@ -1,4 +1,4 @@
-const { WebViewCommonUtils } = require("@dendronhq/common-server");
+const { WebViewCommonUtils } = require("@sxltd/common-server");
 const fs = require("fs-extra");
 const path = require("path");
 

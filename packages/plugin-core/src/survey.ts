@@ -1,4 +1,4 @@
-import { ConfirmStatus, getStage, SurveyEvents } from "@dendronhq/common-all";
+import { ConfirmStatus, getStage, SurveyEvents } from "@sxltd/common-all";
 import { AnalyticsUtils } from "./utils/analytics";
 import * as vscode from "vscode";
 import _ from "lodash";
@@ -11,7 +11,7 @@ import {
   LapsedUserSurveyStatusEnum,
   MetadataService,
   PriorTools,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 
 export class DendronQuickInputSurvey {
   opts: {

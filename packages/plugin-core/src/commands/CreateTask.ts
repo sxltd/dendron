@@ -2,7 +2,7 @@ import {
   ConfigUtils,
   LookupNoteTypeEnum,
   NoteAddBehaviorEnum,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { DENDRON_COMMANDS } from "../constants";
 import { Logger } from "../logger";
 import { BasicCommand } from "./base";

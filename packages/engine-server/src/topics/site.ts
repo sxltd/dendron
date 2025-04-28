@@ -20,13 +20,13 @@ import {
   IDendronError,
   asyncLoopOneAtATime,
   NotePropsMeta,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   createLogger,
   DConfig,
   resolvePath,
   vault2Path,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

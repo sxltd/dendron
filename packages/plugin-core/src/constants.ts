@@ -5,7 +5,7 @@ import {
   isWebViewEntry,
   TreeViewItemLabelTypeEnum,
   TREE_VIEWS,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { CodeConfigKeys } from "./types";
 
 export const extensionQualifiedId = `dendron.dendron`;

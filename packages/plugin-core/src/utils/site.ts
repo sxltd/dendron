@@ -3,8 +3,8 @@ import {
   ConfigUtils,
   DendronPublishingConfig,
   getStage,
-} from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { DConfig } from "@sxltd/common-server";
 import {
   NextjsExportConfig,
   NextjsExportPod,
@@ -12,7 +12,7 @@ import {
   podClassEntryToPodItemV4,
   PodItemV4,
   PublishTarget,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

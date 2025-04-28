@@ -1,11 +1,11 @@
-import { launchv2 } from "@dendronhq/api-server";
-import { ConfigUtils } from "@dendronhq/common-all";
-import { LogLvl, resolvePath } from "@dendronhq/common-server";
+import { launchv2 } from "@sxltd/api-server";
+import { ConfigUtils } from "@sxltd/common-all";
+import { LogLvl, resolvePath } from "@sxltd/common-server";
 import {
   DendronEngineClient,
   EngineUtils,
   WorkspaceService,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import _ from "lodash";
 import { Socket } from "net";
 import yargs from "yargs";

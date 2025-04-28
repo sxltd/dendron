@@ -1,4 +1,4 @@
-import { NoteProps, EngagementEvents } from "@dendronhq/common-all";
+import { NoteProps, EngagementEvents } from "@sxltd/common-all";
 import _ from "lodash";
 import { ExtensionProvider } from "../ExtensionProvider";
 import { VSCodeUtils } from "../vsCodeUtils";

@@ -20,7 +20,7 @@ import {
   ConfigureUIMessageEnum,
   ConfigUtils,
   DMessageSource,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 
 type ConfigureElementProps = Config & {
   postMessage: ({ key, value }: { key: string; value: any }) => void;

@@ -4,8 +4,8 @@ import {
   NoteProps,
   VaultUtils,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
 import {
   AssertUtils,
   EngineTestUtilsV4,
@@ -13,12 +13,12 @@ import {
   PreSetupHookFunction,
   runJestHarnessV2,
   TestPresetEntryV4,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import {
   ENGINE_HOOKS,
   ENGINE_HOOKS_MULTI,
   ENGINE_RENAME_PRESETS,
-} from "@dendronhq/engine-test-utils";
+} from "@sxltd/engine-test-utils";
 import _ from "lodash";
 import path from "path";
 import sinon from "sinon";

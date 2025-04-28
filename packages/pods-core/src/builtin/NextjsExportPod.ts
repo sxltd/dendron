@@ -22,19 +22,19 @@ import {
   DefaultSidebar,
   NoteDicts,
   NoteDictsUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   DConfig,
   simpleGit,
   SimpleGitResetMode,
-} from "@dendronhq/common-server";
-import { execa, SiteUtils } from "@dendronhq/engine-server";
+} from "@sxltd/common-server";
+import { execa, SiteUtils } from "@sxltd/engine-server";
 import {
   getParsingDependencyDicts,
   getRefId,
   MDUtilsV5,
   ProcFlavor,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import { JSONSchemaType } from "ajv";
 import fs from "fs-extra";
 import _ from "lodash";

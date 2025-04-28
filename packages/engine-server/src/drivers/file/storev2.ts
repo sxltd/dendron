@@ -53,7 +53,7 @@ import {
   VaultUtils,
   WriteNoteResp,
   WriteSchemaResp,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   DConfig,
   DLogger,
@@ -63,8 +63,8 @@ import {
   note2File,
   schemaModuleProps2File,
   vault2Path,
-} from "@dendronhq/common-server";
-import { LinkUtils } from "@dendronhq/unified";
+} from "@sxltd/common-server";
+import { LinkUtils } from "@sxltd/unified";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

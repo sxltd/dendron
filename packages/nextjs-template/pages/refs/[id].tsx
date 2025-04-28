@@ -1,5 +1,5 @@
-import { DendronError, error2PlainObject } from "@dendronhq/common-all";
-import { DendronNote } from "@dendronhq/common-frontend";
+import { DendronError, error2PlainObject } from "@sxltd/common-all";
+import { DendronNote } from "@sxltd/common-frontend";
 import _ from "lodash";
 import {
   GetStaticPaths,

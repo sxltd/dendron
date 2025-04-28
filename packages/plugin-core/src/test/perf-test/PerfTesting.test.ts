@@ -4,9 +4,9 @@ import {
   DVault,
   Time,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { Git } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { Git } from "@sxltd/engine-server";
 import { after, describe } from "mocha";
 import os from "os";
 import { performance } from "perf_hooks";

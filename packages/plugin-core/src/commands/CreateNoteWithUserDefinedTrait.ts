@@ -1,4 +1,4 @@
-import { DendronError, NoteTrait } from "@dendronhq/common-all";
+import { DendronError, NoteTrait } from "@sxltd/common-all";
 import * as vscode from "vscode";
 import { DENDRON_COMMANDS } from "../constants";
 import { ExtensionProvider } from "../ExtensionProvider";

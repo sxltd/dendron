@@ -4,7 +4,7 @@ import {
   InsertNoteLinkAliasModeEnum,
   NoteAddBehaviorEnum,
   SearchMode,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 
 export class WorkspaceTestUtils {
   /**

@@ -1,4 +1,4 @@
-import { DVault, type ReducedDEngine, VaultUtils } from "@dendronhq/common-all";
+import { DVault, type ReducedDEngine, VaultUtils } from "@sxltd/common-all";
 import _ from "lodash";
 import { VaultSelectionMode } from "../../../components/lookup/types";
 import { VaultPickerItem } from "../../../components/lookup/utils";

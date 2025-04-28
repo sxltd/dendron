@@ -13,8 +13,8 @@ import {
   NotePropsMeta,
   NoteUtils,
   ProcFlavor,
-} from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { DConfig } from "@sxltd/common-server";
 import {
   DecorationHashTag,
   DecorationTaskNote,
@@ -24,7 +24,7 @@ import {
   isDecorationHashTag,
   NoteRefDecorator,
   NoteRefUtils,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import * as Sentry from "@sentry/node";
 import _ from "lodash";
 import {

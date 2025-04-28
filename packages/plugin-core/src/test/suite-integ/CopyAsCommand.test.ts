@@ -1,4 +1,4 @@
-import { CopyAsFormat } from "@dendronhq/pods-core";
+import { CopyAsFormat } from "@sxltd/pods-core";
 import { describe } from "mocha";
 import sinon from "sinon";
 import { CopyAsCommand } from "../../commands/CopyAsCommand";

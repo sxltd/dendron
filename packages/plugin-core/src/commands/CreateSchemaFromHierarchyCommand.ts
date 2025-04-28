@@ -7,8 +7,8 @@ import {
   SchemaModuleProps,
   SchemaToken,
   SchemaUtils,
-} from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
 import * as fs from "fs";
 import * as _ from "lodash";
 import path from "path";

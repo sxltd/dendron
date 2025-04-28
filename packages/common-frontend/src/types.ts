@@ -2,7 +2,7 @@ import {
   DEngineInitPayload,
   NotePropsByFnameDict,
   SchemaModuleDict,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 
 export enum LoadingStatus {

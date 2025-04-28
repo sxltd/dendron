@@ -5,19 +5,19 @@ import {
   NoteUtils,
   SchemaUtils,
   extractNoteChangeEntriesByType,
-} from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
 import {
   FileTestUtils,
   NoteTestUtilsV4,
   NOTE_PRESETS_V4,
   SCHEMA_PRESETS_V4,
   TestPresetEntryV4,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import {
   DendronEngineClient,
   NotesFileSystemCache,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import _ from "lodash";
 import path from "path";
 import { setupBasic } from "./utils";

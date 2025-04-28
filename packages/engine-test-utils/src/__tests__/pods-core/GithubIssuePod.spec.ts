@@ -4,8 +4,8 @@ import {
   GithubIssueImportPod,
   GithubIssuePublishPod,
   GITHUBMESSAGE,
-} from "@dendronhq/pods-core";
-import { NoteProps, VaultUtils } from "@dendronhq/common-all";
+} from "@sxltd/pods-core";
+import { NoteProps, VaultUtils } from "@sxltd/common-all";
 import _ from "lodash";
 
 describe("GithubIssuePod import pod", () => {

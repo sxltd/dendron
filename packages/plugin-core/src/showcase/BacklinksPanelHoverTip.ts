@@ -1,5 +1,5 @@
-import { assertUnreachable } from "@dendronhq/common-all";
-import { ShowcaseEntry } from "@dendronhq/engine-server";
+import { assertUnreachable } from "@sxltd/common-all";
+import { ShowcaseEntry } from "@sxltd/engine-server";
 import { showMeHowView } from "../views/ShowMeHowView";
 import {
   DisplayLocation,

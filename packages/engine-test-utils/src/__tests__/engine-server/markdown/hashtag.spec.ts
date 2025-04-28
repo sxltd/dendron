@@ -2,21 +2,21 @@ import {
   AssertUtils,
   TestPresetEntryV4,
   NoteTestUtilsV4,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import {
   DendronASTDest,
   DendronASTTypes,
   HashTag,
   MDUtilsV5,
   UnistNode,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import _ from "lodash";
 import {
   ConfigUtils,
   NoteDictsUtils,
   NoteProps,
   ProcFlavor,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { runEngineTestV5 } from "../../../engine";
 import { ENGINE_HOOKS } from "../../../presets";
 import {
@@ -30,7 +30,7 @@ import {
 import { TestConfigUtils } from "../../..";
 import { TestUnifiedUtils } from "../../../utils";
 import { getOpts, runTestCases } from "./v5/utils";
-import { DConfig } from "@dendronhq/common-server";
+import { DConfig } from "@sxltd/common-server";
 
 const { getDescendantNode } = TestUnifiedUtils;
 

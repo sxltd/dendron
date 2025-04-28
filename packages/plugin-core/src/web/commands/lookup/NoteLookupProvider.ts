@@ -4,7 +4,7 @@ import {
   NoteQuickInputV2,
   TransformedQueryString,
   type ReducedDEngine,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { inject, injectable } from "tsyringe";
 import { window } from "vscode";
 import {

@@ -1,4 +1,4 @@
-import { DNodeType } from "@dendronhq/common-all";
+import { DNodeType } from "@sxltd/common-all";
 import { CancellationTokenSource } from "vscode";
 import { DendronBtn } from "./ButtonTypes";
 import { ILookupProviderV3 } from "./LookupProviderV3Interface";

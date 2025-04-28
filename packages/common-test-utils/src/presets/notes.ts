@@ -1,4 +1,4 @@
-import { DEngineClient, DVault } from "@dendronhq/common-all";
+import { DEngineClient, DVault } from "@sxltd/common-all";
 import _ from "lodash";
 import { CreateNoteOptsV4, NoteTestUtilsV4 } from "../noteUtils";
 

@@ -1,10 +1,10 @@
-import { getAllImportPods, PROMPT } from "@dendronhq/pods-core";
+import { getAllImportPods, PROMPT } from "@sxltd/pods-core";
 import yargs from "yargs";
 import { CLICommand, CommandCommonProps } from "./base";
 import { enrichPodArgs, handleConflict, PodCLIOpts, setupPodArgs } from "./pod";
 import { setupEngineArgs, SetupEngineCLIOpts, SetupEngineResp } from "./utils";
 import prompts from "prompts";
-import { DendronError } from "@dendronhq/common-all";
+import { DendronError } from "@sxltd/common-all";
 
 export { CommandCLIOpts as ExportPodCLIOpts };
 

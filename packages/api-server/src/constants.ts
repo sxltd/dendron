@@ -1,4 +1,4 @@
-import { DendronError } from "@dendronhq/common-all";
+import { DendronError } from "@sxltd/common-all";
 
 export const LOG_FILE_NAME = "dendron.server.log";
 export const LOGGER_NAME = "api-server";

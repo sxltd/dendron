@@ -10,13 +10,13 @@ import {
   TutorialEvents,
   TutorialNoteViewedPayload,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { file2Note, SegmentClient, vault2Path } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { file2Note, SegmentClient, vault2Path } from "@sxltd/common-server";
 import {
   InitialSurveyStatusEnum,
   MetadataService,
   WorkspaceActivationContext,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import fs from "fs-extra";
 import path from "path";
 import * as vscode from "vscode";

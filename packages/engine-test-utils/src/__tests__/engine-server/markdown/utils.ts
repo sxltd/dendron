@@ -4,13 +4,13 @@ import {
   DVault,
   NoteDictsUtils,
   NoteProps,
-} from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { DConfig } from "@sxltd/common-server";
 import {
   AssertUtils,
   RunEngineTestFunctionV4,
   TestPresetEntryV4,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import {
   DendronASTData,
   DendronASTDest,
@@ -20,7 +20,7 @@ import {
   Processor,
   ProcFlavor,
   VFile,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

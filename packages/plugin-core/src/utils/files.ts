@@ -1,5 +1,5 @@
 import open from "open";
-import { DendronError, ERROR_STATUS } from "@dendronhq/common-all";
+import { DendronError, ERROR_STATUS } from "@sxltd/common-all";
 import { Logger } from "../logger";
 import _ from "lodash";
 

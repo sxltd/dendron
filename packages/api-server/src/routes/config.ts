@@ -1,5 +1,5 @@
-import { WorkspaceRequest } from "@dendronhq/common-all";
-import { ExpressUtils } from "@dendronhq/common-server";
+import { WorkspaceRequest } from "@sxltd/common-all";
+import { ExpressUtils } from "@sxltd/common-server";
 import { Request, Response, Router } from "express";
 import asyncHandler from "express-async-handler";
 import { getLogger } from "../core";

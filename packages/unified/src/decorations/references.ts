@@ -1,4 +1,4 @@
-import { position2VSCodeRange, DECORATION_TYPES } from "@dendronhq/common-all";
+import { position2VSCodeRange, DECORATION_TYPES } from "@sxltd/common-all";
 import { NoteRefNoteV4 } from "../types";
 import { Decorator } from "./utils";
 import { DecorationWikilink, linkedNoteType } from "./wikilinks";

@@ -13,18 +13,18 @@ import {
   isDisposable,
   VSCodeEvents,
   WorkspaceEvents,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   getDurationMilliseconds,
   getOS,
   initializeSentry,
   SegmentClient,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import {
   HistoryService,
   MetadataService,
   WorkspaceUtils,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import * as Sentry from "@sentry/node";
 import fs from "fs-extra";
 import os from "os";

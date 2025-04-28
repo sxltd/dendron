@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { createLogger, engineSliceUtils } from "@dendronhq/common-frontend";
+import { createLogger, engineSliceUtils } from "@sxltd/common-frontend";
 import cytoscape from "cytoscape";
 import { useEffect, useState } from "react";
 import { GraphUtils } from "../components/graph";

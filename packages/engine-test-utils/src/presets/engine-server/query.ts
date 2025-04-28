@@ -1,9 +1,9 @@
-import { DNodeUtils } from "@dendronhq/common-all";
+import { DNodeUtils } from "@sxltd/common-all";
 import {
   TestPresetEntryV4,
   SCHEMA_PRESETS_V4,
   NOTE_PRESETS_V4,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import _ from "lodash";
 import { setupBasic, setupEmpty } from "./utils";
 

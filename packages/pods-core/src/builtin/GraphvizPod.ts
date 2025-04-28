@@ -1,6 +1,6 @@
 import fs from "fs-extra";
 import _ from "lodash";
-import { DLink, NoteDictsUtils, NoteProps } from "@dendronhq/common-all";
+import { DLink, NoteDictsUtils, NoteProps } from "@sxltd/common-all";
 import path from "path";
 import { ExportPod, ExportPodPlantOpts, ExportPodConfig } from "../basev3";
 import { JSONSchemaType } from "ajv";

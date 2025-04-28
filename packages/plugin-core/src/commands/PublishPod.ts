@@ -1,11 +1,11 @@
-import { DNodeUtils, VaultUtils } from "@dendronhq/common-all";
+import { DNodeUtils, VaultUtils } from "@sxltd/common-all";
 import {
   getAllPublishPods,
   podClassEntryToPodItemV4,
   PodItemV4,
   PodUtils,
   PublishPod,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import * as vscode from "vscode";
 import { Uri, window } from "vscode";
 import { PickerUtilsV2 } from "../components/lookup/utils";

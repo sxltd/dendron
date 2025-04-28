@@ -1,5 +1,5 @@
-import { InvalidFilenameReason, NoteUtils } from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { InvalidFilenameReason, NoteUtils } from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import _ from "lodash";
 import { runEngineTestV5 } from "../../..";
 

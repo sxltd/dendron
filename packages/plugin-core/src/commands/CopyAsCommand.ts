@@ -1,4 +1,4 @@
-import { DendronError } from "@dendronhq/common-all";
+import { DendronError } from "@sxltd/common-all";
 import {
   CopyAsFormat,
   getAllCopyAsFormat,
@@ -6,7 +6,7 @@ import {
   MarkdownV2PodConfig,
   PodExportScope,
   PodV2Types,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import _ from "lodash";
 import { PodCommandFactory } from "../components/pods/PodCommandFactory";
 import { PodUIControls } from "../components/pods/PodControls";

@@ -6,15 +6,15 @@ import {
   NoteProps,
   ProcFlavor,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   AssertUtils,
   NoteTestUtilsV4,
   PreSetupHookFunction,
   TestPresetEntryV4,
-} from "@dendronhq/common-test-utils";
-import { DConfig } from "@dendronhq/common-server";
-import { getParsingDependencyDicts, MDUtilsV5 } from "@dendronhq/unified";
+} from "@sxltd/common-test-utils";
+import { DConfig } from "@sxltd/common-server";
+import { getParsingDependencyDicts, MDUtilsV5 } from "@sxltd/unified";
 import { TestConfigUtils } from "../../../config";
 import { runEngineTestV5 } from "../../../engine";
 import { ENGINE_HOOKS, ENGINE_SERVER } from "../../../presets";

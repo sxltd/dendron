@@ -1,9 +1,9 @@
-import { NoteProps } from "@dendronhq/common-all";
+import { NoteProps } from "@sxltd/common-all";
 import {
   CreateNoteOptsV4,
   NoteTestUtilsV4,
-} from "@dendronhq/common-test-utils";
-import { LinkUtils, ParseLinkV2Resp } from "@dendronhq/unified";
+} from "@sxltd/common-test-utils";
+import { LinkUtils, ParseLinkV2Resp } from "@sxltd/unified";
 import _ from "lodash";
 import { afterEach, beforeEach } from "mocha";
 import sinon from "sinon";

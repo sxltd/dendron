@@ -1,5 +1,5 @@
-import { NoteProps, VaultUtils } from "@dendronhq/common-all";
-import { AssertUtils, NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { NoteProps, VaultUtils } from "@sxltd/common-all";
+import { AssertUtils, NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { describe, test, before } from "mocha";
 import { PreviewPanelFactory } from "../../components/views/PreviewViewFactory";
 import { ExtensionProvider } from "../../ExtensionProvider";

@@ -6,13 +6,13 @@ import {
   extractNoteChangeEntriesByType,
   VaultUtils,
   NoteUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   NoteTestUtilsV4,
   NOTE_PRESETS_V4,
   testAssertsInsideCallback,
-} from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+} from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import _ from "lodash";
 import { afterEach, describe } from "mocha";
 import * as vscode from "vscode";

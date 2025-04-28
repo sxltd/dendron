@@ -1,10 +1,10 @@
-import { DendronError, RespV2 } from "@dendronhq/common-all";
+import { DendronError, RespV2 } from "@sxltd/common-all";
 import {
   SegmentClient,
   SegmentEventProps,
   TelemetryStatus,
   tmpDir,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import fs, { writeFileSync } from "fs-extra";
 import path from "path";
 import sinon from "sinon";

@@ -1,5 +1,5 @@
-import { ConfigUtils, VaultUtils, WorkspaceOpts } from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { ConfigUtils, VaultUtils, WorkspaceOpts } from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { describe } from "mocha";
 import path from "path";
 import * as vscode from "vscode";

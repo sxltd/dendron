@@ -5,7 +5,7 @@ import {
   NoteLookupUtils,
   NoteQuickInputV2,
   type ReducedDEngine,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { inject, injectable } from "tsyringe";
 import * as vscode from "vscode";

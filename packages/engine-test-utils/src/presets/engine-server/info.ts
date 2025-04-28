@@ -1,7 +1,7 @@
 import {
   TestPresetEntryV4,
   NOTE_PRESETS_V4,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import _ from "lodash";
 
 const NOTES = {

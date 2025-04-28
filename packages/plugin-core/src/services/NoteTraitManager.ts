@@ -8,7 +8,7 @@ import {
   ResponseUtil,
   RespV2,
   VSCodeEvents,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import path from "path";
 import { ExtensionProvider } from "../ExtensionProvider";
 import { UserDefinedTraitV1 } from "../traits/UserDefinedTraitV1";

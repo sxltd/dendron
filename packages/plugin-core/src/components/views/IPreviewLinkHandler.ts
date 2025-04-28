@@ -1,4 +1,4 @@
-import { NoteViewMessage } from "@dendronhq/common-all";
+import { NoteViewMessage } from "@sxltd/common-all";
 
 export enum LinkType {
   WIKI = "WIKI",

@@ -9,8 +9,8 @@ import {
   DMessageSource,
   GraphViewMessage,
   GraphViewMessageEnum,
-} from "@dendronhq/common-all";
-import { createLogger, engineHooks } from "@dendronhq/common-frontend";
+} from "@sxltd/common-all";
+import { createLogger, engineHooks } from "@sxltd/common-frontend";
 import { DendronComponent } from "../types";
 
 const DendronSchemaGraphPanel: DendronComponent = (props) => {

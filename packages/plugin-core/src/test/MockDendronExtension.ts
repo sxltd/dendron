@@ -5,8 +5,8 @@ import {
   DWorkspaceV2,
   WorkspaceSettings,
   WorkspaceType,
-} from "@dendronhq/common-all";
-import { IWorkspaceService, WorkspaceService } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { IWorkspaceService, WorkspaceService } from "@sxltd/engine-server";
 import {
   CommentController,
   CommentThread,

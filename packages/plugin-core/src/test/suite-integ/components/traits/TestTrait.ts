@@ -2,7 +2,7 @@ import {
   NoteTrait,
   onCreateProps,
   onWillCreateProps,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 
 /**
  * A Trait class for testing purposes

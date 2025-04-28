@@ -1,5 +1,5 @@
-import { NoteDictsUtils, TreeUtils } from "@dendronhq/common-all";
-import type { Sidebar } from "@dendronhq/common-all";
+import { NoteDictsUtils, TreeUtils } from "@sxltd/common-all";
+import type { Sidebar } from "@sxltd/common-all";
 import _ from "lodash";
 import { runEngineTestV5 } from "../../../engine";
 import { ENGINE_HOOKS } from "../../../presets";

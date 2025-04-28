@@ -1,8 +1,8 @@
-import { error2PlainObject } from "@dendronhq/common-all";
+import { error2PlainObject } from "@sxltd/common-all";
 import {
   isBadErrorThatShouldBeSampled,
   rewriteFilename,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import { expect } from "../testUtilsv2";
 
 suite("WHEN a stack trace is sent to sentry", () => {

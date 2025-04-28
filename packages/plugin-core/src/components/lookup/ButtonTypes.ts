@@ -1,4 +1,4 @@
-import { LookupNoteType, LookupSelectionType } from "@dendronhq/common-all";
+import { LookupNoteType, LookupSelectionType } from "@sxltd/common-all";
 import _ from "lodash";
 import * as vscode from "vscode";
 import { QuickInputButton, ThemeIcon } from "vscode";

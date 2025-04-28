@@ -1,4 +1,4 @@
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import * as vscode from "vscode";
 import { describeSingleWS } from "../testUtilsV3";
 import { expect } from "../testUtilsv2";

@@ -4,8 +4,8 @@ import {
   NoteUtils,
   SchemaOpts,
   SchemaUtils,
-} from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+} from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { runEngineTestV5 } from "../../engine";
 import { makeSchemaTests, SchemaTest } from "../../utils/schema";
 

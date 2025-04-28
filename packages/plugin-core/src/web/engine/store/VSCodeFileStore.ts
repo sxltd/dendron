@@ -9,7 +9,7 @@ import {
   RespV2,
   RespV3,
   URI,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import * as vscode from "vscode";
 

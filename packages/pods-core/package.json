@@ -1,6 +1,6 @@
 {
-  "name": "@dendronhq/pods-core",
-  "version": "0.124.0",
+  "name": "@sxltd/pods-core",
+  "version": "0.1.0",
   "description": "pods-core",
   "license": "Apache 2.0",
   "repository": {
@@ -51,11 +51,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@dendronhq/airtable": "^0.11.1",
-    "@dendronhq/common-all": "^0.124.0",
-    "@dendronhq/common-server": "^0.124.0",
-    "@dendronhq/engine-server": "^0.124.0",
-    "@dendronhq/unified": "^0.124.0",
+    "@sxltd/airtable": "^0.11.1",
+    "@sxltd/common-all": "^0.1.0",
+    "@sxltd/common-server": "^0.1.0",
+    "@sxltd/engine-server": "^0.1.0",
+    "@sxltd/unified": "^0.1.0",
     "@instantish/martian": "1.0.3",
     "@notionhq/client": "^0.1.9",
     "@octokit/graphql": "^4.6.4",

@@ -4,8 +4,8 @@ import {
   NoteLookupUtils,
   NoteProps,
   SearchMode,
-} from "@dendronhq/common-all";
-import { LoadingStatus } from "@dendronhq/common-frontend";
+} from "@sxltd/common-all";
+import { LoadingStatus } from "@sxltd/common-frontend";
 import { AutoComplete, Alert, Row, Col, Typography } from "antd";
 import React, { useCallback, useEffect, useState } from "react";
 import { useCombinedDispatch } from "../features";

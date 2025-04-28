@@ -1,12 +1,12 @@
-import { AssertUtils, TestPresetEntryV4 } from "@dendronhq/common-test-utils";
-import { DConfig } from "@dendronhq/common-server";
+import { AssertUtils, TestPresetEntryV4 } from "@sxltd/common-test-utils";
+import { DConfig } from "@sxltd/common-server";
 import {
   DendronASTDest,
   DendronASTTypes,
   UserTag,
   MDUtilsV5,
   UnistNode,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import _ from "lodash";
 import { TestConfigUtils } from "../../..";
 import { runEngineTestV5 } from "../../../engine";

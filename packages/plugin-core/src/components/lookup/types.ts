@@ -4,7 +4,7 @@ import {
   NoteProps,
   DVault,
   NoteQuickInput,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { QuickPick, TextEditor, Uri } from "vscode";
 import { DendronBtn } from "./ButtonTypes";
 

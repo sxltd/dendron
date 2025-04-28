@@ -8,10 +8,10 @@ import {
   WorkspaceSettings,
   WorkspaceType,
   normalizeUnixPath,
-} from "@dendronhq/common-all";
-import { DConfig, readYAML } from "@dendronhq/common-server";
-import { AssertUtils } from "@dendronhq/common-test-utils";
-import { WorkspaceUtils } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { DConfig, readYAML } from "@sxltd/common-server";
+import { AssertUtils } from "@sxltd/common-test-utils";
+import { WorkspaceUtils } from "@sxltd/engine-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

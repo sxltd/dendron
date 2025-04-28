@@ -7,14 +7,14 @@ import {
   VaultUtils,
   WorkspaceOpts,
   WorkspaceType,
-} from "@dendronhq/common-all";
-import { DConfig, file2Note } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { DConfig, file2Note } from "@sxltd/common-server";
 import {
   EngineFileWatcher,
   EngineUtils,
   FileWatcherAdapter,
   HistoryService,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import _ from "lodash";
 import path from "path";
 import * as vscode from "vscode";

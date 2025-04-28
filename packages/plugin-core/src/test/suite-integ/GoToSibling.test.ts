@@ -1,8 +1,8 @@
-import { DVault, WorkspaceOpts } from "@dendronhq/common-all";
+import { DVault, WorkspaceOpts } from "@sxltd/common-all";
 import {
   CreateNoteOptsV4,
   NoteTestUtilsV4,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import fs from "fs";
 import { describe } from "mocha";
 import path from "path";

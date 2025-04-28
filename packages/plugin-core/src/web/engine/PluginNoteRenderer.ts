@@ -11,12 +11,12 @@ import {
   RenderNoteOpts,
   RenderNoteResp,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   getParsingDependencyDicts,
   MDUtilsV5,
   MDUtilsV5Web,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import { inject, injectable } from "tsyringe";
 import { INoteRenderer } from "./INoteRenderer";
 

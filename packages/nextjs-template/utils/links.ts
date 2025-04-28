@@ -1,4 +1,4 @@
-import { DendronPublishingConfig, NoteProps } from "@dendronhq/common-all";
+import { DendronPublishingConfig, NoteProps } from "@sxltd/common-all";
 import _ from "lodash";
 import { env } from "../env/client";
 

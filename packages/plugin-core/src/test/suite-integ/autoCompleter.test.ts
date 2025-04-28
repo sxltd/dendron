@@ -2,8 +2,8 @@ import { AutoCompleter } from "../../utils/autoCompleter";
 import { describe, it } from "mocha";
 import { expect } from "../expect";
 import { VSCodeUtils } from "../../vsCodeUtils";
-import { TestNoteFactory } from "@dendronhq/common-test-utils";
-import { DNodePropsQuickInputV2 } from "@dendronhq/common-all";
+import { TestNoteFactory } from "@sxltd/common-test-utils";
+import { DNodePropsQuickInputV2 } from "@sxltd/common-all";
 import { DendronQuickPickerV2 } from "../../components/lookup/types";
 
 const LANGUAGE_FNAMES = [

@@ -8,9 +8,9 @@ import {
   NoteProps,
   NoteQuickInput,
   TransformedQueryString,
-} from "@dendronhq/common-all";
-import { getDurationMilliseconds } from "@dendronhq/common-server";
-import { LinkUtils } from "@dendronhq/unified";
+} from "@sxltd/common-all";
+import { getDurationMilliseconds } from "@sxltd/common-server";
+import { LinkUtils } from "@sxltd/unified";
 import _ from "lodash";
 import path from "path";
 import { ExtensionProvider } from "../../ExtensionProvider";

@@ -1,6 +1,6 @@
-import { DHookType, IDendronError } from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
-import { HookUtils } from "@dendronhq/engine-server";
+import { DHookType, IDendronError } from "@sxltd/common-all";
+import { DConfig } from "@sxltd/common-server";
+import { HookUtils } from "@sxltd/engine-server";
 import fs from "fs-extra";
 import { window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";

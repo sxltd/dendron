@@ -2,8 +2,8 @@ import {
   LookupNoteTypeEnum,
   LookupSelectionTypeEnum,
   NoteProps,
-} from "@dendronhq/common-all";
-import { ENGINE_HOOKS, TestEngineUtils } from "@dendronhq/engine-test-utils";
+} from "@sxltd/common-all";
+import { ENGINE_HOOKS, TestEngineUtils } from "@sxltd/engine-test-utils";
 import { describe } from "mocha";
 import * as vscode from "vscode";
 import {
@@ -27,7 +27,7 @@ import { WSUtilsV2 } from "../../../../../src/WSUtilsV2";
 import { VaultSelectionMode } from "../../../../components/lookup/types";
 import { expect } from "../../../testUtilsv2";
 import { describeMultiWS } from "../../../testUtilsV3";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 
 describe(`GIVEN a LookupControllerV3`, () => {
   const viewModel = {

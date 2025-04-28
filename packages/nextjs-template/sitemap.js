@@ -40,7 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 exports.__esModule = true;
 exports.getNoteUrl = exports.getNotes = exports.getDataDir = void 0;
-var common_all_1 = require("@dendronhq/common-all");
+var common_all_1 = require("@sxltd/common-all");
 var fs_extra_1 = __importDefault(require("fs-extra"));
 var lodash_1 = __importDefault(require("lodash"));
 var path_1 = __importDefault(require("path"));

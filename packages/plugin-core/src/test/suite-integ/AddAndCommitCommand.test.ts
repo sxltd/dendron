@@ -1,17 +1,17 @@
-import { ConfigUtils } from "@dendronhq/common-all";
-import { tmpDir } from "@dendronhq/common-server";
+import { ConfigUtils } from "@sxltd/common-all";
+import { tmpDir } from "@sxltd/common-server";
 import {
   Git,
   SyncActionStatus,
   WorkspaceUtils,
-} from "@dendronhq/engine-server";
-import { GitTestUtils } from "@dendronhq/engine-test-utils";
+} from "@sxltd/engine-server";
+import { GitTestUtils } from "@sxltd/engine-test-utils";
 import _ from "lodash";
 import { expect } from "../testUtilsv2";
 import { describeSingleWS } from "../testUtilsV3";
 import { ExtensionProvider } from "../../ExtensionProvider";
 import { AddAndCommit } from "../../commands/AddAndCommit";
-import { AssertUtils, NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { AssertUtils, NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 
 suite("GIVEN Workspace Add And Commit command is run", function () {
   describeSingleWS(

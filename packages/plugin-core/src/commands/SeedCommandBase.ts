@@ -1,9 +1,9 @@
-import { DendronError, ERROR_SEVERITY } from "@dendronhq/common-all";
+import { DendronError, ERROR_SEVERITY } from "@sxltd/common-all";
 import {
   MetadataService,
   SeedService,
   WorkspaceActivationContext,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import { commands } from "vscode";
 import { getExtension } from "../workspace";
 import { BasicCommand } from "./base";

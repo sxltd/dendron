@@ -1,10 +1,10 @@
-import { DConfig } from "@dendronhq/common-server";
+import { DConfig } from "@sxltd/common-server";
 import {
   AssertUtils,
   NoteTestUtilsV4,
   TestPresetEntryV4,
-} from "@dendronhq/common-test-utils";
-import { DendronASTDest } from "@dendronhq/unified";
+} from "@sxltd/common-test-utils";
+import { DendronASTDest } from "@sxltd/unified";
 import { runEngineTestV5 } from "../../../engine";
 import { ENGINE_HOOKS } from "../../../presets";
 import { createProcForTest, createProcTests } from "./utils";

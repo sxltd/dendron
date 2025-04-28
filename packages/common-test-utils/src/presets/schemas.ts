@@ -3,8 +3,8 @@ import {
   DVault,
   SchemaModuleProps,
   SchemaUtils,
-} from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
 import fs from "fs-extra";
 import path from "path";
 import { CreateSchemaOptsV4, NoteTestUtilsV4 } from "../noteUtils";

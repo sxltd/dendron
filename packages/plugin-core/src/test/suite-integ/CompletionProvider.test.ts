@@ -3,9 +3,9 @@ import {
   TAGS_HIERARCHY,
   USERS_HIERARCHY,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+} from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import _ from "lodash";
 import { before, describe } from "mocha";
 import { CompletionItem, Position, Range } from "vscode";

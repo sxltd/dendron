@@ -1,11 +1,11 @@
 import {
   VisualizeCLICommand,
   VisualizeCLICommandOpts,
-} from "@dendronhq/dendron-cli";
+} from "@sxltd/dendron-cli";
 import _ from "lodash";
 import { runEngineTestV5 } from "../../../engine";
 import * as fs from "fs";
-import { tmpDir } from "@dendronhq/common-server";
+import { tmpDir } from "@sxltd/common-server";
 import * as path from "path";
 
 const runCmd = (opts: Omit<VisualizeCLICommandOpts, "port" | "server">) => {

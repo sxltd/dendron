@@ -5,7 +5,7 @@ import {
   FuseNoteIndex,
   NotePropsByIdDict,
   ConfigUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { fetchFuseIndex } from "./fetchers";
 import { useEffect, useState } from "react";
 import _ from "lodash";

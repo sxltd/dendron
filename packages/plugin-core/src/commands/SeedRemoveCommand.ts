@@ -2,8 +2,8 @@ import {
   DendronError,
   ERROR_SEVERITY,
   SEED_REGISTRY,
-} from "@dendronhq/common-all";
-import { SeedSvcResp } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { SeedSvcResp } from "@sxltd/engine-server";
 import * as vscode from "vscode";
 import { DENDRON_COMMANDS } from "../constants";
 import { SeedCommandBase } from "./SeedCommandBase";

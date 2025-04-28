@@ -17,10 +17,10 @@ import {
   DEngineClient,
   Time,
   FOLDERS,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import path from "path";
-import { vault2Path } from "@dendronhq/common-server";
-import { EngineUtils, openPortFile } from "@dendronhq/engine-server";
+import { vault2Path } from "@sxltd/common-server";
+import { EngineUtils, openPortFile } from "@sxltd/engine-server";
 
 const ID = "dendron.gdoc";
 

@@ -9,7 +9,7 @@ import {
   OnDidChangeActiveTextEditorMsg,
   SeedBrowserMessageType,
   OnUpdatePreviewHTMLMsg,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   combinedStore,
   createLogger,
@@ -20,7 +20,7 @@ import {
   LOG_LEVEL,
   Provider,
   setLogLevel,
-} from "@dendronhq/common-frontend";
+} from "@sxltd/common-frontend";
 import { Layout } from "antd";
 import _ from "lodash";
 import React from "react";

@@ -3,16 +3,16 @@ import {
   ErrorUtils,
   VaultUtils,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   BackupService,
   DConfig,
   file2Note,
   tmpDir,
-} from "@dendronhq/common-server";
-import { DoctorActionsEnum } from "@dendronhq/engine-server";
-import { AssertUtils, NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { DoctorCLICommand, DoctorCLICommandOpts } from "@dendronhq/dendron-cli";
+} from "@sxltd/common-server";
+import { DoctorActionsEnum } from "@sxltd/engine-server";
+import { AssertUtils, NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { DoctorCLICommand, DoctorCLICommandOpts } from "@sxltd/dendron-cli";
 import path from "path";
 import fs from "fs-extra";
 import { createEngineFromServer, runEngineTestV5 } from "../../../engine";

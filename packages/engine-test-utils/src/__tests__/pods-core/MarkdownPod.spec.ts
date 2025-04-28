@@ -1,15 +1,15 @@
-import { ConfigUtils, VaultUtils, WorkspaceOpts } from "@dendronhq/common-all";
-import { DConfig, tmpDir, vault2Path } from "@dendronhq/common-server";
+import { ConfigUtils, VaultUtils, WorkspaceOpts } from "@sxltd/common-all";
+import { DConfig, tmpDir, vault2Path } from "@sxltd/common-server";
 import {
   FileTestUtils,
   NoteTestUtilsV4,
   NOTE_PRESETS_V4,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import {
   MarkdownExportPod,
   MarkdownImportPod,
   MarkdownPublishPod,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

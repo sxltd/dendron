@@ -2,7 +2,7 @@ import {
   EngineEventEmitter,
   Event,
   NoteChangeEntry,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { EventEmitter } from "vscode";
 
 /**

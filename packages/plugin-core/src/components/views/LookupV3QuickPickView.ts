@@ -3,7 +3,7 @@ import {
   LookupEvents,
   LookupNoteTypeEnum,
   LookupSelectionTypeEnum,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { Disposable, QuickInputButton } from "vscode";
 import { AnalyticsUtils } from "../../utils/analytics";

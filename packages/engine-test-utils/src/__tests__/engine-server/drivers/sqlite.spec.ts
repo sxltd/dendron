@@ -1,5 +1,5 @@
-import { NoteUtils } from "@dendronhq/common-all";
-import { SQLiteMetadataStore } from "@dendronhq/engine-server";
+import { NoteUtils } from "@sxltd/common-all";
+import { SQLiteMetadataStore } from "@sxltd/engine-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import sinon from "sinon";

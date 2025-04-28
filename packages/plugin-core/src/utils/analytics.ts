@@ -8,9 +8,9 @@ import {
   getStage,
   Time,
   VSCodeIdentifyProps,
-} from "@dendronhq/common-all";
-import { SegmentClient, SegmentUtils } from "@dendronhq/common-server";
-import { MetadataService } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { SegmentClient, SegmentUtils } from "@sxltd/common-server";
+import { MetadataService } from "@sxltd/engine-server";
 import * as Sentry from "@sentry/node";
 import _ from "lodash";
 import { Duration } from "luxon";

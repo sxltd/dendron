@@ -2,7 +2,7 @@ import {
   getSidebar,
   DefaultSidebar,
   NoteDictsUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { runEngineTestV5 } from "../../engine";
 import { ENGINE_HOOKS } from "../../presets";
 

@@ -3,7 +3,7 @@ import {
   DMessageSource,
   DMessageEnum,
   VSCodeMessage,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { useEffect } from "react";
 
 /**

@@ -1,4 +1,4 @@
-import { DendronError, NoteProps } from "@dendronhq/common-all";
+import { DendronError, NoteProps } from "@sxltd/common-all";
 
 export class InMemoryNoteCache {
   /** Note map which maps lowercase file name to a list {@link NoteProps}

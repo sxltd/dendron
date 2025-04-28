@@ -1,4 +1,4 @@
-import { TreeViewItemLabelTypeEnum } from "@dendronhq/common-all";
+import { TreeViewItemLabelTypeEnum } from "@sxltd/common-all";
 import assert from "assert";
 import { container } from "tsyringe";
 import { DendronEngineV3Web } from "../../../../engine/DendronEngineV3Web";

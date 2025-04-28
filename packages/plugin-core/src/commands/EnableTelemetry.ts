@@ -1,5 +1,5 @@
-import { VSCodeEvents } from "@dendronhq/common-all";
-import { SegmentClient, TelemetryStatus } from "@dendronhq/common-server";
+import { VSCodeEvents } from "@sxltd/common-all";
+import { SegmentClient, TelemetryStatus } from "@sxltd/common-server";
 import { window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";
 import { AnalyticsUtils } from "../utils/analytics";

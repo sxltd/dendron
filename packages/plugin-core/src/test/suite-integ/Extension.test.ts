@@ -3,13 +3,13 @@ import {
   InstallStatus,
   DendronConfig,
   Time,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   DEPRECATED_PATHS,
   execa,
   MetadataService,
-} from "@dendronhq/engine-server";
-import { VAULTS } from "@dendronhq/engine-test-utils";
+} from "@sxltd/engine-server";
+import { VAULTS } from "@sxltd/engine-test-utils";
 import * as mocha from "mocha";
 import { describe } from "mocha";
 import fs from "fs-extra";
@@ -18,7 +18,7 @@ import { ExtensionProvider } from "../../ExtensionProvider";
 import { StartupUtils } from "../../utils/StartupUtils";
 import { expect } from "../testUtilsv2";
 import { describeMultiWS, describeSingleWS } from "../testUtilsV3";
-import { DConfig, LocalConfigScope } from "@dendronhq/common-server";
+import { DConfig, LocalConfigScope } from "@sxltd/common-server";
 import * as vscode from "vscode";
 import os from "os";
 

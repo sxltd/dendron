@@ -1,4 +1,4 @@
-import { LruCache } from "@dendronhq/common-all";
+import { LruCache } from "@sxltd/common-all";
 
 describe("lruCache.spec.ts", () => {
   describe("GIVEN lruCache configured for 5 elements", () => {

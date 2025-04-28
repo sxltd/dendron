@@ -1,4 +1,4 @@
-import { RemarkUtils } from "@dendronhq/unified";
+import { RemarkUtils } from "@sxltd/unified";
 import * as Sentry from "@sentry/node";
 import _ from "lodash";
 import vscode, { FoldingRangeKind } from "vscode";

@@ -1,5 +1,5 @@
-import { genUUID } from "@dendronhq/common-all";
-import { createLogger, getAllFilesWithTypes } from "@dendronhq/common-server";
+import { genUUID } from "@sxltd/common-all";
+import { createLogger, getAllFilesWithTypes } from "@sxltd/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

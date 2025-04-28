@@ -3,9 +3,9 @@ import {
   DVault,
   ERROR_STATUS,
   SeedConfig,
-} from "@dendronhq/common-all";
-import { DConfig, tmpDir } from "@dendronhq/common-server";
-import { SeedInitMode, SeedService, SeedUtils } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { DConfig, tmpDir } from "@sxltd/common-server";
+import { SeedInitMode, SeedService, SeedUtils } from "@sxltd/engine-server";
 import path from "path";
 import { runEngineTestV5 } from "../../engine";
 import { checkDir, checkFile, checkNotInDir, checkVaults } from "../../utils";

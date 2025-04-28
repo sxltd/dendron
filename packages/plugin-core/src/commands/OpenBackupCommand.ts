@@ -1,4 +1,4 @@
-import { BackupService, IBackupService } from "@dendronhq/common-server";
+import { BackupService, IBackupService } from "@sxltd/common-server";
 import { QuickPickItem, Uri, window, workspace } from "vscode";
 import { VSCodeUtils } from "../vsCodeUtils";
 import { DENDRON_COMMANDS } from "../constants";

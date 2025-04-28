@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs-extra";
-import { HookUtils } from "@dendronhq/engine-server";
+import { HookUtils } from "@sxltd/engine-server";
 
 export class TestHookUtils {
   static genBadJsHookPayload =

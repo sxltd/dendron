@@ -1,5 +1,5 @@
-import { assertUnreachable } from "@dendronhq/common-all";
-import { readYAML } from "@dendronhq/common-server";
+import { assertUnreachable } from "@sxltd/common-all";
+import { readYAML } from "@sxltd/common-server";
 import fs, { ensureDirSync, writeFileSync } from "fs-extra";
 import _ from "lodash";
 import path from "path";

@@ -5,7 +5,7 @@ import {
   DVault,
   NoteProps,
   DendronASTDest,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { Heading, Image, Parent, Root } from "mdast";
 import { Processor } from "unified";
 import { DendronPubOpts } from "./remark/dendronPub";

@@ -1,8 +1,8 @@
-import { DendronError, DVault, NoteProps } from "@dendronhq/common-all";
+import { DendronError, DVault, NoteProps } from "@sxltd/common-all";
 import {
   NoteTestUtilsV4,
   PreSetupHookFunction,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import { VSCodeUtils } from "../../vsCodeUtils";
 import { runLegacyMultiWorkspaceTest, setupBeforeAfter } from "../testUtilsV3";
 import { describe, beforeEach, afterEach } from "mocha";

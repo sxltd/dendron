@@ -4,9 +4,9 @@ import {
   NoteUtils,
   string2Note,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { DConfig, DLogger } from "@dendronhq/common-server";
-import { EngineUtils, WorkspaceUtils } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { DConfig, DLogger } from "@sxltd/common-server";
+import { EngineUtils, WorkspaceUtils } from "@sxltd/engine-server";
 import _ from "lodash";
 import path from "path";
 import {

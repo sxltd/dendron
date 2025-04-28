@@ -9,8 +9,8 @@ import {
   SetNameModifierResp,
   parseDendronURI,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { HistoryEvent } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { HistoryEvent } from "@sxltd/engine-server";
 import path from "path";
 import * as vscode from "vscode";
 import { IDendronExtension } from "../dendronExtensionInterface";
@@ -22,7 +22,7 @@ import { GotoNoteCommand } from "./GotoNote";
 import { ExtensionProvider } from "../ExtensionProvider";
 import { VaultSelectionModeConfigUtils } from "../components/lookup/vaultSelectionModeConfigUtils";
 import { NoteLookupProviderUtils } from "../components/lookup/NoteLookupProviderUtils";
-import { TemplateUtils } from "@dendronhq/common-server";
+import { TemplateUtils } from "@sxltd/common-server";
 import { AnalyticsUtils } from "../utils/analytics";
 import { TraitUtils } from "../traits/TraitUtils";
 import _ from "lodash";

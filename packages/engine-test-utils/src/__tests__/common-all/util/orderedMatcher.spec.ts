@@ -1,4 +1,4 @@
-import { OrderedMatcher } from "@dendronhq/common-all";
+import { OrderedMatcher } from "@sxltd/common-all";
 
 describe(`OrderedMatcher tests`, () => {
   describe(`WHEN ordered matcher is initialized with ['h1','v1']`, () => {

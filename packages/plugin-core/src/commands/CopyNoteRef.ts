@@ -7,8 +7,8 @@ import {
   NotePropsMeta,
   NoteUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { refLink2Stringv2 } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { refLink2Stringv2 } from "@sxltd/engine-server";
 import _ from "lodash";
 import { Position, Range, Selection, TextEditor, window } from "vscode";
 import { DendronClientUtilsV2 } from "../clientUtils";

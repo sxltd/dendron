@@ -11,11 +11,11 @@ import {
   NotePropsMeta,
   OptionalExceptFor,
   ProcFlavor,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 // @ts-ignore
 import rehypePrism from "@mapbox/rehype-prism";
 // @ts-ignore
-import mermaid from "@dendronhq/remark-mermaid";
+import mermaid from "@sxltd/remark-mermaid";
 import _ from "lodash";
 import link from "rehype-autolink-headings";
 import math from "remark-math";

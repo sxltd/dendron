@@ -1,5 +1,5 @@
-import { ServerUtils } from "@dendronhq/api-server";
-import { TestEngineUtils } from "@dendronhq/engine-test-utils";
+import { ServerUtils } from "@sxltd/api-server";
+import { TestEngineUtils } from "@sxltd/engine-test-utils";
 import { describe } from "mocha";
 import path from "path";
 import sinon, { SinonStub } from "sinon";

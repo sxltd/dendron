@@ -1,7 +1,7 @@
-import { ConfigUtils, DVault, Time } from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { MetadataService } from "@dendronhq/engine-server";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { ConfigUtils, DVault, Time } from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { MetadataService } from "@sxltd/engine-server";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import _ from "lodash";
 import { beforeEach } from "mocha";
 import sinon from "sinon";

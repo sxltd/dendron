@@ -2,7 +2,7 @@ import {
   AssertUtils,
   NoteTestUtilsV4,
   TestPresetEntryV4,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import { ENGINE_HOOKS } from "./utils";
 
 const NOTES = {

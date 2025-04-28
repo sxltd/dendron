@@ -2,18 +2,18 @@ import {
   DendronConfig,
   NoteDictsUtils,
   NoteProps,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   NoteTestUtilsV4,
   TestPresetEntryV4,
-} from "@dendronhq/common-test-utils";
-import { DConfig } from "@dendronhq/common-server";
+} from "@sxltd/common-test-utils";
+import { DConfig } from "@sxltd/common-server";
 import {
   DendronASTDest,
   getParsingDependencyDicts,
   MDUtilsV5,
   ProcDataFullOptsV5,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import { runEngineTestV5 } from "../../../engine";
 import { ENGINE_HOOKS } from "../../../presets";
 import { checkNotInVFile, checkVFile, createProcTests } from "./utils";

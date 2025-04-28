@@ -1,11 +1,11 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
-import { ConfigUtils, DendronConfig, NoteProps } from "@dendronhq/common-all";
+import { ConfigUtils, DendronConfig, NoteProps } from "@sxltd/common-all";
 import {
   createLogger,
   DendronNote,
   LoadingStatus,
-} from "@dendronhq/common-frontend";
+} from "@sxltd/common-frontend";
 import { Col, Row } from "antd";
 import _ from "lodash";
 import React from "react";

@@ -4,13 +4,13 @@ const fs = require("fs");
 const _ = require("lodash");
 
 const DEPENDENCIES = {
-  CLIENT_WEB: "@dendronhq/web-client",
-  CLIENT_ELECTRON: "@dendronhq/electron-client",
-  COMMON_ALL: "@dendronhq/common-all",
-  COMMON_CLIENT: "@dendronhq/common-client",
-  COMMON_SERVER: "@dendronhq/common-server",
-  ENGINE_SERVER: "@dendronhq/engine-server",
-  PLUGIN_CORE: "@dendronhq/plugin-core",
+  CLIENT_WEB: "@sxltd/web-client",
+  CLIENT_ELECTRON: "@sxltd/electron-client",
+  COMMON_ALL: "@sxltd/common-all",
+  COMMON_CLIENT: "@sxltd/common-client",
+  COMMON_SERVER: "@sxltd/common-server",
+  ENGINE_SERVER: "@sxltd/engine-server",
+  PLUGIN_CORE: "@sxltd/plugin-core",
 };
 
 const frontCommonDeps = [DEPENDENCIES.COMMON_ALL];

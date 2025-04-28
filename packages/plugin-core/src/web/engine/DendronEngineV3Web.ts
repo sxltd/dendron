@@ -36,7 +36,7 @@ import {
   RespWithOptError,
   VaultUtils,
   WriteNoteResp,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { inject, singleton } from "tsyringe";
 import { URI, Utils } from "vscode-uri";

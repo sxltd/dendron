@@ -1,12 +1,12 @@
-import { NoteProps, SchemaTemplate, VaultUtils } from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
+import { NoteProps, SchemaTemplate, VaultUtils } from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
 import {
   AssertUtils,
   NoteTestUtilsV4,
   NOTE_PRESETS_V4,
   runMochaHarness,
-} from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS, ENGINE_HOOKS_MULTI } from "@dendronhq/engine-test-utils";
+} from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS, ENGINE_HOOKS_MULTI } from "@sxltd/engine-test-utils";
 import fs from "fs-extra";
 import _ from "lodash";
 import { afterEach, before, beforeEach, describe } from "mocha";

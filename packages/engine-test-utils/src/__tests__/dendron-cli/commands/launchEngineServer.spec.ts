@@ -1,5 +1,5 @@
-import { LaunchEngineServerCommand } from "@dendronhq/dendron-cli";
-import { EngineUtils } from "@dendronhq/engine-server";
+import { LaunchEngineServerCommand } from "@sxltd/dendron-cli";
+import { EngineUtils } from "@sxltd/engine-server";
 import fs from "fs-extra";
 import { runEngineTestV5 } from "../../../engine";
 

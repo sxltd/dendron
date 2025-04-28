@@ -1,15 +1,15 @@
-import { vault2Path } from "@dendronhq/common-server";
+import { vault2Path } from "@sxltd/common-server";
 import {
   AssertUtils,
   NOTE_BODY_PRESETS_V4,
   NOTE_PRESETS_V4,
-} from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+} from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import {
   AirtablePublishPod,
   MarkdownPublishPod,
   podClassEntryToPodItemV4,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import path from "path";
 // // You can import and use all API from the 'vscode' module
 // // as well as import your extension to test it

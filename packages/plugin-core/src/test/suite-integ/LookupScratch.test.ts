@@ -3,8 +3,8 @@ import {
   LookupNoteTypeEnum,
   LookupSelectionTypeEnum,
   NoteAddBehaviorEnum,
-} from "@dendronhq/common-all";
-import { NOTE_PRESETS_V4 } from "@dendronhq/common-test-utils";
+} from "@sxltd/common-all";
+import { NOTE_PRESETS_V4 } from "@sxltd/common-test-utils";
 import { describe } from "mocha";
 import * as vscode from "vscode";
 import { NoteLookupCommand } from "../../commands/NoteLookupCommand";

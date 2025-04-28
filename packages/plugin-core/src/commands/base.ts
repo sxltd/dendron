@@ -1,5 +1,5 @@
-import { DendronError, getStage, isTSError } from "@dendronhq/common-all";
-import { DLogger, getDurationMilliseconds } from "@dendronhq/common-server";
+import { DendronError, getStage, isTSError } from "@sxltd/common-all";
+import { DLogger, getDurationMilliseconds } from "@sxltd/common-server";
 import _ from "lodash";
 import { window } from "vscode";
 import { IDendronExtension } from "../dendronExtensionInterface";

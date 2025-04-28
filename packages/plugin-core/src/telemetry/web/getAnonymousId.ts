@@ -1,4 +1,4 @@
-import { genUUID, GLOBAL_STATE_KEYS } from "@dendronhq/common-all";
+import { genUUID, GLOBAL_STATE_KEYS } from "@sxltd/common-all";
 import * as vscode from "vscode";
 
 /**

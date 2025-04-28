@@ -1,7 +1,7 @@
 import { runEngineTestV5 } from "../../engine";
 import axios from "axios";
-import { VaultUtils, MergeConflictOptions } from "@dendronhq/common-all";
-import { OrbitImportPod } from "@dendronhq/pods-core";
+import { VaultUtils, MergeConflictOptions } from "@sxltd/common-all";
+import { OrbitImportPod } from "@sxltd/pods-core";
 import { ENGINE_HOOKS } from "../../presets";
 
 jest.mock("axios");

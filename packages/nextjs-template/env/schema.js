@@ -1,7 +1,7 @@
 // @ts-check
-const { z } = require("@dendronhq/common-all");
+const { z } = require("@sxltd/common-all");
 const path = require("path");
-const { FRONTEND_CONSTANTS } = require("@dendronhq/common-frontend");
+const { FRONTEND_CONSTANTS } = require("@sxltd/common-frontend");
 
 /**
  * Here we specify server-side environment variables

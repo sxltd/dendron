@@ -1,5 +1,5 @@
-import { NoteProps } from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { NoteProps } from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { describeMultiWS } from "../testUtilsV3";
 import * as vscode from "vscode";
 import { MoveSelectionToCommand } from "../../commands/MoveSelectionToCommand";

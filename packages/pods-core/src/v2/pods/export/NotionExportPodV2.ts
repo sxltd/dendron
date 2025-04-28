@@ -6,7 +6,7 @@ import {
   NoteProps,
   ResponseUtil,
   RespV2,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { markdownToBlocks } from "@instantish/martian";
 import { JSONSchemaType } from "ajv";
 import { RateLimiter } from "limiter";

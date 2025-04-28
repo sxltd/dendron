@@ -6,7 +6,7 @@ import {
   GraphViewMessageEnum,
   OnDidChangeActiveTextEditorMsg,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import path from "path";
 import * as vscode from "vscode";

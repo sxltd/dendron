@@ -1,11 +1,11 @@
-import { ConfigUtils, DendronConfig } from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
+import { ConfigUtils, DendronConfig } from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
 import {
   AssertUtils,
   NoteTestUtilsV4,
   PreSetupHookFunction,
-} from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+} from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import _ from "lodash";
 import { describe } from "mocha";
 import path from "path";

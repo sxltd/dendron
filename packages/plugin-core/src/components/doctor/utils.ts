@@ -5,9 +5,9 @@ import {
   NoteUtils,
   VaultUtils,
   WorkspaceEvents,
-} from "@dendronhq/common-all";
-import { file2Note } from "@dendronhq/common-server";
-import { DoctorActionsEnum } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { file2Note } from "@sxltd/common-server";
+import { DoctorActionsEnum } from "@sxltd/engine-server";
 import path from "path";
 import * as vscode from "vscode";
 import { DoctorCommand } from "../../commands/Doctor";

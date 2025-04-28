@@ -2,8 +2,8 @@ import {
   DendronError,
   EngagementEvents,
   NoteProps,
-} from "@dendronhq/common-all";
-import { TemplateUtils } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { TemplateUtils } from "@sxltd/common-server";
 import _ from "lodash";
 import { QuickPickTemplateSelector } from "../components/lookup/QuickPickTemplateSelector";
 import { DENDRON_COMMANDS } from "../constants";

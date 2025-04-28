@@ -4,8 +4,8 @@ import {
   ERROR_SEVERITY,
   ERROR_STATUS,
   stringifyError,
-} from "@dendronhq/common-all";
-import { createLogger } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { createLogger } from "@sxltd/common-server";
 import execa, { ExecaChildProcess } from "execa";
 import _ from "lodash";
 import path from "path";

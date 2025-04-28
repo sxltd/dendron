@@ -1,9 +1,9 @@
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { DConfig } from "@dendronhq/common-server";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { DConfig } from "@sxltd/common-server";
 import {
   ENGINE_HOOKS_MULTI,
   TestConfigUtils,
-} from "@dendronhq/engine-test-utils";
+} from "@sxltd/engine-test-utils";
 import { describe } from "mocha";
 import path from "path";
 import * as vscode from "vscode";

@@ -1,4 +1,4 @@
-import { DEngineClient, DVault, WorkspaceOpts } from "@dendronhq/common-all";
+import { DEngineClient, DVault, WorkspaceOpts } from "@sxltd/common-all";
 import { SinonStub } from "sinon";
 
 export type TestResult = {

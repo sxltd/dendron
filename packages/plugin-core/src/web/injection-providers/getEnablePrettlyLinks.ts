@@ -1,4 +1,4 @@
-import { ConfigUtils } from "@dendronhq/common-all";
+import { ConfigUtils } from "@sxltd/common-all";
 import { Uri } from "vscode";
 import { getWorkspaceConfig } from "./getWorkspaceConfig";
 

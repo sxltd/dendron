@@ -6,9 +6,9 @@ import {
   DVault,
   genUUIDInsecure,
   NoteProps,
-} from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
-import { Heading } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { DConfig } from "@sxltd/common-server";
+import { Heading } from "@sxltd/engine-server";
 import {
   AnchorUtils,
   BlockAnchor,
@@ -22,7 +22,7 @@ import {
   select,
   UserTag,
   WikiLinkNoteV4,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import visit from "unist-util-visit";
 import _ from "lodash";
 import vscode, {

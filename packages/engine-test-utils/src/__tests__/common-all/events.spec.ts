@@ -1,4 +1,4 @@
-import { EventEmitter } from "@dendronhq/common-all";
+import { EventEmitter } from "@sxltd/common-all";
 
 /**
  * Internal Test Class to help with the thisArg test case

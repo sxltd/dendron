@@ -3,9 +3,9 @@ import {
   FOLDERS,
   NoteUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { tmpDir } from "@dendronhq/common-server";
-import { Git } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { tmpDir } from "@sxltd/common-server";
+import { Git } from "@sxltd/engine-server";
 import fs from "fs-extra";
 import path from "path";
 import type { DVault } from "..";

@@ -6,7 +6,7 @@ import {
   newRange,
   NoteProps,
   position2VSCodeRange,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { FrontmatterContent } from "mdast";
 import YAML from "js-yaml";

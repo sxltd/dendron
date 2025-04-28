@@ -1,5 +1,5 @@
 {
-  "name": "@dendronhq/$PKG_NAME",
+  "name": "@sxltd/$PKG_NAME",
   "version": "$CURRENT_VERSION",
   "description": "$PKG_NAME",
   "license": "Apache 2.0",

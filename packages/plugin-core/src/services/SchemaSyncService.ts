@@ -1,12 +1,12 @@
 import _ from "lodash";
 import { Logger } from "../logger";
 import vscode, { Uri } from "vscode";
-import { SchemaParser } from "@dendronhq/engine-server";
+import { SchemaParser } from "@sxltd/engine-server";
 import path from "path";
 import { VSCodeUtils } from "../vsCodeUtils";
 import { ISchemaSyncService } from "./SchemaSyncServiceInterface";
 import { IDendronExtension } from "../dendronExtensionInterface";
-import { WriteSchemaResp } from "@dendronhq/common-all";
+import { WriteSchemaResp } from "@sxltd/common-all";
 
 /** Currently responsible for keeping the engine in sync with schema
  *  changes on disk. */

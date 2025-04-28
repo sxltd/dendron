@@ -1,5 +1,5 @@
-import { DendronError, DVault } from "@dendronhq/common-all";
-import { HistoryEvent } from "@dendronhq/engine-server";
+import { DendronError, DVault } from "@sxltd/common-all";
+import { HistoryEvent } from "@sxltd/engine-server";
 import path from "path";
 import * as vscode from "vscode";
 import { LookupControllerV3CreateOpts } from "./LookupControllerV3Interface";

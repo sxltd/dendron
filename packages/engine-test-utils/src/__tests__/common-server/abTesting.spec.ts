@@ -1,4 +1,4 @@
-import { ABTest, DefaultMap, genUUID } from "@dendronhq/common-all";
+import { ABTest, DefaultMap, genUUID } from "@sxltd/common-all";
 import _ from "lodash";
 
 // To make checks more accurate, make FLOAT_SAME smaller and LOOP much larger.

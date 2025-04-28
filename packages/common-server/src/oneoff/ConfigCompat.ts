@@ -9,7 +9,7 @@ import {
   DVaultSync,
   HierarchyConfig,
   WorkspaceSettings,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 
 export type MigrationChangeSetStatus = {

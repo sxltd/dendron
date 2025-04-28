@@ -9,7 +9,7 @@ import {
   SchemaUtils,
   VaultUtils,
   WorkspaceType,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   DConfig,
   LocalConfigScope,
@@ -19,14 +19,14 @@ import {
   tmpDir,
   vault2Path,
   writeYAML,
-} from "@dendronhq/common-server";
-import { FileTestUtils, SinonStubbedFn } from "@dendronhq/common-test-utils";
-import { Git, WorkspaceService } from "@dendronhq/engine-server";
+} from "@sxltd/common-server";
+import { FileTestUtils, SinonStubbedFn } from "@sxltd/common-test-utils";
+import { Git, WorkspaceService } from "@sxltd/engine-server";
 import {
   checkVaults,
   GitTestUtils,
   setupWS,
-} from "@dendronhq/engine-test-utils";
+} from "@sxltd/engine-test-utils";
 import fs from "fs-extra";
 import { before, describe } from "mocha";
 import path from "path";

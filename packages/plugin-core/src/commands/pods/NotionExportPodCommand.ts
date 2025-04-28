@@ -1,4 +1,4 @@
-import { ErrorFactory, NoteProps, ResponseUtil } from "@dendronhq/common-all";
+import { ErrorFactory, NoteProps, ResponseUtil } from "@sxltd/common-all";
 import {
   Client,
   ConfigFileUtils,
@@ -18,7 +18,7 @@ import {
   PodV2Types,
   RunnableNotionV2PodConfig,
   TitlePropertyValue,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import _ from "lodash";
 import * as vscode from "vscode";
 import { ProgressLocation, window } from "vscode";

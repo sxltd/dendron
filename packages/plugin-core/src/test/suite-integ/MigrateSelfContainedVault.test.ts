@@ -1,4 +1,4 @@
-import { SinonStubbedFn } from "@dendronhq/common-test-utils";
+import { SinonStubbedFn } from "@sxltd/common-test-utils";
 import sinon from "sinon";
 import { window } from "vscode";
 import {
@@ -17,11 +17,11 @@ import {
   FOLDERS,
   DendronConfig,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import fs from "fs-extra";
 import path from "path";
-import { WorkspaceService } from "@dendronhq/engine-server";
-import { DConfig, pathForVaultRoot } from "@dendronhq/common-server";
+import { WorkspaceService } from "@sxltd/engine-server";
+import { DConfig, pathForVaultRoot } from "@sxltd/common-server";
 
 function stubMigrateQuickPick(
   vaultSelect: string,

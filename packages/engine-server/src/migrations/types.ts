@@ -2,7 +2,7 @@ import {
   DendronConfig,
   DendronError,
   WorkspaceSettings,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { WorkspaceService } from "../workspace";
 
 export type MigrateFunction = (opts: {

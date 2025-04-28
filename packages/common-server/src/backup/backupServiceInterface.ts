@@ -1,4 +1,4 @@
-import { RespV3 } from "@dendronhq/common-all";
+import { RespV3 } from "@sxltd/common-all";
 import { BackupKeyEnum } from ".";
 
 export interface IBackupService {

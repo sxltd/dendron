@@ -1,6 +1,6 @@
-import { assertUnreachable, DVault, VaultUtils } from "@dendronhq/common-all";
-import { DLogger } from "@dendronhq/common-server";
-import { HistoryEvent } from "@dendronhq/engine-server";
+import { assertUnreachable, DVault, VaultUtils } from "@sxltd/common-all";
+import { DLogger } from "@sxltd/common-server";
+import { HistoryEvent } from "@sxltd/engine-server";
 import {
   CopyAsFormat,
   ExportPodConfigurationV2,
@@ -12,7 +12,7 @@ import {
   PodUtils,
   PodV2ConfigManager,
   PodV2Types,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import path from "path";
 import * as vscode from "vscode";
 import { QuickPick, QuickPickItem } from "vscode";

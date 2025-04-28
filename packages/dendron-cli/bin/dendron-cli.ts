@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { env } from "@dendronhq/common-all";
+import { env } from "@sxltd/common-all";
 import _ from "lodash";
 import yargs from "yargs";
 import { PublishCLICommand } from "../src/commands";

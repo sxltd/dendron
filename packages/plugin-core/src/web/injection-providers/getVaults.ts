@@ -1,4 +1,4 @@
-import { DVault } from "@dendronhq/common-all";
+import { DVault } from "@sxltd/common-all";
 import "reflect-metadata";
 import { Uri } from "vscode";
 import { getWorkspaceConfig } from "./getWorkspaceConfig";

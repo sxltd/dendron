@@ -6,9 +6,9 @@ import {
   SchemaModuleProps,
   SchemaUtils,
   VSCodeEvents,
-} from "@dendronhq/common-all";
-import { getDurationMilliseconds } from "@dendronhq/common-server";
-import { HistoryService } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { getDurationMilliseconds } from "@sxltd/common-server";
+import { HistoryService } from "@sxltd/engine-server";
 import _ from "lodash";
 import { CancellationTokenSource, window } from "vscode";
 import { NoteLookupCommand } from "../../commands/NoteLookupCommand";

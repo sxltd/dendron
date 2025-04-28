@@ -4,7 +4,7 @@ import { ChangeWorkspaceCommand } from "../../commands/ChangeWorkspace";
 import sinon from "sinon";
 import { window } from "vscode";
 import { VSCodeUtils } from "../../vsCodeUtils";
-import { WorkspaceType } from "@dendronhq/common-all";
+import { WorkspaceType } from "@sxltd/common-all";
 import { expect } from "../testUtilsv2";
 import { ExtensionProvider } from "../../ExtensionProvider";
 

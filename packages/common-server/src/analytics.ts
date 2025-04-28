@@ -10,7 +10,7 @@ import {
   RuntimeUtils,
   VSCodeIdentifyProps,
   VSCodeProps,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import Analytics from "analytics-node";
 import fs from "fs-extra";
 import _ from "lodash";

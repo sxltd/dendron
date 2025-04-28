@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import { CONSTANTS } from "@dendronhq/common-all";
+import { CONSTANTS } from "@sxltd/common-all";
 import YAML from "js-yaml";
 import * as vscode from "vscode";
 import { URI, Utils } from "vscode-uri";

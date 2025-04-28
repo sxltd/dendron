@@ -1,4 +1,4 @@
-import { DendronError, Stage } from "@dendronhq/common-all";
+import { DendronError, Stage } from "@sxltd/common-all";
 import { RewriteFrames } from "@sentry/integrations";
 import * as Sentry from "@sentry/node";
 import { CaptureContext } from "@sentry/types";

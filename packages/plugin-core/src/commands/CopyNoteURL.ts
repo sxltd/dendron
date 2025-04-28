@@ -1,5 +1,5 @@
-import { ConfigUtils } from "@dendronhq/common-all";
-import { WorkspaceUtils } from "@dendronhq/engine-server";
+import { ConfigUtils } from "@sxltd/common-all";
+import { WorkspaceUtils } from "@sxltd/engine-server";
 import _ from "lodash";
 import { Selection, window } from "vscode";
 import { CONFIG, DENDRON_COMMANDS } from "../constants";

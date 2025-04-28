@@ -1,4 +1,4 @@
-import { NoteTrait, OnCreateContext } from "@dendronhq/common-all";
+import { NoteTrait, OnCreateContext } from "@sxltd/common-all";
 import { beforeEach, afterEach, describe } from "mocha";
 import sinon from "sinon";
 import vscode from "vscode";

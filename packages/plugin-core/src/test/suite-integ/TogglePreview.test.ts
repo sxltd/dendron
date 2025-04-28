@@ -1,5 +1,5 @@
-import { NoteProps, NoteUtils } from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { NoteProps, NoteUtils } from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import fs from "fs-extra";
 import { afterEach, before, beforeEach, test } from "mocha";
 import path from "path";
