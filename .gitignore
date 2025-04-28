@@ -39,3 +39,4 @@ builds
 packages/nextjs-template/styles/scss/
 packages/nextjs-template/next-env.d.ts
 packages/nextjs-template/tsconfig.tsbuildinfo
+**/*.tgz
