@@ -1,6 +1,6 @@
-import { ConfigUtils, NoteDictsUtils } from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
-import { getParsingDependencyDicts, MDUtilsV5 } from "@dendronhq/unified";
+import { ConfigUtils, NoteDictsUtils } from "@sxltd/common-all";
+import { DConfig } from "@sxltd/common-server";
+import { getParsingDependencyDicts, MDUtilsV5 } from "@sxltd/unified";
 import { JSONSchemaType } from "ajv";
 import { PublishPod, PublishPodConfig, PublishPodPlantOpts } from "../basev3";
 import { PodUtils } from "../utils";

@@ -1,5 +1,5 @@
-import { ConfigUtils, PublishUtils } from "@dendronhq/common-all";
-import { verifyEngineSliceState } from "@dendronhq/common-frontend";
+import { ConfigUtils, PublishUtils } from "@sxltd/common-all";
+import { verifyEngineSliceState } from "@sxltd/common-frontend";
 import Link from "next/link";
 import React from "react";
 import { useEngineAppSelector } from "../features/engine/hooks";

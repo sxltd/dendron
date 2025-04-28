@@ -1,4 +1,4 @@
-import { getStage } from "@dendronhq/common-all";
+import { getStage } from "@sxltd/common-all";
 import { engineSlice } from "./engine/slice";
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { ideSlice } from "./ide/slice";

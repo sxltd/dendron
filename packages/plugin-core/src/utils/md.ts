@@ -12,15 +12,15 @@ import {
   NoteUtils,
   TAGS_HIERARCHY,
   USERS_HIERARCHY,
-} from "@dendronhq/common-all";
-import { WorkspaceUtils } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { WorkspaceUtils } from "@sxltd/engine-server";
 import {
   HASHTAG_REGEX_BASIC,
   HASHTAG_REGEX_LOOSE,
   LinkUtils,
   RemarkUtils,
   USERTAG_REGEX_LOOSE,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import { sort as sortPaths } from "cross-path-sort";
 import fs from "fs";
 import _ from "lodash";

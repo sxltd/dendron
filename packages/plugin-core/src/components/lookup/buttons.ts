@@ -3,7 +3,7 @@ import {
   LookupNoteTypeEnum,
   LookupSelectionType,
   MODIFIER_DESCRIPTIONS,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import {
   DendronBtn,

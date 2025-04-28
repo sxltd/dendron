@@ -1,6 +1,6 @@
-import { NoteProps } from "@dendronhq/common-all";
-import { note2String } from "@dendronhq/common-server";
-import { AssertUtils, NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { NoteProps } from "@sxltd/common-all";
+import { note2String } from "@sxltd/common-server";
+import { AssertUtils, NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { beforeEach, afterEach, describe } from "mocha";
 import sinon from "sinon";
 import * as vscode from "vscode";

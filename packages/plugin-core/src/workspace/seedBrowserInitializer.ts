@@ -1,8 +1,8 @@
-import { DWorkspaceV2 } from "@dendronhq/common-all";
+import { DWorkspaceV2 } from "@sxltd/common-all";
 import {
   MetadataService,
   WorkspaceActivationContext,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import * as vscode from "vscode";
 import {
   SeedBrowseCommand,

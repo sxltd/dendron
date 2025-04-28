@@ -12,14 +12,14 @@ import {
   WorkspaceType,
   BacklinkPanelSortOrder,
   DefaultMap,
-} from "@dendronhq/common-all";
-import { resolvePath } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { resolvePath } from "@sxltd/common-server";
 import {
   HistoryService,
   WorkspaceService,
   WorkspaceUtils,
-} from "@dendronhq/engine-server";
-import { PodUtils } from "@dendronhq/pods-core";
+} from "@sxltd/engine-server";
+import { PodUtils } from "@sxltd/pods-core";
 import * as Sentry from "@sentry/node";
 import fs from "fs-extra";
 import _ from "lodash";

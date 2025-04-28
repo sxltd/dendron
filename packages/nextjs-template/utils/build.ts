@@ -1,6 +1,6 @@
 import fs from "fs-extra";
 import path from "path";
-import { ConfigUtils, DendronConfig, NoteProps } from "@dendronhq/common-all";
+import { ConfigUtils, DendronConfig, NoteProps } from "@sxltd/common-all";
 import _ from "lodash";
 import { NoteData } from "./types";
 import { GetStaticPathsResult } from "next";

@@ -4,9 +4,9 @@ import {
   DendronConfig,
   FOLDERS,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { DConfig, readYAMLAsync, vault2Path } from "@dendronhq/common-server";
-import { checkVaults } from "@dendronhq/engine-test-utils";
+} from "@sxltd/common-all";
+import { DConfig, readYAMLAsync, vault2Path } from "@sxltd/common-server";
+import { checkVaults } from "@sxltd/engine-test-utils";
 import fs from "fs-extra";
 import { before, describe } from "mocha";
 import path from "path";

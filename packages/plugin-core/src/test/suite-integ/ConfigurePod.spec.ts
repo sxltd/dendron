@@ -1,10 +1,10 @@
-import { DirResult, tmpDir, writeYAML } from "@dendronhq/common-server";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { DirResult, tmpDir, writeYAML } from "@sxltd/common-server";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import {
   JSONExportPod,
   podClassEntryToPodItemV4,
   PodUtils,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import { ensureDirSync } from "fs-extra";
 import path from "path";
 import { ConfigurePodCommand } from "../../commands/ConfigurePodCommand";

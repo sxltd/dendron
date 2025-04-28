@@ -7,7 +7,7 @@ import {
   NoteProps,
   NotePropsByIdDict,
   NotePropsMeta,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { URI } from "vscode-uri";
 // @ts-ignore

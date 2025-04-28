@@ -3,7 +3,7 @@ import {
   DVault,
   ErrorUtils,
   SchemaUtils as _su,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   file2Note,
   file2Schema,
@@ -11,8 +11,8 @@ import {
   goUpTo,
   schemaModuleProps2File,
   tmpDir,
-} from "@dendronhq/common-server";
-import { FileTestUtils } from "@dendronhq/common-test-utils";
+} from "@sxltd/common-server";
+import { FileTestUtils } from "@sxltd/common-test-utils";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

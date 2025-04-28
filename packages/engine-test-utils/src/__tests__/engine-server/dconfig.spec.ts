@@ -1,5 +1,5 @@
-import { ConfigUtils, DendronConfig } from "@dendronhq/common-all";
-import { DConfig, LocalConfigScope } from "@dendronhq/common-server";
+import { ConfigUtils, DendronConfig } from "@sxltd/common-all";
+import { DConfig, LocalConfigScope } from "@sxltd/common-server";
 import _ from "lodash";
 import Sinon from "sinon";
 import { TestEngineUtils } from "../../engine";

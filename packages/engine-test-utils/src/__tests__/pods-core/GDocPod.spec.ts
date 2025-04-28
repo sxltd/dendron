@@ -1,7 +1,7 @@
 import { ENGINE_HOOKS } from "../../presets";
 import { runEngineTestV5 } from "../../engine";
-import { GDocImportPod, PodUtils, PROMPT } from "@dendronhq/pods-core";
-import { Time, VaultUtils } from "@dendronhq/common-all";
+import { GDocImportPod, PodUtils, PROMPT } from "@sxltd/pods-core";
+import { Time, VaultUtils } from "@sxltd/common-all";
 import { response, comments, existingNote } from "../../utils/GDocMockResult";
 import axios from "axios";
 import sinon from "sinon";

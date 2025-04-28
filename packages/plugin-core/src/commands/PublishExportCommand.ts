@@ -1,5 +1,5 @@
-import { DENDRON_EMOJIS } from "@dendronhq/common-all";
-import { NextjsExportPodUtils, PublishTarget } from "@dendronhq/pods-core";
+import { DENDRON_EMOJIS } from "@sxltd/common-all";
+import { NextjsExportPodUtils, PublishTarget } from "@sxltd/pods-core";
 import _ from "lodash";
 import { window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";

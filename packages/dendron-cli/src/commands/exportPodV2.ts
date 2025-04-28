@@ -5,7 +5,7 @@ import {
   ErrorFactory,
   NoteProps,
   ResponseUtil,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   AirtableExportPodV2,
   AirtableExportReturnType,
@@ -23,16 +23,16 @@ import {
   PodExportScope,
   PodV2Types,
   RunnableGoogleDocsV2PodConfig,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import yargs from "yargs";
 import { CLICommand, CommandCommonProps } from "./base";
 import { enrichPodArgs, PodCLIOpts, setupPodArgs } from "./podsV2";
 import { setupEngineArgs, SetupEngineCLIOpts, SetupEngineResp } from "./utils";
-import Airtable from "@dendronhq/airtable";
+import Airtable from "@sxltd/airtable";
 import _ from "lodash";
-import { EngineUtils, openPortFile } from "@dendronhq/engine-server";
+import { EngineUtils, openPortFile } from "@sxltd/engine-server";
 import clipboard from "clipboardy";
-import { DConfig } from "@dendronhq/common-server";
+import { DConfig } from "@sxltd/common-server";
 
 export { CommandCLIOpts as ExportPodV2CLIOpts };
 

@@ -3,11 +3,11 @@ import {
   ERROR_SEVERITY,
   ExtensionEvents,
   KeybindingConflictDetectedSource,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   CommentJSONValue,
   readJSONWithCommentsSync,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import { CommentJSONArray, parse } from "comment-json";
 import _md from "markdown-it";
 import fs from "fs-extra";

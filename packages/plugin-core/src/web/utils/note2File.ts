@@ -3,7 +3,7 @@ import {
   NoteProps,
   NoteUtils,
   vault2Path,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import * as vscode from "vscode";
 import { URI, Utils } from "vscode-uri";
 

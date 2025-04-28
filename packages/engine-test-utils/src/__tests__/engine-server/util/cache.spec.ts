@@ -1,4 +1,4 @@
-import { NullCache } from "@dendronhq/common-all";
+import { NullCache } from "@sxltd/common-all";
 
 describe("NullCache tests", () => {
   describe("GIVEN null cache", () => {

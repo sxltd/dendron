@@ -6,8 +6,8 @@ import {
   VaultUtils,
   WorkspaceOpts,
   Wrap,
-} from "@dendronhq/common-all";
-import { NoteTestUtilsV4, FileTestUtils } from "@dendronhq/common-test-utils";
+} from "@sxltd/common-all";
+import { NoteTestUtilsV4, FileTestUtils } from "@sxltd/common-test-utils";
 import { describe, before, beforeEach, afterEach } from "mocha";
 import sinon from "sinon";
 import path from "path";
@@ -20,7 +20,7 @@ import {
   describeSingleWS,
   runSuiteButSkipForWindows,
 } from "../testUtilsV3";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import { Position } from "vscode";
 import * as _ from "lodash";
 import { WSUtils } from "../../WSUtils";

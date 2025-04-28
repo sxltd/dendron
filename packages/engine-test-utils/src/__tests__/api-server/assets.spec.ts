@@ -6,8 +6,8 @@ import {
   ThemeTarget,
   ThemeType,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
-import { tmpDir, vault2Path } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { tmpDir, vault2Path } from "@sxltd/common-server";
 import path from "path";
 import { createServer, runEngineTestV5 } from "../../engine";
 import { ENGINE_HOOKS } from "../../presets";

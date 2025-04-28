@@ -5,7 +5,7 @@ import {
   TaskNoteUtils,
   VaultUtils,
   VSRange,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { Decoration, DECORATION_TYPES } from "./utils";
 

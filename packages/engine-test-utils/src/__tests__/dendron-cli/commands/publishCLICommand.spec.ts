@@ -1,11 +1,11 @@
-import { ConfigUtils, DendronConfig, URI } from "@dendronhq/common-all";
+import { ConfigUtils, DendronConfig, URI } from "@sxltd/common-all";
 import {
   PublishCLICommand,
   PublishCLICommandCLIOpts,
   PublishCLICommandOpts,
   PublishCommands,
-} from "@dendronhq/dendron-cli";
-import { NextjsExportPodUtils, PublishTarget } from "@dendronhq/pods-core";
+} from "@sxltd/dendron-cli";
+import { NextjsExportPodUtils, PublishTarget } from "@sxltd/pods-core";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

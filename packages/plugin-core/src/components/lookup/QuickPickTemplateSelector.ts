@@ -3,10 +3,10 @@ import {
   DendronError,
   DLogger,
   NoteProps,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { ExtensionProvider } from "../../ExtensionProvider";
 import { NoteLookupProviderUtils } from "./NoteLookupProviderUtils";
-import { HistoryEvent } from "@dendronhq/engine-server";
+import { HistoryEvent } from "@sxltd/engine-server";
 import { Logger } from "../../logger";
 import * as vscode from "vscode";
 import { Disposable } from "vscode";

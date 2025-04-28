@@ -2,7 +2,7 @@ import {
   ConfigUtils,
   DendronError,
   TAGS_HIERARCHY,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { Element } from "hast";
 import { Eat } from "remark-parse";
 import Unified, { Plugin } from "unified";

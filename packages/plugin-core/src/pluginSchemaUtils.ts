@@ -1,4 +1,4 @@
-import { SchemaUtils } from "@dendronhq/common-all";
+import { SchemaUtils } from "@sxltd/common-all";
 import { ExtensionProvider } from "./ExtensionProvider";
 
 /**

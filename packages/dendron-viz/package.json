@@ -1,6 +1,6 @@
 {
-  "name": "@dendronhq/dendron-viz",
-  "version": "0.124.0",
+  "name": "@sxltd/dendron-viz",
+  "version": "0.1.0",
   "description": "dendron-viz",
   "license": "Apache 2.0",
   "repository": {
@@ -32,8 +32,8 @@
     "watch": "yarn copyNonTSFiles && yarn compile --watch"
   },
   "dependencies": {
-    "@dendronhq/common-all": "^0.124.0",
-    "@dendronhq/engine-server": "^0.124.0",
+    "@sxltd/common-all": "^0.1.0",
+    "@sxltd/engine-server": "^0.1.0",
     "d3": "^7.6.1",
     "lodash": "^4.17.21",
     "micromatch": "^4.0.4",

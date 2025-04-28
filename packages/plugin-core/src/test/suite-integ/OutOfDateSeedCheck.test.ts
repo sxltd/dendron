@@ -1,18 +1,18 @@
-import { DConfig, tmpDir } from "@dendronhq/common-server";
+import { DConfig, tmpDir } from "@sxltd/common-server";
 import { before } from "mocha";
 import { expect } from "../testUtilsv2";
 import { describeSingleWS } from "../testUtilsV3";
 import { ExtensionProvider } from "../../ExtensionProvider";
-import { SinonStubbedFn } from "@dendronhq/common-test-utils";
+import { SinonStubbedFn } from "@sxltd/common-test-utils";
 import { VSCodeUtils } from "../../vsCodeUtils";
-import { TestSeedUtils } from "@dendronhq/engine-test-utils";
-import { SeedService } from "@dendronhq/engine-server";
+import { TestSeedUtils } from "@sxltd/engine-test-utils";
+import { SeedService } from "@sxltd/engine-server";
 import sinon from "sinon";
 import {
   detectOutOfDateSeeds,
   UPDATE_SEED_CONFIG_PROMPT,
 } from "../../commands/Sync";
-import { ConfigUtils, FOLDERS, DendronConfig } from "@dendronhq/common-all";
+import { ConfigUtils, FOLDERS, DendronConfig } from "@sxltd/common-all";
 import { PluginTestSeedUtils } from "../utils/TestSeedUtils";
 
 suite("GIVEN out of date seed check", function () {

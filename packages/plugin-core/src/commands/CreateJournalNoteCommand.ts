@@ -13,7 +13,7 @@ import {
   NoteLookupCommand,
 } from "./NoteLookupCommand";
 import { IDendronExtension } from "../dendronExtensionInterface";
-import { ConfigUtils } from "@dendronhq/common-all";
+import { ConfigUtils } from "@sxltd/common-all";
 import { VaultSelectionModeConfigUtils } from "../components/lookup/vaultSelectionModeConfigUtils";
 
 type CommandOpts = NoteLookupRunOpts;

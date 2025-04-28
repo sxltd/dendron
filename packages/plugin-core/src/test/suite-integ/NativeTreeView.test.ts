@@ -1,6 +1,6 @@
-import { NoteProps, NotePropsMeta } from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { NoteProps, NotePropsMeta } from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import _ from "lodash";
 import { beforeEach, describe } from "mocha";
 import path from "path";

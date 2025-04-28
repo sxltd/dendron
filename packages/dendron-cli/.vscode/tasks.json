@@ -23,7 +23,7 @@
     {
       "label": "export-pod",
       "type": "shell",
-      "command": "node --inspect ${workspaceFolder}/lib/bin/dendron-cli exportPod --wsRoot ${workspaceFolder}/../../test-workspace --podId dendron.airtable --podPkg @dendronhq/airtable-pod --showConfig",
+      "command": "node --inspect ${workspaceFolder}/lib/bin/dendron-cli exportPod --wsRoot ${workspaceFolder}/../../test-workspace --podId dendron.airtable --podPkg @sxltd/airtable-pod --showConfig",
       "problemMatcher": []
     },
     {

@@ -1,15 +1,15 @@
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import path from "path";
 import fs from "fs-extra";
 import * as vscode from "vscode";
 import { ExtensionProvider } from "../../ExtensionProvider";
 import { VSCodeUtils } from "../../vsCodeUtils";
 import { describeSingleWS } from "../testUtilsV3";
-import { tmpDir } from "@dendronhq/common-server";
+import { tmpDir } from "@sxltd/common-server";
 import { expect } from "../testUtilsv2";
 import { DoctorUtils } from "../../components/doctor/utils";
-import { VaultUtils } from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { VaultUtils } from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 
 suite("Duplicate note detection", function () {
   describeSingleWS(

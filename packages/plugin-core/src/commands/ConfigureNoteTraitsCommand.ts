@@ -1,4 +1,4 @@
-import { CONSTANTS, DendronError } from "@dendronhq/common-all";
+import { CONSTANTS, DendronError } from "@sxltd/common-all";
 import fs from "fs-extra";
 import path from "path";
 import * as vscode from "vscode";

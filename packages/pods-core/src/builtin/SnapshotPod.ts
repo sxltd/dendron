@@ -1,4 +1,4 @@
-import { DUtils, DVault, Time } from "@dendronhq/common-all";
+import { DUtils, DVault, Time } from "@sxltd/common-all";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

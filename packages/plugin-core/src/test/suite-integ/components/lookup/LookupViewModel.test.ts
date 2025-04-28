@@ -2,7 +2,7 @@ import {
   DNodePropsQuickInputV2,
   LookupNoteTypeEnum,
   LookupSelectionTypeEnum,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { after, before, describe, it } from "mocha";
 import * as vscode from "vscode";

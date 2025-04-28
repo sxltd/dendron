@@ -7,8 +7,8 @@ import {
   NoteProps,
   NoteUtils,
   OnDidChangeActiveTextEditorMsg,
-} from "@dendronhq/common-all";
-import { WorkspaceUtils } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { WorkspaceUtils } from "@sxltd/engine-server";
 import _ from "lodash";
 import * as vscode from "vscode";
 import { CreateDailyJournalCommand } from "../commands/CreateDailyJournal";

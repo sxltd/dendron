@@ -1,5 +1,5 @@
-import { TutorialEvents } from "@dendronhq/common-all";
-import { readMD } from "@dendronhq/common-server";
+import { TutorialEvents } from "@sxltd/common-all";
+import { readMD } from "@sxltd/common-server";
 import _ from "lodash";
 import semver from "semver";
 import * as vscode from "vscode";

@@ -8,7 +8,7 @@ import {
   DMessageSource,
   SeedBrowserMessage,
   SeedBrowserMessageType,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { Tooltip } from "antd";
 import { postVSCodeMessage } from "../utils/vscode";
 

@@ -4,7 +4,7 @@ import {
   RespV3,
   RespWithOptError,
   StatusCodes,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { Response } from "express";
 
 export class ExpressUtils {

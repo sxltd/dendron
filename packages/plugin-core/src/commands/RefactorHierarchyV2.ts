@@ -8,12 +8,12 @@ import {
   NoteUtils,
   RefactoringCommandUsedPayload,
   StatisticsUtils,
-} from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import _md from "markdown-it";
-import { HistoryEvent } from "@dendronhq/engine-server";
+import { HistoryEvent } from "@sxltd/engine-server";
 import path from "path";
 import { Disposable, ProgressLocation, Uri, ViewColumn, window } from "vscode";
 import { LookupControllerV3CreateOpts } from "../components/lookup/LookupControllerV3Interface";
@@ -30,7 +30,7 @@ import {
 import { ExtensionProvider } from "../ExtensionProvider";
 import { NoteLookupProviderSuccessResp } from "../components/lookup/LookupProviderV3Interface";
 import { ProxyMetricUtils } from "../utils/ProxyMetricUtils";
-import { LinkUtils } from "@dendronhq/unified";
+import { LinkUtils } from "@sxltd/unified";
 import { AutoCompleter } from "../utils/autoCompleter";
 import { AutoCompletableRegistrar } from "../utils/registers/AutoCompletableRegistrar";
 

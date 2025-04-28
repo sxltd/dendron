@@ -1,6 +1,6 @@
-import { DConfig, tmpDir } from "@dendronhq/common-server";
-import { Git } from "@dendronhq/engine-server";
-import { ENGINE_HOOKS_MULTI, GitTestUtils } from "@dendronhq/engine-test-utils";
+import { DConfig, tmpDir } from "@sxltd/common-server";
+import { Git } from "@sxltd/engine-server";
+import { ENGINE_HOOKS_MULTI, GitTestUtils } from "@sxltd/engine-test-utils";
 import _ from "lodash";
 import path from "path";
 import sinon from "sinon";
@@ -14,7 +14,7 @@ import {
   FOLDERS,
   DendronConfig,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { ExtensionProvider } from "../../ExtensionProvider";
 
 suite("GIVEN ConvertVaultCommand", function () {

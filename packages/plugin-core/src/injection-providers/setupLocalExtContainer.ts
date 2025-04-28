@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { DVault, EngineEventEmitter } from "@dendronhq/common-all";
+import { DVault, EngineEventEmitter } from "@sxltd/common-all";
 import { container } from "tsyringe";
 import * as vscode from "vscode";
 import { EngineAPIService } from "../services/EngineAPIService";

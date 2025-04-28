@@ -11,7 +11,7 @@ import {
   NotePropsMeta,
   NoteStore,
   NoteUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { container, Lifecycle } from "tsyringe";
 import { ILookupProvider } from "../../commands/lookup/ILookupProvider";
 import { NoteLookupProvider } from "../../commands/lookup/NoteLookupProvider";

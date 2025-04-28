@@ -1,4 +1,4 @@
-import { NoteProps, IProgressStep, IProgress } from "@dendronhq/common-all";
+import { NoteProps, IProgressStep, IProgress } from "@sxltd/common-all";
 import { RunnablePodConfigV2 } from "..";
 
 /**

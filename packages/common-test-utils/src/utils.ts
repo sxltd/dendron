@@ -3,7 +3,7 @@ import {
   DEngineInitResp,
   NotePropsByIdDict,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import assert from "assert";
 import _ from "lodash";
 import { SetupHookFunction, TestResult } from "./types";

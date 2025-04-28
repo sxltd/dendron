@@ -3,7 +3,7 @@ import {
   ERROR_STATUS,
   WorkspaceInitRequest,
   WorkspaceSyncRequest,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { Request, Response, Router } from "express";
 import asyncHandler from "express-async-handler";
 import _ from "lodash";

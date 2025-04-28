@@ -1,5 +1,5 @@
-import { ConfigUtils, DWorkspaceV2 } from "@dendronhq/common-all";
-import { SegmentClient } from "@dendronhq/common-server";
+import { ConfigUtils, DWorkspaceV2 } from "@sxltd/common-all";
+import { SegmentClient } from "@sxltd/common-server";
 import { Logger } from "./logger";
 
 /** Creates a SegmentClient for telemetry, if enabled, and listens for vscode telemetry settings to disable it when requested. */

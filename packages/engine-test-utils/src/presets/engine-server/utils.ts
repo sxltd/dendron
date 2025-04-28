@@ -1,13 +1,13 @@
-import { NoteProps, SchemaUtils } from "@dendronhq/common-all";
+import { NoteProps, SchemaUtils } from "@sxltd/common-all";
 import {
   CreateNoteFactory,
   NOTE_PRESETS_V4,
   NoteTestUtilsV4,
   PreSetupHookFunction,
   SCHEMA_PRESETS_V4,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import _ from "lodash";
-import { resolvePath } from "@dendronhq/common-server";
+import { resolvePath } from "@sxltd/common-server";
 import path from "path";
 import * as fs from "fs";
 

@@ -6,7 +6,7 @@ import {
   SEOProps,
   Time,
   ConfigUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { NextSeo, NextSeoProps } from "next-seo";
 import { useDendronRouter } from "../utils/hooks";

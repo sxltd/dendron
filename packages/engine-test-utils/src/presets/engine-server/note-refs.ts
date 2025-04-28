@@ -2,7 +2,7 @@ import {
   TestPresetEntryV4,
   AssertUtils,
   NoteTestUtilsV4,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 
 const WILDCARD_LINK_V4 = new TestPresetEntryV4(
   async ({}) => {

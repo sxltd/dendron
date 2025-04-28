@@ -1,6 +1,6 @@
-import { env } from "@dendronhq/common-all";
-import { AssertUtils } from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { env } from "@sxltd/common-all";
+import { AssertUtils } from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import fs from "fs-extra";
 import path from "path";
 import { DiagnosticsReportCommand } from "../../commands/DiagnosticsReport";

@@ -10,15 +10,15 @@ import {
   RespV3,
   SchemaModuleProps,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { IWSUtilsV2 } from "./WSUtilsV2Interface";
 import { Logger } from "./logger";
 import { VSCodeUtils } from "./vsCodeUtils";
 import { ExtensionProvider } from "./ExtensionProvider";
-import { isInsidePath, vault2Path } from "@dendronhq/common-server";
-import { WorkspaceUtils } from "@dendronhq/engine-server";
-import { AnchorUtils } from "@dendronhq/unified";
+import { isInsidePath, vault2Path } from "@sxltd/common-server";
+import { WorkspaceUtils } from "@sxltd/engine-server";
+import { AnchorUtils } from "@sxltd/unified";
 
 let WS_UTILS: IWSUtilsV2 | undefined;
 

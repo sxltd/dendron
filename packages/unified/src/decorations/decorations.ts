@@ -9,7 +9,7 @@ import {
   NonOptional,
   NoteProps,
   offsetRange,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { decorateUserTag } from "./userTags";
 import {
   DendronASTDest,

@@ -2,7 +2,7 @@ import {
   DNodeType,
   LookupNoteTypeEnum,
   LookupSelectionTypeEnum,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { IDendronExtension } from "../../dendronExtensionInterface";
 import { TwoWayBinding } from "../../utils/TwoWayBinding";

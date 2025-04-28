@@ -1,4 +1,4 @@
-import { DWorkspaceV2, WorkspaceType } from "@dendronhq/common-all";
+import { DWorkspaceV2, WorkspaceType } from "@sxltd/common-all";
 import { DendronBaseWorkspace } from "./baseWorkspace";
 
 export class DendronCodeWorkspace

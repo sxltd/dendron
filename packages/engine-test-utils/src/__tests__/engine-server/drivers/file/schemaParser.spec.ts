@@ -1,14 +1,14 @@
 import { runEngineTestV5 } from "../../../../engine";
 import { ENGINE_HOOKS } from "../../../../presets";
-import { DendronEngineClient, SchemaParser } from "@dendronhq/engine-server";
-import { getAllFiles, vault2Path } from "@dendronhq/common-server";
+import { DendronEngineClient, SchemaParser } from "@sxltd/engine-server";
+import { getAllFiles, vault2Path } from "@sxltd/common-server";
 import {
   DendronError,
   SchemaModuleProps,
   SchemaProps,
   URI,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 
 async function parseSchemas(
   preSetupHook: (opts: WorkspaceOpts & { extra?: any }) => Promise<any>

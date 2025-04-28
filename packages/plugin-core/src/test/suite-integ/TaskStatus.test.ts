@@ -3,10 +3,10 @@ import sinon from "sinon";
 import { expect, LocationTestUtils } from "../testUtilsv2";
 import { describeMultiWS, describeSingleWS } from "../testUtilsV3";
 import { before, after, describe } from "mocha";
-import { NoteProps } from "@dendronhq/common-all";
+import { NoteProps } from "@sxltd/common-all";
 import { ExtensionProvider } from "../../ExtensionProvider";
 import { VSCodeUtils } from "../../vsCodeUtils";
-import { NoteTestUtilsV4, SinonStubbedFn } from "@dendronhq/common-test-utils";
+import { NoteTestUtilsV4, SinonStubbedFn } from "@sxltd/common-test-utils";
 import { TaskStatusCommand } from "../../commands/TaskStatus";
 
 suite("GIVEN TaskStatus", function () {

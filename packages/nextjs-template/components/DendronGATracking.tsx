@@ -1,5 +1,5 @@
-import { ConfigUtils, getStage } from "@dendronhq/common-all";
-import { createLogger } from "@dendronhq/common-frontend";
+import { ConfigUtils, getStage } from "@sxltd/common-all";
+import { createLogger } from "@sxltd/common-frontend";
 import _ from "lodash";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";

@@ -1,4 +1,4 @@
-import { NonEmptyArray, StatisticsUtils } from "@dendronhq/common-all";
+import { NonEmptyArray, StatisticsUtils } from "@sxltd/common-all";
 import { describe } from "mocha";
 import { expect } from "../testUtilsv2";
 

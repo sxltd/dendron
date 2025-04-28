@@ -60,13 +60,13 @@ import {
   GetNoteMetaResp,
   GetNoteResp,
   isNotUndefined,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   createLogger,
   DConfig,
   DLogger,
   NodeJSUtils,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import _ from "lodash";
 import { EngineUtils } from ".";
 import { FileStorage } from "./drivers/file/storev2";
@@ -76,7 +76,7 @@ import {
   runAllDecorators,
   RemarkUtils,
   getParsingDependencyDicts,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import { HookUtils } from "./topics/hooks";
 
 type CreateStoreFunc = (engine: DEngineClient) => DStore;

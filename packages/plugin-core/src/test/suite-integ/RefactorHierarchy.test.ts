@@ -1,9 +1,9 @@
-import { vault2Path } from "@dendronhq/common-server";
+import { vault2Path } from "@sxltd/common-server";
 import {
   AssertUtils,
   NoteTestUtilsV4,
   PreSetupHookFunction,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import fs from "fs-extra";
 import { afterEach, beforeEach, describe } from "mocha";
 import path from "path";
@@ -11,7 +11,7 @@ import { RefactorHierarchyCommandV2 } from "../../commands/RefactorHierarchyV2";
 import { expect } from "../testUtilsv2";
 import { runLegacyMultiWorkspaceTest, setupBeforeAfter } from "../testUtilsV3";
 import sinon from "sinon";
-import { DNodeProps, DVault } from "@dendronhq/common-all";
+import { DNodeProps, DVault } from "@sxltd/common-all";
 import { NoteLookupProviderSuccessResp } from "../../components/lookup/LookupProviderV3Interface";
 import { ExtensionProvider } from "../../ExtensionProvider";
 

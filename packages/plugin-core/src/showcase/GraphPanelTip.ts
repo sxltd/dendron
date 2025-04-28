@@ -1,10 +1,10 @@
-import { ShowcaseEntry } from "@dendronhq/engine-server";
+import { ShowcaseEntry } from "@sxltd/engine-server";
 import * as vscode from "vscode";
 import {
   DisplayLocation,
   IFeatureShowcaseMessage,
 } from "./IFeatureShowcaseMessage";
-import { DendronTreeViewKey } from "@dendronhq/common-all";
+import { DendronTreeViewKey } from "@sxltd/common-all";
 
 export class GraphPanelTip implements IFeatureShowcaseMessage {
   shouldShow(_displayLocation: DisplayLocation): boolean {

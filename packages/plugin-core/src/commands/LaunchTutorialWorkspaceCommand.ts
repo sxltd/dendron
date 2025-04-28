@@ -1,5 +1,5 @@
-import { TutorialEvents, WorkspaceType } from "@dendronhq/common-all";
-import { FileUtils, resolveTilde } from "@dendronhq/common-server";
+import { TutorialEvents, WorkspaceType } from "@sxltd/common-all";
+import { FileUtils, resolveTilde } from "@sxltd/common-server";
 import path from "path";
 import {
   DENDRON_COMMANDS,

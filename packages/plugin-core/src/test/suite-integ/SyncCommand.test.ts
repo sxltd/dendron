@@ -4,15 +4,15 @@ import {
   ConfigUtils,
   NoteUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { tmpDir } from "@dendronhq/common-server";
-import { FileTestUtils, NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+} from "@sxltd/common-all";
+import { tmpDir } from "@sxltd/common-server";
+import { FileTestUtils, NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import {
   Git,
   SyncActionStatus,
   WorkspaceUtils,
-} from "@dendronhq/engine-server";
-import { GitTestUtils } from "@dendronhq/engine-test-utils";
+} from "@sxltd/engine-server";
+import { GitTestUtils } from "@sxltd/engine-test-utils";
 import _ from "lodash";
 import { describe } from "mocha";
 import { SyncCommand } from "../../commands/Sync";

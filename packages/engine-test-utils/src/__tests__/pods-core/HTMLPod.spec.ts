@@ -1,5 +1,5 @@
-import { VaultUtils } from "@dendronhq/common-all";
-import { HTMLPublishPod } from "@dendronhq/pods-core";
+import { VaultUtils } from "@sxltd/common-all";
+import { HTMLPublishPod } from "@sxltd/pods-core";
 import { runEngineTestV5 } from "../../engine";
 import { ENGINE_HOOKS } from "../../presets";
 

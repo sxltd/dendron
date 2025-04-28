@@ -57,7 +57,7 @@ const TASK_OVERRIDES = {
       label: "export-pod",
       type: "shell",
       command:
-        "node --inspect /usr/local/bin/dendron-cli exportPod --wsRoot ~/Dendron --podId dendron.airtable --podPkg @dendronhq/airtable-pod --podSource remote --showConfig",
+        "node --inspect /usr/local/bin/dendron-cli exportPod --wsRoot ~/Dendron --podId dendron.airtable --podPkg @sxltd/airtable-pod --podSource remote --showConfig",
       options: {
         cwd: "/Users/kevinlin/Dendron",
       },

@@ -5,8 +5,8 @@ import { OpenDialogOptions, window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";
 import { VSCodeUtils } from "../vsCodeUtils";
 import { BasicCommand } from "./base";
-import { CONSTANTS, WorkspaceType } from "@dendronhq/common-all";
-import { WorkspaceUtils } from "@dendronhq/engine-server";
+import { CONSTANTS, WorkspaceType } from "@sxltd/common-all";
+import { WorkspaceUtils } from "@sxltd/engine-server";
 
 const DENDRON_WS_NAME = CONSTANTS.DENDRON_WS_NAME;
 

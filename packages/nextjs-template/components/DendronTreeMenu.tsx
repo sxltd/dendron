@@ -5,8 +5,8 @@ import {
   RightOutlined,
   UpOutlined,
 } from "@ant-design/icons";
-import { isNotUndefined, TreeMenuNode, TreeUtils } from "@dendronhq/common-all";
-import { createLogger } from "@dendronhq/common-frontend";
+import { isNotUndefined, TreeMenuNode, TreeUtils } from "@sxltd/common-all";
+import { createLogger } from "@sxltd/common-frontend";
 import { Typography } from "antd";
 import _ from "lodash";
 import dynamic from "next/dynamic";

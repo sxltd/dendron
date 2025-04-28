@@ -1,4 +1,4 @@
-import { DVault, NoteProps } from "@dendronhq/common-all";
+import { DVault, NoteProps } from "@sxltd/common-all";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

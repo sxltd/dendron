@@ -7,7 +7,7 @@ import {
   OnCreateContext,
   onCreateProps,
   SetNameModifierResp,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { DendronClientUtilsV2 } from "../clientUtils";
 
 export class JournalNote implements NoteTrait {

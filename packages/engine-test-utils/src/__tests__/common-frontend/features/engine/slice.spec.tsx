@@ -1,6 +1,6 @@
-import { APIUtils } from "@dendronhq/common-all";
-import { combinedStore, engineSlice } from "@dendronhq/common-frontend";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { APIUtils } from "@sxltd/common-all";
+import { combinedStore, engineSlice } from "@sxltd/common-frontend";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { createEngineFromServer, runEngineTestV5 } from "../../../../engine";
 import { ENGINE_HOOKS } from "../../../../presets";
 

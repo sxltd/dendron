@@ -9,7 +9,7 @@ import {
   NoteDictsUtils,
   DendronConfig,
   SchemaModuleDict,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import _ from "lodash";
 import { EngineSliceState, LoadingStatus } from "../../types";

@@ -4,7 +4,7 @@ import {
   NoteProps,
   TaskNoteUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { DENDRON_COMMANDS } from "../constants";
 import { BasicCommand } from "./base";
 import { VSCodeUtils, MessageSeverity } from "../vsCodeUtils";

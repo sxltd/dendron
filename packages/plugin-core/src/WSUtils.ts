@@ -3,9 +3,9 @@ import {
   NotePropsMeta,
   SchemaModuleProps,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
-import { HistoryEvent, HistoryService } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
+import { HistoryEvent, HistoryService } from "@sxltd/engine-server";
 import path from "path";
 import * as vscode from "vscode";
 import { DENDRON_COMMANDS } from "./constants";

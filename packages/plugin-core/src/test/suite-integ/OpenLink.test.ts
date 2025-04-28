@@ -1,7 +1,7 @@
-import { NoteProps } from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { NoteProps } from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import fs from "fs-extra";
 import path from "path";
 import sinon from "sinon";

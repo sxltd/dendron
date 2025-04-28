@@ -1,4 +1,4 @@
-import { MetadataService } from "@dendronhq/engine-server";
+import { MetadataService } from "@sxltd/engine-server";
 import sinon from "sinon";
 import { TestEngineUtils } from "../..";
 

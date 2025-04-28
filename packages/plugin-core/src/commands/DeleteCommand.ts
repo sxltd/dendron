@@ -9,8 +9,8 @@ import {
   Position,
   SchemaUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { RemarkUtils } from "@dendronhq/unified";
+} from "@sxltd/common-all";
+import { RemarkUtils } from "@sxltd/unified";
 import fs from "fs-extra";
 import _ from "lodash";
 import _md from "markdown-it";

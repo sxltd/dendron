@@ -1,4 +1,4 @@
-import { NoteTrait } from "@dendronhq/common-all";
+import { NoteTrait } from "@sxltd/common-all";
 import * as vscode from "vscode";
 import { CreateNoteWithTraitCommand } from "../commands/CreateNoteWithTraitCommand";
 import { IDendronExtension } from "../dendronExtensionInterface";

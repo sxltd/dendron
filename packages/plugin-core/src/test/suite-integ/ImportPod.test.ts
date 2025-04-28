@@ -1,11 +1,11 @@
-import { DPod } from "@dendronhq/common-all";
-import { writeYAML } from "@dendronhq/common-server";
-import { PODS_CORE } from "@dendronhq/engine-test-utils";
+import { DPod } from "@sxltd/common-all";
+import { writeYAML } from "@sxltd/common-server";
+import { PODS_CORE } from "@sxltd/engine-test-utils";
 import {
   JSONImportPod,
   podClassEntryToPodItemV4,
   PodUtils,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import { ensureDirSync } from "fs-extra";
 import path from "path";
 // // You can import and use all API from the 'vscode' module

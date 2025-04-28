@@ -17,9 +17,9 @@ import {
   TaskNoteUtils,
   VSRange,
   deleteTextRange,
-} from "@dendronhq/common-all";
-import { HistoryService, WorkspaceUtils } from "@dendronhq/engine-server";
-import { LinkUtils } from "@dendronhq/unified";
+} from "@sxltd/common-all";
+import { HistoryService, WorkspaceUtils } from "@sxltd/engine-server";
+import { LinkUtils } from "@sxltd/unified";
 import _ from "lodash";
 import * as vscode from "vscode";
 import { CancellationTokenSource } from "vscode";

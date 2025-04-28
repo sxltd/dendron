@@ -8,7 +8,7 @@ import {
   GitUtils as CommonGitUtils,
   FOLDERS,
   DendronConfig,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import execa from "execa";
 import fs from "fs-extra";
 import _ from "lodash";

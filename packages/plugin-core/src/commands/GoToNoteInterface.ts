@@ -1,4 +1,4 @@
-import { DNoteAnchorBasic, DVault, NoteProps } from "@dendronhq/common-all";
+import { DNoteAnchorBasic, DVault, NoteProps } from "@sxltd/common-all";
 import { Position, ViewColumn } from "vscode";
 
 export enum TargetKind {

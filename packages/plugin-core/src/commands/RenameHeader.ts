@@ -6,14 +6,14 @@ import {
   NoteProps,
   RenameNoteResp,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   AnchorUtils,
   DendronASTDest,
   DendronASTTypes,
   MDUtilsV5,
   visit,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import _ from "lodash";
 import { Range, window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";
@@ -22,7 +22,7 @@ import { VSCodeUtils } from "../vsCodeUtils";
 import { getAnalyticsPayload } from "../utils/analytics";
 import { BasicCommand } from "./base";
 import { ProxyMetricUtils } from "../utils/ProxyMetricUtils";
-import { Heading } from "@dendronhq/engine-server";
+import { Heading } from "@sxltd/engine-server";
 import { IDendronExtension } from "../dendronExtensionInterface";
 
 type CommandOpts =

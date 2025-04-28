@@ -1,4 +1,4 @@
-import { ExternalConnectionManager } from "@dendronhq/pods-core";
+import { ExternalConnectionManager } from "@sxltd/pods-core";
 import path from "path";
 import { QuickPickItem, Uri, window } from "vscode";
 import { PodUIControls } from "../../components/pods/PodControls";

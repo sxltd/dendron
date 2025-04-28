@@ -1,5 +1,5 @@
-import { VaultUtils } from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { VaultUtils } from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { RenameNoteCommand } from "../../commands/RenameNoteCommand";
 import { ExtensionProvider } from "../../ExtensionProvider";
 import { describeMultiWS } from "../testUtilsV3";

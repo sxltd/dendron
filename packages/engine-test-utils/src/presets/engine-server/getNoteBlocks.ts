@@ -4,12 +4,12 @@ import {
   GetNoteBlocksResp,
   NoteProps,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   NoteTestUtilsV4,
   TestPresetEntryV4,
   TestResult,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import _ from "lodash";
 
 const runGetNoteBlocks = async ({

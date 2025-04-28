@@ -2,7 +2,7 @@ import {
   assertUnreachable,
   DendronTreeViewKey,
   VSCodeEvents,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import * as vscode from "vscode";
 import {
   Event,

@@ -4,8 +4,8 @@ import {
   ERROR_STATUS,
   RespV3,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { resolvePath, vault2Path } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { resolvePath, vault2Path } from "@sxltd/common-server";
 import fs from "fs";
 import _ from "lodash";
 import open from "open";

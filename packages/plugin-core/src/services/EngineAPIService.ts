@@ -39,8 +39,8 @@ import {
   SchemaModuleProps,
   WriteNoteResp,
   WriteSchemaResp,
-} from "@dendronhq/common-all";
-import { DendronEngineClient, HistoryService } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { DendronEngineClient, HistoryService } from "@sxltd/engine-server";
 import _ from "lodash";
 import { AnalyticsUtils } from "../utils/analytics";
 import { IEngineAPIService } from "./EngineAPIServiceInterface";

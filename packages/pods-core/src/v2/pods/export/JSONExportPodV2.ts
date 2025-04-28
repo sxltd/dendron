@@ -3,7 +3,7 @@ import {
   NoteProps,
   ResponseUtil,
   RespV2,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { JSONSchemaType } from "ajv";
 import _ from "lodash";
 import path from "path";

@@ -1,6 +1,6 @@
-import { NoteProps } from "@dendronhq/common-all";
-import { NoteTestUtilsV4, TestNoteFactory } from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS, TestEngineUtils } from "@dendronhq/engine-test-utils";
+import { NoteProps } from "@sxltd/common-all";
+import { NoteTestUtilsV4, TestNoteFactory } from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS, TestEngineUtils } from "@sxltd/engine-test-utils";
 import _ from "lodash";
 import { beforeEach, describe, it, suite } from "mocha";
 import { Selection } from "vscode";

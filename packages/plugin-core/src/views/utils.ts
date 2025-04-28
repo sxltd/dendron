@@ -7,13 +7,13 @@ import {
   DUtils,
   getStage,
   getWebTreeViewEntry,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   findUpTo,
   getDurationMilliseconds,
   WebViewCommonUtils,
   WebViewThemeMap,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import path from "path";
 import * as vscode from "vscode";
 import { IDendronExtension } from "../dendronExtensionInterface";

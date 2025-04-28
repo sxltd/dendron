@@ -22,7 +22,7 @@ import {
   string2Note,
   stringifyError,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import path from "path";
 import * as vscode from "vscode"; // NOTE: This version contains vscode.workspace.fs API references. Need to refactor that out somehow.

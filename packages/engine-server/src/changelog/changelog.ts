@@ -1,5 +1,5 @@
-import { asyncLoopOneAtATime, DEngineClient } from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
+import { asyncLoopOneAtATime, DEngineClient } from "@sxltd/common-all";
+import { DConfig } from "@sxltd/common-server";
 import * as Diff2Html from "diff2html";
 import execa from "execa";
 import fs from "fs-extra";

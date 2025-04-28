@@ -1,7 +1,7 @@
 import {
   LookupNoteTypeEnum,
   LookupSelectionTypeEnum,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { TwoWayBinding } from "../../utils/TwoWayBinding";
 import { VaultSelectionMode } from "./types";
 

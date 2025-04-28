@@ -1,4 +1,4 @@
-import { DVault } from "@dendronhq/common-all";
+import { DVault } from "@sxltd/common-all";
 
 export const VAULTS = {
   MULTI_VAULT_WITH_THREE_VAULTS: () => {

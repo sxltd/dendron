@@ -4,8 +4,8 @@ import {
   MigrationService,
   MigrationUtils,
   WorkspaceService,
-} from "@dendronhq/engine-server";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+} from "@sxltd/engine-server";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import _ from "lodash";
 import { describe, test } from "mocha";
 import { ExtensionProvider } from "../../ExtensionProvider";

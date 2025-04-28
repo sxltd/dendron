@@ -1,6 +1,6 @@
-import { ConfigUtils } from "@dendronhq/common-all";
-import { AssertUtils, NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS, TestConfigUtils } from "@dendronhq/engine-test-utils";
+import { ConfigUtils } from "@sxltd/common-all";
+import { AssertUtils, NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS, TestConfigUtils } from "@sxltd/engine-test-utils";
 import { describe } from "mocha";
 import * as vscode from "vscode";
 import { InsertNoteIndexCommand } from "../../commands/InsertNoteIndexCommand";

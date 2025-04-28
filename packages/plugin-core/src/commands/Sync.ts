@@ -4,14 +4,14 @@ import {
   DendronError,
   ERROR_SEVERITY,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { DConfig } from "@sxltd/common-server";
 import {
   SeedService,
   SyncActionResult,
   SyncActionStatus,
   WorkspaceUtils,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import _ from "lodash";
 import { ProgressLocation, window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";

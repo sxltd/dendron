@@ -1,8 +1,8 @@
-import { Time, VSCodeEvents } from "@dendronhq/common-all";
+import { Time, VSCodeEvents } from "@sxltd/common-all";
 import {
   LapsedUserSurveyStatusEnum,
   MetadataService,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import { Duration } from "luxon";
 import * as vscode from "vscode";
 import { GLOBAL_STATE } from "../constants";

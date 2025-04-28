@@ -14,7 +14,7 @@ import {
   SchemaUtils,
   string2Note,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import anymatch from "anymatch";
 import { assign, CommentJSONValue, parse, stringify } from "comment-json";
 import { FSWatcher } from "fs";

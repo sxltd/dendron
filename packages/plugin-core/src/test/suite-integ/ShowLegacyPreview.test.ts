@@ -1,4 +1,4 @@
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import { test } from "mocha";
 import sinon from "sinon";
 import { ExtensionContext } from "vscode";

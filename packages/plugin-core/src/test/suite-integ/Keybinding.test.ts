@@ -5,7 +5,7 @@ import sinon, { SinonStub } from "sinon";
 import fs from "fs-extra";
 import { expect } from "../testUtilsv2";
 import { KNOWN_KEYBINDING_CONFLICTS } from "../../constants";
-import { tmpDir } from "@dendronhq/common-server";
+import { tmpDir } from "@sxltd/common-server";
 import { VSCodeUtils } from "../../vsCodeUtils";
 
 function mockUserConfigDir() {

@@ -4,7 +4,7 @@ import {
   DVault,
   VaultRemoteSource,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { DENDRON_COMMANDS } from "../constants";
 import { BasicCommand } from "./base";
@@ -13,7 +13,7 @@ import { VSCodeUtils } from "../vsCodeUtils";
 import { getExtension } from "../workspace";
 import { Logger } from "../logger";
 import { ReloadIndexCommand } from "./ReloadIndex";
-import { GitUtils } from "@dendronhq/common-server";
+import { GitUtils } from "@sxltd/common-server";
 import { IDendronExtension } from "../dendronExtensionInterface";
 
 type CommandOpts = {

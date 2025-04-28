@@ -3,9 +3,9 @@ import {
   DLink,
   NoteProps,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+} from "@sxltd/common-all";
+import { DConfig } from "@sxltd/common-server";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import {
   DendronASTDest,
   DendronASTTypes,
@@ -13,7 +13,7 @@ import {
   LinkUtils,
   MDUtilsV5,
   RemarkUtils,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import _ from "lodash";
 import { runEngineTestV5, testWithEngine } from "../../../engine";
 import { ENGINE_HOOKS } from "../../../presets";

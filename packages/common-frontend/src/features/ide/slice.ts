@@ -5,7 +5,7 @@ import {
   LookupModifierStatePayload,
   TreeMenu,
   GraphThemeEnum,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 // @ts-ignore
 import internal from "@reduxjs/toolkit/node_modules/immer/dist/internal";

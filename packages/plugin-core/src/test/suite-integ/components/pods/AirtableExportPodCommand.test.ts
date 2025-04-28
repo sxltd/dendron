@@ -1,14 +1,14 @@
-import { PodExportScope } from "@dendronhq/pods-core";
+import { PodExportScope } from "@sxltd/pods-core";
 import { describe } from "mocha";
 import * as vscode from "vscode";
 import { expect, getNoteFromTextEditor } from "../../../testUtilsv2";
 import { describeSingleWS } from "../../../testUtilsV3";
 import { AirtableExportPodCommand } from "../../../../commands/pods/AirtableExportPodCommand";
 import { ExtensionProvider } from "../../../../ExtensionProvider";
-import { vault2Path } from "@dendronhq/common-server";
+import { vault2Path } from "@sxltd/common-server";
 import path from "path";
 import { VSCodeUtils } from "../../../../vsCodeUtils";
-import { DendronError, ErrorFactory } from "@dendronhq/common-all";
+import { DendronError, ErrorFactory } from "@sxltd/common-all";
 
 suite("AirtableExportCommand", function () {
   const setUpPod = async () => {

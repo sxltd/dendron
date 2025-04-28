@@ -6,7 +6,7 @@ import {
   Position,
   position2VSCodeRange,
   ReducedDEngine,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { HashTag } from "../types";
 import { Decorator } from "./utils";
 import { DecorationWikilink, linkedNoteType } from "./wikilinks";

@@ -6,7 +6,7 @@ import {
   LookupSelectionTypeEnum,
   LookupViewMessage,
   LookupViewMessageEnum,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import * as vscode from "vscode";
 import { Disposable } from "vscode";

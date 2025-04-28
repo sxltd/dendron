@@ -2,8 +2,8 @@ import {
   error2PlainObject,
   IDendronError,
   setEnv,
-} from "@dendronhq/common-all";
-import { createLogger } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { createLogger } from "@sxltd/common-server";
 import * as Sentry from "@sentry/node";
 
 import fs from "fs-extra";

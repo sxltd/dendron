@@ -18,9 +18,9 @@ import {
   NoteQuickInput,
   NoteUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { DConfig, file2Note, vault2Path } from "@dendronhq/common-server";
-import { Heading, HistoryEvent, Node } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { DConfig, file2Note, vault2Path } from "@sxltd/common-server";
+import { Heading, HistoryEvent, Node } from "@sxltd/engine-server";
 import {
   MDUtilsV5,
   Processor,
@@ -31,7 +31,7 @@ import {
   Anchor,
   AnchorUtils,
   LinkUtils,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import _ from "lodash";
 import path from "path";
 import visit from "unist-util-visit";

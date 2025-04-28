@@ -1,4 +1,4 @@
-import { ConfigUtils, NoteDictsUtils, VaultUtils } from "@dendronhq/common-all";
+import { ConfigUtils, NoteDictsUtils, VaultUtils } from "@sxltd/common-all";
 import _ from "lodash";
 import { Content, Root } from "mdast";
 import { list, listItem, paragraph } from "mdast-builder";

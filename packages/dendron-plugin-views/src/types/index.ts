@@ -2,7 +2,7 @@ import {
   engineSlice,
   ideSlice,
   WorkspaceProps,
-} from "@dendronhq/common-frontend";
+} from "@sxltd/common-frontend";
 
 export type { WorkspaceProps };
 

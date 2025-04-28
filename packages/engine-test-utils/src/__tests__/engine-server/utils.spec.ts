@@ -1,10 +1,10 @@
-import { DNoteRefData, DNoteRefLink } from "@dendronhq/common-all";
+import { DNoteRefData, DNoteRefLink } from "@sxltd/common-all";
 import {
   matchRefMarker,
   parseDendronRef,
   parseFileLink,
   stripLocalOnlyTags,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import _ from "lodash";
 
 function createFileLink(data?: Partial<DNoteRefData>): DNoteRefLink {

@@ -2,8 +2,8 @@ import {
   InitialSurveyStatusEnum,
   LapsedUserSurveyStatusEnum,
   MetadataService,
-} from "@dendronhq/engine-server";
-import { TestEngineUtils } from "@dendronhq/engine-test-utils";
+} from "@sxltd/engine-server";
+import { TestEngineUtils } from "@sxltd/engine-test-utils";
 import { after, afterEach, beforeEach, describe } from "mocha";
 import sinon, { SinonSpy, SinonStub } from "sinon";
 import * as vscode from "vscode";

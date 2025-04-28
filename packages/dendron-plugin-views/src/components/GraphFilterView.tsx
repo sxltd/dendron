@@ -22,8 +22,8 @@ import {
   GraphThemeEnum,
   GraphViewMessage,
   GraphViewMessageEnum,
-} from "@dendronhq/common-all";
-import { ideHooks, ideSlice } from "@dendronhq/common-frontend";
+} from "@sxltd/common-all";
+import { ideHooks, ideSlice } from "@sxltd/common-frontend";
 
 const { Panel } = Collapse;
 

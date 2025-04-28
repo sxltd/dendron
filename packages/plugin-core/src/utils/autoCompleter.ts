@@ -1,7 +1,7 @@
 /**
  * Responsible for picking out the auto completions.
  * */
-import { FuseEngine } from "@dendronhq/common-all";
+import { FuseEngine } from "@sxltd/common-all";
 import * as _ from "lodash";
 import { CREATE_NEW_DETAIL_LIST } from "../components/lookup/constants";
 import { QuickPick, QuickPickItem } from "vscode";

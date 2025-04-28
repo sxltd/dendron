@@ -1,6 +1,6 @@
 import _ from "lodash";
 import ora from "ora";
-import { DENDRON_EMOJIS } from "@dendronhq/common-all";
+import { DENDRON_EMOJIS } from "@sxltd/common-all";
 
 export class CLIUtils {
   /**
@@ -27,7 +27,7 @@ export class CLIUtils {
 
   static getClientVersion() {
     // eslint-disable-next-line global-require
-    const pkgJSON = require("@dendronhq/dendron-cli/package.json");
+    const pkgJSON = require("@sxltd/dendron-cli/package.json");
     return pkgJSON.version;
   }
 }

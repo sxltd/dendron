@@ -1,4 +1,4 @@
-import { StateValidator } from "@dendronhq/common-server";
+import { StateValidator } from "@sxltd/common-server";
 import { window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";
 import { ExtensionProvider } from "../ExtensionProvider";

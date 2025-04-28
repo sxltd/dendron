@@ -1,5 +1,5 @@
-import { Awaited, NoteUtils } from "@dendronhq/common-all";
-import { AssertUtils, NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { Awaited, NoteUtils } from "@sxltd/common-all";
+import { AssertUtils, NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { writeFile } from "fs-extra";
 import _ from "lodash";
 import { before, describe } from "mocha";

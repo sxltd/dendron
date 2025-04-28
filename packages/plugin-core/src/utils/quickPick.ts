@@ -1,4 +1,4 @@
-import { DNodeUtils, NoteProps } from "@dendronhq/common-all";
+import { DNodeUtils, NoteProps } from "@sxltd/common-all";
 import { VSCodeUtils } from "../vsCodeUtils";
 import { ExtensionProvider } from "../ExtensionProvider";
 

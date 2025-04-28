@@ -1,4 +1,4 @@
-import { SearchMode } from "@dendronhq/common-all";
+import { SearchMode } from "@sxltd/common-all";
 
 export type Config = {
   type: string;

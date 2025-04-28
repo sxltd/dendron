@@ -1,5 +1,5 @@
-import { DVault, FOLDERS, VaultUtils } from "@dendronhq/common-all";
-import { WorkspaceService, WorkspaceUtils } from "@dendronhq/engine-server";
+import { DVault, FOLDERS, VaultUtils } from "@sxltd/common-all";
+import { WorkspaceService, WorkspaceUtils } from "@sxltd/engine-server";
 import _ from "lodash";
 import path from "path";
 import { commands, OpenDialogOptions, Uri, window } from "vscode";

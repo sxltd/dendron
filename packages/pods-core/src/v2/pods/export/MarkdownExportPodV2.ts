@@ -13,18 +13,18 @@ import {
   ResponseUtil,
   RespV2,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   createDisposableLogger,
   DConfig,
   getDurationMilliseconds,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import {
   DendronASTDest,
   getParsingDependencyDicts,
   MDUtilsV5,
   RemarkUtils,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import { JSONSchemaType } from "ajv";
 import { mapLimit } from "async";
 import fs from "fs-extra";

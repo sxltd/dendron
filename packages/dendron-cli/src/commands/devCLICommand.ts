@@ -8,20 +8,20 @@ import {
   NoteUtils,
   stringifyError,
   TimeUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   DConfig,
   readYAML,
   SegmentClient,
   TelemetryStatus,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import {
   MigrationChangeSetStatus,
   MigrationService,
   MigrationUtils,
   MIGRATION_ENTRIES,
   WorkspaceService,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

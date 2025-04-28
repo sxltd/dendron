@@ -1,6 +1,6 @@
-import { vault2Path } from "@dendronhq/common-server";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { vault2Path } from "@sxltd/common-server";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import path from "path";
 import * as vscode from "vscode";
 import FrontmatterFoldingRangeProvider from "../../features/FrontmatterFoldingRangeProvider";

@@ -3,7 +3,7 @@ import {
   DendronError,
   ERROR_SEVERITY,
   NoteProps,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { markdownToBlocks } from "@instantish/martian";
 import type {
   Page,

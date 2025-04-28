@@ -1,9 +1,9 @@
-import { BuildUtils } from "@dendronhq/dendron-cli";
+import { BuildUtils } from "@sxltd/dendron-cli";
 import fs from "fs-extra";
 import path from "path";
 import sinon, { stub } from "sinon";
-import {tmpDir} from "@dendronhq/common-server";
-import {DendronError} from "@dendronhq/common-all";
+import {tmpDir} from "@sxltd/common-server";
+import {DendronError} from "@sxltd/common-all";
 
 describe("getLernaRoot", () => {
 	beforeEach(()=> {

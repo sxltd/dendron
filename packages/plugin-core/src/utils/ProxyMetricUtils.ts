@@ -1,7 +1,7 @@
 import {
   EngagementEvents,
   RefactoringCommandUsedPayload,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { AnalyticsUtils } from "./analytics";
 
 export class ProxyMetricUtils {

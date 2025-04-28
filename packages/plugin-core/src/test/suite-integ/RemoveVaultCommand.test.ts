@@ -6,7 +6,7 @@ import {
   VaultUtils,
   NoteUtils,
   SchemaUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   DConfig,
   LocalConfigScope,
@@ -14,9 +14,9 @@ import {
   readYAML,
   schemaModuleOpts2File,
   writeYAML,
-} from "@dendronhq/common-server";
-import { FileTestUtils } from "@dendronhq/common-test-utils";
-import { setupWS } from "@dendronhq/engine-test-utils";
+} from "@sxltd/common-server";
+import { FileTestUtils } from "@sxltd/common-test-utils";
+import { setupWS } from "@sxltd/engine-test-utils";
 import fs from "fs-extra";
 import _ from "lodash";
 import { describe } from "mocha";

@@ -4,7 +4,7 @@ import {
   NoteProps,
   VaultUtils,
   type ReducedDEngine,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { inject, injectable } from "tsyringe";
 import vscode from "vscode";

@@ -11,10 +11,10 @@ import {
   LookupViewMessageEnum,
   DENDRON_COLORS,
   MODIFIER_DESCRIPTIONS,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import React, { useEffect } from "react";
 import { postVSCodeMessage } from "../utils/vscode";
-import { ideSlice } from "@dendronhq/common-frontend";
+import { ideSlice } from "@sxltd/common-frontend";
 
 const { Option } = Select;
 

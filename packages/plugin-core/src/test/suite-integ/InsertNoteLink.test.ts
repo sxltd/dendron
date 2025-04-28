@@ -1,5 +1,5 @@
-import { AssertUtils } from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { AssertUtils } from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import { describe } from "mocha";
 import sinon from "sinon";
 import * as vscode from "vscode";

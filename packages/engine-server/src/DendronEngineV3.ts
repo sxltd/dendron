@@ -74,7 +74,7 @@ import {
   WorkspaceOpts,
   WriteNoteResp,
   WriteSchemaResp,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   createLogger,
   DConfig,
@@ -82,14 +82,14 @@ import {
   getDurationMilliseconds,
   NodeJSUtils,
   vault2Path,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import {
   getParsingDependencyDicts,
   LinkUtils,
   MDUtilsV5,
   RemarkUtils,
   runAllDecorators,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import _ from "lodash";
 import path from "path";
 import { NotesFileSystemCache } from "./cache/notesFileSystemCache";

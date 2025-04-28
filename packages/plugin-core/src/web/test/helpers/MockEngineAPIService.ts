@@ -19,7 +19,7 @@ import {
   RespV3,
   WriteNoteResp,
   type ReducedDEngine,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 
 export class MockEngineAPIService implements ReducedDEngine {
   // private noteProps: NoteProps[];

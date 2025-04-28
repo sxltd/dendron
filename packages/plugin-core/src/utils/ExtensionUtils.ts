@@ -1,4 +1,4 @@
-import { launchv2, ServerUtils } from "@dendronhq/api-server";
+import { launchv2, ServerUtils } from "@sxltd/api-server";
 import {
   ConfigEvents,
   ConfigUtils,
@@ -11,13 +11,13 @@ import {
   Time,
   VaultUtils,
   VSCodeEvents,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   DConfig,
   getDurationMilliseconds,
   SegmentClient,
-} from "@dendronhq/common-server";
-import { MetadataService, WorkspaceService } from "@dendronhq/engine-server";
+} from "@sxltd/common-server";
+import { MetadataService, WorkspaceService } from "@sxltd/engine-server";
 import { ExecaChildProcess } from "execa";
 import fs from "fs-extra";
 import _ from "lodash";
@@ -154,7 +154,7 @@ export class ExtensionUtils {
   static getExtension() {
     const extName =
       getStage() === "dev"
-        ? "dendron.@dendronhq/plugin-core"
+        ? "dendron.@sxltd/plugin-core"
         : "dendron.dendron";
     const ext = vscode.extensions.getExtension(extName);
     return ext as vscode.Extension<any>;

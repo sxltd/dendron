@@ -2,7 +2,7 @@ import {
   BackupKeyEnum,
   BackupService,
   DConfig,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import { runEngineTestV5 } from "../..";
 import path from "path";
 import fs from "fs-extra";

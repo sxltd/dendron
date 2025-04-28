@@ -7,15 +7,15 @@ import {
   NotePropsMeta,
   NoteViewMessage,
   TutorialEvents,
-} from "@dendronhq/common-all";
-import { FileExtensionUtils, findNonNoteFile } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { FileExtensionUtils, findNonNoteFile } from "@sxltd/common-server";
 import path from "path";
 import * as vscode from "vscode";
 import { IDendronExtension } from "../../dendronExtensionInterface";
 import { Logger } from "../../logger";
 import { QuickPickUtil } from "../../utils/quickPick";
 import { VSCodeUtils } from "../../vsCodeUtils";
-import { AnchorUtils } from "@dendronhq/unified";
+import { AnchorUtils } from "@sxltd/unified";
 import _ from "lodash";
 import { PluginFileUtils } from "../../utils/files";
 import { GotoNoteCommand } from "../../commands/GotoNote";

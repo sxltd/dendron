@@ -1,4 +1,4 @@
-import Airtable, { Base, FieldSet, Record, Records } from "@dendronhq/airtable";
+import Airtable, { Base, FieldSet, Record, Records } from "@sxltd/airtable";
 import {
   DendronCompositeError,
   DendronError,
@@ -10,8 +10,8 @@ import {
   RespV2,
   RespV3,
   StatusCodes,
-} from "@dendronhq/common-all";
-import { createLogger } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { createLogger } from "@sxltd/common-server";
 import { JSONSchemaType } from "ajv";
 import { RateLimiter } from "limiter";
 import _ from "lodash";

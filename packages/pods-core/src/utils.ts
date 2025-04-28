@@ -6,8 +6,8 @@ import {
   stringifyError,
   RespV3,
   ErrorFactory,
-} from "@dendronhq/common-all";
-import { readYAML } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { readYAML } from "@sxltd/common-server";
 import Ajv, { JSONSchemaType } from "ajv";
 import addFormats from "ajv-formats";
 import fs, { ensureDirSync, writeFileSync } from "fs-extra";

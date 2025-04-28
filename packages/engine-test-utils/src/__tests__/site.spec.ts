@@ -7,14 +7,14 @@ import {
   NotePropsByIdDict,
   ReducedDEngine,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
-import { DConfig, tmpDir, vault2Path } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { DConfig, tmpDir, vault2Path } from "@sxltd/common-server";
 import {
   AssertUtils,
   NoteTestUtilsV4,
   SetupHookFunction,
-} from "@dendronhq/common-test-utils";
-import { SiteUtils } from "@dendronhq/engine-server";
+} from "@sxltd/common-test-utils";
+import { SiteUtils } from "@sxltd/engine-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import { TestConfigUtils } from "../config";

@@ -1,4 +1,4 @@
-import { DConfig, vault2Path } from "@dendronhq/common-server";
+import { DConfig, vault2Path } from "@sxltd/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
@@ -10,11 +10,11 @@ import { expect } from "../testUtilsv2";
 import { describeMultiWS, describeSingleWS } from "../testUtilsV3";
 import { test, before } from "mocha";
 import { ExtensionProvider } from "../../ExtensionProvider";
-import { VaultUtils } from "@dendronhq/common-all";
+import { VaultUtils } from "@sxltd/common-all";
 import { MessageItem, window } from "vscode";
 import sinon from "sinon";
 import { VSCodeUtils } from "../../vsCodeUtils";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 
 suite("GIVEN ReloadIndex", function () {
   describeSingleWS("WHEN root files are missing", {}, () => {

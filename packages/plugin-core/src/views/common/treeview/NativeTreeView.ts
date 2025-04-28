@@ -3,7 +3,7 @@ import {
   asyncLoopOneAtATime,
   DendronTreeViewKey,
   TreeViewItemLabelTypeEnum,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { injectable } from "tsyringe";
 import { Disposable, TextEditor, TreeView, window } from "vscode";

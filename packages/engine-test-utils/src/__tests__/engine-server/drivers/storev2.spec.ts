@@ -1,4 +1,4 @@
-import { FileStorage } from "@dendronhq/engine-server";
+import { FileStorage } from "@sxltd/engine-server";
 
 describe(`FileStorage tests:`, () => {
   describe(`createMalformedSchemaError tests`, () => {

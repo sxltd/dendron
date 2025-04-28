@@ -1,5 +1,5 @@
-import { WorkspaceService } from "@dendronhq/engine-server";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { WorkspaceService } from "@sxltd/engine-server";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import { ExtensionProvider } from "../../ExtensionProvider";
 import { describeMultiWS } from "../testUtilsV3";
 import { describe } from "mocha";

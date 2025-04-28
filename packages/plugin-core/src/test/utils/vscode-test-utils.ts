@@ -1,4 +1,4 @@
-import { tmpDir } from "@dendronhq/common-server";
+import { tmpDir } from "@sxltd/common-server";
 import sinon from "sinon";
 import * as vscode from "vscode";
 import { VSCodeUtils } from "../../vsCodeUtils";

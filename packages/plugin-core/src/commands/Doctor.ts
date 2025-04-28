@@ -15,12 +15,12 @@ import {
   Position,
   ValidateFnameResp,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   DoctorService,
   DoctorActionsEnum,
   BackfillService,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import _ from "lodash";
 import _md from "markdown-it";
 import fs from "fs-extra";
@@ -45,8 +45,8 @@ import { IDendronExtension } from "../dendronExtensionInterface";
 import { KeybindingUtils } from "../KeybindingUtils";
 import { QuickPickHierarchySelector } from "../components/lookup/HierarchySelector";
 import { PodUIControls } from "../components/pods/PodControls";
-import { RemarkUtils } from "@dendronhq/unified";
-import { DConfig } from "@dendronhq/common-server";
+import { RemarkUtils } from "@sxltd/unified";
+import { DConfig } from "@sxltd/common-server";
 
 const md = _md();
 type Finding = {

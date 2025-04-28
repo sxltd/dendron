@@ -1,4 +1,4 @@
-import { ConfigUtils, DendronConfig, NoteProps } from "@dendronhq/common-all";
+import { ConfigUtils, DendronConfig, NoteProps } from "@sxltd/common-all";
 import Giscus, { GiscusProps, Repo } from "@giscus/react";
 import _ from "lodash";
 

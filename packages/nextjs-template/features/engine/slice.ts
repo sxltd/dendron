@@ -2,13 +2,13 @@ import {
   DendronConfig,
   NoteProps,
   NotePropsByIdDict,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   createSlice,
   EngineSliceState,
   LoadingStatus,
   PayloadAction,
-} from "@dendronhq/common-frontend";
+} from "@sxltd/common-frontend";
 
 export type BrowserEngineSliceState = Omit<EngineSliceState, "noteFName"> & {
   noteIndex: NoteProps;

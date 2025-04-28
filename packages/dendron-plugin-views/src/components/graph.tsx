@@ -1,4 +1,4 @@
-import { createLogger } from "@dendronhq/common-frontend";
+import { createLogger } from "@sxltd/common-frontend";
 import _ from "lodash";
 import React, { useEffect, useRef, useState } from "react";
 import cytoscape, { Core, EdgeDefinition, EventHandler } from "cytoscape";
@@ -15,7 +15,7 @@ import {
   GraphViewMessageEnum,
   VaultUtils,
   assertUnreachable,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import useApplyGraphConfig from "../hooks/useApplyGraphConfig";
 import { DendronProps } from "../types";
 import useSyncGraphWithIDE from "../hooks/useSyncGraphWithIDE";

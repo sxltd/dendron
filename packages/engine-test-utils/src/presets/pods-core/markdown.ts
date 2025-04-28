@@ -1,10 +1,10 @@
-import { DPod } from "@dendronhq/common-all";
-import { tmpDir, vault2Path } from "@dendronhq/common-server";
+import { DPod } from "@sxltd/common-all";
+import { tmpDir, vault2Path } from "@sxltd/common-server";
 import {
   TestPresetEntryV4,
   FileTestUtils,
   AssertUtils,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import fs from "fs-extra";
 import path from "path";
 

@@ -4,7 +4,7 @@ import {
   NoteUtils,
   point2VSCodePosition,
   TAGS_HIERARCHY,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { FrontmatterContent } from "mdast";
 import { decorateTag, DecorationHashTag } from "./hashTags";
 import { Decoration, DECORATION_TYPES, Decorator } from "./utils";

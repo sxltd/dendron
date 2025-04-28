@@ -1,4 +1,4 @@
-import { DEngineClient, DVault, DendronConfig } from "@dendronhq/common-all";
+import { DEngineClient, DVault, DendronConfig } from "@sxltd/common-all";
 
 export enum SyncActionStatus {
   DONE = "",

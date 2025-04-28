@@ -1,4 +1,4 @@
-import { position2VSCodeRange } from "@dendronhq/common-all";
+import { position2VSCodeRange } from "@sxltd/common-all";
 import { BlockAnchor } from "../types";
 import { Decoration, DECORATION_TYPES, Decorator } from "./utils";
 

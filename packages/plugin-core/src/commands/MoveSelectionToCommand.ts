@@ -2,7 +2,7 @@ import {
   NoteProps,
   RefactoringCommandUsedPayload,
   StatisticsUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { DENDRON_COMMANDS } from "../constants";
 import { IDendronExtension } from "../dendronExtensionInterface";
@@ -15,7 +15,7 @@ import {
   LookupControllerV3CreateOpts,
 } from "../components/lookup/LookupControllerV3Interface";
 import { SelectionExtractBtn } from "../components/lookup/buttons";
-import { RemarkUtils } from "@dendronhq/unified";
+import { RemarkUtils } from "@sxltd/unified";
 import { ProxyMetricUtils } from "../utils/ProxyMetricUtils";
 import { NoteLookupCommand } from "./NoteLookupCommand";
 

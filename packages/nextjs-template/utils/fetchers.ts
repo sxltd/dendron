@@ -2,7 +2,7 @@ import {
   DendronConfig,
   SerializedFuseIndex,
   TreeMenu,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { getAssetUrl } from "./links";
 import { NoteData } from "./types";
 import Fuse from "fuse.js";

@@ -1,6 +1,6 @@
 {
-  "name": "@dendronhq/engine-server",
-  "version": "0.124.0",
+  "name": "@sxltd/engine-server",
+  "version": "0.1.0",
   "description": "dendron-engine",
   "license": "Apache 2.0",
   "repository": {
@@ -35,9 +35,9 @@
     "watch": "yarn compile --watch"
   },
   "dependencies": {
-    "@dendronhq/common-all": "^0.124.0",
-    "@dendronhq/common-server": "^0.124.0",
-    "@dendronhq/unified": "^0.124.0",
+    "@sxltd/common-all": "^0.1.0",
+    "@sxltd/common-server": "^0.1.0",
+    "@sxltd/unified": "^0.1.0",
     "@jcoreio/async-throttle": "^1.4.3",
     "@mapbox/rehype-prism": "^0.5.0",
     "axios": "^0.21.1",

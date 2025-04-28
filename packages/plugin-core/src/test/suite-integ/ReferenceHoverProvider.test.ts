@@ -1,10 +1,10 @@
-import { NoteProps, VaultUtils } from "@dendronhq/common-all";
+import { NoteProps, VaultUtils } from "@sxltd/common-all";
 import {
   AssertUtils,
   FileTestUtils,
   NoteTestUtilsV4,
-} from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS_MULTI } from "@dendronhq/engine-test-utils";
+} from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS_MULTI } from "@sxltd/engine-test-utils";
 import fs from "fs-extra";
 import { before, describe } from "mocha";
 import path from "path";

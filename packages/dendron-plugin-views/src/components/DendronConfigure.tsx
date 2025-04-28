@@ -12,13 +12,13 @@ import {
 } from "antd";
 import { DendronComponent, DendronProps } from "../types";
 import { useWorkspaceProps } from "../hooks";
-import { engineHooks } from "@dendronhq/common-frontend";
+import { engineHooks } from "@sxltd/common-frontend";
 import {
   ConfigureUIMessage,
   ConfigureUIMessageEnum,
   ConfigUtils,
   DMessageSource,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { postVSCodeMessage } from "../utils/vscode";
 import ConfigureElement from "./ConfigureElements";
 import _, { debounce } from "lodash";

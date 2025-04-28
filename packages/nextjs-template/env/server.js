@@ -1,5 +1,5 @@
 // @ts-check
-const { parse } = require("@dendronhq/common-all");
+const { parse } = require("@sxltd/common-all");
 const { serverSchema,  } = require("./schema");
 const { env: clientEnv } = require("./client")
 

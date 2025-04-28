@@ -1,5 +1,5 @@
 import { EdgeDefinition, NodeDefinition } from "cytoscape";
-import { GraphThemeEnum } from "@dendronhq/common-all";
+import { GraphThemeEnum } from "@sxltd/common-all";
 
 export type GraphNodes = NodeDefinition[];
 export type GraphEdges = {

@@ -5,13 +5,13 @@ import {
   VaultUtils,
   BacklinkPanelSortOrder,
   NotePropsMeta,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   NOTE_PRESETS_V4,
   NoteTestUtilsV4,
   toPlainObject,
-} from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS, TestConfigUtils } from "@dendronhq/engine-test-utils";
+} from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS, TestConfigUtils } from "@sxltd/engine-test-utils";
 import _ from "lodash";
 import { afterEach, beforeEach, test } from "mocha";
 import path from "path";
@@ -27,7 +27,7 @@ import { VSCodeUtils } from "../../vsCodeUtils";
 import { expect } from "../testUtilsv2";
 import { describeMultiWS, describeSingleWS } from "../testUtilsV3";
 import { MockEngineEvents } from "./MockEngineEvents";
-import { DConfig } from "@dendronhq/common-server";
+import { DConfig } from "@sxltd/common-server";
 
 type BacklinkWithChildren = Backlink & { children?: Backlink[] | undefined };
 

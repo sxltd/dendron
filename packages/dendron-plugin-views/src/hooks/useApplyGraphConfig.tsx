@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { getEulerConfig, GraphUtils } from "../components/graph";
 import { GraphConfig, GraphElements } from "../utils/graph";
 import _ from "lodash";
-import { createLogger } from "@dendronhq/common-frontend";
+import { createLogger } from "@sxltd/common-frontend";
 
 const useApplyGraphConfig = ({
   graph,

@@ -1,4 +1,4 @@
-import { DConfig } from "@dendronhq/common-server";
+import { DConfig } from "@sxltd/common-server";
 import { Uri } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";
 import { IDendronExtension } from "../dendronExtensionInterface";

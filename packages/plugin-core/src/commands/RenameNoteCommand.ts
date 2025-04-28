@@ -1,4 +1,4 @@
-import { extractNoteChangeEntryCounts } from "@dendronhq/common-all";
+import { extractNoteChangeEntryCounts } from "@sxltd/common-all";
 import _ from "lodash";
 import { DENDRON_COMMANDS } from "../constants";
 import { IDendronExtension } from "../dendronExtensionInterface";

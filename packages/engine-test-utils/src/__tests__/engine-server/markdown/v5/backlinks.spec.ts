@@ -3,10 +3,10 @@ import {
   DVaultVisibility,
   NoteUtils,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
-import { note2File } from "@dendronhq/common-server";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { DendronASTDest, MDUtilsV5, ProcFlavor } from "@dendronhq/unified";
+} from "@sxltd/common-all";
+import { note2File } from "@sxltd/common-server";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { DendronASTDest, MDUtilsV5, ProcFlavor } from "@sxltd/unified";
 import { TestConfigUtils } from "../../../../config";
 import { ENGINE_HOOKS, ENGINE_HOOKS_MULTI } from "../../../../presets";
 import { checkNotInVFile, checkVFile, createProcCompileTests } from "../utils";

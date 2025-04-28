@@ -1,5 +1,5 @@
-import { GitUtils, tmpDir, vault2Path } from "@dendronhq/common-server";
-import { GitTestUtils } from "@dendronhq/engine-test-utils";
+import { GitUtils, tmpDir, vault2Path } from "@sxltd/common-server";
+import { GitTestUtils } from "@sxltd/engine-test-utils";
 import path from "path";
 import sinon from "sinon";
 import { CopyCodespaceURL } from "../../commands/CopyCodespaceURL";

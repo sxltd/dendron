@@ -1,4 +1,4 @@
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import { GoUpCommand } from "../../commands/GoUpCommand";
 import { ExtensionProvider } from "../../ExtensionProvider";
 import { VSCodeUtils } from "../../vsCodeUtils";

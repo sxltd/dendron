@@ -5,10 +5,10 @@ import {
   NoteProps,
   VaultUtils,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
-import { file2Note } from "@dendronhq/common-server";
-import { SetupHookFunction } from "@dendronhq/common-test-utils";
-import { MetadataService } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { file2Note } from "@sxltd/common-server";
+import { SetupHookFunction } from "@sxltd/common-test-utils";
+import { MetadataService } from "@sxltd/engine-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

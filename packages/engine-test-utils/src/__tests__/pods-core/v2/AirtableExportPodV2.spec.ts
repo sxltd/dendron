@@ -2,8 +2,8 @@ import {
   DEngineClient,
   DNodeUtils,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
-import { SetupHookFunction } from "@dendronhq/common-test-utils";
+} from "@sxltd/common-all";
+import { SetupHookFunction } from "@sxltd/common-test-utils";
 import {
   AirtableExportPodV2,
   AirtableExportReturnType,
@@ -13,7 +13,7 @@ import {
   RunnableAirtableV2PodConfig,
   SpecialSrcFieldToKey,
   SrcFieldMapping,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import _ from "lodash";
 import { TestEngineUtils } from "../../..";
 import { runEngineTestV5 } from "../../../engine";

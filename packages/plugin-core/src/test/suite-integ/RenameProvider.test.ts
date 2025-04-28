@@ -1,5 +1,5 @@
-import { NoteChangeEntry, NoteProps } from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { NoteChangeEntry, NoteProps } from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import _ from "lodash";
 import { before, beforeEach, describe } from "mocha";
 import vscode from "vscode";

@@ -1,5 +1,5 @@
-import { DVault, DWorkspaceV2 } from "@dendronhq/common-all";
-import { WorkspaceService } from "@dendronhq/engine-server";
+import { DVault, DWorkspaceV2 } from "@sxltd/common-all";
+import { WorkspaceService } from "@sxltd/engine-server";
 
 export type OnWorkspaceCreationOpts = {
   wsVault?: DVault;

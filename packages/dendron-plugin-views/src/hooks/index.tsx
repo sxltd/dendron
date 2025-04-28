@@ -1,9 +1,9 @@
-import { NoteProps } from "@dendronhq/common-all";
+import { NoteProps } from "@sxltd/common-all";
 import {
   createLogger,
   engineHooks,
   engineSlice,
-} from "@dendronhq/common-frontend";
+} from "@sxltd/common-frontend";
 import { Mermaid } from "mermaid";
 import React from "react";
 import { DendronProps, WorkspaceProps } from "../types";

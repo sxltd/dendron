@@ -1,4 +1,4 @@
-import { DVault, NoteUtils, ReducedDEngine } from "@dendronhq/common-all";
+import { DVault, NoteUtils, ReducedDEngine } from "@sxltd/common-all";
 import assert from "assert";
 import sinon, { stubInterface } from "ts-sinon";
 import * as vscode from "vscode";

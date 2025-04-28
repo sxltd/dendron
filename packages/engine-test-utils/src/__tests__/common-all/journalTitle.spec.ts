@@ -1,4 +1,4 @@
-import { getJournalTitle } from "@dendronhq/common-all";
+import { getJournalTitle } from "@sxltd/common-all";
 
 /**
  * Tests the behavior around generating the note title for a journal note

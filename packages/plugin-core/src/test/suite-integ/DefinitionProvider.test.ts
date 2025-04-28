@@ -1,10 +1,10 @@
-import { getSlugger, NoteProps, NoteUtils } from "@dendronhq/common-all";
-import { NoteTestUtilsV4, NOTE_PRESETS_V4 } from "@dendronhq/common-test-utils";
+import { getSlugger, NoteProps, NoteUtils } from "@sxltd/common-all";
+import { NoteTestUtilsV4, NOTE_PRESETS_V4 } from "@sxltd/common-test-utils";
 import {
   callSetupHook,
   ENGINE_HOOKS_MULTI,
   SETUP_HOOK_KEYS,
-} from "@dendronhq/engine-test-utils";
+} from "@sxltd/engine-test-utils";
 import fs from "fs-extra";
 import { before, describe } from "mocha";
 import path from "path";

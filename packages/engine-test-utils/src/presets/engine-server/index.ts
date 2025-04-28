@@ -10,7 +10,7 @@ import { ENGINE_BULK_WRITE_NOTES_PRESETS } from "./bulkWriteNotes";
 import { ENGINE_RENDER_PRESETS } from "./render";
 import { ENGINE_WRITE_PRESETS, ENGINE_WRITE_PRESETS_MULTI } from "./write";
 import _ from "lodash";
-import { TestPresetEntryV4 } from "@dendronhq/common-test-utils";
+import { TestPresetEntryV4 } from "@sxltd/common-test-utils";
 
 export { ENGINE_HOOKS, ENGINE_HOOKS_BASE, ENGINE_HOOKS_MULTI } from "./utils";
 export { ENGINE_RENAME_PRESETS };

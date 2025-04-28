@@ -1,6 +1,6 @@
-import { writeYAML } from "@dendronhq/common-server";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
-import { PodUtils, PodV2Types } from "@dendronhq/pods-core";
+import { writeYAML } from "@sxltd/common-server";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
+import { PodUtils, PodV2Types } from "@sxltd/pods-core";
 import { ensureDirSync } from "fs-extra";
 import path from "path";
 import sinon from "sinon";

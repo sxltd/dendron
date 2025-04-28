@@ -1,4 +1,4 @@
-import { DVault, VaultUtils } from "@dendronhq/common-all";
+import { DVault, VaultUtils } from "@sxltd/common-all";
 import { ExtensionProvider } from "./ExtensionProvider";
 
 /**

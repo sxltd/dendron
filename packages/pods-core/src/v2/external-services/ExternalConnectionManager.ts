@@ -1,4 +1,4 @@
-import { assertUnreachable } from "@dendronhq/common-all";
+import { assertUnreachable } from "@sxltd/common-all";
 import fs from "fs-extra";
 import path from "path";
 import {

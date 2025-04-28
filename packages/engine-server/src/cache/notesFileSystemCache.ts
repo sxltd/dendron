@@ -1,4 +1,4 @@
-import { NotesCache, NotesCacheEntry } from "@dendronhq/common-all";
+import { NotesCache, NotesCacheEntry } from "@sxltd/common-all";
 import _ from "lodash";
 import { DendronFileSystemCache } from "./dendronFileSystemCache";
 

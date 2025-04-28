@@ -1,4 +1,4 @@
-import { DendronError, DVault, VaultUtils } from "@dendronhq/common-all";
+import { DendronError, DVault, VaultUtils } from "@sxltd/common-all";
 import _ from "lodash";
 import path from "path";
 import { runEngineTestV5 } from "../../engine";

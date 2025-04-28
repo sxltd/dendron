@@ -5,11 +5,11 @@ import {
   NoteDictsUtils,
   WorkspaceInitRequest,
   WorkspaceSyncRequest,
-} from "@dendronhq/common-all";
-import { DendronEngineV2, DendronEngineV3 } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { DendronEngineV2, DendronEngineV3 } from "@sxltd/engine-server";
 import { getLogger } from "../../core";
 import { getWSEngine, putWS } from "../../utils";
-import { DConfig, getDurationMilliseconds } from "@dendronhq/common-server";
+import { DConfig, getDurationMilliseconds } from "@sxltd/common-server";
 
 export class WorkspaceController {
   static singleton?: WorkspaceController;

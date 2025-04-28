@@ -1,4 +1,4 @@
-import { DEngineClient, WorkspaceService } from "@dendronhq/engine-server";
+import { DEngineClient, WorkspaceService } from "@sxltd/engine-server";
 import _ from "lodash";
 import yargs from "yargs";
 import { CLICommand, CommandCommonProps } from "./base";

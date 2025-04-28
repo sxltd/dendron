@@ -10,7 +10,7 @@ import {
   NotePropsMeta,
   NoteStore,
   type ReducedDEngine,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { container, Lifecycle } from "tsyringe";
 import * as vscode from "vscode";
 import { Event, EventEmitter, TextDocument, workspace } from "vscode";

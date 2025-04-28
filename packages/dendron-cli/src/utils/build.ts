@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import { DendronError, error2PlainObject } from "@dendronhq/common-all";
-import { createLogger, findUpTo } from "@dendronhq/common-server";
+import { DendronError, error2PlainObject } from "@sxltd/common-all";
+import { createLogger, findUpTo } from "@sxltd/common-server";
 import execa from "execa";
 import fs from "fs-extra";
 import _ from "lodash";
@@ -225,8 +225,8 @@ export class BuildUtils {
     this.removeDevDepsFromPkgJson({
       pkgPath,
       dependencies: [
-        "@dendronhq/common-test-utils",
-        "@dendronhq/engine-test-utils",
+        "@sxltd/common-test-utils",
+        "@sxltd/engine-test-utils",
         "vscode-test",
       ],
     });

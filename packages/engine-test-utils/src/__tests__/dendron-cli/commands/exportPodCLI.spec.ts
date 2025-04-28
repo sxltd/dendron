@@ -1,6 +1,6 @@
-import { ERROR_SEVERITY } from "@dendronhq/common-all";
-import { writeYAML } from "@dendronhq/common-server";
-import { PodSource, PublishPodCLICommand } from "@dendronhq/dendron-cli";
+import { ERROR_SEVERITY } from "@sxltd/common-all";
+import { writeYAML } from "@sxltd/common-server";
+import { PodSource, PublishPodCLICommand } from "@sxltd/dendron-cli";
 import path from "path";
 import { runEngineTestV5 } from "../../..";
 

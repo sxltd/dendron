@@ -3,7 +3,7 @@ import {
   DPod,
   NoteProps,
   PodConflictResolveOpts,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 
 export interface PodClassEntryV4 {
   id: string;

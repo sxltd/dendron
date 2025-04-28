@@ -9,8 +9,8 @@ import {
   WorkspaceType,
   ConfigUtils,
   SeedVault,
-} from "@dendronhq/common-all";
-import { DConfig, simpleGit, writeYAML } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { DConfig, simpleGit, writeYAML } from "@sxltd/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

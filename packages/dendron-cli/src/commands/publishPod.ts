@@ -1,9 +1,9 @@
-import { DendronError, RespV3 } from "@dendronhq/common-all";
+import { DendronError, RespV3 } from "@sxltd/common-all";
 import {
   getAllPublishPods,
   PublishPod,
   PublishPodConfig,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import yargs from "yargs";
 import { CLICommand, CommandCommonProps } from "./base";
 import { enrichPodArgs, PodCLIOpts, setupPodArgs } from "./pod";

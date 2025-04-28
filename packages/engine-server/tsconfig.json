@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     // "paths": {
-    //   "@dendronhq/common-server": ["node_modules/@dendronhq/common-server"]
+    //   "@sxltd/common-server": ["node_modules/@sxltd/common-server"]
     // }
   }
 }

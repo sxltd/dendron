@@ -21,7 +21,7 @@ import {
   ERROR_SEVERITY,
   getSlugger,
   asyncLoopOneAtATime,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 
 const ID = "dendron.githubissue";
 

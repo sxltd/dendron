@@ -6,7 +6,7 @@ import {
   GetNoteResp,
   NotePropsMeta,
   RenderNoteResp,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { createServer, runEngineTestV5 } from "../../engine";
 import { ENGINE_HOOKS } from "../../presets";
 

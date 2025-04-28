@@ -6,13 +6,13 @@ import {
   NoteProps,
   NoteUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   cleanFileName,
   DConfig,
   readMD,
   vault2Path,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import {
   DendronASTDest,
   DendronASTNode,
@@ -24,7 +24,7 @@ import {
   RemarkUtils,
   selectAll,
   WikiLinkNoteV4,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import fs from "fs-extra";
 import klaw, { Item } from "klaw";
 import _ from "lodash";

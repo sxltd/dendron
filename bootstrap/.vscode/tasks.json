@@ -11,12 +11,12 @@
       "description": "scope",
       "type": "pickString",
       "options": [
-        "@dendronhq/common-all",
-        "@dendronhq/common-server",
-        "@dendronhq/engine-server",
-        "@dendronhq/dendron-cli",
-        "@dendronhq/pods-core",
-        "@dendronhq/plugin-core"
+        "@sxltd/common-all",
+        "@sxltd/common-server",
+        "@sxltd/engine-server",
+        "@sxltd/dendron-cli",
+        "@sxltd/pods-core",
+        "@sxltd/plugin-core"
       ]
     }
   ],

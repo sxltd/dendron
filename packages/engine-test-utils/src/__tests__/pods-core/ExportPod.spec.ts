@@ -1,11 +1,11 @@
-import { DEngineClient, WorkspaceOpts } from "@dendronhq/common-all";
+import { DEngineClient, WorkspaceOpts } from "@sxltd/common-all";
 import {
   ExportPod,
   ExportPodConfig,
   ExportPodPlantOpts,
   JSONSchemaType,
   PodUtils,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import _ from "lodash";
 import { runEngineTestV5 } from "../../engine";
 import { ENGINE_HOOKS_MULTI } from "../../presets";

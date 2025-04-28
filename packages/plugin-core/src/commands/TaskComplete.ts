@@ -1,4 +1,4 @@
-import { ConfigUtils } from "@dendronhq/common-all";
+import { ConfigUtils } from "@sxltd/common-all";
 import { DENDRON_COMMANDS } from "../constants";
 import { BasicCommand } from "./base";
 import { VSCodeUtils, MessageSeverity } from "../vsCodeUtils";

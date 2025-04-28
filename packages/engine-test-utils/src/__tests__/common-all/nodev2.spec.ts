@@ -1,8 +1,8 @@
-import { NoteUtils, SchemaUtils } from "@dendronhq/common-all";
+import { NoteUtils, SchemaUtils } from "@sxltd/common-all";
 import {
   NoteTestUtilsV4,
   SetupHookFunction,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import { tmpdir } from "os";
 import { runEngineTestV5 } from "../../engine";
 

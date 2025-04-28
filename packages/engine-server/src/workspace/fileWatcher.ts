@@ -1,7 +1,7 @@
 import chokidar from "chokidar";
-import { COMMON_FOLDER_IGNORES } from "@dendronhq/common-server";
+import { COMMON_FOLDER_IGNORES } from "@sxltd/common-server";
 import path from "path";
-import type { Disposable } from "@dendronhq/common-all";
+import type { Disposable } from "@sxltd/common-all";
 
 type SupportedEvents = "add" | "addDir" | "change" | "unlink" | "unlinkDir";
 

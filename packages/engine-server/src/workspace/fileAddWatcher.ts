@@ -5,7 +5,7 @@ import type { Disposable } from "vscode";
 import {
   uniqueOutermostFolders,
   WS_FILE_MAX_SEARCH_DEPTH,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 
 export type AutoInitCallback = (filePath: string) => any;
 

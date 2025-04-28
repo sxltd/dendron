@@ -13,8 +13,8 @@ import {
   milliseconds,
   FIFOQueue,
   NotePropsMeta,
-} from "@dendronhq/common-all";
-import { createLogger, engineSlice } from "@dendronhq/common-frontend";
+} from "@sxltd/common-all";
+import { createLogger, engineSlice } from "@sxltd/common-frontend";
 import { message } from "antd";
 import { EdgeDefinition } from "cytoscape";
 import _ from "lodash";

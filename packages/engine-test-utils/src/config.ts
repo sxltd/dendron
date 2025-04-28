@@ -1,5 +1,5 @@
-import { DConfig, readYAML, writeYAML } from "@dendronhq/common-server";
-import { DendronConfig } from "@dendronhq/common-all";
+import { DConfig, readYAML, writeYAML } from "@sxltd/common-server";
+import { DendronConfig } from "@sxltd/common-all";
 
 export class TestConfigUtils {
   static getConfig = (opts: { wsRoot: string }) => {

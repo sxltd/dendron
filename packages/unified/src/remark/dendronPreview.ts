@@ -1,4 +1,4 @@
-import { vault2Path } from "@dendronhq/common-all";
+import { vault2Path } from "@sxltd/common-all";
 import _ from "lodash";
 import { Image, Link, Text } from "mdast";
 import Unified, { Transformer } from "unified";

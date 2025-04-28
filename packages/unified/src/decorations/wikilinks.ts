@@ -11,7 +11,7 @@ import {
   position2VSCodeRange,
   ReducedDEngine,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import { AnchorUtils } from "../remark";
 import { isBeginBlockAnchorId, isEndBlockAnchorId } from "../remark/noteRefsV2";

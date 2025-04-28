@@ -1,9 +1,9 @@
-import { TimeUtils } from "@dendronhq/common-all";
+import { TimeUtils } from "@sxltd/common-all";
 import {
   SegmentClient,
   TelemetryStatus,
   tmpDir,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import {
   BuildUtils,
   DevCLICommand,
@@ -12,7 +12,7 @@ import {
   LernaUtils,
   PublishEndpoint,
   SemverVersion,
-} from "@dendronhq/dendron-cli";
+} from "@sxltd/dendron-cli";
 import fs from "fs-extra";
 import path from "path";
 import Sinon, { stub } from "sinon";

@@ -1,4 +1,4 @@
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { describe } from "mocha";
 import { MergeNoteCommand } from "../../commands/MergeNoteCommand";
 import { ExtensionProvider } from "../../ExtensionProvider";

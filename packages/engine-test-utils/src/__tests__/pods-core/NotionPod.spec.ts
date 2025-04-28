@@ -1,7 +1,7 @@
 import { ENGINE_HOOKS } from "../../presets";
-import { NotionExportPod } from "@dendronhq/pods-core";
+import { NotionExportPod } from "@sxltd/pods-core";
 import { runEngineTestV5 } from "../../engine";
-import { VaultUtils } from "@dendronhq/common-all";
+import { VaultUtils } from "@sxltd/common-all";
 
 describe("GIVEN a Notion export pod", () => {
   const utilityMethods = {

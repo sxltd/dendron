@@ -16,7 +16,7 @@ import {
   WorkspaceOpts,
   WorkspaceSettings,
   WorkspaceType,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   assignJSONWithComment,
   DConfig,
@@ -25,25 +25,25 @@ import {
   schemaModuleOpts2File,
   tmpDir,
   writeYAML,
-} from "@dendronhq/common-server";
+} from "@sxltd/common-server";
 import {
   CreateEngineFunction,
   EngineOpt,
   EngineTestUtilsV4,
   PreSetupCmdHookFunction,
   PreSetupHookFunction,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import {
   DendronEngineClient,
   Git,
   HistoryService,
   WorkspaceUtils,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import {
   ModConfigCb,
   TestConfigUtils,
   TestSetupWorkspaceOpts,
-} from "@dendronhq/engine-test-utils";
+} from "@sxltd/engine-test-utils";
 import fs from "fs-extra";
 import _ from "lodash";
 import { after, afterEach, before, beforeEach, describe } from "mocha";

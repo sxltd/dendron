@@ -1,12 +1,12 @@
-import { DLink, NoteProps, NoteUtils, RespV3 } from "@dendronhq/common-all";
+import { DLink, NoteProps, NoteUtils, RespV3 } from "@sxltd/common-all";
 import {
   NoteTestUtilsV4,
   SetupHookFunction,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import {
   NotemetadataExtractScalarProps,
   NoteMetadataUtils,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import { runEngineTestV5 } from "../../engine";
 import { checkString } from "../../utils";
 

@@ -1,7 +1,7 @@
 import {
   MetadataService,
   WorkspaceActivationContext,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import { BlankInitializer } from "./blankInitializer";
 import { SeedBrowserInitializer } from "./seedBrowserInitializer";
 import { TutorialInitializer } from "./tutorialInitializer";

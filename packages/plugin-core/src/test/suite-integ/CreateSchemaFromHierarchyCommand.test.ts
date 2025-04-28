@@ -6,12 +6,12 @@ import {
   StopReason,
   UserQueries,
 } from "../../commands/CreateSchemaFromHierarchyCommand";
-import { TestNoteFactory } from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { TestNoteFactory } from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import sinon from "sinon";
 import { beforeEach, describe, it } from "mocha";
 import { VSCodeUtils } from "../../vsCodeUtils";
-import { DVault } from "@dendronhq/common-all";
+import { DVault } from "@sxltd/common-all";
 import { expect } from "../testUtilsv2";
 import { runLegacyMultiWorkspaceTest, setupBeforeAfter } from "../testUtilsV3";
 import vscode from "vscode";

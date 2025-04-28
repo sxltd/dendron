@@ -2,8 +2,8 @@ import {
   DMessageSource,
   GraphViewMessage,
   GraphViewMessageEnum,
-} from "@dendronhq/common-all";
-import { createLogger, engineHooks } from "@dendronhq/common-frontend";
+} from "@sxltd/common-all";
+import { createLogger, engineHooks } from "@sxltd/common-frontend";
 import { useEffect, useState } from "react";
 import useGraphElements from "../hooks/useGraphElements";
 import { DendronComponent } from "../types";

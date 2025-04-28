@@ -8,9 +8,9 @@ import {
   NoteProps,
   VaultUtils,
   WorkspaceOpts,
-} from "@dendronhq/common-all";
-import { AssertUtils, NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { DConfig } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { AssertUtils, NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { DConfig } from "@sxltd/common-server";
 import {
   DendronASTData,
   DendronASTDest,
@@ -19,7 +19,7 @@ import {
   ProcFlavor,
   ProcMode,
   VFile,
-} from "@dendronhq/unified";
+} from "@sxltd/unified";
 import _ from "lodash";
 import { TestConfigUtils } from "../../../config";
 import { runEngineTestV5, testWithEngine } from "../../../engine";

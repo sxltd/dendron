@@ -1,4 +1,4 @@
-import { GitUtils } from "@dendronhq/common-server";
+import { GitUtils } from "@sxltd/common-server";
 import _ from "lodash";
 import * as vscode from "vscode";
 import { DENDRON_COMMANDS } from "../constants";

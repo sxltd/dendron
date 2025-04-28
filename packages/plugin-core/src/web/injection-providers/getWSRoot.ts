@@ -1,4 +1,4 @@
-import { CONSTANTS, isNotUndefined } from "@dendronhq/common-all";
+import { CONSTANTS, isNotUndefined } from "@sxltd/common-all";
 import path from "path";
 import * as vscode from "vscode";
 import { WorkspaceFolder } from "vscode";

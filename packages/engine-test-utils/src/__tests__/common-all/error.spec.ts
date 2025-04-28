@@ -1,4 +1,4 @@
-import { ErrorMessages } from "@dendronhq/common-all";
+import { ErrorMessages } from "@sxltd/common-all";
 
 describe(`ErrorMessages tests:`, () => {
   describe(`formatShouldNeverOccurMsg tests:`, () => {

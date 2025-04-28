@@ -1,5 +1,5 @@
 import React from "react";
-import { NoteProps } from "@dendronhq/common-all";
+import { NoteProps } from "@sxltd/common-all";
 import { Anchor } from "antd";
 import _ from "lodash";
 import type { ComponentProps } from "react";

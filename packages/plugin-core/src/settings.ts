@@ -1,4 +1,4 @@
-import { pathForVaultRoot } from "@dendronhq/common-server";
+import { pathForVaultRoot } from "@sxltd/common-server";
 import {
   CodeConfigChanges,
   ConfigChanges,
@@ -9,7 +9,7 @@ import {
   WorkspaceConfig as EngineWorkspaceConfig,
   Extensions as EngineExtension,
   _SETTINGS,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import _ from "lodash";
 import path from "path";
 import {

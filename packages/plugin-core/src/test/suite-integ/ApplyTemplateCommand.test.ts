@@ -1,6 +1,6 @@
-import { NoteProps } from "@dendronhq/common-all";
-import { AssertUtils, NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { NoteProps } from "@sxltd/common-all";
+import { AssertUtils, NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import sinon from "sinon";
 import { ApplyTemplateCommand } from "../../commands/ApplyTemplateCommand";
 import { ExtensionProvider } from "../../ExtensionProvider";

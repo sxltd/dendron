@@ -1,6 +1,6 @@
-import { DNodeUtils, NoteChangeEntry, VaultUtils } from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
-import { HistoryEvent } from "@dendronhq/engine-server";
+import { DNodeUtils, NoteChangeEntry, VaultUtils } from "@sxltd/common-all";
+import { vault2Path } from "@sxltd/common-server";
+import { HistoryEvent } from "@sxltd/engine-server";
 import _ from "lodash";
 import path from "path";
 import { Disposable, TextEditor, Uri, window } from "vscode";

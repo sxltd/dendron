@@ -6,8 +6,8 @@ import {
   NoteOpts,
   NoteProps,
   NoteUtils,
-} from "@dendronhq/common-all";
-import { AssertUtils } from "@dendronhq/common-test-utils";
+} from "@sxltd/common-all";
+import { AssertUtils } from "@sxltd/common-test-utils";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

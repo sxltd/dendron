@@ -1,11 +1,11 @@
-import { ENGINE_HOOKS } from "@dendronhq/engine-test-utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import { ExtensionProvider } from "../../ExtensionProvider";
 import { describeSingleWS } from "../testUtilsV3";
 import { WSUtilsV2 } from "../../WSUtilsV2";
 import { DeleteCommand } from "../../commands/DeleteCommand";
 import sinon from "sinon";
 import { expect } from "../testUtilsv2";
-import { VaultUtils } from "@dendronhq/common-all";
+import { VaultUtils } from "@sxltd/common-all";
 import * as vscode from "vscode";
 import { Utils } from "vscode-uri";
 

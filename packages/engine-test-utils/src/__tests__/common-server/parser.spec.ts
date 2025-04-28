@@ -1,4 +1,4 @@
-import { SchemaParserV2 } from "@dendronhq/common-server";
+import { SchemaParserV2 } from "@sxltd/common-server";
 
 describe(`SchemaParserV2 tests:`, () => {
   const VALID_SCHEMA_OPTS = {

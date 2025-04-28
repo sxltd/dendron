@@ -2,7 +2,7 @@ import {
   VaultCLICommand,
   VaultCLICommandOpts,
   VaultCommands,
-} from "@dendronhq/dendron-cli";
+} from "@sxltd/dendron-cli";
 import { createEngineFromServer, runEngineTestV5 } from "../../../engine";
 import { checkVaults } from "../../../utils";
 

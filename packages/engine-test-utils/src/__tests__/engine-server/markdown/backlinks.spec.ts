@@ -1,7 +1,7 @@
-import { ConfigUtils } from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
-import { AssertUtils, NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { getParsingDependencyDicts, MDUtilsV5 } from "@dendronhq/unified";
+import { ConfigUtils } from "@sxltd/common-all";
+import { DConfig } from "@sxltd/common-server";
+import { AssertUtils, NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { getParsingDependencyDicts, MDUtilsV5 } from "@sxltd/unified";
 import { runEngineTestV5, TestConfigUtils } from "../../..";
 
 describe("backlinks", () => {

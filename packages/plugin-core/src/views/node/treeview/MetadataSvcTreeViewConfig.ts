@@ -1,5 +1,5 @@
-import { TreeViewItemLabelTypeEnum } from "@dendronhq/common-all";
-import { MetadataService } from "@dendronhq/engine-server";
+import { TreeViewItemLabelTypeEnum } from "@sxltd/common-all";
+import { MetadataService } from "@sxltd/engine-server";
 import { ITreeViewConfig } from "../../common/treeview/ITreeViewConfig";
 
 /**

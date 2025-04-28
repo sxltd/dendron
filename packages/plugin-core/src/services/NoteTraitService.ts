@@ -1,4 +1,4 @@
-import { NoteTrait, RespV2 } from "@dendronhq/common-all";
+import { NoteTrait, RespV2 } from "@sxltd/common-all";
 import * as vscode from "vscode";
 
 /**

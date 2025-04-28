@@ -1,9 +1,9 @@
-import { DendronError, ERROR_SEVERITY } from "@dendronhq/common-all";
+import { DendronError, ERROR_SEVERITY } from "@sxltd/common-all";
 import {
   SyncActionResult,
   SyncActionStatus,
   WorkspaceUtils,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import _ from "lodash";
 import { ProgressLocation, window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";

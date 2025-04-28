@@ -1,4 +1,4 @@
-import { TransformedQueryString, NoteLookupUtils } from "@dendronhq/common-all";
+import { TransformedQueryString, NoteLookupUtils } from "@sxltd/common-all";
 
 describe("NoteLookupUtils.transformQueryString tests:", () => {
   describe(`WHEN given simple string with slashes`, () => {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Script from "next/script";
-import { createLogger } from "@dendronhq/common-frontend";
+import { createLogger } from "@sxltd/common-frontend";
 
 interface MermaidScriptProps {
   noteBody: string;

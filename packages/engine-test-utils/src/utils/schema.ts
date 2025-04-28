@@ -1,5 +1,5 @@
-import { SchemaUtils, VaultUtils } from "@dendronhq/common-all";
-import { SetupHookFunction } from "@dendronhq/common-test-utils";
+import { SchemaUtils, VaultUtils } from "@sxltd/common-all";
+import { SetupHookFunction } from "@sxltd/common-test-utils";
 import _ from "lodash";
 import fs from "fs-extra";
 import path from "path";

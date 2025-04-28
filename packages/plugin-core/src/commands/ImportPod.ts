@@ -1,4 +1,4 @@
-import { NoteProps } from "@dendronhq/common-all";
+import { NoteProps } from "@sxltd/common-all";
 import {
   getAllImportPods,
   ImportPod,
@@ -7,7 +7,7 @@ import {
   PodItemV4,
   PodUtils,
   PROMPT,
-} from "@dendronhq/pods-core";
+} from "@sxltd/pods-core";
 import _ from "lodash";
 import { ProgressLocation, Uri, window } from "vscode";
 import { DENDRON_COMMANDS, Oauth2Pods } from "../constants";

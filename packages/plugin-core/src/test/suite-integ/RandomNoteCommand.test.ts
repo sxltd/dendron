@@ -1,6 +1,6 @@
-import { ConfigUtils, RandomNoteConfig } from "@dendronhq/common-all";
-import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
-import { TestEngineUtils } from "@dendronhq/engine-test-utils";
+import { ConfigUtils, RandomNoteConfig } from "@sxltd/common-all";
+import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
+import { TestEngineUtils } from "@sxltd/engine-test-utils";
 import * as vscode from "vscode";
 import { RandomNoteCommand } from "../../commands/RandomNote";
 import { DENDRON_COMMANDS } from "../../constants";

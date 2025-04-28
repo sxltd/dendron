@@ -1,4 +1,4 @@
-import { Theme } from "@dendronhq/common-all";
+import { Theme } from "@sxltd/common-all";
 
 /**
  * Configuration for the preview panel

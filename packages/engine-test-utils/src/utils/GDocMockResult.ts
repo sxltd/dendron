@@ -1,4 +1,4 @@
-import { NoteProps } from "@dendronhq/common-all";
+import { NoteProps } from "@sxltd/common-all";
 
 export const response = {
   data: {

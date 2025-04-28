@@ -21,8 +21,8 @@ import {
   BulkGetNoteResp,
   EngineBulkGetNoteRequest,
   BulkGetNoteMetaResp,
-} from "@dendronhq/common-all";
-import { ExpressUtils } from "@dendronhq/common-server";
+} from "@sxltd/common-all";
+import { ExpressUtils } from "@sxltd/common-server";
 import { Request, Response, Router } from "express";
 import asyncHandler from "express-async-handler";
 import { NoteController } from "../modules/notes";

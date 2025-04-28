@@ -1,4 +1,4 @@
-import { PodExportScope } from "@dendronhq/pods-core";
+import { PodExportScope } from "@sxltd/pods-core";
 import { describe } from "mocha";
 import { JSONExportPodCommand } from "../../../../commands/pods/JSONExportPodCommand";
 import { ExtensionProvider } from "../../../../ExtensionProvider";

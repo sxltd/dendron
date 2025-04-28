@@ -8,7 +8,7 @@ import {
   getStage,
   getWebTreeViewEntry,
   ThemeType,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { inject, injectable } from "tsyringe";
 import * as vscode from "vscode";
 import { URI, Utils } from "vscode-uri";

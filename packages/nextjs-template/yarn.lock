@@ -654,9 +654,9 @@
   "resolved" "https://registry.npmjs.org/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz"
   "version" "3.4.0"
 
-"@dendronhq/common-all@^0.115.0", "@dendronhq/common-all@^0.115.1":
+"@sxltd/common-all@^0.115.0", "@sxltd/common-all@^0.115.1":
   "integrity" "sha512-lhq+oYbA7ex0EY1d2ndoJ8amx1ud/gxcFMcA+UIVToBax01ZdFOY8jPJJ3NmLnViotv6dTNeaWv3Ov+jfw1UJw=="
-  "resolved" "https://registry.npmjs.org/@dendronhq/common-all/-/common-all-0.115.1.tgz"
+  "resolved" "https://registry.npmjs.org/@sxltd/common-all/-/common-all-0.115.1.tgz"
   "version" "0.115.1"
   dependencies:
     "axios" "^0.21.4"
@@ -677,13 +677,13 @@
     "vscode-uri" "^3.0.3"
     "zod" "3.19.1"
 
-"@dendronhq/common-frontend@^0.115.0":
+"@sxltd/common-frontend@^0.115.0":
   "integrity" "sha512-sRji1Xr4lWhsSxvlc+62RZmoCYRz61u3LgnLw/KUmYgbR8qDn9RiR0ssE+vRb8dOENdQ+qc65q786rgqZnaosA=="
-  "resolved" "https://registry.npmjs.org/@dendronhq/common-frontend/-/common-frontend-0.115.1.tgz"
+  "resolved" "https://registry.npmjs.org/@sxltd/common-frontend/-/common-frontend-0.115.1.tgz"
   "version" "0.115.1"
   dependencies:
     "@aws-amplify/core" "^4.0.2"
-    "@dendronhq/common-all" "^0.115.1"
+    "@sxltd/common-all" "^0.115.1"
     "@reduxjs/toolkit" "^1.5.1"
     "antd" "^4.15.4"
     "lodash" "^4.17.20"

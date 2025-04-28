@@ -1,4 +1,4 @@
-import { DEngineClient } from "@dendronhq/common-all";
+import { DEngineClient } from "@sxltd/common-all";
 
 export type ImportType = {
   moduleName: string;

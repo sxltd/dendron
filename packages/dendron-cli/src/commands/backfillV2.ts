@@ -1,5 +1,5 @@
-import { DEngineClient, NoteProps } from "@dendronhq/common-all";
-import { BackfillService } from "@dendronhq/engine-server";
+import { DEngineClient, NoteProps } from "@sxltd/common-all";
+import { BackfillService } from "@sxltd/engine-server";
 import { BaseCommand, CommandCommonProps } from "./base";
 
 type CommandOpts = {

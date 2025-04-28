@@ -4,7 +4,7 @@ import {
   GraphThemeEnum,
   Time,
   TreeViewItemLabelTypeEnum,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import fs from "fs-extra";
 import os from "os";
 import path from "path";

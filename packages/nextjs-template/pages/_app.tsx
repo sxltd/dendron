@@ -4,14 +4,14 @@ import {
   DendronConfig,
   NoteProps,
   Theme,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   batch,
   createLogger,
   ideSlice,
   Provider,
   setLogLevel,
-} from "@dendronhq/common-frontend";
+} from "@sxltd/common-frontend";
 import "antd/dist/antd.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";

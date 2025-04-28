@@ -6,15 +6,15 @@ import {
   RuntimeUtils,
   DENDRON_EMOJIS,
   ConfigUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   createLogger,
   DConfig,
   getDurationMilliseconds,
   SegmentClient,
   TelemetryStatus,
-} from "@dendronhq/common-server";
-import { MIGRATION_ENTRIES, WorkspaceUtils } from "@dendronhq/engine-server";
+} from "@sxltd/common-server";
+import { MIGRATION_ENTRIES, WorkspaceUtils } from "@sxltd/engine-server";
 import _ from "lodash";
 import yargs from "yargs";
 import { CLIAnalyticsUtils } from "../utils/analytics";
@@ -129,7 +129,7 @@ export abstract class CLICommand<
         validationResp;
       const instruction =
         reason === "client"
-          ? "Please make sure dendron-cli is up to date by running the following: \n npm install @dendronhq/dendron-cli@latest"
+          ? "Please make sure dendron-cli is up to date by running the following: \n npm install @sxltd/dendron-cli@latest"
           : `Please make sure dendron.yml is up to date by running the following: \n dendron dev run_migration --migrationVersion=${MIGRATION_ENTRIES[0].version}`;
       const clientVersionOkay =
         reason === "client" ? DENDRON_EMOJIS.NOT_OKAY : DENDRON_EMOJIS.OKAY;

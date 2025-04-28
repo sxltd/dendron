@@ -1,4 +1,4 @@
-import { SeedService } from "@dendronhq/engine-server";
+import { SeedService } from "@sxltd/engine-server";
 import sinon from "sinon";
 import { SeedAddCommand } from "../../commands/SeedAddCommand";
 import { SeedRemoveCommand } from "../../commands/SeedRemoveCommand";

@@ -4,8 +4,8 @@ import {
   error2PlainObject,
   SeedCommands,
   SeedConfig,
-} from "@dendronhq/common-all";
-import { SeedInitMode, SeedService, SeedUtils } from "@dendronhq/engine-server";
+} from "@sxltd/common-all";
+import { SeedInitMode, SeedService, SeedUtils } from "@sxltd/engine-server";
 import _ from "lodash";
 import path from "path";
 import yargs from "yargs";

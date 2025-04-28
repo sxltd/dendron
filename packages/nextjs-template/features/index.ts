@@ -4,7 +4,7 @@ import {
   useSelector,
   configureStore,
   ideSlice,
-} from "@dendronhq/common-frontend";
+} from "@sxltd/common-frontend";
 import { browserEngineSlice } from "./engine";
 
 const store = configureStore({

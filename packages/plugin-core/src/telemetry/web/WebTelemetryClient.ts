@@ -1,4 +1,4 @@
-import { AppNames } from "@dendronhq/common-all";
+import { AppNames } from "@sxltd/common-all";
 import axios, { AxiosRequestConfig } from "axios";
 import { inject, injectable, registry } from "tsyringe";
 import * as vscode from "vscode";

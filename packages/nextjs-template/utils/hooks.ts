@@ -4,8 +4,8 @@ import {
   DendronConfig,
   NoteProps,
   NotePropsByIdDict,
-} from "@dendronhq/common-all";
-import { verifyEngineSliceState } from "@dendronhq/common-frontend";
+} from "@sxltd/common-all";
+import { verifyEngineSliceState } from "@sxltd/common-frontend";
 import { Grid } from "antd";
 import _ from "lodash";
 import { NextRouter, useRouter } from "next/router";

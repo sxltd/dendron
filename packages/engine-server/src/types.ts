@@ -1,4 +1,4 @@
-import { DEngineClient, DNoteLoc } from "@dendronhq/common-all";
+import { DEngineClient, DNoteLoc } from "@sxltd/common-all";
 import { Heading } from "mdast";
 import {
   Literal as UnistLiteral,

@@ -2,12 +2,12 @@ import {
   NoteChangeEntry,
   NoteChangeUpdateEntry,
   extractNoteChangeEntriesByType,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import {
   NoteTestUtilsV4,
   testAssertsInsideCallback,
-} from "@dendronhq/common-test-utils";
-import { DendronEngineClient } from "@dendronhq/engine-server";
+} from "@sxltd/common-test-utils";
+import { DendronEngineClient } from "@sxltd/engine-server";
 import { createEngineFromServer, ENGINE_HOOKS, runEngineTestV5 } from "../..";
 
 /**

@@ -6,8 +6,8 @@ import {
   NoteProps,
   Time,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { createLogger, engineHooks } from "@dendronhq/common-frontend";
+} from "@sxltd/common-all";
+import { createLogger, engineHooks } from "@sxltd/common-frontend";
 import {
   Badge,
   Button,

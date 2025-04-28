@@ -4,7 +4,7 @@ import {
   TreeViewItemLabelTypeEnum,
   vault2Path,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import _ from "lodash";
 import vscode, { Uri } from "vscode";
 import { URI, Utils } from "vscode-uri";

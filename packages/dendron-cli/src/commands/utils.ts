@@ -1,12 +1,12 @@
-import { Server } from "@dendronhq/api-server";
-import { createLogger, resolvePath } from "@dendronhq/common-server";
+import { Server } from "@sxltd/api-server";
+import { createLogger, resolvePath } from "@sxltd/common-server";
 import {
   DendronEngineV2,
   DendronEngineV3,
   DEngineClient,
   EngineConnector,
   EngineConnectorTarget,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import _ from "lodash";
 import { Socket } from "net";
 import yargs from "yargs";

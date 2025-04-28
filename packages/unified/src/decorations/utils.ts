@@ -5,11 +5,11 @@ import type {
   Decoration,
   DendronConfig,
   ReducedDEngine,
-} from "@dendronhq/common-all";
+} from "@sxltd/common-all";
 import { Node } from "hast";
 import { DendronASTNode } from "../types";
 
-export { DECORATION_TYPES } from "@dendronhq/common-all";
+export { DECORATION_TYPES } from "@sxltd/common-all";
 export type { Decoration };
 
 export type DecoratorOut<D extends Decoration = Decoration> = {

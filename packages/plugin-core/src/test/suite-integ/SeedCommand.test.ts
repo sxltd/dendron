@@ -1,6 +1,6 @@
-import { tmpDir } from "@dendronhq/common-server";
-import { SeedService } from "@dendronhq/engine-server";
-import { TestSeedUtils } from "@dendronhq/engine-test-utils";
+import { tmpDir } from "@sxltd/common-server";
+import { SeedService } from "@sxltd/engine-server";
+import { TestSeedUtils } from "@sxltd/engine-test-utils";
 import { DENDRON_COMMANDS } from "../../constants";
 import { expect } from "../testUtilsv2";
 import { runLegacyMultiWorkspaceTest, setupBeforeAfter } from "../testUtilsV3";

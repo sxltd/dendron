@@ -1,4 +1,4 @@
-import { ConfigUtils, DVault, NoteUtils } from "@dendronhq/common-all";
+import { ConfigUtils, DVault, NoteUtils } from "@sxltd/common-all";
 
 describe("WHEN getConfig from note", () => {
   const fname = "foo";

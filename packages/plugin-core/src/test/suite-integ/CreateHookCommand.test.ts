@@ -1,8 +1,8 @@
-import { ConfigUtils, IDendronError } from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
-import { AssertUtils } from "@dendronhq/common-test-utils";
-import { HookUtils } from "@dendronhq/engine-server";
-import { ENGINE_HOOKS, TestHookUtils } from "@dendronhq/engine-test-utils";
+import { ConfigUtils, IDendronError } from "@sxltd/common-all";
+import { DConfig } from "@sxltd/common-server";
+import { AssertUtils } from "@sxltd/common-test-utils";
+import { HookUtils } from "@sxltd/engine-server";
+import { ENGINE_HOOKS, TestHookUtils } from "@sxltd/engine-test-utils";
 import { describe } from "mocha";
 import path from "path";
 import sinon from "sinon";

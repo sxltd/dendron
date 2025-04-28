@@ -1,9 +1,9 @@
-import { DNodePropsQuickInputV2 } from "@dendronhq/common-all";
+import { DNodePropsQuickInputV2 } from "@sxltd/common-all";
 import {
   HistoryEvent,
   HistoryEventAction,
   HistoryService,
-} from "@dendronhq/engine-server";
+} from "@sxltd/engine-server";
 import _ from "lodash";
 import path from "path";
 // // You can import and use all API from the 'vscode' module

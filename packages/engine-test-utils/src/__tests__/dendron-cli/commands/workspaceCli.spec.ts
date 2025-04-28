@@ -1,10 +1,10 @@
-import { tmpDir, vault2Path } from "@dendronhq/common-server";
+import { tmpDir, vault2Path } from "@sxltd/common-server";
 import {
   WorkspaceCLICommand,
   WorkspaceCLICommandOpts,
   WorkspaceCommands,
-} from "@dendronhq/dendron-cli";
-import { getCachePath } from "@dendronhq/engine-server";
+} from "@sxltd/dendron-cli";
+import { getCachePath } from "@sxltd/engine-server";
 import fs from "fs-extra";
 import path from "path";
 import { GitTestUtils, setupWS } from "../../..";

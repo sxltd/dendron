@@ -1,9 +1,9 @@
-import { NoteProps, NoteUtils, WorkspaceOpts } from "@dendronhq/common-all";
+import { NoteProps, NoteUtils, WorkspaceOpts } from "@sxltd/common-all";
 import {
   FileTestUtils,
   NoteTestUtilsV4,
   NOTE_PRESETS_V4,
-} from "@dendronhq/common-test-utils";
+} from "@sxltd/common-test-utils";
 import { describe } from "mocha";
 import path from "path";
 import * as vscode from "vscode";
