@@ -1,3 +1,4 @@
+#!/bin/bash
 # Description: Setup the environment for Dendron development.
 #
 # Pre-requisites:

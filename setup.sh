@@ -1,3 +1,4 @@
+#!/bin/sh
 # Description: Setup the environment for Dendron development.
 #
 # For further documentation refer to [Dendron Plugin Quickstart]:
