@@ -1,16 +1,16 @@
 main() {
-  if [[ ! -f "$HOME/.nvm/nvm.sh" ]]
+  if [[ ! -f "$NVM_DIR/nvm.sh" ]]
   then
-  	echo "File $HOME/.nvm/nvm.sh does NOT exists. Setup NVM refer to https://github.com/nvm-sh/nvm"
+  	echo "File $NVM_DIR/nvm.sh does NOT exists. Setup NVM refer to https://github.com/nvm-sh/nvm"
   	exit 1
   fi
 
   # Source nvm script - adjust the path if it's different on your machine
   #
   # -s check if file exists and has a size greater than zero
-  [ -s "$HOME/.nvm/nvm.sh" ] && {
-    source "$HOME/.nvm/nvm.sh"
-    echo "Sourced $HOME/.nvm/nvm.sh"
+  [ -s "$NVM_DIR/nvm.sh" ] && {
+    source "$NVM_DIR/nvm.sh"
+    echo "Sourced $NVM_DIR/nvm.sh"
   }
 }
 
