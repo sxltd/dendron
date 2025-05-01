@@ -87,7 +87,7 @@
       "**/*.js": true
     },
     "editor.formatOnSave": true,
-    "workbench.editor.showTabs": true,
+    "workbench.editor.showTabs": "multiple",
     "editor.snippetSuggestions": "none",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[typescript]": {

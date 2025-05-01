@@ -18,3 +18,4 @@ CHANGELOG.md
 *.log
 *.old
 assets
+package.monorepo.json
