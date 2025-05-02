@@ -1,6 +1,6 @@
 {
   "name": "@sxltd/api-server",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "license": "Apache 2.0",
   "repository": {
@@ -55,8 +55,8 @@
   },
   "dependencies": {
     "@sxltd/common-all": "^0.1.0",
-    "@sxltd/common-server": "^0.1.0",
-    "@sxltd/engine-server": "^0.1.0",
+    "@sxltd/common-server": "^0.2.0",
+    "@sxltd/engine-server": "^0.1.1",
     "@sxltd/unified": "^0.1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
