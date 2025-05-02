@@ -3810,8 +3810,8 @@
 
 "@sxltd/airtable@^0.11.1":
   version "0.11.1"
-  resolved "https://npm.pkg.github.com/download/@sxltd/airtable/0.11.1/eb63160bd63e98cf323ea279fb234e235e6564ce#eb63160bd63e98cf323ea279fb234e235e6564ce"
-  integrity sha512-/e3+pAzgBS2meeLZDovceFKJdZxHymikp7RWUIvVVajVNJM5wc9B/roWHm1bL+jCQHnhaLSsGg+ZrlmgcYTssg==
+  resolved "https://registry.yarnpkg.com/@sxltd/airtable/-/airtable-0.11.1.tgz#25128db077c1c28fe087789a1b4f48a748795f52"
+  integrity sha512-nceTo/NhB07ijJ0FkMujJRrgQy1WN/V5QpFB9jh9iH+aomTZHWkhViNOJkRZTyOQzJee/aWdtU/Wm52BEv7YgQ==
   dependencies:
     "@types/node" ">=8.0.0 <15"
     "@types/node-fetch" "^3.0.3"
@@ -3822,16 +3822,16 @@
 
 "@sxltd/conventional-changelog-dendron@^5.0.11":
   version "5.0.11"
-  resolved "https://npm.pkg.github.com/download/@sxltd/conventional-changelog-dendron/5.0.11/560980626a2b64fdfc8d3ef92b9fbff860157a97#560980626a2b64fdfc8d3ef92b9fbff860157a97"
-  integrity sha512-Ffr/x84zscK98uKA6yxOhy5yWWwOQxDzvgKR3I+e313bFDz8t0RtzohNkoVzWpSuzrePUr42m4sVV6UChOms5Q==
+  resolved "https://registry.yarnpkg.com/@sxltd/conventional-changelog-dendron/-/conventional-changelog-dendron-5.0.11.tgz#3ce7b927491e05edc8e07c16d14dfbaa82eaa28f"
+  integrity sha512-lKw8lEzv9aEym+I/EGJ2Q7LEqBH/BHoYuz653aSnagqaEx9dmhSbp1cRHuo1227FJHgh6R56bajNhryZ++c0Hg==
   dependencies:
     compare-func "^2.0.0"
     q "^1.5.1"
 
 "@sxltd/remark-mermaid@^0.4.0":
   version "0.4.0"
-  resolved "https://npm.pkg.github.com/download/@sxltd/remark-mermaid/0.4.0/34c6be41d01a06d51f537d723eeeb5187fc6c720#34c6be41d01a06d51f537d723eeeb5187fc6c720"
-  integrity sha512-HP3G/voL4FqpTRuI+CPSPJKgV08aTlJoVdV93+k745boqGRp65Vv8H5WCH83aE2bVQtPQbuOQDiFxCUPIyE1QQ==
+  resolved "https://registry.yarnpkg.com/@sxltd/remark-mermaid/-/remark-mermaid-0.4.0.tgz#47552d10149bd2f3b1928a94aa8d89424c23ced9"
+  integrity sha512-kF0WSyItNlE2WImV2vhkwpzJiw7YIXVEs4y7s4jF8J1AvWwk5V+n8ytwMJE6+e1i0J07OGoKuSH9X41UefrI1w==
   dependencies:
     unist-util-visit "^1.1.3"
 
