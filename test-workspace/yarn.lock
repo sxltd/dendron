@@ -96,7 +96,6 @@
     "@sxltd/common-all" "^0.90.0"
     ajv "^8.6.0"
     ajv-errors "^3.0.0"
-    analytics-node "^5.1.0"
     anymatch "^3.1.2"
     comment-json "4.2.0"
     execa "^5.0.0"
@@ -331,14 +330,6 @@
   dependencies:
     "@octokit/openapi-types" "^11.2.0"
 
-"@segment/loosely-validate-event@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@segment/loosely-validate-event/-/loosely-validate-event-2.0.0.tgz#87dfc979e5b4e7b82c5f1d8b722dfd5d77644681"
-  integrity sha512-ZMCSfztDBqwotkl848ODgVcAmN4OItEWDCkshcKz0/W6gGSQayuuCtWV/MlodFivAZD793d6UgANd6wCXUfrIw==
-  dependencies:
-    component-type "^1.2.1"
-    join-component "^1.1.0"
-
 "@sindresorhus/is@^4.0.0":
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-4.6.0.tgz#3c7c9c46e678feefe7a2e5bb609d3dbd665ffb3f"
@@ -514,20 +505,6 @@ ajv@^8.0.0, ajv@^8.6.0:
     json-schema-traverse "^1.0.0"
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
-
-analytics-node@^5.1.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/analytics-node/-/analytics-node-5.2.0.tgz#ef167bbf0d51f630e96d3abe604ce449b50a2584"
-  integrity sha512-JAc0K7J//QKGGX2mfwBE7wyG/Rh4W0BATB6CncwYhVX1qLjiXwHmB7bYr9PgJIer5M6jKMOhZoO5lxiruQk9BQ==
-  dependencies:
-    "@segment/loosely-validate-event" "^2.0.0"
-    axios "^0.21.4"
-    axios-retry "3.2.0"
-    lodash.isstring "^4.0.1"
-    md5 "^2.2.1"
-    ms "^2.0.0"
-    remove-trailing-slash "^0.1.0"
-    uuid "^8.3.2"
 
 ansi-regex@^5.0.0:
   version "5.0.0"
