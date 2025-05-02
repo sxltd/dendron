@@ -29,7 +29,6 @@ import { ProceedCancel, QuickPickUtil } from "../utils/quickPick";
 import { BasicCommand } from "./base";
 import { ExtensionProvider } from "../ExtensionProvider";
 import { NoteLookupProviderSuccessResp } from "../components/lookup/LookupProviderV3Interface";
-import { ProxyMetricUtils } from "../utils/ProxyMetricUtils";
 import { IDendronExtension } from "../dendronExtensionInterface";
 import { AutoCompletableRegistrar } from "../utils/registers/AutoCompletableRegistrar";
 import { AutoCompleter } from "../utils/autoCompleter";
@@ -410,33 +409,6 @@ export class MoveNoteCommand extends BasicCommand<CommandOpts, CommandOutput> {
       {} // Webview options. More on these later.
     );
     panel.webview.html = md.render(contentLines.join("\n"));
-  }
-
-  trackProxyMetrics({
-    opts,
-    noteChangeEntryCounts,
-  }: {
-    opts: CommandOpts;
-    noteChangeEntryCounts: {
-      createdCount: number;
-      deletedCount: number;
-      updatedCount: number;
-    };
-  }) {
-    if (this._proxyMetricPayload === undefined) {
-      // something went wrong during prep. don't track.
-      return;
-    }
-    const { extra, ...props } = this._proxyMetricPayload;
-
-    ProxyMetricUtils.trackRefactoringProxyMetric({
-      props,
-      extra: {
-        ...extra,
-        ...noteChangeEntryCounts,
-        isMultiMove: isMultiMove(opts.moves),
-      },
-    });
   }
 
 }

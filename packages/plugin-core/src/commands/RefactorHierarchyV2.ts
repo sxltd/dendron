@@ -28,7 +28,6 @@ import {
 } from "../components/lookup/buttons";
 import { ExtensionProvider } from "../ExtensionProvider";
 import { NoteLookupProviderSuccessResp } from "../components/lookup/LookupProviderV3Interface";
-import { ProxyMetricUtils } from "../utils/ProxyMetricUtils";
 import { LinkUtils } from "@sxltd/unified";
 import { AutoCompleter } from "../utils/autoCompleter";
 import { AutoCompletableRegistrar } from "../utils/registers/AutoCompletableRegistrar";
@@ -501,30 +500,6 @@ export class RefactorHierarchyCommandV2 extends BasicCommand<
         } files`
       );
     }
-  }
-
-  trackProxyMetrics({
-    noteChangeEntryCounts,
-  }: {
-    noteChangeEntryCounts: {
-      createdCount: number;
-      deletedCount: number;
-      updatedCount: number;
-    };
-  }) {
-    if (this._proxyMetricPayload === undefined) {
-      return;
-    }
-
-    const { extra, ...props } = this._proxyMetricPayload;
-
-    ProxyMetricUtils.trackRefactoringProxyMetric({
-      props,
-      extra: {
-        ...extra,
-        ...noteChangeEntryCounts,
-      },
-    });
   }
 
 }

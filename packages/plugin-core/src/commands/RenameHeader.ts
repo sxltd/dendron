@@ -1,6 +1,5 @@
 import {
   DendronError,
-  DNodeUtils,
   getSlugger,
   NoteProps,
   RenameNoteResp,
@@ -19,7 +18,6 @@ import { DENDRON_COMMANDS } from "../constants";
 import { delayedUpdateDecorations } from "../features/windowDecorations";
 import { VSCodeUtils } from "../vsCodeUtils";
 import { BasicCommand } from "./base";
-import { ProxyMetricUtils } from "../utils/ProxyMetricUtils";
 import { Heading } from "@sxltd/engine-server";
 import { IDendronExtension } from "../dendronExtensionInterface";
 
@@ -168,45 +166,6 @@ export class RenameHeaderCommand extends BasicCommand<
       metaOnly: true,
     });
     return out;
-  }
-
-  trackProxyMetrics({
-    opts,
-    noteChangeEntryCounts,
-  }: {
-    opts: CommandOpts;
-    noteChangeEntryCounts: {
-      createdCount: number;
-      deletedCount: number;
-      updatedCount: number;
-    };
-  }) {
-    if (_.isUndefined(opts)) {
-      return;
-    }
-
-    const { note } = opts;
-    if (_.isUndefined(note)) {
-      return;
-    }
-
-    const engine = this.extension.getEngine();
-    const { vaults } = engine;
-
-    ProxyMetricUtils.trackRefactoringProxyMetric({
-      props: {
-        command: this.key,
-        numVaults: vaults.length,
-        traits: note.traits || [],
-        numChildren: note.children.length,
-        numLinks: note.links.length,
-        numChars: note.body.length,
-        noteDepth: DNodeUtils.getDepth(note),
-      },
-      extra: {
-        ...noteChangeEntryCounts,
-      },
-    });
   }
 
 }

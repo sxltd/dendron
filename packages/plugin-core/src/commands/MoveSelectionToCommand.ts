@@ -16,7 +16,6 @@ import {
 } from "../components/lookup/LookupControllerV3Interface";
 import { SelectionExtractBtn } from "../components/lookup/buttons";
 import { RemarkUtils } from "@sxltd/unified";
-import { ProxyMetricUtils } from "../utils/ProxyMetricUtils";
 import { NoteLookupCommand } from "./NoteLookupCommand";
 
 type CommandInput = {
@@ -185,7 +184,6 @@ export class MoveSelectionToCommand extends BasicCommand<
       selection,
       selectionText,
     });
-    this.trackProxyMetrics();
     const provider = this.createLookupProvider({ activeNote });
     lookupCmd.controller = controller;
     // TODO: don't set custom providers for NoteLookupCommand
@@ -201,18 +199,4 @@ export class MoveSelectionToCommand extends BasicCommand<
     return opts;
   }
 
-  trackProxyMetrics() {
-    if (this._proxyMetricPayload === undefined) {
-      // something went wrong during prep. don't track.
-      return;
-    }
-    const { extra, ...props } = this._proxyMetricPayload;
-
-    ProxyMetricUtils.trackRefactoringProxyMetric({
-      props,
-      extra: {
-        ...extra,
-      },
-    });
-  }
 }
