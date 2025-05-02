@@ -4,7 +4,7 @@
   "displayName": "dendron",
   "description": "Dendron is a hierarchical note taking tool that grows as you do.",
   "publisher": "dendron",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "sponsor": {
     "url": "https://accounts.dendron.so/account/subscribe"
   },
@@ -507,14 +507,6 @@
       {
         "command": "dendron.signIn",
         "title": "Dendron: Sign In"
-      },
-      {
-        "command": "dendron.enableTelemetry",
-        "title": "Dendron: Enable Telemetry"
-      },
-      {
-        "command": "dendron.disableTelemetry",
-        "title": "Dendron: Disable Telemetry"
       },
       {
         "command": "dendron.openLink",
