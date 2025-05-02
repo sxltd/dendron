@@ -6,13 +6,13 @@ import {
   VaultUtils,
 } from "@sxltd/common-all";
 import { DConfig, findNonNoteFile } from "@sxltd/common-server";
-import * as Sentry from "@sentry/node";
 import vscode, { Location, Position, Uri } from "vscode";
 import { findAnchorPos, GotoNoteCommand } from "../commands/GotoNote";
 import { TargetKind } from "../commands/GoToNoteInterface";
 import { ExtensionProvider } from "../ExtensionProvider";
 import { Logger } from "../logger";
 import { getReferenceAtPosition } from "../utils/md";
+import { noop } from "lodash";
 
 export default class DefinitionProvider implements vscode.DefinitionProvider {
   private async maybeNonNoteFileDefinition({
@@ -124,7 +124,8 @@ export default class DefinitionProvider implements vscode.DefinitionProvider {
         else return this.provideForNewNote(refAtPos);
       }
     } catch (error) {
-      Sentry.captureException(error);
+      //noop so I don't have to remove this block rn. todo: change this
+      noop();
       throw error;
     }
   }

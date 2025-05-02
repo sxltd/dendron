@@ -12,9 +12,8 @@ import {
 import { DConfig } from "@sxltd/common-server";
 import { MetadataService } from "@sxltd/engine-server";
 import { MDUtilsV5 } from "@sxltd/unified";
-import * as Sentry from "@sentry/node";
 import fs from "fs";
-import _, { Dictionary } from "lodash";
+import _, { Dictionary, noop } from "lodash";
 import path from "path";
 import {
   CancellationToken,
@@ -122,24 +121,14 @@ export default class BacklinksTreeDataProvider
   }
 
   public getTreeItem(element: Backlink) {
-    try {
-      return element;
-    } catch (error) {
-      Sentry.captureException(error);
-      throw error;
-    }
+    return element;
   }
 
   public getParent(element: Backlink): ProviderResult<Backlink> {
-    try {
-      if (element.parentBacklink) {
-        return element.parentBacklink;
-      } else {
-        return undefined;
-      }
-    } catch (error) {
-      Sentry.captureException(error);
-      throw error;
+    if (element.parentBacklink) {
+      return element.parentBacklink;
+    } else {
+      return undefined;
     }
   }
 
@@ -174,7 +163,8 @@ export default class BacklinksTreeDataProvider
         );
       }
     } catch (error) {
-      Sentry.captureException(error);
+      //noop so I don't have to remove this block rn. todo: change this
+      noop();
       throw error;
     }
   }

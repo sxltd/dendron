@@ -20,7 +20,6 @@ import {
   WorkspaceUtils,
 } from "@sxltd/engine-server";
 import { PodUtils } from "@sxltd/pods-core";
-import * as Sentry from "@sentry/node";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
@@ -315,7 +314,6 @@ export class DendronExtension implements IDendronExtension {
         err instanceof DendronError
           ? err
           : new DendronError({ message: ctx, payload: err });
-      Sentry.captureException(error);
       Logger.error({ ctx, msg: "Failed to check WS active", error });
       return false;
     }
@@ -582,7 +580,7 @@ export class DendronExtension implements IDendronExtension {
 
     const backlinksTreeDataProvider = new BacklinksTreeDataProvider(
       this.getEngine(),
-      config,
+      config
     );
 
     const backlinkTreeView = vscode.window.createTreeView(

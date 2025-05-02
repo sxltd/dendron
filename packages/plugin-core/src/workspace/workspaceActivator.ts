@@ -1,6 +1,5 @@
 import "reflect-metadata";
 import { SubProcessExitType } from "@sxltd/api-server";
-import * as Sentry from "@sentry/node";
 import {
   CONSTANTS,
   DendronError,
@@ -141,8 +140,8 @@ function analyzeWorkspace({ wsService }: { wsService: WorkspaceService }) {
         duration: getDurationMilliseconds(startGetAllReposNumContributors),
       });
     })
-    .catch((err) => {
-      Sentry.captureException(err);
+    .catch((_err) => {
+      //todo: log?
     });
   trackTopLevelRepoFound({ wsService });
 }
@@ -585,8 +584,8 @@ export class WorkspaceActivator {
       durationReloadWorkspace,
       activatedSuccess: !!reloadSuccess,
       ext,
-    }).catch((error) => {
-      Sentry.captureException(error);
+    }).catch((_error) => {
+      //todo: log?
     });
 
     analyzeWorkspace({ wsService });

@@ -1,6 +1,5 @@
 import { getSlugger } from "@sxltd/common-all";
-import * as Sentry from "@sentry/node";
-import _ from "lodash";
+import _, { noop } from "lodash";
 import vscode from "vscode";
 import { ExtensionProvider } from "../ExtensionProvider";
 import { EditorUtils } from "../utils/EditorUtils";
@@ -55,7 +54,8 @@ export default class ReferenceProvider implements vscode.ReferenceProvider {
         ? (await findReferences(refAtPos.ref)).map(({ location }) => location)
         : [];
     } catch (error) {
-      Sentry.captureException(error);
+      //noop so I don't have to remove this block rn. todo: change this
+      noop();
       throw error;
     }
   }

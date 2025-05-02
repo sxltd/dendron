@@ -1,10 +1,5 @@
-import {
-  error2PlainObject,
-  IDendronError,
-  setEnv,
-} from "@sxltd/common-all";
+import { error2PlainObject, IDendronError, setEnv } from "@sxltd/common-all";
 import { createLogger } from "@sxltd/common-server";
-import * as Sentry from "@sentry/node";
 
 import fs from "fs-extra";
 import _ from "lodash";
@@ -141,34 +136,10 @@ export class Logger {
    */
   static error(payload: LogPayload) {
     Logger.log(payload, "error");
-
-    if (payload.error) {
-      // if we log an error, also report it to sentry ^sf0k4z8hnvjo
-      Sentry.captureException(payload.error, {
-        extra: {
-          ctx: payload.ctx,
-          name: payload.error.name,
-          message: payload.error.message,
-          payload: payload.error.payload,
-          severity: payload.error.severity?.toString(),
-          code: payload.error.code,
-          status: payload.error.status,
-        },
-      });
-    } else {
-      const cleanMsg = payload.msg || customStringify(payload);
-      Sentry.captureMessage(cleanMsg, { extra: { ctx: payload.ctx } });
-    }
   }
 
   static info(payload: any, show?: boolean): void {
     Logger.log(payload, "info", { show });
-
-    Sentry.addBreadcrumb({
-      category: "plugin",
-      message: customStringify(payload),
-      level: "info",
-    });
   }
 
   static debug(payload: any) {

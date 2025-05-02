@@ -17,7 +17,6 @@ import {
 import {
   getDurationMilliseconds,
   getOS,
-  initializeSentry,
   SegmentClient,
 } from "@sxltd/common-server";
 import {
@@ -25,7 +24,6 @@ import {
   MetadataService,
   WorkspaceUtils,
 } from "@sxltd/engine-server";
-import * as Sentry from "@sentry/node";
 import fs from "fs-extra";
 import os from "os";
 import path from "path";
@@ -76,7 +74,7 @@ import { WorkspaceActivator } from "./workspace/workspaceActivator";
 import { WSUtils } from "./WSUtils";
 import { CreateScratchNoteKeybindingTip } from "./showcase/CreateScratchNoteKeybindingTip";
 import semver from "semver";
-import _ from "lodash";
+import _, { noop } from "lodash";
 import { GotoNoteCommand } from "./commands/GotoNote";
 
 const MARKDOWN_WORD_PATTERN = new RegExp("([\\w\\.]+)");
@@ -166,12 +164,6 @@ export async function _activate(
   // If telemetry is not disabled, we enable telemetry and error reporting ^rw8l1w51hnjz
   // - NOTE: we do this outside of the try/catch block in case we run into an error with initialization
   if (!SegmentClient.instance().hasOptedOut && getStage() === "prod") {
-    initializeSentry({
-      environment: getStage(),
-      sessionId: AnalyticsUtils.getSessionId(),
-      release: AnalyticsUtils.getVSCodeSentryRelease(),
-    });
-
     // Temp: store the user's anonymous ID into global state so that we can link
     // local ext users to web ext users. If one already exists in global state,
     // then override that one with the segment client one.
@@ -347,9 +339,6 @@ export async function _activate(
         });
       }
 
-      // Re-use the id for error reporting too:
-      Sentry.setUser({ id: SegmentClient.instance().anonymousId });
-
       // stats
       const platform = getOS();
       const extensions = Extensions.getDendronExtensionRecommendations().map(
@@ -415,7 +404,6 @@ export async function _activate(
       // ws not active
       Logger.info({ ctx, msg: "dendron not active" });
       AnalyticsUtils.setupSegmentWithCacheFlush({ context });
-      Sentry.setUser({ id: SegmentClient.instance().anonymousId });
     }
 
     if (extensionInstallStatus === InstallStatus.INITIAL_INSTALL) {
@@ -457,7 +445,8 @@ export async function _activate(
     }
     return false;
   } catch (error) {
-    Sentry.captureException(error);
+    //noop so I don't have to remove this block rn. todo: change this
+    noop();
     throw error;
   }
 }

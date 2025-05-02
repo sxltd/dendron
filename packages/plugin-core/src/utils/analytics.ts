@@ -11,7 +11,6 @@ import {
 } from "@sxltd/common-all";
 import { SegmentClient, SegmentUtils } from "@sxltd/common-server";
 import { MetadataService } from "@sxltd/engine-server";
-import * as Sentry from "@sentry/node";
 import _ from "lodash";
 import { Duration } from "luxon";
 import * as vscode from "vscode";
@@ -308,12 +307,7 @@ export function sentryReportingCallback<A extends any[], R>(
   callback: (...args: A) => R
 ): (...args: A) => R {
   return (...args) => {
-    try {
-      return callback(...args);
-    } catch (error) {
-      Sentry.captureException(error);
-      throw error;
-    }
+    return callback(...args);
   };
 }
 

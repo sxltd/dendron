@@ -9,9 +9,8 @@ import {
 } from "@sxltd/common-all";
 import { findNonNoteFile, vault2Path } from "@sxltd/common-server";
 import { AnchorUtils, DendronASTDest, ProcFlavor } from "@sxltd/unified";
-import * as Sentry from "@sentry/node";
 import fs from "fs-extra";
-import _ from "lodash";
+import _, { noop } from "lodash";
 import path from "path";
 import vscode, { MarkdownString, Uri } from "vscode";
 import { PickerUtilsV2 } from "../components/lookup/utils";
@@ -237,7 +236,6 @@ export default class ReferenceHoverProvider implements vscode.HoverProvider {
                 message: "Error while rendering hover",
                 payload: rendered.error,
               });
-        Sentry.captureException(error);
         Logger.error({
           ctx,
           msg: "Error while rendering the hover",
@@ -253,7 +251,8 @@ export default class ReferenceHoverProvider implements vscode.HoverProvider {
       }
       return null;
     } catch (error) {
-      Sentry.captureException(error);
+      //noop so I don't have to remove this block rn. todo: change this
+      noop();
       throw error;
     }
   }

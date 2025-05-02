@@ -30,7 +30,6 @@ import { Logger } from "../logger";
 import { IBaseCommand } from "../types";
 import { GOOGLE_OAUTH_ID, GOOGLE_OAUTH_SECRET } from "../types/global";
 import { AnalyticsUtils, sentryReportingCallback } from "../utils/analytics";
-import * as Sentry from "@sentry/node";
 import { MarkdownUtils } from "../utils/md";
 import { VSCodeUtils } from "../vsCodeUtils";
 import { URI, Utils } from "vscode-uri";
@@ -153,9 +152,7 @@ export class ExtensionUtils {
 
   static getExtension() {
     const extName =
-      getStage() === "dev"
-        ? "dendron.@sxltd/plugin-core"
-        : "dendron.dendron";
+      getStage() === "dev" ? "dendron.@sxltd/plugin-core" : "dendron.dendron";
     const ext = vscode.extensions.getExtension(extName);
     return ext as vscode.Extension<any>;
   }
@@ -482,8 +479,7 @@ export class ExtensionUtils {
         _.set(trackProps, "numExtensions", extensionsDetail.length);
       }
     } catch (error) {
-      // something went wrong don't track extension detail
-      Sentry.captureException(error);
+      // something went wrong. todo: log this?
     }
 
     // NOTE: this will not be accurate in dev mode
@@ -556,8 +552,7 @@ export class ExtensionUtils {
         ageOfCodeInstallInWeeks,
       };
     } catch (error: any) {
-      // something went wrong. don't track. Send to sentry silently.
-      Sentry.captureException(error);
+      // something went wrong. todo: log (?)
       return {};
     }
   }

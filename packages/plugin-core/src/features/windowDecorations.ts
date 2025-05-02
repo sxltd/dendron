@@ -25,8 +25,7 @@ import {
   NoteRefDecorator,
   NoteRefUtils,
 } from "@sxltd/unified";
-import * as Sentry from "@sentry/node";
-import _ from "lodash";
+import _, { noop } from "lodash";
 import {
   DecorationOptions,
   DecorationRangeBehavior,
@@ -424,7 +423,8 @@ export async function updateDecorations(editor: TextEditor): Promise<{
       allWarnings,
     };
   } catch (err) {
-    Sentry.captureException(err);
+    //noop so I don't have to remove this block rn. todo: change this
+    noop();
     throw err;
   }
 }
