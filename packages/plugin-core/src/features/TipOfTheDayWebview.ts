@@ -1,13 +1,10 @@
-import { VSCodeEvents } from "@sxltd/common-all";
 import { MetadataService } from "@sxltd/engine-server";
 import _md from "markdown-it";
 import * as vscode from "vscode";
 import {
   DisplayLocation,
-  FeatureShowcaseUserResponse,
   IFeatureShowcaseMessage,
 } from "../showcase/IFeatureShowcaseMessage";
-import { AnalyticsUtils } from "../utils/analytics";
 
 /**
  * Side Panel webview that shows the tip of the day
@@ -64,18 +61,9 @@ export default class TipOfTheDayWebview implements vscode.WebviewViewProvider {
       async (messageFromWebview) => {
         switch (messageFromWebview.command) {
           case this.TIP_SHOWN_MSG:
-            AnalyticsUtils.track(VSCodeEvents.FeatureShowcaseDisplayed, {
-              messageType: this._currentTip.showcaseEntry,
-              displayLocation: DisplayLocation.TipOfTheDayView,
-            });
             return;
 
           case this.BUTTON_CLICKED_MSG: {
-            AnalyticsUtils.track(VSCodeEvents.FeatureShowcaseResponded, {
-              messageType: this._currentTip.showcaseEntry,
-              displayLocation: DisplayLocation.TipOfTheDayView,
-              userResponse: FeatureShowcaseUserResponse.confirmed,
-            });
 
             if (this._currentTip.onConfirm) {
               const fn = this._currentTip.onConfirm.bind(this._currentTip);

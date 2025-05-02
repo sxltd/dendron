@@ -7,11 +7,9 @@ import {
   DWorkspaceV2,
   ErrorFactory,
   getStage,
-  GitEvents,
   RespV3,
   TreeViewItemLabelTypeEnum,
   VaultUtils,
-  VSCodeEvents,
   WorkspaceType,
 } from "@sxltd/common-all";
 import { getDurationMilliseconds, GitUtils } from "@sxltd/common-server";
@@ -31,7 +29,7 @@ import { Logger } from "../logger";
 import { EngineAPIService } from "../services/EngineAPIService";
 import { StateService } from "../services/stateService";
 import { TextDocumentServiceFactory } from "../services/TextDocumentServiceFactory";
-import { AnalyticsUtils, sentryReportingCallback } from "../utils/analytics";
+import { sentryReportingCallback } from "../utils/analytics";
 import { ExtensionUtils } from "../utils/ExtensionUtils";
 import { StartupUtils } from "../utils/StartupUtils";
 import { VSCodeUtils } from "../vsCodeUtils";
@@ -121,7 +119,6 @@ export function trackTopLevelRepoFound(opts: { wsService: WorkspaceService }) {
         provider,
         path: SparkMD5.hash(`${path[0]}/${path[1]}.git`),
       };
-      AnalyticsUtils.track(GitEvents.TopLevelRepoFound, payload);
       return payload;
     }
     return undefined;
@@ -129,17 +126,8 @@ export function trackTopLevelRepoFound(opts: { wsService: WorkspaceService }) {
 }
 
 function analyzeWorkspace({ wsService }: { wsService: WorkspaceService }) {
-  // Track contributors to repositories, but do so in the background so
-  // initialization isn't delayed.
-  const startGetAllReposNumContributors = process.hrtime();
   wsService
     .getAllReposNumContributors()
-    .then((numContributors) => {
-      AnalyticsUtils.track(GitEvents.ContributorsFound, {
-        maxNumContributors: _.max(numContributors),
-        duration: getDurationMilliseconds(startGetAllReposNumContributors),
-      });
-    })
     .catch((_err) => {
       //todo: log?
     });
@@ -703,15 +691,12 @@ export class WorkspaceActivator {
       context,
       start,
       wsService,
-      onExit: (type: SubProcessExitType) => {
+      onExit: (_type: SubProcessExitType) => {
         const txt = "Restart Dendron";
         vscode.window
           .showErrorMessage("Dendron engine encountered an error", txt)
           .then(async (resp) => {
             if (resp === txt) {
-              AnalyticsUtils.track(VSCodeEvents.ServerCrashed, {
-                code: type,
-              });
               await ExtensionUtils.activate();
             }
           });

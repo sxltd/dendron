@@ -4,7 +4,6 @@ import {
   ErrorUtils,
   NoteUtils,
   VaultUtils,
-  WorkspaceEvents,
 } from "@sxltd/common-all";
 import { file2Note } from "@sxltd/common-server";
 import { DoctorActionsEnum } from "@sxltd/engine-server";
@@ -13,7 +12,6 @@ import * as vscode from "vscode";
 import { DoctorCommand } from "../../commands/Doctor";
 import { ExtensionProvider } from "../../ExtensionProvider";
 import { Logger } from "../../logger";
-import { AnalyticsUtils } from "../../utils/analytics";
 import { MessageSeverity, VSCodeUtils } from "../../vsCodeUtils";
 
 export class DoctorUtils {
@@ -86,7 +84,7 @@ export class DoctorUtils {
 
   static async findDuplicateNoteAndPromptIfNecessary(
     document: vscode.TextDocument,
-    source: string
+    _source: string
   ): Promise<void> {
     const resp = await DoctorUtils.findDuplicateNoteFromDocument(document);
     if (resp !== undefined) {
@@ -114,14 +112,8 @@ export class DoctorUtils {
                 },
               ],
             };
-            AnalyticsUtils.track(WorkspaceEvents.DuplicateNoteFound, {
-              state: "resolved",
-            });
             vscode.commands.executeCommand(cmd.command, ...cmd.arguments!);
           }
-        });
-        AnalyticsUtils.track(WorkspaceEvents.DuplicateNoteFound, {
-          source,
         });
       }
     }

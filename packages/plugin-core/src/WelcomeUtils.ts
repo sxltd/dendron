@@ -1,17 +1,13 @@
-import { TutorialEvents } from "@sxltd/common-all";
 import { readMD } from "@sxltd/common-server";
 import _ from "lodash";
 import semver from "semver";
 import * as vscode from "vscode";
 import { LaunchTutorialWorkspaceCommand } from "./commands/LaunchTutorialWorkspaceCommand";
 import { LaunchTutorialCommandInvocationPoint } from "./constants";
-import { AnalyticsUtils } from "./utils/analytics";
 import { VSCodeUtils } from "./vsCodeUtils";
 
 async function initWorkspace() {
   // ^z5hpzc3fdkxs
-  await AnalyticsUtils.trackForNextRun(TutorialEvents.ClickStart);
-
   await new LaunchTutorialWorkspaceCommand().run({
     invocationPoint: LaunchTutorialCommandInvocationPoint.WelcomeWebview,
   });
@@ -30,7 +26,6 @@ export enum WelcomePageMedia {
 export function showWelcome(assetUri: vscode.Uri) {
   try {
     let content: string;
-    let testgroup: string;
     if (semver.gte(vscode.version, "1.71.0")) {
       const videoUri = VSCodeUtils.joinPath(
         assetUri,
@@ -39,7 +34,6 @@ export function showWelcome(assetUri: vscode.Uri) {
         "welcome_video.html"
       );
       content = readMD(videoUri.fsPath).content;
-      testgroup = WelcomePageMedia.video;
     } else {
       // NOTE: this needs to be from extension because no workspace might exist at this point
       const uri = VSCodeUtils.joinPath(
@@ -49,7 +43,6 @@ export function showWelcome(assetUri: vscode.Uri) {
         "welcome.html"
       );
       content = readMD(uri.fsPath).content;
-      testgroup = WelcomePageMedia.gif;
     }
 
     const title = "Welcome to Dendron";
@@ -69,7 +62,6 @@ export function showWelcome(assetUri: vscode.Uri) {
       async (message) => {
         switch (message.command) {
           case "loaded":
-            AnalyticsUtils.track(TutorialEvents.WelcomeShow, { testgroup });
             return;
 
           case "initializeWorkspace": {

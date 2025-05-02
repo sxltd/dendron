@@ -1,12 +1,10 @@
 import {
   assertUnreachable,
-  LookupEvents,
   LookupNoteTypeEnum,
   LookupSelectionTypeEnum,
 } from "@sxltd/common-all";
 import _ from "lodash";
 import { Disposable, QuickInputButton } from "vscode";
-import { AnalyticsUtils } from "../../utils/analytics";
 import {
   ButtonType,
   DendronBtn,
@@ -24,16 +22,14 @@ export class LookupV3QuickPickView implements Disposable {
   private _quickPick: DendronQuickPickerV2;
   private _viewState: ILookupViewModel;
   private _disposables: Disposable[];
-  private _providerId?: string;
 
   constructor(
     quickPick: DendronQuickPickerV2,
     viewModel: ILookupViewModel,
-    providerId?: string // For telemetry purposes only
+    _providerId?: string // For telemetry purposes only
   ) {
     this._quickPick = quickPick;
     this._viewState = viewModel;
-    this._providerId = providerId;
     this._disposables = [];
 
     this.setupViewModel();
@@ -324,10 +320,5 @@ export class LookupV3QuickPickView implements Disposable {
         break;
     }
 
-    AnalyticsUtils.track(LookupEvents.LookupModifierToggledByUser, {
-      command: this._providerId,
-      type: (btn as IDendronQuickInputButton).type,
-      pressed: (btn as IDendronQuickInputButton).pressed,
-    });
   };
 }

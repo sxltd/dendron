@@ -6,7 +6,6 @@ import {
   DMessageSource,
   EngineEventEmitter,
   getWebEditorViewEntry,
-  GraphEvents,
   GraphThemeEnum,
   GraphViewMessage,
   GraphViewMessageEnum,
@@ -20,11 +19,9 @@ import path from "path";
 import * as vscode from "vscode";
 import { Disposable, TextEditor, ViewColumn, window } from "vscode";
 import { GotoNoteCommand } from "../../commands/GotoNote";
-import { DENDRON_COMMANDS } from "../../constants";
 import { Logger } from "../../logger";
 import { GraphStyleService } from "../../styles";
 import { WebViewUtils } from "../../views/utils";
-import { AnalyticsUtils } from "../../utils/analytics";
 import { VSCodeUtils } from "../../vsCodeUtils";
 import { DendronExtension } from "../../workspace";
 import { ConfigureGraphStylesCommand } from "../../commands/ConfigureGraphStyles";
@@ -116,9 +113,6 @@ export class NoteGraphPanelFactory {
                 column: ViewColumn.One,
               });
             }
-            AnalyticsUtils.track(DENDRON_COMMANDS.SHOW_NOTE_GRAPH.key, {
-              message: GraphViewMessageEnum.onSelect,
-            });
             break;
           }
           case GraphViewMessageEnum.onGetActiveEditor: {
@@ -186,25 +180,15 @@ export class NoteGraphPanelFactory {
           }
           case GraphViewMessageEnum.onGraphThemeChange: {
             this.defaultGraphTheme = msg.data.graphTheme;
-            AnalyticsUtils.track(GraphEvents.GraphThemeChanged, {
-              theme: msg.data.graphTheme,
-            });
             break;
           }
 
           case GraphViewMessageEnum.configureCustomStyling: {
             await new ConfigureGraphStylesCommand().execute();
-            AnalyticsUtils.track(DENDRON_COMMANDS.CONFIGURE_GRAPH_STYLES.key, {
-              source: "graph filter menu",
-            });
             break;
           }
 
           case GraphViewMessageEnum.toggleGraphView: {
-            AnalyticsUtils.track(GraphEvents.GraphViewUsed, {
-              type: "GraphTypeChanged",
-              state: msg.data.graphType,
-            });
             break;
           }
 
@@ -223,16 +207,10 @@ export class NoteGraphPanelFactory {
           this._onEngineNoteStateChangedDisposable.dispose();
         }
         if (this.defaultGraphTheme) {
-          AnalyticsUtils.track(GraphEvents.GraphThemeChanged, {
-            defaultTheme: this.defaultGraphTheme,
-          });
           MetadataService.instance().setGraphTheme(this.defaultGraphTheme);
           this.defaultGraphTheme = undefined;
         }
         if (this.graphDepth) {
-          AnalyticsUtils.track(GraphEvents.GraphViewUsed, {
-            graphDepth: this.graphDepth,
-          });
           MetadataService.instance().graphDepth = this.graphDepth;
           this.graphDepth = undefined;
         }

@@ -8,7 +8,6 @@ import {
 } from "./NoteLookupCommand";
 import _ from "lodash";
 import { window } from "vscode";
-import { AnalyticsUtils } from "../utils/analytics";
 import { ExtensionProvider } from "../ExtensionProvider";
 
 type CommandOpts = string & {};
@@ -35,7 +34,6 @@ export class CreateNoteCommand extends InputArgCommand<
     if (_.isString(opts)) {
       const resp = await engine.getNoteMeta(opts);
       args.initialValue = resp.data?.fname || "";
-      AnalyticsUtils.track(this.key, { source: "TreeView" });
     }
     window.showInformationMessage(
       "💡 Tip: Enter `Ctrl+L` / `Cmd+L` to open the lookup bar!"

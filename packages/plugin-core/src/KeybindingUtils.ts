@@ -1,8 +1,6 @@
 import {
   DendronError,
   ERROR_SEVERITY,
-  ExtensionEvents,
-  KeybindingConflictDetectedSource,
 } from "@sxltd/common-all";
 import {
   CommentJSONValue,
@@ -27,7 +25,6 @@ import {
   CopyToClipboardCommandOpts,
   CopyToClipboardSourceEnum,
 } from "./commands/CopyToClipboardCommand";
-import { AnalyticsUtils } from "./utils/analytics";
 
 type Keybindings = Record<string, string>;
 export class KeybindingUtils {
@@ -264,10 +261,7 @@ export class KeybindingUtils {
       .showWarningMessage(message, action)
       .then(async (resp) => {
         if (resp === action) {
-          AnalyticsUtils.track(ExtensionEvents.ShowKeybindingConflictAccepted);
           await this.showKeybindingConflictPreview(opts);
-        } else {
-          AnalyticsUtils.track(ExtensionEvents.ShowKeybindingConflictRejected);
         }
       });
   }
@@ -277,9 +271,6 @@ export class KeybindingUtils {
       knownConflicts: KNOWN_KEYBINDING_CONFLICTS,
     });
     if (conflicts.length > 0) {
-      AnalyticsUtils.track(ExtensionEvents.KeybindingConflictDetected, {
-        source: KeybindingConflictDetectedSource.activation,
-      });
       await KeybindingUtils.showKeybindingConflictConfirmationMessage({
         conflicts,
       });

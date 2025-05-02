@@ -5,7 +5,6 @@ import {
   NoteUtils,
   SchemaModuleProps,
   SchemaUtils,
-  VSCodeEvents,
 } from "@sxltd/common-all";
 import { getDurationMilliseconds } from "@sxltd/common-server";
 import { HistoryService } from "@sxltd/engine-server";
@@ -14,7 +13,6 @@ import { CancellationTokenSource, window } from "vscode";
 import { NoteLookupCommand } from "../../commands/NoteLookupCommand";
 import { IDendronExtension } from "../../dendronExtensionInterface";
 import { Logger } from "../../logger";
-import { AnalyticsUtils } from "../../utils/analytics";
 import { NotePickerUtils } from "../lookup/NotePickerUtils";
 import { SchemaPickerUtils } from "../lookup/SchemaPickerUtils";
 import { CREATE_NEW_SCHEMA_DETAIL } from "./constants";
@@ -272,9 +270,6 @@ export class SchemaLookupProvider implements ILookupProviderV3 {
         queryOrig,
         profile,
         cancelled: token?.isCancellationRequested,
-      });
-      AnalyticsUtils.track(VSCodeEvents.SchemaLookup_Update, {
-        duration: profile,
       });
       return; // eslint-disable-line no-unsafe-finally -- probably can be just removed
     }

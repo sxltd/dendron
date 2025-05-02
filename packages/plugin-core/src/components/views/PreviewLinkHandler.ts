@@ -6,7 +6,6 @@ import {
   isWebUri,
   NotePropsMeta,
   NoteViewMessage,
-  TutorialEvents,
 } from "@sxltd/common-all";
 import { FileExtensionUtils, findNonNoteFile } from "@sxltd/common-server";
 import path from "path";
@@ -19,8 +18,6 @@ import { AnchorUtils } from "@sxltd/unified";
 import _ from "lodash";
 import { PluginFileUtils } from "../../utils/files";
 import { GotoNoteCommand } from "../../commands/GotoNote";
-import { AnalyticsUtils } from "../../utils/analytics";
-import { ExtensionUtils } from "../../utils/ExtensionUtils";
 import { IPreviewLinkHandler, LinkType } from "./IPreviewLinkHandler";
 
 /**
@@ -28,13 +25,6 @@ import { IPreviewLinkHandler, LinkType } from "./IPreviewLinkHandler";
  */
 export class PreviewLinkHandler implements IPreviewLinkHandler {
   private _ext: IDendronExtension;
-  /**
-   * set of tutorial note ids that we will allow tracking of link clicked events.
-   * TODO: consolidate tracking of tutorial ids to a central place
-   * TODO: this logic is specific to the tutorial workspace
-   *       add a way to register callbacks to the link handler in the future
-   */
-  private _trackAllowedIds = ExtensionUtils.getTutorialIds();
 
   constructor(ext: IDendronExtension) {
     this._ext = ext;
@@ -54,19 +44,6 @@ export class PreviewLinkHandler implements IPreviewLinkHandler {
       // There's nothing to do then, the default handler opens them automatically.
       // If we try to open it too, it will open twice.
 
-      // track the link if it comes from a tutorial
-      // TODO: this logic is specific to the tutorial workspace
-      //       add a way to register callbacks to the link handler in the future
-      if (data.id && this._trackAllowedIds.has(data.id)) {
-        AnalyticsUtils.track(TutorialEvents.TutorialPreviewLinkClicked, {
-          LinkType: LinkType.WEBSITE,
-          href: data.href,
-        });
-        // some questions signal intent
-        if (data.href.endsWith("98f6d928-3f61-49fb-9c9e-70c27d25f838")) {
-          AnalyticsUtils.identify({ teamIntent: true });
-        }
-      }
       return LinkType.WEBSITE;
     }
 
@@ -74,15 +51,6 @@ export class PreviewLinkHandler implements IPreviewLinkHandler {
       // If it's a command uri, do nothing.
       // Let VSCode handle them.
 
-      // but track the command uri if it comes from a tutorial
-      // TODO: this logic is specific to the tutorial workspace
-      //       add a way to register callbacks to the link handler in the future
-      if (data.id && this._trackAllowedIds.has(data.id)) {
-        AnalyticsUtils.track(TutorialEvents.TutorialPreviewLinkClicked, {
-          LinkType: LinkType.COMMAND,
-          href: data.href,
-        });
-      }
       return LinkType.COMMAND;
     }
 

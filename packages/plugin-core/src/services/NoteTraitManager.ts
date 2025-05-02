@@ -7,7 +7,6 @@ import {
   OnCreateContext,
   ResponseUtil,
   RespV2,
-  VSCodeEvents,
 } from "@sxltd/common-all";
 import path from "path";
 import { ExtensionProvider } from "../ExtensionProvider";
@@ -17,7 +16,6 @@ import { NoteTraitService } from "./NoteTraitService";
 import fs from "fs-extra";
 import { Logger } from "../logger";
 import * as vscode from "vscode";
-import { AnalyticsUtils } from "../utils/analytics";
 import _ from "lodash";
 
 export class NoteTraitManager implements NoteTraitService, vscode.Disposable {
@@ -139,53 +137,17 @@ export class NoteTraitManager implements NoteTraitService, vscode.Disposable {
     if (userTraitsPath && fs.pathExistsSync(userTraitsPath)) {
       const files = fs.readdirSync(userTraitsPath);
 
-      // Track some info about how many and what kind of traits users have
-      let traitJSFileCount = 0;
-      let traitInitializedCount = 0;
-      let traitHasSetTitleImplCount = 0;
-      let traitHasSetNameModifierImplCount = 0;
-      let traitHasSetTemplateImplCount = 0;
 
       asyncLoopOneAtATime(files, async (file) => {
         if (file.endsWith(".js")) {
-          traitJSFileCount += 1;
 
-          const resp = await this.setupTraitFromJSFile(
+          await this.setupTraitFromJSFile(
             path.join(userTraitsPath, file)
           );
 
-          // Don't log an error at this point since we're just initializing - if
-          // a user has some old trait files with errors in their workspace,
-          // don't warn about trait errors until they try to actually use it.
-          if (!ResponseUtil.hasError(resp)) {
-            traitInitializedCount += 1;
-
-            const newNoteTrait = resp.data;
-
-            if (newNoteTrait?.OnCreate?.setTitle) {
-              traitHasSetTitleImplCount += 1;
-            }
-
-            if (newNoteTrait?.OnCreate?.setTemplate) {
-              traitHasSetTemplateImplCount += 1;
-            }
-
-            if (newNoteTrait?.OnWillCreate?.setNameModifier) {
-              traitHasSetNameModifierImplCount += 1;
-            }
-          }
         }
       });
 
-      if (traitJSFileCount > 0) {
-        AnalyticsUtils.track(VSCodeEvents.NoteTraitsInitialized, {
-          traitJSFileCount,
-          traitInitializedCount,
-          traitHasSetTitleImplCount,
-          traitHasSetNameModifierImplCount,
-          traitHasSetTemplateImplCount,
-        });
-      }
     }
   }
 

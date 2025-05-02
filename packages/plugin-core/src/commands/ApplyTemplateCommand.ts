@@ -1,6 +1,5 @@
 import {
   DendronError,
-  EngagementEvents,
   NoteProps,
 } from "@sxltd/common-all";
 import { TemplateUtils } from "@sxltd/common-server";
@@ -9,7 +8,6 @@ import { QuickPickTemplateSelector } from "../components/lookup/QuickPickTemplat
 import { DENDRON_COMMANDS } from "../constants";
 import { ExtensionProvider } from "../ExtensionProvider";
 import { Logger } from "../logger";
-import { AnalyticsUtils } from "../utils/analytics";
 import { VSCodeUtils } from "../vsCodeUtils";
 import { WSUtilsV2 } from "../WSUtilsV2";
 import { BasicCommand } from "./base";
@@ -81,10 +79,6 @@ export class ApplyTemplateCommand extends BasicCommand<
       targetNote,
     });
     const resp = await engine.writeNote(updatedTargetNote);
-    AnalyticsUtils.track(EngagementEvents.TemplateApplied, {
-      source: this.key,
-      ...TemplateUtils.genTrackPayload(templateNote),
-    });
     if (resp.error) {
       throw new DendronError({
         message: "error applying template",

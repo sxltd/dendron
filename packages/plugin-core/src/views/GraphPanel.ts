@@ -4,7 +4,6 @@ import {
   DMessage,
   DMessageEnum,
   DMessageSource,
-  GraphEvents,
   GraphViewMessage,
   GraphViewMessageEnum,
   NoteProps,
@@ -19,7 +18,6 @@ import { DendronContext } from "../constants";
 import { IDendronExtension } from "../dendronExtensionInterface";
 import { Logger } from "../logger";
 import { GraphStyleService } from "../styles";
-import { AnalyticsUtils } from "../utils/analytics";
 import { VSCodeUtils } from "../vsCodeUtils";
 import { WebViewUtils } from "./utils";
 
@@ -181,15 +179,7 @@ export class GraphPanel implements vscode.WebviewViewProvider {
     webviewView.onDidChangeVisibility(() => {
       if (this.graphDepth && !webviewView.visible) {
         MetadataService.instance().graphDepth = this.graphDepth;
-        AnalyticsUtils.track(GraphEvents.GraphPanelUsed, {
-          type: "DepthChanged",
-          state: this.graphDepth,
-        });
       }
-      AnalyticsUtils.track(GraphEvents.GraphPanelUsed, {
-        type: "VisibilityChanged",
-        state: webviewView.visible ? "Visible" : "Collapsed",
-      });
     });
   }
   async onDidReceiveMessageHandler(msg: GraphViewMessage) {
@@ -220,9 +210,6 @@ export class GraphPanel implements vscode.WebviewViewProvider {
             vault: note.vault,
           });
         }
-        AnalyticsUtils.track(GraphEvents.GraphPanelUsed, {
-          type: "NodeClicked",
-        });
         break;
       }
       case GraphViewMessageEnum.onGetActiveEditor: {

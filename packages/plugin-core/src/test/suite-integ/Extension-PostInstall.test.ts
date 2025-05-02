@@ -6,7 +6,6 @@ import sinon, { SinonSpy, SinonStub } from "sinon";
 import { ExtensionContext } from "vscode";
 import { GLOBAL_STATE } from "../../constants";
 import { KeybindingUtils } from "../../KeybindingUtils";
-import { AnalyticsUtils } from "../../utils/analytics";
 import { VSCodeUtils } from "../../vsCodeUtils";
 import { expect } from "../testUtilsv2";
 import { describeMultiWS } from "../testUtilsV3";
@@ -18,7 +17,6 @@ import { describeMultiWS } from "../testUtilsV3";
 
 suite("GIVEN Dendron plugin activation", function () {
   let setInitialInstallSpy: sinon.SinonSpy;
-  let showTelemetryNoticeSpy: sinon.SinonSpy;
   let mockHomeDirStub: sinon.SinonStub;
 
   function stubDendronWhenNotFirstInstall() {
@@ -38,7 +36,6 @@ suite("GIVEN Dendron plugin activation", function () {
       MetadataService.instance(),
       "setInitialInstall"
     );
-    showTelemetryNoticeSpy = sinon.spy(AnalyticsUtils, "showTelemetryNotice");
   }
 
   async function afterHook() {
@@ -63,9 +60,6 @@ suite("GIVEN Dendron plugin activation", function () {
           expect(setInitialInstallSpy.called).toBeFalsy();
         });
 
-        test("THEN do not show telemetry notice", () => {
-          expect(showTelemetryNoticeSpy.called).toBeFalsy();
-        });
       }
     );
     describeMultiWS(
@@ -90,9 +84,6 @@ suite("GIVEN Dendron plugin activation", function () {
           ).toBeTruthy();
         });
 
-        test("THEN do not show telemetry notice", () => {
-          expect(showTelemetryNoticeSpy.called).toBeFalsy();
-        });
       }
     );
   });
@@ -119,9 +110,6 @@ suite("GIVEN Dendron plugin activation", function () {
           expect(MetadataService.instance().getGlobalVersion()).toNotEqual(
             undefined
           );
-        });
-        test("THEN show telemetry notice", () => {
-          expect(showTelemetryNoticeSpy.called).toBeTruthy();
         });
       }
     );

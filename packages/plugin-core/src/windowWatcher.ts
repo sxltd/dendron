@@ -1,25 +1,12 @@
-import {
-  EngagementEvents,
-  NoteScrolledSource,
-  Time,
-} from "@sxltd/common-all";
 import { WorkspaceUtils } from "@sxltd/engine-server";
 import _ from "lodash";
-import { Duration } from "luxon";
 import { TextEditor, TextEditorVisibleRangesChangeEvent, window } from "vscode";
 import { PreviewProxy } from "./components/views/PreviewProxy";
 import { IDendronExtension } from "./dendronExtensionInterface";
 import { ExtensionProvider } from "./ExtensionProvider";
 import { debouncedUpdateDecorations } from "./features/windowDecorations";
 import { Logger } from "./logger";
-import { AnalyticsUtils, sentryReportingCallback } from "./utils/analytics";
-import { ExtensionUtils } from "./utils/ExtensionUtils";
-
-const trackScrolled = _.debounce(() => {
-  AnalyticsUtils.track(EngagementEvents.NoteScrolled, {
-    noteScrolledSource: NoteScrolledSource.EDITOR,
-  });
-}, 2500);
+import { sentryReportingCallback } from "./utils/analytics";
 
 /**
  * See [[Window Watcher|dendron://dendron.docs/pkg.plugin-core.ref.window-watcher]] for docs
@@ -106,30 +93,6 @@ export class WindowWatcher {
           await this._preview.show();
         }
       }
-
-      // If the opened note is still the active text editor 5 seconds after
-      // opening, then count it as a valid 'viewed' event
-      setTimeout(() => {
-        if (
-          editor.document.uri.fsPath ===
-          window.activeTextEditor?.document.uri.fsPath
-        ) {
-          const now = Time.now().toMillis();
-
-          const daysSinceCreated = Math.round(
-            Duration.fromMillis(now - note.created).as("days")
-          );
-
-          const daysSinceUpdated = Math.round(
-            Duration.fromMillis(now - note.updated).as("days")
-          );
-
-          AnalyticsUtils.track(EngagementEvents.NoteViewed, {
-            daysSinceCreation: daysSinceCreated,
-            daysSinceUpdate: daysSinceUpdated,
-          });
-        }
-      }, 5000);
     }
   );
 
@@ -161,14 +124,6 @@ export class WindowWatcher {
       // Decorations only render the visible portions of the screen, so they
       // need to be re-rendered when the user scrolls around
       this.triggerUpdateDecorations(editor);
-
-      if (
-        editor.document.uri.fsPath ===
-          window.activeTextEditor?.document.uri.fsPath &&
-        ExtensionUtils.getTutorialIds().has(note.id)
-      ) {
-        trackScrolled();
-      }
     }
   );
 
