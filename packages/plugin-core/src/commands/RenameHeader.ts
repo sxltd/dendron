@@ -1,7 +1,6 @@
 import {
   DendronError,
   DNodeUtils,
-  extractNoteChangeEntryCounts,
   getSlugger,
   NoteProps,
   RenameNoteResp,
@@ -19,7 +18,6 @@ import { Range, window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";
 import { delayedUpdateDecorations } from "../features/windowDecorations";
 import { VSCodeUtils } from "../vsCodeUtils";
-import { getAnalyticsPayload } from "../utils/analytics";
 import { BasicCommand } from "./base";
 import { ProxyMetricUtils } from "../utils/ProxyMetricUtils";
 import { Heading } from "@sxltd/engine-server";
@@ -211,23 +209,4 @@ export class RenameHeaderCommand extends BasicCommand<
     });
   }
 
-  addAnalyticsPayload(opts?: CommandOpts, out?: CommandOutput) {
-    const noteChangeEntryCounts =
-      out?.data !== undefined
-        ? { ...extractNoteChangeEntryCounts(out.data) }
-        : {
-            createdCount: 0,
-            updatedCount: 0,
-            deletedCount: 0,
-          };
-    try {
-      this.trackProxyMetrics({ opts, noteChangeEntryCounts });
-    } catch (error) {
-      this.L.error({ error });
-    }
-    return {
-      ...noteChangeEntryCounts,
-      ...getAnalyticsPayload(opts?.source),
-    };
-  }
 }

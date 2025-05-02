@@ -4,7 +4,6 @@ import {
   DNodePropsQuickInputV2,
   DNodeUtils,
   DVault,
-  extractNoteChangeEntryCounts,
   NoteUtils,
   RefactoringCommandUsedPayload,
   StatisticsUtils,
@@ -528,20 +527,4 @@ export class RefactorHierarchyCommandV2 extends BasicCommand<
     });
   }
 
-  addAnalyticsPayload(_opts: CommandOpts, out: CommandOutput) {
-    const noteChangeEntryCounts =
-      out !== undefined
-        ? { ...extractNoteChangeEntryCounts(out.changed) }
-        : {
-            createdCount: 0,
-            updatedCount: 0,
-            deletedCount: 0,
-          };
-    try {
-      this.trackProxyMetrics({ noteChangeEntryCounts });
-    } catch (error) {
-      this.L.error({ error });
-    }
-    return noteChangeEntryCounts;
-  }
 }

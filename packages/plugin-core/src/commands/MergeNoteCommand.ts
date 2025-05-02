@@ -1,6 +1,5 @@
 import {
   asyncLoop,
-  extractNoteChangeEntryCounts,
   NoteChangeEntry,
   NoteProps,
   RefactoringCommandUsedPayload,
@@ -398,24 +397,6 @@ export class MergeNoteCommand extends BasicCommand<CommandOpts, CommandOutput> {
       ...opts,
       changed: noteChangeEntries,
     };
-  }
-
-  addAnalyticsPayload(_opts: CommandOpts, out: CommandOutput) {
-    const noteChangeEntryCounts =
-      out !== undefined
-        ? { ...extractNoteChangeEntryCounts(out.changed) }
-        : {
-            createdCount: 0,
-            updatedCount: 0,
-            deletedCount: 0,
-          };
-    try {
-      this.trackProxyMetrics({ noteChangeEntryCounts });
-    } catch (error) {
-      this.L.error({ error });
-    }
-
-    return noteChangeEntryCounts;
   }
 
   trackProxyMetrics({

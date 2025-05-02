@@ -83,10 +83,4 @@ export class ExportPodV2Command extends BaseCommand<
     opts.run();
   }
 
-  addAnalyticsPayload(opts: CommandOpts) {
-    return {
-      configured: true,
-      pod: opts.key,
-    };
-  }
 }

@@ -118,7 +118,4 @@ export class PublishPodCommand extends BaseCommand<
       window.showInformationMessage("contents copied to clipboard");
   }
 
-  addAnalyticsPayload(opts?: CommandOpts) {
-    return PodUtils.getAnalyticsPayload(opts);
-  }
 }

@@ -52,9 +52,4 @@ export class CreateTaskCommand extends BasicCommand<
     };
   }
 
-  addAnalyticsPayload(_opts: CommandOpts, res: CommandOutput) {
-    return {
-      addBehavior: res.addBehavior,
-    };
-  }
 }

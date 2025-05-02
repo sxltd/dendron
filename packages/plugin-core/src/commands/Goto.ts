@@ -41,24 +41,6 @@ export class GotoCommand extends BasicCommand<CommandOpts, CommandOutput> {
     super();
   }
 
-  addAnalyticsPayload(
-    _opts?: CommandOpts,
-    out?: RespV3<GoToNoteCommandOutput>
-  ) {
-    if (!out?.data) {
-      return {};
-    }
-    const kind = out.data.kind;
-    // non-note file has file type
-    if (out.data.kind === TargetKind.NON_NOTE) {
-      return {
-        kind,
-        type: out.data.type,
-      };
-    }
-    return { kind };
-  }
-
   async execute(): Promise<CommandOutput> {
     const externalLink = getURLAt(VSCodeUtils.getActiveTextEditor());
     const noteLink = await EditorUtils.getLinkFromSelectionWithWorkspace();

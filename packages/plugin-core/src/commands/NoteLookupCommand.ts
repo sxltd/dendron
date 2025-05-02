@@ -65,7 +65,7 @@ import { ExtensionProvider } from "../ExtensionProvider";
 import { Logger } from "../logger";
 import { IEngineAPIService } from "../services/EngineAPIServiceInterface";
 import { JournalNote } from "../traits/journal";
-import { AnalyticsUtils, getAnalyticsPayload } from "../utils/analytics";
+import { AnalyticsUtils } from "../utils/analytics";
 import { AutoCompleter } from "../utils/autoCompleter";
 import { AutoCompletableRegistrar } from "../utils/registers/AutoCompletableRegistrar";
 import { VSCodeUtils } from "../vsCodeUtils";
@@ -773,8 +773,4 @@ export class NoteLookupCommand extends BaseCommand<
     return this.controller.isJournalButtonPressed();
   }
 
-  addAnalyticsPayload(opts?: CommandOpts, resp?: CommandOpts) {
-    const { source } = { ...opts, ...resp };
-    return getAnalyticsPayload(source);
-  }
 }

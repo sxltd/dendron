@@ -1,7 +1,6 @@
 import {
   DendronError,
   DEngineClient,
-  extractNoteChangeEntryCounts,
   NoteChangeEntry,
   NoteProps,
   RefactoringCommandUsedPayload,
@@ -440,23 +439,6 @@ export class MoveNoteCommand extends BasicCommand<CommandOpts, CommandOutput> {
     });
   }
 
-  addAnalyticsPayload(opts: CommandOpts, out: CommandOutput) {
-    const noteChangeEntryCounts =
-      out !== undefined
-        ? { ...extractNoteChangeEntryCounts(out.changed) }
-        : {
-            createdCount: 0,
-            updatedCount: 0,
-            deletedCount: 0,
-          };
-    try {
-      this.trackProxyMetrics({ opts, noteChangeEntryCounts });
-    } catch (error) {
-      this.L.error({ error });
-    }
-
-    return noteChangeEntryCounts;
-  }
 }
 
 async function closeCurrentFileOpenMovedFile(

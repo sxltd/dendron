@@ -23,7 +23,6 @@ import { VaultSelectionMode } from "../components/lookup/types";
 import { PickerUtilsV2 } from "../components/lookup/utils";
 import { DENDRON_COMMANDS } from "../constants";
 import { IDendronExtension } from "../dendronExtensionInterface";
-import { getAnalyticsPayload } from "../utils/analytics";
 import { EditorUtils } from "../utils/EditorUtils";
 import { PluginFileUtils } from "../utils/files";
 import { maybeSendMeetingNoteTelemetry } from "../utils/MeetingTelemHelper";
@@ -363,19 +362,6 @@ export class GotoNoteCommand extends BasicCommand<
       }
     );
     return out;
-  }
-
-  addAnalyticsPayload(
-    opts?: GoToNoteCommandOpts,
-    resp?: GoToNoteCommandOutput
-  ) {
-    const { source, type } = {
-      type: undefined,
-      ...opts,
-      ...resp,
-    };
-    const payload = { ...getAnalyticsPayload(source), fileType: type };
-    return payload;
   }
 
   private displayInvalidFilenameError(opts: {

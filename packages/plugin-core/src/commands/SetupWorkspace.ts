@@ -191,12 +191,6 @@ export class SetupWorkspaceCommand extends BasicCommand<
     return true;
   };
 
-  addAnalyticsPayload(opts?: CommandOpts) {
-    return {
-      workspaceType: opts?.workspaceType,
-    };
-  }
-
   async execute(
     opts: CommandOpts
   ): Promise<{ wsVault?: DVault; additionalVaults?: DVault[] }> {

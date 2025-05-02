@@ -38,10 +38,6 @@ export class CopyToClipboardCommand extends InputArgCommand<
 > {
   key = DENDRON_COMMANDS.COPY_TO_CLIPBOARD.key;
 
-  addAnalyticsPayload(opts: CopyToClipboardCommandOpts) {
-    return { source: opts.source };
-  }
-
   async execute(opts: CopyToClipboardCommandOpts) {
     const ctx = "execute";
     this.L.info({ ctx, opts });

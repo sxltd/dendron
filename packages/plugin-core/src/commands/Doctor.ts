@@ -410,28 +410,6 @@ export class DoctorCommand extends BasicCommand<CommandOpts, CommandOutput> {
     return engine;
   }
 
-  addAnalyticsPayload(opts: CommandOpts, out: CommandOutput) {
-    let payload = {
-      action: opts.action,
-      scope: opts.scope,
-    };
-    if (out.extra) {
-      switch (opts.action) {
-        case DoctorActionsEnum.FIX_INVALID_FILENAMES: {
-          payload = {
-            ...payload,
-            ...out.extra,
-          };
-          break;
-        }
-        default: {
-          break;
-        }
-      }
-    }
-    return payload;
-  }
-
   async execute(opts: CommandOpts) {
     const ctx = "DoctorCommand:execute";
     window.showInformationMessage("Calling the doctor.");

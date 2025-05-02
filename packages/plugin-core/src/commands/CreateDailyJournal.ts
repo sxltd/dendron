@@ -84,13 +84,6 @@ export class CreateDailyJournalCommand extends CreateNoteWithTraitCommand {
   }
 
   /**
-   * Track whether new schema or template files were created
-   */
-  addAnalyticsPayload(_opts: CommandOpts, resp: CreateDailyJournalData) {
-    return { resp };
-  }
-
-  /**
    * Create the pre-canned schema so that we can apply a template to the user's
    * daily journal notes if the schema with the daily journal domain doesn't exist yet.
    *
