@@ -1482,9 +1482,9 @@
     ]
   },
   "scripts": {
-    "webpack": "cross-env SKIP_SENTRY=1 DETECT_CIRCULAR_DEPS=1 webpack --config webpack.dev.js",
+    "webpack": "cross-env DETECT_CIRCULAR_DEPS=1 webpack --config webpack.dev.js",
     "webpack:dev:watch": "yarn webpack --watch",
-    "webpack:prod": "cross-env SKIP_SENTRY=1 webpack --config webpack.prod.js",
+    "webpack:prod": "cross-env webpack --config webpack.prod.js",
     "watch": "yarn compile --watch",
     "buildCI": "yarn rimraf out && yarn compile",
     "build": "yarn compile",
@@ -1515,7 +1515,6 @@
   "devDependencies": {
     "@sxltd/common-test-utils": "^0.1.0",
     "@sxltd/engine-test-utils": "^0.1.0",
-    "@sentry/webpack-plugin": "^1.17.1",
     "@types/execa": "^2.0.0",
     "@types/fs-extra": "^9.0.1",
     "@types/glob": "^7.1.1",
@@ -1562,8 +1561,6 @@
     "@sxltd/common-server": "^0.1.0",
     "@sxltd/engine-server": "^0.1.0",
     "@sxltd/pods-core": "^0.1.0",
-    "@sentry/integrations": "7.11.1",
-    "@sentry/node": "7.11.1",
     "@types/vscode": "1.77.0",
     "browserify": "17.0.0",
     "cross-path-sort": "1.0.0",
