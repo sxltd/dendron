@@ -1,9 +1,6 @@
 import {
   assertUnreachable,
   DendronError,
-  DNodeUtils,
-  EngagementEvents,
-  extractNoteChangeEntryCounts,
   NoteChangeEntry,
   NoteProps,
   VaultUtils,
@@ -14,7 +11,6 @@ import _ from "lodash";
 import vscode from "vscode";
 import { RenameNoteV2aCommand } from "../commands/RenameNoteV2a";
 import { ExtensionProvider } from "../ExtensionProvider";
-import { AnalyticsUtils } from "../utils/analytics";
 import {
   getReferenceAtPosition,
   getReferenceAtPositionResp,
@@ -116,33 +112,6 @@ export default class RenameProvider implements vscode.RenameProvider {
     return;
   }
 
-  trackProxyMetrics({
-    note,
-    noteChangeEntryCounts,
-  }: {
-    note: NoteProps;
-    noteChangeEntryCounts: {
-      createdCount?: number;
-      deletedCount?: number;
-      updatedCount?: number;
-    };
-  }) {
-    const extension = ExtensionProvider.getExtension();
-    const engine = extension.getEngine();
-    const { vaults } = engine;
-
-    AnalyticsUtils.track(EngagementEvents.RefactoringCommandUsed, {
-      command: "RenameProvider",
-      ...noteChangeEntryCounts,
-      numVaults: vaults.length,
-      traits: note.traits ?? [],
-      numChildren: note.children.length,
-      numLinks: note.links.length,
-      numChars: note.body.length,
-      noteDepth: DNodeUtils.getDepth(note),
-    });
-  }
-
   public async executeRename(opts: { newName: string }): Promise<
     | {
         changed: NoteChangeEntry[];
@@ -181,16 +150,6 @@ export default class RenameProvider implements vscode.RenameProvider {
         openNewFile: false,
         noModifyWatcher: true,
       });
-
-      const noteChangeEntryCounts = extractNoteChangeEntryCounts(resp.changed);
-      try {
-        this.trackProxyMetrics({
-          note: this._targetNote,
-          noteChangeEntryCounts,
-        });
-      } catch (error) {
-        this.L.error({ error });
-      }
 
       const changed = resp.changed;
       if (changed.length > 0) {

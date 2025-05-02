@@ -575,16 +575,4 @@ export class CreateSchemaFromHierarchyCommand extends BasicCommand<
     return { successfullyCreated: true };
   }
 
-  addAnalyticsPayload(opts?: CommandOpts, out?: CommandOutput): any {
-    if (out && out.successfullyCreated) {
-      return { successfullyCreated: true };
-    } else if (opts && opts.stopReason) {
-      return {
-        stopReason: opts.stopReason,
-        successfullyCreated: false,
-      };
-    } else {
-      return { successfullyCreated: false };
-    }
-  }
 }

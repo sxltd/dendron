@@ -1,7 +1,7 @@
 {
   "name": "@sxltd/common-test-utils",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "license": "Apache 2.0",
   "repository": {
@@ -47,8 +47,8 @@
   },
   "dependencies": {
     "@sxltd/common-all": "^0.1.0",
-    "@sxltd/common-server": "^0.1.0",
-    "@sxltd/pods-core": "^0.1.0",
+    "@sxltd/common-server": "^0.2.0",
+    "@sxltd/pods-core": "^0.1.1",
     "@types/sinon": "^9.0.9",
     "fs-extra": "^9.0.1",
     "jest": "^28.1.0",

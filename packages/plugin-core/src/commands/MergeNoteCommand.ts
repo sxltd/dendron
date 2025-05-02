@@ -1,6 +1,5 @@
 import {
   asyncLoop,
-  extractNoteChangeEntryCounts,
   NoteChangeEntry,
   NoteProps,
   RefactoringCommandUsedPayload,
@@ -22,7 +21,6 @@ import { IDendronExtension } from "../dendronExtensionInterface";
 import { BasicCommand, SanityCheckResults } from "./base";
 import * as vscode from "vscode";
 import _ from "lodash";
-import { ProxyMetricUtils } from "../utils/ProxyMetricUtils";
 import { VSCodeUtils } from "../vsCodeUtils";
 import { LinkUtils } from "@sxltd/unified";
 import { AutoCompleter } from "../utils/autoCompleter";
@@ -400,45 +398,4 @@ export class MergeNoteCommand extends BasicCommand<CommandOpts, CommandOutput> {
     };
   }
 
-  addAnalyticsPayload(_opts: CommandOpts, out: CommandOutput) {
-    const noteChangeEntryCounts =
-      out !== undefined
-        ? { ...extractNoteChangeEntryCounts(out.changed) }
-        : {
-            createdCount: 0,
-            updatedCount: 0,
-            deletedCount: 0,
-          };
-    try {
-      this.trackProxyMetrics({ noteChangeEntryCounts });
-    } catch (error) {
-      this.L.error({ error });
-    }
-
-    return noteChangeEntryCounts;
-  }
-
-  trackProxyMetrics({
-    noteChangeEntryCounts,
-  }: {
-    noteChangeEntryCounts: {
-      createdCount: number;
-      deletedCount: number;
-      updatedCount: number;
-    };
-  }) {
-    if (this._proxyMetricPayload === undefined) {
-      // something went wrong during prep. don't track.
-      return;
-    }
-    const { extra, ...props } = this._proxyMetricPayload;
-
-    ProxyMetricUtils.trackRefactoringProxyMetric({
-      props,
-      extra: {
-        ...extra,
-        ...noteChangeEntryCounts,
-      },
-    });
-  }
 }

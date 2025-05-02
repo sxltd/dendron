@@ -1,11 +1,10 @@
 import { DendronError, getStage, isTSError } from "@sxltd/common-all";
-import { DLogger, getDurationMilliseconds } from "@sxltd/common-server";
+import { DLogger } from "@sxltd/common-server";
 import _ from "lodash";
 import { window } from "vscode";
 import { IDendronExtension } from "../dendronExtensionInterface";
 import { Logger } from "../logger";
 import { IBaseCommand } from "../types";
-import { AnalyticsUtils } from "../utils/analytics";
 
 export type CodeCommandConstructor = {
   new (extension: IDendronExtension): CodeCommandInstance;
@@ -47,7 +46,6 @@ export abstract class BaseCommand<
     this.L = Logger;
   }
 
-  addAnalyticsPayload?(opts?: TOpts, out?: TOut): any;
 
   static showInput = window.showInputBox;
 
@@ -82,8 +80,6 @@ export abstract class BaseCommand<
 
   async run(args?: Partial<TRunOpts>): Promise<TOut | undefined> {
     const ctx = `${this.key}:run`;
-    const start = process.hrtime();
-    let isError = false;
     let opts: TOpts | undefined;
     let resp: TOut | undefined;
 
@@ -136,27 +132,12 @@ export abstract class BaseCommand<
         error: cerror,
       });
 
-      isError = true;
       // During development only, rethrow the errors to make them easier to debug
       if (getStage() === "dev") {
         throw error;
       }
       return;
-    } finally {
-      const payload = this.addAnalyticsPayload
-        ? await this.addAnalyticsPayload(opts, resp)
-        : {};
-      const sanityCheckResults = sanityCheckResp
-        ? { sanityCheck: sanityCheckResp }
-        : {};
-      if (!this.skipAnalytics)
-        AnalyticsUtils.track(this.key, {
-          duration: getDurationMilliseconds(start),
-          error: isError,
-          ...payload,
-          ...sanityCheckResults,
-        });
-    }
+    } 
   }
 }
 

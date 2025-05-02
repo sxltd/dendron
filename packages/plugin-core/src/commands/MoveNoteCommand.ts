@@ -1,7 +1,6 @@
 import {
   DendronError,
   DEngineClient,
-  extractNoteChangeEntryCounts,
   NoteChangeEntry,
   NoteProps,
   RefactoringCommandUsedPayload,
@@ -30,7 +29,6 @@ import { ProceedCancel, QuickPickUtil } from "../utils/quickPick";
 import { BasicCommand } from "./base";
 import { ExtensionProvider } from "../ExtensionProvider";
 import { NoteLookupProviderSuccessResp } from "../components/lookup/LookupProviderV3Interface";
-import { ProxyMetricUtils } from "../utils/ProxyMetricUtils";
 import { IDendronExtension } from "../dendronExtensionInterface";
 import { AutoCompletableRegistrar } from "../utils/registers/AutoCompletableRegistrar";
 import { AutoCompleter } from "../utils/autoCompleter";
@@ -413,50 +411,6 @@ export class MoveNoteCommand extends BasicCommand<CommandOpts, CommandOutput> {
     panel.webview.html = md.render(contentLines.join("\n"));
   }
 
-  trackProxyMetrics({
-    opts,
-    noteChangeEntryCounts,
-  }: {
-    opts: CommandOpts;
-    noteChangeEntryCounts: {
-      createdCount: number;
-      deletedCount: number;
-      updatedCount: number;
-    };
-  }) {
-    if (this._proxyMetricPayload === undefined) {
-      // something went wrong during prep. don't track.
-      return;
-    }
-    const { extra, ...props } = this._proxyMetricPayload;
-
-    ProxyMetricUtils.trackRefactoringProxyMetric({
-      props,
-      extra: {
-        ...extra,
-        ...noteChangeEntryCounts,
-        isMultiMove: isMultiMove(opts.moves),
-      },
-    });
-  }
-
-  addAnalyticsPayload(opts: CommandOpts, out: CommandOutput) {
-    const noteChangeEntryCounts =
-      out !== undefined
-        ? { ...extractNoteChangeEntryCounts(out.changed) }
-        : {
-            createdCount: 0,
-            updatedCount: 0,
-            deletedCount: 0,
-          };
-    try {
-      this.trackProxyMetrics({ opts, noteChangeEntryCounts });
-    } catch (error) {
-      this.L.error({ error });
-    }
-
-    return noteChangeEntryCounts;
-  }
 }
 
 async function closeCurrentFileOpenMovedFile(

@@ -1,16 +1,5 @@
-import {
-  AppNames,
-  error2PlainObject,
-  getStage,
-  StatusCodes,
-} from "@sxltd/common-all";
-import {
-  findInParent,
-  SegmentClient,
-  initializeSentry,
-  NodeJSUtils,
-} from "@sxltd/common-server";
-import * as Sentry from "@sentry/node";
+import { error2PlainObject, StatusCodes } from "@sxltd/common-all";
+import { findInParent } from "@sxltd/common-server";
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import asyncHandler from "express-async-handler";
@@ -26,10 +15,6 @@ import {
   OauthService,
   registerOauthHandler,
 } from "./routes/oauth";
-
-function getSentryRelease() {
-  return `${AppNames.EXPRESS_SERVER}@${NodeJSUtils.getVersionFromPkg()}`;
-}
 
 export function appModule({
   logPath,
@@ -66,19 +51,6 @@ export function appModule({
   logger.info({ ctx, dirPath: __dirname });
   const staticDir = path.join(__dirname, "static");
   app.use(express.static(staticDir));
-
-  // this is the first time we are accessing the segment client instance (when this is run as a separate process).
-  // unlock Segment client.
-  SegmentClient.unlock();
-
-  if (!SegmentClient.instance().hasOptedOut && getStage() === "prod") {
-    initializeSentry({ environment: getStage(), release: getSentryRelease() });
-  }
-
-  // Re-use the id for error reporting too:
-  Sentry.setUser({ id: SegmentClient.instance().anonymousId });
-
-  app.use(Sentry.Handlers.requestHandler() as express.RequestHandler);
 
   if (nextStaticRoot) {
     logger.info({ ctx, msg: "nextStaticRoot:add", nextStaticRoot });
@@ -123,17 +95,6 @@ export function appModule({
   baseRouter.use("/oauth", oauthRouter);
 
   app.use("/api", baseRouter);
-
-  // The error handler must be before any other error middleware and after all controllers
-  // app.use(Sentry.Handlers.errorHandler() as express.ErrorRequestHandler);
-  app.use(
-    Sentry.Handlers.errorHandler({
-      shouldHandleError() {
-        // Upload all exceptions
-        return true;
-      },
-    }) as express.ErrorRequestHandler
-  );
 
   app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
     const flattenedError = error2PlainObject(err);

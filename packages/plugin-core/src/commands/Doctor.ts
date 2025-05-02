@@ -3,10 +3,8 @@ import {
   DEngineClient,
   DNodeUtils,
   DVault,
-  ExtensionEvents,
   extractNoteChangeEntryCounts,
   isNotUndefined,
-  KeybindingConflictDetectedSource,
   NoteChangeEntry,
   NoteDicts,
   NoteDictsUtils,
@@ -40,7 +38,6 @@ import { delayedUpdateDecorations } from "../features/windowDecorations";
 import { VSCodeUtils } from "../vsCodeUtils";
 import { BasicCommand } from "./base";
 import { ReloadIndexCommand } from "./ReloadIndex";
-import { AnalyticsUtils } from "../utils/analytics";
 import { IDendronExtension } from "../dendronExtensionInterface";
 import { KeybindingUtils } from "../KeybindingUtils";
 import { QuickPickHierarchySelector } from "../components/lookup/HierarchySelector";
@@ -323,9 +320,6 @@ export class DoctorCommand extends BasicCommand<CommandOpts, CommandOutput> {
       }
     );
     panel.webview.html = md.render(contents);
-    AnalyticsUtils.track(
-      ExtensionEvents.IncompatibleExtensionsPreviewDisplayed
-    );
     return { installStatus, contents };
   }
 
@@ -410,28 +404,6 @@ export class DoctorCommand extends BasicCommand<CommandOpts, CommandOutput> {
     return engine;
   }
 
-  addAnalyticsPayload(opts: CommandOpts, out: CommandOutput) {
-    let payload = {
-      action: opts.action,
-      scope: opts.scope,
-    };
-    if (out.extra) {
-      switch (opts.action) {
-        case DoctorActionsEnum.FIX_INVALID_FILENAMES: {
-          payload = {
-            ...payload,
-            ...out.extra,
-          };
-          break;
-        }
-        default: {
-          break;
-        }
-      }
-    }
-    return payload;
-  }
-
   async execute(opts: CommandOpts) {
     const ctx = "DoctorCommand:execute";
     window.showInformationMessage("Calling the doctor.");
@@ -499,9 +471,6 @@ export class DoctorCommand extends BasicCommand<CommandOpts, CommandOutput> {
         });
         if (conflicts.length > 0) {
           await KeybindingUtils.showKeybindingConflictPreview({ conflicts });
-          AnalyticsUtils.track(ExtensionEvents.KeybindingConflictDetected, {
-            source: KeybindingConflictDetectedSource.doctor,
-          });
         } else {
           window.showInformationMessage(`There are no keybinding conflicts!`);
         }

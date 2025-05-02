@@ -60,13 +60,6 @@ export class CreateMeetingNoteCommand extends CreateNoteWithTraitCommand {
   }
 
   /**
-   * Track whether new schema or template files were created
-   */
-  addAnalyticsPayload(_opts: CommandOpts, resp: ExecuteData) {
-    return { resp };
-  }
-
-  /**
    * Create the pre-canned schema so that we can apply a template to the user's
    * meeting notes if the schema doesn't exist yet.
    * @returns whether a new schema file was made

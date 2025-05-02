@@ -43,10 +43,6 @@ export class TogglePreviewCommand extends InputArgCommand<
     return;
   }
 
-  addAnalyticsPayload(opts?: TogglePreviewCommandOpts) {
-    return { providedFile: !_.isEmpty(opts) };
-  }
-
   /**
    *
    * @param opts if a Uri is defined through this parameter, then that Uri will

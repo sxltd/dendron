@@ -3,7 +3,6 @@ import {
   HierarchyLevel,
   SchemaCandidate,
   SchemaCreator,
-  StopReason,
   UserQueries,
 } from "../../commands/CreateSchemaFromHierarchyCommand";
 import { TestNoteFactory } from "@sxltd/common-test-utils";
@@ -52,10 +51,6 @@ async function createTestSchemaCandidatesDefault() {
   ];
 
   return createSchemaCandidates(fnames);
-}
-
-function buildCmd() {
-  return new CreateSchemaFromHierarchyCommand();
 }
 
 suite("CreateSchemaFromHierarchyCommand tests", () => {
@@ -226,33 +221,6 @@ schemas:
       });
     });
 
-    describe(`addAnalyticsPayload tests`, () => {
-      it(`WHEN successfully created THEN format success`, () => {
-        const actual = buildCmd().addAnalyticsPayload(
-          { isHappy: true },
-          { successfullyCreated: true }
-        );
-        expect(actual).toEqual({ successfullyCreated: true });
-      });
-
-      it(`WHEN input was not happy THEN format the stop reason`, () => {
-        const actual = buildCmd().addAnalyticsPayload({
-          isHappy: false,
-          stopReason: StopReason.DID_NOT_PICK_SCHEMA_FILE_NAME,
-        });
-        expect(actual).toEqual({
-          successfullyCreated: false,
-          stopReason: StopReason.DID_NOT_PICK_SCHEMA_FILE_NAME,
-        });
-      });
-
-      it("WHEN stop reason is not present but create is not happy THEN format create not happy", () => {
-        const actual = buildCmd().addAnalyticsPayload({ isHappy: false });
-        expect(actual).toEqual({
-          successfullyCreated: false,
-        });
-      });
-    });
   });
 
   describe(`UserQueries tests`, () => {

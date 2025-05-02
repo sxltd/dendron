@@ -6,9 +6,8 @@ import {
   SchemaModuleProps,
   SchemaQuickInput,
   SchemaUtils,
-  VSCodeEvents,
 } from "@sxltd/common-all";
-import { getDurationMilliseconds, vault2Path } from "@sxltd/common-server";
+import { vault2Path } from "@sxltd/common-server";
 import { HistoryService } from "@sxltd/engine-server";
 import _ from "lodash";
 import { Uri } from "vscode";
@@ -16,7 +15,6 @@ import { DendronQuickPickerV2 } from "../components/lookup/types";
 import { OldNewLocation, PickerUtilsV2 } from "../components/lookup/utils";
 import { DENDRON_COMMANDS } from "../constants";
 import { Logger } from "../logger";
-import { AnalyticsUtils } from "../utils/analytics";
 import { BaseCommand } from "./base";
 import { ExtensionProvider } from "../ExtensionProvider";
 import { ILookupControllerV3 } from "../components/lookup/LookupControllerV3Interface";
@@ -89,7 +87,6 @@ export class SchemaLookupCommand extends BaseCommand<
   }
 
   async gatherInputs(opts?: CommandRunOpts): Promise<CommandGatherOutput> {
-    const start = process.hrtime();
     const ctx = "SchemaLookupCommand:gatherInput";
     Logger.info({ ctx, opts, msg: "enter" });
     const copts: CommandRunOpts = opts || {};
@@ -115,10 +112,6 @@ export class SchemaLookupCommand extends BaseCommand<
       alwaysShow: true,
     });
 
-    const profile = getDurationMilliseconds(start);
-    AnalyticsUtils.track(VSCodeEvents.SchemaLookup_Gather, {
-      duration: profile,
-    });
 
     return {
       controller: this.controller,
@@ -132,7 +125,6 @@ export class SchemaLookupCommand extends BaseCommand<
     opts: CommandGatherOutput
   ): Promise<CommandOpts | undefined> {
     return new Promise((resolve) => {
-      const start = process.hrtime();
       HistoryService.instance().subscribev2("lookupProvider", {
         id: "schemaLookup",
         listener: async (event) => {
@@ -175,10 +167,6 @@ export class SchemaLookupCommand extends BaseCommand<
         quickpick: opts.quickpick,
         nonInteractive: opts.noConfirm,
       });
-      const profile = getDurationMilliseconds(start);
-      AnalyticsUtils.track(VSCodeEvents.SchemaLookup_Show, {
-        duration: profile,
-      });
     });
   }
 
@@ -186,18 +174,12 @@ export class SchemaLookupCommand extends BaseCommand<
     item: SchemaQuickInput
   ): Promise<OnDidAcceptReturn | undefined> {
     let result: Promise<OnDidAcceptReturn | undefined>;
-    const start = process.hrtime();
     const isNew = PickerUtilsV2.isCreateNewNotePicked(item);
     if (isNew) {
       result = this.acceptNewSchemaItem();
     } else {
       result = this.acceptExistingSchemaItem(item);
     }
-    const profile = getDurationMilliseconds(start);
-    AnalyticsUtils.track(VSCodeEvents.SchemaLookup_Accept, {
-      duration: profile,
-      isNew,
-    });
     return result;
   }
 

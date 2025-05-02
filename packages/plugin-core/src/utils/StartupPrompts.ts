@@ -1,4 +1,4 @@
-import { Time, VSCodeEvents } from "@sxltd/common-all";
+import { Time } from "@sxltd/common-all";
 import {
   LapsedUserSurveyStatusEnum,
   MetadataService,
@@ -7,9 +7,7 @@ import { Duration } from "luxon";
 import * as vscode from "vscode";
 import { GLOBAL_STATE } from "../constants";
 import { StateService } from "../services/stateService";
-import { SurveyUtils } from "../survey";
 import { showWelcome } from "../WelcomeUtils";
-import { AnalyticsUtils } from "./analytics";
 
 export class StartupPrompts {
   static async showLapsedUserMessageIfNecessary(opts: {
@@ -61,7 +59,6 @@ export class StartupPrompts {
   static async showLapsedUserMessage(assetUri: vscode.Uri) {
     const START_TITLE = "Get Started";
 
-    AnalyticsUtils.track(VSCodeEvents.ShowLapsedUserMessage);
     MetadataService.instance().setLapsedUserMsgSendTime();
     vscode.window
       .showInformationMessage(
@@ -71,10 +68,8 @@ export class StartupPrompts {
       )
       .then(async (resp) => {
         if (resp?.title === START_TITLE) {
-          AnalyticsUtils.track(VSCodeEvents.LapsedUserMessageAccepted);
           showWelcome(assetUri);
         } else {
-          AnalyticsUtils.track(VSCodeEvents.LapsedUserMessageRejected);
           const lapsedSurveySubmittedState =
             await StateService.instance().getGlobalState(
               GLOBAL_STATE.LAPSED_USER_SURVEY_SUBMITTED
@@ -91,9 +86,7 @@ export class StartupPrompts {
 
           if (
             lapsedUserSurveySubmitted !== LapsedUserSurveyStatusEnum.submitted
-          ) {
-            await SurveyUtils.showLapsedUserSurvey();
-          }
+          ) 
           return;
         }
       });

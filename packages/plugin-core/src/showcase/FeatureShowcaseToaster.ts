@@ -1,4 +1,3 @@
-import { VSCodeEvents } from "@sxltd/common-all";
 import { MetadataService, ShowcaseEntry } from "@sxltd/engine-server";
 import _ from "lodash";
 import * as vscode from "vscode";
@@ -6,7 +5,6 @@ import { AnalyticsUtils } from "../utils/analytics";
 import { ALL_FEATURE_SHOWCASES } from "./AllFeatureShowcases";
 import {
   DisplayLocation,
-  FeatureShowcaseUserResponse,
   IFeatureShowcaseMessage,
 } from "./IFeatureShowcaseMessage";
 
@@ -76,14 +74,9 @@ export class FeatureShowcaseToaster {
   }
 
   private showInformationMessage(
-    displayLocation: DisplayLocation,
+    _displayLocation: DisplayLocation,
     message: IFeatureShowcaseMessage
   ) {
-    AnalyticsUtils.track(VSCodeEvents.FeatureShowcaseDisplayed, {
-      messageType: message.showcaseEntry,
-      displayLocation,
-    });
-
     const options = _.without(
       [message.confirmText, message.deferText],
       undefined
@@ -91,29 +84,14 @@ export class FeatureShowcaseToaster {
 
     vscode.window
       .showInformationMessage(
+        //should this not just be `displaylocation`? todo: investigate
         message.getDisplayMessage(DisplayLocation.InformationMessage),
         ...options
       )
       .then((resp) => {
-        let userResponse;
         MetadataService.instance().setFeatureShowcaseStatus(
           message.showcaseEntry
         );
-        if (resp === undefined) {
-          userResponse = FeatureShowcaseUserResponse.dismissed;
-        } else if (resp === message.confirmText) {
-          userResponse = FeatureShowcaseUserResponse.confirmed;
-        } else {
-          // Don't set the metadata because the user deferred let's toast the
-          // user again later.
-          userResponse = FeatureShowcaseUserResponse.deferred;
-        }
-
-        AnalyticsUtils.track(VSCodeEvents.FeatureShowcaseResponded, {
-          messageType: message.showcaseEntry,
-          displayLocation: DisplayLocation.InformationMessage,
-          userResponse,
-        });
 
         if (resp === message.confirmText && message.onConfirm) {
           message.onConfirm.bind(message)();

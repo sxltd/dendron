@@ -3,13 +3,10 @@ import {
   DendronASTDest,
   DendronError,
   DLink,
-  DNodeUtils,
-  DNoteHeaderAnchor,
   DNoteLink,
   DVault,
   ErrorUtils,
   ERROR_SEVERITY,
-  extractNoteChangeEntryCounts,
   getSlugger,
   DendronConfig,
   isNotUndefined,
@@ -51,7 +48,6 @@ import { delayedUpdateDecorations } from "../features/windowDecorations";
 import { IEngineAPIService } from "../services/EngineAPIServiceInterface";
 import { AutoCompleter } from "../utils/autoCompleter";
 import { findReferences, FoundRefT, hasAnchorsToUpdate } from "../utils/md";
-import { ProxyMetricUtils } from "../utils/ProxyMetricUtils";
 import { AutoCompletableRegistrar } from "../utils/registers/AutoCompletableRegistrar";
 import { VSCodeUtils } from "../vsCodeUtils";
 import { BasicCommand } from "./base";
@@ -618,78 +614,4 @@ export class MoveHeaderCommand extends BasicCommand<
     return { ...opts, changed: updated };
   }
 
-  trackProxyMetrics({
-    out,
-    noteChangeEntryCounts,
-  }: {
-    out: CommandOutput;
-    noteChangeEntryCounts: {
-      createdCount: number;
-      deletedCount: number;
-      updatedCount: number;
-    };
-  }) {
-    const extension = ExtensionProvider.getExtension();
-    const engine = extension.getEngine();
-    const { vaults } = engine;
-
-    // only look at origin note
-    const { origin } = out;
-
-    const headers = _.toArray(origin.anchors).filter((anchor) => {
-      return anchor !== undefined && anchor.type === "header";
-    }) as DNoteHeaderAnchor[];
-
-    const numOriginHeaders = headers.length;
-    const originHeaderDepths = headers.map((header) => header.depth);
-    const maxOriginHeaderDepth = _.max(originHeaderDepths);
-    const meanOriginHeaderDepth = _.mean(originHeaderDepths);
-    const movedHeaders = out.nodesToMove.filter((node) => {
-      return node.type === "heading";
-    }) as Heading[];
-    const numMovedHeaders = movedHeaders.length;
-    const movedHeaderDepths = movedHeaders.map((header) => header.depth);
-    const maxMovedHeaderDepth = _.max(movedHeaderDepths);
-    const meanMovedHeaderDepth = _.mean(movedHeaderDepths);
-
-    ProxyMetricUtils.trackRefactoringProxyMetric({
-      props: {
-        command: this.key,
-        numVaults: vaults.length,
-        traits: origin.traits || [],
-        numChildren: origin.children.length,
-        numLinks: origin.links.length,
-        numChars: origin.body.length,
-        noteDepth: DNodeUtils.getDepth(origin),
-      },
-      extra: {
-        ...noteChangeEntryCounts,
-        numOriginHeaders,
-        maxOriginHeaderDepth,
-        meanOriginHeaderDepth,
-        numMovedHeaders,
-        maxMovedHeaderDepth,
-        meanMovedHeaderDepth,
-      },
-    });
-  }
-
-  addAnalyticsPayload(_opts: CommandOpts, out: CommandOutput) {
-    const noteChangeEntryCounts =
-      out !== undefined
-        ? { ...extractNoteChangeEntryCounts(out.changed) }
-        : {
-            createdCount: 0,
-            updatedCount: 0,
-            deletedCount: 0,
-          };
-
-    try {
-      this.trackProxyMetrics({ out, noteChangeEntryCounts });
-    } catch (error) {
-      this.L.error({ error });
-    }
-
-    return noteChangeEntryCounts;
-  }
 }

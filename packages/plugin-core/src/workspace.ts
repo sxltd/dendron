@@ -7,7 +7,6 @@ import {
   DWorkspaceV2,
   ERROR_STATUS,
   getStage,
-  VSCodeEvents,
   WorkspaceSettings,
   WorkspaceType,
   BacklinkPanelSortOrder,
@@ -20,7 +19,6 @@ import {
   WorkspaceUtils,
 } from "@sxltd/engine-server";
 import { PodUtils } from "@sxltd/pods-core";
-import * as Sentry from "@sentry/node";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
@@ -57,7 +55,7 @@ import { ISchemaSyncService } from "./services/SchemaSyncServiceInterface";
 import { ALL_FEATURE_SHOWCASES } from "./showcase/AllFeatureShowcases";
 import { DisplayLocation } from "./showcase/IFeatureShowcaseMessage";
 import { DisposableStore } from "./utils";
-import { AnalyticsUtils, sentryReportingCallback } from "./utils/analytics";
+import { sentryReportingCallback } from "./utils/analytics";
 import { VersionProvider } from "./versionProvider";
 import { CalendarView } from "./views/CalendarView";
 import { GraphPanel } from "./views/GraphPanel";
@@ -315,7 +313,6 @@ export class DendronExtension implements IDendronExtension {
         err instanceof DendronError
           ? err
           : new DendronError({ message: ctx, payload: err });
-      Sentry.captureException(error);
       Logger.error({ ctx, msg: "Failed to check WS active", error });
       return false;
     }
@@ -582,7 +579,7 @@ export class DendronExtension implements IDendronExtension {
 
     const backlinksTreeDataProvider = new BacklinksTreeDataProvider(
       this.getEngine(),
-      config,
+      config
     );
 
     const backlinkTreeView = vscode.window.createTreeView(
@@ -594,16 +591,9 @@ export class DendronExtension implements IDendronExtension {
     );
 
     backlinkTreeView.onDidExpandElement(() => {
-      AnalyticsUtils.track(VSCodeEvents.BacklinksPanelUsed, {
-        type: "ExpandElement",
-      });
     });
 
-    backlinkTreeView.onDidChangeVisibility((e) => {
-      AnalyticsUtils.track(VSCodeEvents.BacklinksPanelUsed, {
-        type: "VisibilityChanged",
-        state: e.visible ? "Visible" : "Collapsed",
-      });
+    backlinkTreeView.onDidChangeVisibility((_e) => {
     });
 
     this.backlinksDataProvider = backlinksTreeDataProvider;
@@ -612,11 +602,6 @@ export class DendronExtension implements IDendronExtension {
     vscode.commands.registerCommand(
       DENDRON_COMMANDS.BACKLINK_SORT_BY_LAST_UPDATED.key,
       sentryReportingCallback(() => {
-        AnalyticsUtils.track(VSCodeEvents.BacklinksPanelUsed, {
-          type: "SortOrderChanged",
-          state: "SortByLastUpdated",
-        });
-
         backlinksTreeDataProvider.sortOrder =
           BacklinkPanelSortOrder.LastUpdated;
       })
@@ -625,11 +610,6 @@ export class DendronExtension implements IDendronExtension {
     vscode.commands.registerCommand(
       DENDRON_COMMANDS.BACKLINK_SORT_BY_PATH_NAMES.key,
       sentryReportingCallback(() => {
-        AnalyticsUtils.track(VSCodeEvents.BacklinksPanelUsed, {
-          type: "SortOrderChanged",
-          state: "SortByPathName",
-        });
-
         backlinksTreeDataProvider.sortOrder = BacklinkPanelSortOrder.PathNames;
       })
     );
@@ -637,11 +617,6 @@ export class DendronExtension implements IDendronExtension {
     vscode.commands.registerCommand(
       DENDRON_COMMANDS.BACKLINK_SORT_BY_LAST_UPDATED_CHECKED.key,
       sentryReportingCallback(() => {
-        AnalyticsUtils.track(VSCodeEvents.BacklinksPanelUsed, {
-          type: "SortOrderChanged",
-          state: "SortByLastUpdated",
-        });
-
         backlinksTreeDataProvider.sortOrder =
           BacklinkPanelSortOrder.LastUpdated;
       })
@@ -650,11 +625,6 @@ export class DendronExtension implements IDendronExtension {
     vscode.commands.registerCommand(
       DENDRON_COMMANDS.BACKLINK_SORT_BY_PATH_NAMES_CHECKED.key,
       sentryReportingCallback(() => {
-        AnalyticsUtils.track(VSCodeEvents.BacklinksPanelUsed, {
-          type: "SortOrderChanged",
-          state: "SortByPathName",
-        });
-
         backlinksTreeDataProvider.sortOrder = BacklinkPanelSortOrder.PathNames;
       })
     );
@@ -679,12 +649,7 @@ export class DendronExtension implements IDendronExtension {
 
     vscode.commands.registerCommand(
       DENDRON_COMMANDS.GOTO_BACKLINK.key,
-      (uri, options, isCandidate) => {
-        AnalyticsUtils.track(VSCodeEvents.BacklinksPanelUsed, {
-          type: "BacklinkClicked",
-          state: isCandidate === true ? "Candidate" : "Link",
-        });
-
+      (uri, options) => {
         vscode.commands.executeCommand("vscode.open", uri, options);
       }
     );

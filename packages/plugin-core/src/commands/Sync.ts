@@ -1,5 +1,4 @@
 import {
-  ConfigEvents,
   ConfigUtils,
   DendronError,
   ERROR_SEVERITY,
@@ -17,7 +16,6 @@ import { ProgressLocation, window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";
 import { ExtensionProvider } from "../ExtensionProvider";
 import { Logger } from "../logger";
-import { AnalyticsUtils } from "../utils/analytics";
 import { MessageSeverity, VSCodeUtils } from "../vsCodeUtils";
 import { BasicCommand } from "./base";
 
@@ -46,7 +44,6 @@ export async function detectOutOfDateSeeds({
         // The path specified in the seed has changed compared to what's in the
         // users config. User won't be able to read the notes in that vault, we
         // should prompt to fix it.
-        AnalyticsUtils.track(ConfigEvents.OutdatedSeedVaultMessageShow);
         const select = await VSCodeUtils.showMessage(
           MessageSeverity.WARN,
           `The configuration for the seed vault ${VaultUtils.getName(
@@ -61,9 +58,6 @@ export async function detectOutOfDateSeeds({
           }
         );
         if (select?.title === UPDATE_SEED_CONFIG_PROMPT) {
-          await AnalyticsUtils.trackForNextRun(
-            ConfigEvents.OutdatedSeedVaultMessageAccept
-          );
           await DConfig.createBackup(wsRoot, "update-seed");
           const config = DConfig.getOrCreate(wsRoot);
           ConfigUtils.updateVault(config, seedVault, (vault) => {
@@ -205,18 +199,6 @@ export class SyncCommand extends BasicCommand<CommandOpts, CommandReturns> {
     });
 
     return { message, maxMessageSeverity };
-  }
-
-  addAnalyticsPayload(_opts: CommandOpts, resp: CommandReturns) {
-    const allActions = [
-      ...(resp?.committed ?? []),
-      ...(resp?.pulled ?? []),
-      ...(resp?.pushed ?? []),
-    ];
-
-    return {
-      hasMultiVaultRepo: allActions.some((action) => action.vaults.length > 1),
-    };
   }
 
   async execute(opts?: CommandOpts) {

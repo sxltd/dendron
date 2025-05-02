@@ -4,7 +4,7 @@
   "displayName": "dendron",
   "description": "Dendron is a hierarchical note taking tool that grows as you do.",
   "publisher": "dendron",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "sponsor": {
     "url": "https://accounts.dendron.so/account/subscribe"
   },
@@ -1482,9 +1482,9 @@
     ]
   },
   "scripts": {
-    "webpack": "cross-env SKIP_SENTRY=1 DETECT_CIRCULAR_DEPS=1 webpack --config webpack.dev.js",
+    "webpack": "cross-env DETECT_CIRCULAR_DEPS=1 webpack --config webpack.dev.js",
     "webpack:dev:watch": "yarn webpack --watch",
-    "webpack:prod": "cross-env SKIP_SENTRY=1 webpack --config webpack.prod.js",
+    "webpack:prod": "webpack --config webpack.prod.js",
     "watch": "yarn compile --watch",
     "buildCI": "yarn rimraf out && yarn compile",
     "build": "yarn compile",
@@ -1513,7 +1513,6 @@
     "perf-test": "node ./out/src/test/runPerfTest.js"
   },
   "devDependencies": {
-    "@sentry/webpack-plugin": "^1.17.1",
     "@types/execa": "^2.0.0",
     "@types/fs-extra": "^9.0.1",
     "@types/glob": "^7.1.1",
@@ -1554,13 +1553,11 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@sxltd/api-server": "^0.1.0",
+    "@sxltd/api-server": "^0.1.1",
     "@sxltd/common-all": "^0.1.0",
-    "@sxltd/common-server": "^0.1.0",
-    "@sxltd/engine-server": "^0.1.0",
-    "@sxltd/pods-core": "^0.1.0",
-    "@sentry/integrations": "7.11.1",
-    "@sentry/node": "7.11.1",
+    "@sxltd/common-server": "^0.2.0",
+    "@sxltd/engine-server": "^0.1.1",
+    "@sxltd/pods-core": "^0.1.1",
     "@types/vscode": "1.77.0",
     "browserify": "17.0.0",
     "cross-path-sort": "1.0.0",

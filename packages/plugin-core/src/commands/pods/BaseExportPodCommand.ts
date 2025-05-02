@@ -389,13 +389,6 @@ export abstract class BaseExportPodCommand<
     return engine.findNotes({ excludeStub: true, vault });
   }
 
-  addAnalyticsPayload(opts: { config: Config; payload: NoteProps[] }) {
-    if (_.isUndefined(opts)) return;
-    return {
-      exportScope: opts.config.exportScope,
-    };
-  }
-
   async getPropsForSelectionScope(payload?: NoteProps[]) {
     const noteProps = payload || (await this.getPropsForNoteScope());
     if (!noteProps) {

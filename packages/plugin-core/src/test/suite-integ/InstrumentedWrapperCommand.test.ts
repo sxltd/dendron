@@ -1,13 +1,11 @@
 import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import path from "path";
-import sinon from "sinon";
 import * as vscode from "vscode";
 import {
   InstrumentedWrapperCommand,
   InstrumentedWrapperCommandArgs,
 } from "../../commands/InstrumentedWrapperCommand";
 import { ExtensionProvider } from "../../ExtensionProvider";
-import { AnalyticsUtils } from "../../utils/analytics";
 import { VSCodeUtils } from "../../vsCodeUtils";
 import { expect } from "../testUtilsv2";
 import { describeMultiWS } from "../testUtilsV3";
@@ -54,7 +52,6 @@ suite("GIVEN a InstrumentedWrapperCommand", function () {
     () => {
       test("THEN the inner command is executed and a telemetry point is fired", async () => {
         const TEST_EVENT = "TestEvent";
-        const analyticsStub = sinon.stub(AnalyticsUtils, "track");
 
         const { wsRoot, vaults } = ExtensionProvider.getDWorkspace();
 
@@ -74,16 +71,6 @@ suite("GIVEN a InstrumentedWrapperCommand", function () {
         const activeEditor = VSCodeUtils.getActiveTextEditor();
         expect(activeEditor?.document.fileName).toEqual(fooPath);
 
-        let telemetrySentCount = 0;
-
-        analyticsStub.getCalls().forEach((call) => {
-          if (TEST_EVENT === call.firstArg) {
-            telemetrySentCount += 1;
-          }
-        });
-
-        expect(telemetrySentCount).toEqual(1);
-        analyticsStub.restore();
       });
     }
   );

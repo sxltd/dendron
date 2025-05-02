@@ -4,28 +4,19 @@ import {
   CONSTANTS,
   DWorkspaceV2,
   getStage,
-  GLOBAL_STATE_KEYS,
-  GraphEvents,
   GraphThemeEnum,
-  GraphThemeTestGroups,
-  GRAPH_THEME_TEST,
   InstallStatus,
   isDisposable,
-  VSCodeEvents,
-  WorkspaceEvents,
 } from "@sxltd/common-all";
 import {
   getDurationMilliseconds,
   getOS,
-  initializeSentry,
-  SegmentClient,
 } from "@sxltd/common-server";
 import {
   HistoryService,
   MetadataService,
   WorkspaceUtils,
 } from "@sxltd/engine-server";
-import * as Sentry from "@sentry/node";
 import fs from "fs-extra";
 import os from "os";
 import path from "path";
@@ -64,7 +55,7 @@ import { Logger } from "./logger";
 import { StateService } from "./services/stateService";
 import { Extensions } from "./settings";
 import { FeatureShowcaseToaster } from "./showcase/FeatureShowcaseToaster";
-import { AnalyticsUtils, sentryReportingCallback } from "./utils/analytics";
+import { sentryReportingCallback } from "./utils/analytics";
 import { ExtensionUtils } from "./utils/ExtensionUtils";
 import { StartupPrompts } from "./utils/StartupPrompts";
 import { StartupUtils } from "./utils/StartupUtils";
@@ -76,7 +67,7 @@ import { WorkspaceActivator } from "./workspace/workspaceActivator";
 import { WSUtils } from "./WSUtils";
 import { CreateScratchNoteKeybindingTip } from "./showcase/CreateScratchNoteKeybindingTip";
 import semver from "semver";
-import _ from "lodash";
+import _, { noop } from "lodash";
 import { GotoNoteCommand } from "./commands/GotoNote";
 
 const MARKDOWN_WORD_PATTERN = new RegExp("([\\w\\.]+)");
@@ -159,44 +150,7 @@ export async function _activate(
   const maybeUUIDPath = path.join(os.homedir(), CONSTANTS.DENDRON_ID);
   const UUIDPathExists = await fs.pathExists(maybeUUIDPath);
 
-  // this is the first time we are accessing the segment client instance.
-  // unlock Segment client.
-  SegmentClient.unlock();
-
-  // If telemetry is not disabled, we enable telemetry and error reporting ^rw8l1w51hnjz
-  // - NOTE: we do this outside of the try/catch block in case we run into an error with initialization
-  if (!SegmentClient.instance().hasOptedOut && getStage() === "prod") {
-    initializeSentry({
-      environment: getStage(),
-      sessionId: AnalyticsUtils.getSessionId(),
-      release: AnalyticsUtils.getVSCodeSentryRelease(),
-    });
-
-    // Temp: store the user's anonymous ID into global state so that we can link
-    // local ext users to web ext users. If one already exists in global state,
-    // then override that one with the segment client one.
-    context.globalState.setKeysForSync([GLOBAL_STATE_KEYS.ANONYMOUS_ID]);
-
-    const segmentAnonymousId = SegmentClient.instance().anonymousId;
-
-    const globalStateId = context.globalState.get<string | undefined>(
-      GLOBAL_STATE_KEYS.ANONYMOUS_ID
-    );
-
-    if (globalStateId !== segmentAnonymousId) {
-      if (globalStateId) {
-        AnalyticsUtils.track(WorkspaceEvents.MultipleTelemetryIdsDetected, {
-          ids: [segmentAnonymousId, globalStateId],
-        });
-      }
-      context.globalState.update(
-        GLOBAL_STATE_KEYS.ANONYMOUS_ID,
-        SegmentClient.instance().anonymousId
-      );
-    }
-  }
-
-  try {
+    try {
     // Setup the workspace trust callback to detect changes from the user's
     // workspace trust settings
 
@@ -264,26 +218,8 @@ export async function _activate(
       !isSecondaryInstall &&
       extensionInstallStatus === InstallStatus.INITIAL_INSTALL
     ) {
-      // For new users, we want to load graph with new graph themes as default
-      let graphTheme;
-      const ABUserGroup = GRAPH_THEME_TEST.getUserGroup(
-        SegmentClient.instance().anonymousId
-      );
-      switch (ABUserGroup) {
-        case GraphThemeTestGroups.monokai: {
-          graphTheme = GraphThemeEnum.Monokai;
-          break;
-        }
-        case GraphThemeTestGroups.block: {
-          graphTheme = GraphThemeEnum.Block;
-          break;
-        }
-        default:
-          graphTheme = GraphThemeEnum.Classic;
-      }
-      AnalyticsUtils.track(GraphEvents.GraphThemeChanged, {
-        setDuringInstall: true,
-      });
+      //there was a part here about AB testing - just do monokai as default
+      const graphTheme = GraphThemeEnum.Monokai;
       MetadataService.instance().setGraphTheme(graphTheme);
     }
     const assetUri = VSCodeUtils.getAssetUri(context);
@@ -327,8 +263,6 @@ export async function _activate(
         vaults: wsImpl.vaults,
         engine: resp.data.engine,
       });
-      // initialize Segment client
-      AnalyticsUtils.setupSegmentWithCacheFlush({ context, ws: wsImpl });
 
       // show interactive elements when **extension starts**
       if (!opts?.skipInteractiveElements) {
@@ -346,9 +280,6 @@ export async function _activate(
           extensionInstallStatus,
         });
       }
-
-      // Re-use the id for error reporting too:
-      Sentry.setUser({ id: SegmentClient.instance().anonymousId });
 
       // stats
       const platform = getOS();
@@ -414,17 +345,11 @@ export async function _activate(
     } else {
       // ws not active
       Logger.info({ ctx, msg: "dendron not active" });
-      AnalyticsUtils.setupSegmentWithCacheFlush({ context });
-      Sentry.setUser({ id: SegmentClient.instance().anonymousId });
     }
 
     if (extensionInstallStatus === InstallStatus.INITIAL_INSTALL) {
       // if keybinding conflict is detected, let the users know and guide them how to resolve  ^rikhd9cc0rwb
       await KeybindingUtils.maybePromptKeybindingConflict();
-      // if user hasn't opted out of telemetry, notify them about it ^njhii5plxmxr
-      if (!SegmentClient.instance().hasOptedOut) {
-        AnalyticsUtils.showTelemetryNotice();
-      }
     }
 
     if (!opts?.skipInteractiveElements) {
@@ -457,7 +382,8 @@ export async function _activate(
     }
     return false;
   } catch (error) {
-    Sentry.captureException(error);
+    //noop so I don't have to remove this block rn. todo: change this
+    noop();
     throw error;
   }
 }
@@ -532,9 +458,6 @@ async function showWelcomeOrWhatsNew({
           ageOfCodeInstallInWeeks
         );
       }
-      // track how long install process took ^e8itkyfj2rn3
-      AnalyticsUtils.track(VSCodeEvents.Install, installTrackProps);
-
       metadataService.setGlobalVersion(version);
 
       // show the welcome page ^ygtm7ofzezwd
@@ -550,11 +473,6 @@ async function showWelcomeOrWhatsNew({
 
       metadataService.setGlobalVersion(version);
 
-      AnalyticsUtils.track(VSCodeEvents.Upgrade, {
-        previousVersion: previousExtensionVersion,
-        duration: getDurationMilliseconds(start),
-      });
-
       const buttonAction = "See what's new";
 
       vscode.window
@@ -564,10 +482,6 @@ async function showWelcomeOrWhatsNew({
         )
         .then((resp) => {
           if (resp === buttonAction) {
-            AnalyticsUtils.track(VSCodeEvents.UpgradeSeeWhatsChangedClicked, {
-              previousVersion: previousExtensionVersion,
-              duration: getDurationMilliseconds(start),
-            });
             vscode.commands.executeCommand(
               "vscode.open",
               vscode.Uri.parse(

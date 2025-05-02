@@ -10,14 +10,12 @@ import {
   DEngineInitResp,
   DHookDict,
   DVault,
-  EngagementEvents,
   EngineDeleteOpts,
   EngineEventEmitter,
   EngineInfoResp,
   EngineSchemaWriteOpts,
   EngineWriteOptsV2,
   Event,
-  extractNoteChangeEntriesByType,
   FindNoteOpts,
   GetDecorationsOpts,
   GetDecorationsResp,
@@ -42,7 +40,6 @@ import {
 } from "@sxltd/common-all";
 import { DendronEngineClient, HistoryService } from "@sxltd/engine-server";
 import _ from "lodash";
-import { AnalyticsUtils } from "../utils/analytics";
 import { IEngineAPIService } from "./EngineAPIServiceInterface";
 
 export class EngineAPIService
@@ -259,33 +256,4 @@ export class EngineAPIService
     return this._internalEngine.getDecorations(opts);
   }
 
-  /**
-   * Setup telemetry tracking on engine events to understand user engagement
-   * levels
-   */
-  // @ts-ignore
-  private setupEngineAnalyticsTracking() {
-    this._engineEventEmitter.onEngineNoteStateChanged((entries) => {
-      const createCount = extractNoteChangeEntriesByType(
-        entries,
-        "create"
-      ).length;
-
-      const updateCount = extractNoteChangeEntriesByType(
-        entries,
-        "update"
-      ).length;
-
-      const deleteCount = extractNoteChangeEntriesByType(
-        entries,
-        "delete"
-      ).length;
-
-      AnalyticsUtils.track(EngagementEvents.EngineStateChanged, {
-        created: createCount,
-        updated: updateCount,
-        deleted: deleteCount,
-      });
-    });
-  }
 }

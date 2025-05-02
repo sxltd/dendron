@@ -1,6 +1,6 @@
 {
   "name": "@sxltd/api-server",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "license": "Apache 2.0",
   "repository": {
@@ -55,11 +55,9 @@
   },
   "dependencies": {
     "@sxltd/common-all": "^0.1.0",
-    "@sxltd/common-server": "^0.1.0",
-    "@sxltd/engine-server": "^0.1.0",
+    "@sxltd/common-server": "^0.2.0",
+    "@sxltd/engine-server": "^0.1.1",
     "@sxltd/unified": "^0.1.0",
-    "@sentry/integrations": "7.11.1",
-    "@sentry/node": "7.11.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",

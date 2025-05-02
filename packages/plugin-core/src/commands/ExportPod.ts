@@ -89,7 +89,4 @@ export class ExportPodCommand extends BaseCommand<
     }
   }
 
-  addAnalyticsPayload(opts?: CommandOpts) {
-    return PodUtils.getAnalyticsPayload(opts);
-  }
 }

@@ -2,7 +2,6 @@ import {
   ConfigUtils,
   DendronError,
   DVault,
-  EngagementEvents,
   ErrorFactory,
   ErrorMessages,
   ERROR_STATUS,
@@ -14,10 +13,8 @@ import {
   NoteProps,
   NoteQuickInput,
   NoteUtils,
-  VSCodeEvents,
 } from "@sxltd/common-all";
 import {
-  getDurationMilliseconds,
   TemplateUtils,
 } from "@sxltd/common-server";
 import { HistoryService, MetadataService } from "@sxltd/engine-server";
@@ -65,7 +62,6 @@ import { ExtensionProvider } from "../ExtensionProvider";
 import { Logger } from "../logger";
 import { IEngineAPIService } from "../services/EngineAPIServiceInterface";
 import { JournalNote } from "../traits/journal";
-import { AnalyticsUtils, getAnalyticsPayload } from "../utils/analytics";
 import { AutoCompleter } from "../utils/autoCompleter";
 import { AutoCompletableRegistrar } from "../utils/registers/AutoCompletableRegistrar";
 import { VSCodeUtils } from "../vsCodeUtils";
@@ -194,7 +190,6 @@ export class NoteLookupCommand extends BaseCommand<
 
   async gatherInputs(opts?: CommandRunOpts): Promise<CommandGatherOutput> {
     const extension = ExtensionProvider.getExtension();
-    const start = process.hrtime();
     const ws = extension.getDWorkspace();
     const lookupConfig = ConfigUtils.getCommands(ws.config).lookup;
     const noteLookupConfig = lookupConfig.note;
@@ -301,11 +296,6 @@ export class NoteLookupCommand extends BaseCommand<
       alwaysShow: true,
     });
     this._quickPick = quickpick;
-
-    const profile = getDurationMilliseconds(start);
-    AnalyticsUtils.track(VSCodeEvents.NoteLookup_Gather, {
-      duration: profile,
-    });
 
     return {
       controller: this.controller,
@@ -484,7 +474,6 @@ export class NoteLookupCommand extends BaseCommand<
     item: NoteQuickInput
   ): Promise<OnDidAcceptReturn | undefined> {
     let result: Promise<OnDidAcceptReturn | undefined>;
-    const start = process.hrtime();
     const isNew = PickerUtilsV2.isCreateNewNotePicked(item);
 
     const isNewWithTemplate =
@@ -498,12 +487,6 @@ export class NoteLookupCommand extends BaseCommand<
     } else {
       result = this.acceptExistingItem(item);
     }
-    const profile = getDurationMilliseconds(start);
-    AnalyticsUtils.track(VSCodeEvents.NoteLookup_Accept, {
-      duration: profile,
-      isNew,
-      isNewWithTemplate,
-    });
     const metaData = MetadataService.instance().getMeta();
     if (_.isUndefined(metaData.firstLookupTime)) {
       MetadataService.instance().setFirstLookupTime();
@@ -608,11 +591,6 @@ export class NoteLookupCommand extends BaseCommand<
       window.showWarningMessage(
         `Warning: Problem with ${nodeNew.fname} schema. ${templateAppliedResp.error.message}`
       );
-    } else if (templateAppliedResp.data) {
-      AnalyticsUtils.track(EngagementEvents.TemplateApplied, {
-        source: this.key,
-        ...TemplateUtils.genTrackPayload(nodeNew),
-      });
     }
 
     if (picker.onCreate) {
@@ -773,8 +751,4 @@ export class NoteLookupCommand extends BaseCommand<
     return this.controller.isJournalButtonPressed();
   }
 
-  addAnalyticsPayload(opts?: CommandOpts, resp?: CommandOpts) {
-    const { source } = { ...opts, ...resp };
-    return getAnalyticsPayload(source);
-  }
 }

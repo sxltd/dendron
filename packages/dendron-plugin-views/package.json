@@ -1,6 +1,6 @@
 {
   "name": "@sxltd/dendron-plugin-views",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "workspaces": {
     "nohoist": [
@@ -12,7 +12,7 @@
     "@babel/core": "7.12.3",
     "@sxltd/common-all": "^0.1.0",
     "@sxltd/common-frontend": "^0.1.0",
-    "@sxltd/common-server": "^0.1.0",
+    "@sxltd/common-server": "^0.2.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@svgr/webpack": "5.5.0",
     "@testing-library/jest-dom": "^5.11.4",

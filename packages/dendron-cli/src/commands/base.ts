@@ -1,23 +1,16 @@
 import {
-  CLIEvents,
   DendronError,
   RespV3,
-  config,
-  RuntimeUtils,
   DENDRON_EMOJIS,
   ConfigUtils,
 } from "@sxltd/common-all";
 import {
   createLogger,
   DConfig,
-  getDurationMilliseconds,
-  SegmentClient,
-  TelemetryStatus,
 } from "@sxltd/common-server";
 import { MIGRATION_ENTRIES, WorkspaceUtils } from "@sxltd/engine-server";
 import _ from "lodash";
 import yargs from "yargs";
-import { CLIAnalyticsUtils } from "../utils/analytics";
 import { CLIUtils } from "../utils/cli";
 
 type BaseCommandOpts = { quiet?: boolean; dev?: boolean };
@@ -86,28 +79,6 @@ export abstract class CLICommand<
     return yargs.command(this.name, this.desc, this.buildArgs, this.eval);
   }
 
-  setUpSegmentClient() {
-    if (RuntimeUtils.isRunningInTestOrCI()) {
-      return;
-    }
-    // if running CLI without ever having used dendron plugin,
-    // show a notice about telemety and instructions on how to disable.
-    if (_.isUndefined(SegmentClient.readConfig())) {
-      CLIAnalyticsUtils.showTelemetryMessage();
-      const reason = TelemetryStatus.ENABLED_BY_CLI_DEFAULT;
-      SegmentClient.enable(reason);
-      CLIAnalyticsUtils.track(CLIEvents.CLITelemetryEnabled, { reason });
-    }
-    const stage = this.opts.dev ? config.dev : config.prod;
-    const segment = SegmentClient.instance({
-      forceNew: true,
-      key: stage.SEGMENT_VSCODE_KEY,
-    });
-    this.L.info({ msg: `Telemetry is disabled? ${segment.hasOptedOut}` });
-  }
-
-  addAnalyticsPayload?(opts?: TOpts, out?: TOut): any;
-
   async validateConfig(opts: { wsRoot: string }) {
     const { wsRoot } = opts;
 
@@ -155,20 +126,14 @@ export abstract class CLICommand<
 
       if (!validationResp.isSoftMapping) {
         // we should wait for this before exiting the process.
-        await CLIAnalyticsUtils.trackSync(CLIEvents.CLIClientConfigMismatch, {
-          ...validationResp,
-          configVersion,
-        });
+        
 
         this.print(message);
         this.print("Exiting due to configuration / client version mismatch.");
 
         process.exit();
       } else {
-        CLIAnalyticsUtils.track(CLIEvents.CLIClientConfigMismatch, {
-          ...validationResp,
-          configVersion,
-        });
+        
 
         this.print(message);
         // show warning but don't exit if it's a soft mapping.
@@ -198,16 +163,12 @@ export abstract class CLICommand<
   abstract enrichArgs(args: any): Promise<RespV3<TOpts>>;
 
   eval = async (args: any) => {
-    const start = process.hrtime();
-
-    CLIAnalyticsUtils.identify();
     this.L.info({ args, state: "enter" });
 
     if (args.devMode) {
       this.opts.dev = args.devMode;
     }
     this.L.info({ args, state: "setUpSegmentClient:pre" });
-    this.setUpSegmentClient();
 
     this.L.info({ args, state: "findWSRoot:pre" });
     if (!args.wsRoot) {
@@ -242,20 +203,11 @@ export abstract class CLICommand<
       this.L.error(out.error);
     }
 
-    const analyticsPayload = this._analyticsPayload || {};
-    const event = this.constructor.name;
-    const props = {
-      duration: getDurationMilliseconds(start),
-      ...analyticsPayload,
-    };
-
     if (out.exit) {
       this.L.info({ args, state: "processExit:pre" });
-      await CLIAnalyticsUtils.trackSync(event, props);
       process.exit();
     }
 
-    CLIAnalyticsUtils.track(event, props);
 
     this.L.info({ args, state: "exit" });
     return out;

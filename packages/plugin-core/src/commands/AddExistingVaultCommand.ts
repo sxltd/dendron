@@ -9,7 +9,6 @@ import {
   SelfContainedVault,
   VaultRemoteSource,
   VaultUtils,
-  WorkspaceEvents,
   DendronConfig,
 } from "@sxltd/common-all";
 import {
@@ -38,7 +37,6 @@ import { PickerUtilsV2 } from "../components/lookup/utils";
 import { DENDRON_COMMANDS, DENDRON_REMOTE_VAULTS } from "../constants";
 import { IDendronExtension } from "../dendronExtensionInterface";
 import { Logger } from "../logger";
-import { AnalyticsUtils } from "../utils/analytics";
 import { PluginFileUtils } from "../utils/files";
 import { MessageSeverity, VSCodeUtils } from "../vsCodeUtils";
 import { BasicCommand } from "./base";
@@ -424,9 +422,6 @@ export class AddExistingVaultCommand extends BasicCommand<
       ) {
         const vaultConfig = DConfig.getRaw(vaultRootPath) as DendronConfig;
         if (ConfigUtils.getVaults(vaultConfig)?.length > 1) {
-          await AnalyticsUtils.trackForNextRun(
-            WorkspaceEvents.TransitiveDepsWarningShow
-          );
           // Wait for the user to accept the prompt, otherwise window will
           // reload before they see the warning
           const openDocsOption = "Open documentation & continue";

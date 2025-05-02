@@ -1,5 +1,4 @@
 import {
-  ContextualUIEvents,
   DVault,
   ErrorUtils,
   NoteProps,
@@ -20,7 +19,7 @@ import path from "path";
 import * as vscode from "vscode";
 import { ExtensionProvider } from "./ExtensionProvider";
 import { Logger } from "./logger";
-import { AnalyticsUtils, sentryReportingCallback } from "./utils/analytics";
+import { sentryReportingCallback } from "./utils/analytics";
 
 export class FileWatcher {
   public watchers: { vault: DVault; watcher: FileWatcherAdapter }[];
@@ -189,7 +188,6 @@ export class FileWatcher {
         source: "watcher",
         uri: vscode.Uri.parse(fsPath),
       });
-      AnalyticsUtils.track(ContextualUIEvents.ContextualUIDelete);
     } catch (err) {
       this.L.info({ ctx, fsPath, err });
       // NOTE: ignore, many legitimate reasons why this might happen

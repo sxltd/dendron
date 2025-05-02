@@ -4,7 +4,6 @@ import {
   DNodePropsQuickInputV2,
   DNodeUtils,
   DVault,
-  extractNoteChangeEntryCounts,
   NoteUtils,
   RefactoringCommandUsedPayload,
   StatisticsUtils,
@@ -29,7 +28,6 @@ import {
 } from "../components/lookup/buttons";
 import { ExtensionProvider } from "../ExtensionProvider";
 import { NoteLookupProviderSuccessResp } from "../components/lookup/LookupProviderV3Interface";
-import { ProxyMetricUtils } from "../utils/ProxyMetricUtils";
 import { LinkUtils } from "@sxltd/unified";
 import { AutoCompleter } from "../utils/autoCompleter";
 import { AutoCompletableRegistrar } from "../utils/registers/AutoCompletableRegistrar";
@@ -504,44 +502,4 @@ export class RefactorHierarchyCommandV2 extends BasicCommand<
     }
   }
 
-  trackProxyMetrics({
-    noteChangeEntryCounts,
-  }: {
-    noteChangeEntryCounts: {
-      createdCount: number;
-      deletedCount: number;
-      updatedCount: number;
-    };
-  }) {
-    if (this._proxyMetricPayload === undefined) {
-      return;
-    }
-
-    const { extra, ...props } = this._proxyMetricPayload;
-
-    ProxyMetricUtils.trackRefactoringProxyMetric({
-      props,
-      extra: {
-        ...extra,
-        ...noteChangeEntryCounts,
-      },
-    });
-  }
-
-  addAnalyticsPayload(_opts: CommandOpts, out: CommandOutput) {
-    const noteChangeEntryCounts =
-      out !== undefined
-        ? { ...extractNoteChangeEntryCounts(out.changed) }
-        : {
-            createdCount: 0,
-            updatedCount: 0,
-            deletedCount: 0,
-          };
-    try {
-      this.trackProxyMetrics({ noteChangeEntryCounts });
-    } catch (error) {
-      this.L.error({ error });
-    }
-    return noteChangeEntryCounts;
-  }
 }

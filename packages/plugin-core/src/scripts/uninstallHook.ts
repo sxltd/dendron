@@ -1,18 +1,7 @@
-import { VSCodeEvents } from "@sxltd/common-all";
-import { SegmentClient } from "@sxltd/common-server";
-
 /**
- * Simple script to fire an uninstall analytics event during the
- * vscode:uninstall hook execution that runs after the extension has been
- * uninstalled. NOTE: we cannot use @see {@link AnalyticsUtils}, as that
- * requires vscode, which is unavailable during the execution of the uninstall
- * hook.
+ * This used to be analytics, but it might be useful in the future...?
  */
 async function main() {
-  SegmentClient.instance().track({ event: VSCodeEvents.Uninstall });
-
-  // Force an upload flush():
-  SegmentClient.instance().identify();
 }
 
 main();

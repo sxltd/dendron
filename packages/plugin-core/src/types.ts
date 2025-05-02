@@ -36,12 +36,6 @@ export interface IBaseCommand<
   TGatherOutput = TOpts,
   TRunOpts = TOpts
 > {
-  /**
-   * Optional method to add properties to the analytics payload
-   * @param opts - Arguments passed to execute()
-   * @param out - return value from execute()
-   */
-  addAnalyticsPayload?(opts?: TOpts, out?: TOut): any;
 
   /**
    * Get inputs from the user

@@ -1,8 +1,7 @@
-import { NoteProps, EngagementEvents } from "@sxltd/common-all";
+import { NoteProps } from "@sxltd/common-all";
 import _ from "lodash";
 import { ExtensionProvider } from "../ExtensionProvider";
 import { VSCodeUtils } from "../vsCodeUtils";
-import { AnalyticsUtils } from "./analytics";
 
 /**
  * Send a special telemetry marker if a note is being created from a Meeting
@@ -13,7 +12,7 @@ import { AnalyticsUtils } from "./analytics";
  * @param type - will be attached to the telemetry data payload
  * @returns
  */
-export async function maybeSendMeetingNoteTelemetry(type: string) {
+export async function maybeSendMeetingNoteTelemetry(_type: string) {
   const maybeEditor = VSCodeUtils.getActiveTextEditor()!;
   if (_.isUndefined(maybeEditor)) {
     return;
@@ -25,18 +24,5 @@ export async function maybeSendMeetingNoteTelemetry(type: string) {
 
   if (_.isUndefined(activeNote)) {
     return;
-  }
-
-  if (
-    activeNote &&
-    activeNote.traitIds &&
-    activeNote.traitIds.includes("meetingNote")
-  ) {
-    AnalyticsUtils.track(
-      EngagementEvents.AdditionalNoteFromMeetingNoteCreated,
-      {
-        type,
-      }
-    );
   }
 }

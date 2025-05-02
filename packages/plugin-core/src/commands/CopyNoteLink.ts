@@ -175,10 +175,6 @@ export class CopyNoteLinkCommand
     };
   }
 
-  addAnalyticsPayload(_opts: CommandOpts, resp: CommandOutput) {
-    return { type: resp?.type, anchorType: resp?.anchorType };
-  }
-
   private anchorType(anchor?: string) {
     if (!anchor) return undefined;
     if (isBlockAnchor(anchor)) return "block";

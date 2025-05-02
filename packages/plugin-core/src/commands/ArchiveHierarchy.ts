@@ -1,5 +1,4 @@
 import {
-  extractNoteChangeEntryCounts,
   NoteUtils,
   RefactoringCommandUsedPayload,
 } from "@sxltd/common-all";
@@ -29,7 +28,6 @@ export class ArchiveHierarchyCommand extends BasicCommand<
 > {
   key = DENDRON_COMMANDS.ARCHIVE_HIERARCHY.key;
   private refactorCmd: RefactorHierarchyCommandV2;
-  private trackProxyMetrics;
   private prepareProxyMetricPayload;
   _proxyMetricPayload:
     | (RefactoringCommandUsedPayload & {
@@ -42,7 +40,6 @@ export class ArchiveHierarchyCommand extends BasicCommand<
   constructor(name?: string) {
     super(name);
     this.refactorCmd = new RefactorHierarchyCommandV2();
-    this.trackProxyMetrics = this.refactorCmd.trackProxyMetrics.bind(this);
     this.prepareProxyMetricPayload =
       this.refactorCmd.prepareProxyMetricPayload.bind(this);
   }
@@ -79,22 +76,4 @@ export class ArchiveHierarchyCommand extends BasicCommand<
     return this.refactorCmd.showResponse(res);
   }
 
-  addAnalyticsPayload(_opts: CommandOpts, out: CommandOutput) {
-    const noteChangeEntryCounts =
-      out !== undefined
-        ? { ...extractNoteChangeEntryCounts(out.changed) }
-        : {
-            createdCount: 0,
-            updatedCount: 0,
-            deletedCount: 0,
-          };
-    try {
-      this.trackProxyMetrics({
-        noteChangeEntryCounts,
-      });
-    } catch (error) {
-      this.L.error({ error });
-    }
-    return noteChangeEntryCounts;
-  }
 }

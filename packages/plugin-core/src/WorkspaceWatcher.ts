@@ -1,6 +1,5 @@
 import {
   ConfigUtils,
-  ContextualUIEvents,
   DNodeUtils,
   ErrorUtils,
   NoteUtils,
@@ -12,9 +11,8 @@ import {
 import { file2Note, vault2Path } from "@sxltd/common-server";
 import { WorkspaceUtils } from "@sxltd/engine-server";
 import { RemarkUtils } from "@sxltd/unified";
-import * as Sentry from "@sentry/node";
 import fs from "fs";
-import _ from "lodash";
+import _, { noop } from "lodash";
 import path from "path";
 import {
   ExtensionContext,
@@ -36,7 +34,7 @@ import { IDendronExtension } from "./dendronExtensionInterface";
 import { Logger } from "./logger";
 import { TextDocumentService } from "./services/node/TextDocumentService";
 import { ISchemaSyncService } from "./services/SchemaSyncServiceInterface";
-import { AnalyticsUtils, sentryReportingCallback } from "./utils/analytics";
+import { sentryReportingCallback } from "./utils/analytics";
 import { VSCodeUtils } from "./vsCodeUtils";
 import { WindowWatcher } from "./windowWatcher";
 
@@ -231,7 +229,8 @@ export class WorkspaceWatcher {
       Logger.debug({ ...ctx, state: "exit" });
       return;
     } catch (error) {
-      Sentry.captureException(error);
+      //noop so I don't have to remove this block rn. todo: change this
+      noop();
       throw error;
     }
   }
@@ -249,7 +248,8 @@ export class WorkspaceWatcher {
       );
       DoctorUtils.validateFilenameFromDocumentAndPromptIfNecessary(document);
     } catch (error) {
-      Sentry.captureException(error);
+      //noop so I don't have to remove this block rn. todo: change this
+      noop();
       throw error;
     }
   }
@@ -292,7 +292,8 @@ export class WorkspaceWatcher {
         return { changes: [] };
       }
     } catch (error) {
-      Sentry.captureException(error);
+      //noop so I don't have to remove this block rn. todo: change this
+      noop();
       throw error;
     }
   }
@@ -476,12 +477,12 @@ export class WorkspaceWatcher {
         },
         metaOnly: true,
       };
-      AnalyticsUtils.track(ContextualUIEvents.ContextualUIRename);
       const engine = this._extension.getEngine();
       const updateNoteReferences = engine.renameNote(opts);
       args.waitUntil(updateNoteReferences);
     } catch (error: any) {
-      Sentry.captureException(error);
+      //noop so I don't have to remove this block rn. todo: change this
+      noop();
       throw error;
     }
   }
@@ -529,7 +530,8 @@ export class WorkspaceWatcher {
       newNote.title = NoteUtils.genTitle(fname);
       await engine.writeNote(newNote);
     } catch (error: any) {
-      Sentry.captureException(error);
+      //noop so I don't have to remove this block rn. todo: change this
+      noop();
       throw error;
     }
   }

@@ -1,19 +1,14 @@
 import {
-  CURRENT_TUTORIAL_TEST,
   DendronError,
   DWorkspaceV2,
   ErrorUtils,
   getStage,
-  isABTest,
   MAIN_TUTORIAL_TYPE_NAME,
-  QuickstartTutorialTestGroups,
-  TutorialEvents,
   TutorialNoteViewedPayload,
   VaultUtils,
 } from "@sxltd/common-all";
-import { file2Note, SegmentClient, vault2Path } from "@sxltd/common-server";
+import { file2Note, vault2Path } from "@sxltd/common-server";
 import {
-  InitialSurveyStatusEnum,
   MetadataService,
   WorkspaceActivationContext,
 } from "@sxltd/engine-server";
@@ -26,8 +21,6 @@ import { ExtensionProvider } from "../ExtensionProvider";
 import { Logger } from "../logger";
 import { FeatureShowcaseToaster } from "../showcase/FeatureShowcaseToaster";
 import { ObsidianImportTip } from "../showcase/ObsidianImportTip";
-import { SurveyUtils } from "../survey";
-import { AnalyticsUtils } from "../utils/analytics";
 import { VSCodeUtils } from "../vsCodeUtils";
 import { DendronExtension } from "../workspace";
 import { BlankInitializer } from "./blankInitializer";
@@ -35,7 +28,6 @@ import {
   OnWorkspaceCreationOpts,
   WorkspaceInitializer,
 } from "./workspaceInitializer";
-import { TogglePreviewLockCommand } from "../commands/TogglePreviewLock";
 
 /**
  * Workspace Initializer for the Tutorial Experience. Copies tutorial notes and
@@ -46,16 +38,7 @@ export class TutorialInitializer
   implements WorkspaceInitializer
 {
   static getTutorialType() {
-    if (isABTest(CURRENT_TUTORIAL_TEST)) {
-      // NOTE: to force a tutorial group, uncomment the below code
-      // return QuickstartTutorialTestGroups.
-
-      return CURRENT_TUTORIAL_TEST.getUserGroup(
-        SegmentClient.instance().anonymousId
-      );
-    } else {
-      return MAIN_TUTORIAL_TYPE_NAME;
-    }
+    return MAIN_TUTORIAL_TYPE_NAME;
   }
 
   async onWorkspaceCreation(opts: OnWorkspaceCreationOpts): Promise<void> {
@@ -129,8 +112,6 @@ export class TutorialInitializer
           });
           const { fname } = payload;
           if (fname.includes("tutorial")) {
-            AnalyticsUtils.track(TutorialEvents.TutorialNoteViewed, payload);
-
             // Show import notes tip when they're on the final page of the tutorial.
             if (payload.currentStep === payload.totalSteps) {
               this.tryShowImportNotesFeatureToaster();
@@ -160,13 +141,6 @@ export class TutorialInitializer
         // TODO: HACK to wait for existing preview to be ready
         setTimeout(async () => {
           await new TogglePreviewCommand(preview).execute();
-          if (
-            CURRENT_TUTORIAL_TEST?.getUserGroup(
-              SegmentClient.instance().anonymousId
-            ) === QuickstartTutorialTestGroups["quickstart-with-lock"]
-          ) {
-            await new TogglePreviewLockCommand(preview).execute();
-          }
         }, 1000);
       }
     } else {
@@ -180,12 +154,6 @@ export class TutorialInitializer
       WorkspaceActivationContext.normal
     );
 
-    const metaData = MetadataService.instance().getMeta();
-    const initialSurveySubmitted =
-      metaData.initialSurveyStatus === InitialSurveyStatusEnum.submitted;
-    if (!initialSurveySubmitted) {
-      await SurveyUtils.showInitialSurvey();
-    }
   }
 
   private triedToShowImportToast: boolean = false;
