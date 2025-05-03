@@ -224,6 +224,7 @@ export class WebViewUtils {
     const src = `${await this.getClientAPIRootUrl()}vscode/${view.replace(
       /^dendron\./,
       ""
+      // @ts-ignore
     )}${/*config.dev?.nextServerUrl*/ undefined ? "" : ".html"}?${qs}`; // TODO: Fix
     // Logger.info({ ctx: "genHTML", view, src });
     return `<!DOCTYPE html>
