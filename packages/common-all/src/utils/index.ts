@@ -2,7 +2,7 @@
 /* eslint-disable camelcase */
 import GithubSlugger from "github-slugger";
 import _ from "lodash";
-import minimatch from "minimatch";
+import { minimatch } from "minimatch";
 import path from "path";
 import normalizePath from "normalize-path";
 import querystring from "querystring";
