@@ -97,6 +97,7 @@ async function _createFileWatcher(
   if (numTries <= 0) {
     throw new DendronError({ message: "exceeded numTries" });
   }
+  // eslint-disable-next-line
   return new Promise(async (resolve, _reject) => {
     if (!fs.existsSync(fpath)) {
       console.log({ fpath, msg: "not exist" });
@@ -563,10 +564,16 @@ class FileUtils {
         )
         // we got to the end without a match
         .on("end", () => resolve({ data: false }))
-        .on("data", (chunk: Buffer) => {
+        .on("data", (chunk: Buffer | string) => {
+          //chatgpt told me to, todo: verify
+          // Ensure chunk is a Buffer (even if it's a string, convert it)
+          const bufferChunk = Buffer.isBuffer(chunk)
+            ? chunk
+            : Buffer.from(chunk);
+
           // eslint-disable-next-line no-plusplus
           for (let i = 0; i < chunk.length; i++) {
-            const a = String.fromCharCode(chunk[i]);
+            const a = String.fromCharCode(bufferChunk[i]);
             // not a match, return
             if (a !== prefix[i]) {
               resolve({ data: false });
