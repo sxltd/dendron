@@ -1,7 +1,7 @@
 # Dendron
 
 This is a fork of the original [Dendron](https://github.com/dendronhq/dendron), a local-first, markdown-based knowledge management system.  
-Version `0.1` of this fork corresponds to Dendron commit `aabbccdd`.
+Version `0.1` of this fork corresponds to Dendron commit a2f24b0c0fc1c9b3e3486a3f26a19aef472be6b6.
 
 ## How to Use
 
