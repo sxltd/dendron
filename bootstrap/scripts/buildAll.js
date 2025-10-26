@@ -12,6 +12,7 @@ const $ = (cmd) => {
 };
 
 console.log("building all...");
+/*
 $(`npx lerna run build --scope @sxltd/common-all`);
 $(
   `npx lerna run build --parallel --scope "@sxltd/{unified,common-server}"`
@@ -28,5 +29,6 @@ $(
 $(`npx lerna run build --scope "@sxltd/engine-test-utils"`);
 $(`npx lerna run build --scope "@sxltd/dendron-plugin-views"`);
 $(`npx lerna run build --scope "@sxltd/plugin-core"`);
+*/
 $(`npx yarn dendron dev sync_assets --fast`);
 console.log("done");
