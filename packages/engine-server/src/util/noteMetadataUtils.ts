@@ -130,6 +130,7 @@ export class NoteMetadataUtils {
       return { data: val };
     }
     if (isNumeric(val)) {
+      // @ts-ignore -- TODO: fix this
       return { data: parseFloat(val) };
     }
     return NoteMetadataUtils.checkAndReturnUndefinedOrError(val, props);

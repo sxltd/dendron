@@ -13,6 +13,7 @@
     "email": "eng@dendron.so",
     "url": "https://www.dendron.so"
   },
+  "workspaces":{},
   "keywords": [
     "common"
   ],
@@ -29,8 +30,6 @@
     "buildCI": "yarn compile",
     "compile": "tsc -p tsconfig.build.json",
     "watch": "yarn compile --watch"
-  },
-  "dependencies": {
   },
   "devDependencies": {
     "rimraf": "^2.6.2"

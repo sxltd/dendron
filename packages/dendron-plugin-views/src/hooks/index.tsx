@@ -4,7 +4,7 @@ import {
   engineHooks,
   engineSlice,
 } from "@sxltd/common-frontend";
-import { Mermaid } from "mermaid";
+import  Mermaid from "mermaid";
 import React from "react";
 import { DendronProps, WorkspaceProps } from "../types";
 
@@ -98,7 +98,7 @@ export const useMermaid = ({
   noteRenderedBody,
 }: {
   themeType: "light" | "dark";
-  mermaid: Mermaid;
+  mermaid: typeof Mermaid;
   noteRenderedBody?: string;
 }) => {
   React.useEffect(() => {

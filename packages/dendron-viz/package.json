@@ -32,8 +32,8 @@
     "watch": "yarn copyNonTSFiles && yarn compile --watch"
   },
   "dependencies": {
-    "@sxltd/common-all": "^0.1.0",
-    "@sxltd/engine-server": "^0.1.1",
+    "@sxltd/common-all": "workspace:*",
+    "@sxltd/engine-server": "workspace:*",
     "d3": "^7.6.1",
     "lodash": "^4.17.21",
     "micromatch": "^4.0.4",

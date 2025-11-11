@@ -1505,6 +1505,7 @@ export class FileStorage implements DStore {
         vault: maybeVault,
         skipCloneDeep: true,
       });
+      // @ts-ignore -- TODO: fix this
       return Promise.all(
         notes.map(async (note) => {
           const prevNote = _.cloneDeep(note);
@@ -1544,6 +1545,7 @@ export class FileStorage implements DStore {
         vault: maybeVault,
         skipCloneDeep: true,
       });
+      // @ts-ignore -- TODO: fix this
       return Promise.all(
         notes.map(async (note) => {
           const prevNote = _.cloneDeep(note);

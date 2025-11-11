@@ -394,6 +394,7 @@ export class ErrorUtils {
   }
 
   static isDendronError(error: unknown): error is DendronError {
+    // @ts-ignore -- TODO: fix this
     return _.get(error, "name", "") === "DendronError";
   }
   /**

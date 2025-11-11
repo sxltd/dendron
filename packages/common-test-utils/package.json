@@ -46,9 +46,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@sxltd/common-all": "^0.1.0",
-    "@sxltd/common-server": "^0.2.0",
-    "@sxltd/pods-core": "^0.1.1",
+    "@sxltd/common-all": "workspace:*",
+    "@sxltd/common-server": "workspace:*",
+    "@sxltd/pods-core": "workspace:*",
     "@types/sinon": "^9.0.9",
     "fs-extra": "^9.0.1",
     "jest": "^28.1.0",

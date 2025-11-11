@@ -9,8 +9,8 @@
     "directory": "packages/dendron-cli"
   },
   "bin": {
-    "dendron-cli": "./lib/bin/dendron-cli.js",
-    "dendron": "./lib/bin/dendron-cli.js"
+    "dendron": "./lib/bin/dendron-cli.js",
+    "dendron-cli": "./lib/bin/dendron-cli.js"
   },
   "author": {
     "name": "Kevin Lin",
@@ -41,13 +41,13 @@
     "watch": "yarn compile --watch"
   },
   "dependencies": {
-    "@sxltd/api-server": "^0.1.1",
-    "@sxltd/common-all": "^0.1.0",
-    "@sxltd/common-server": "^0.2.0",
-    "@sxltd/dendron-viz": "^0.1.1",
-    "@sxltd/engine-server": "^0.1.1",
-    "@sxltd/pods-core": "^0.1.1",
     "@jcoreio/async-throttle": "^1.3.2",
+    "@sxltd/api-server": "workspace:*",
+    "@sxltd/common-all": "workspace:*",
+    "@sxltd/common-server": "workspace:*",
+    "@sxltd/dendron-viz": "workspace:*",
+    "@sxltd/engine-server": "workspace:*",
+    "@sxltd/pods-core": "workspace:*",
     "@types/prompts": "^2.0.14",
     "clipboardy": "2.3.0",
     "fs-extra": "^9.0.1",

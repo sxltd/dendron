@@ -44,6 +44,9 @@ _setup_node_version(){
 }
 
 main_impl(){
+
+  eae corepack enable
+  
   eae _setup_node_version
 
   eae npm install -g yarn

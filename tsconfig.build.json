@@ -32,6 +32,8 @@
     "lib",
     "local",
     ".vscode-test",
-    "out"
-  ]
+    "out",
+    "packages/_pkg-template/*"
+  ],
+  
 }

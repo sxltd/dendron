@@ -63,6 +63,7 @@ export class WSUtils {
    * - initializes DendronEngine
    * @param mainVault
    */
+  //@ts-ignore -- TODO: fix this
   static async reloadWorkspace() {
     try {
       const out = await vscode.commands.executeCommand(

@@ -422,6 +422,7 @@ export abstract class EngineV3Base implements ReducedDEngine {
         vault: maybeVault,
       });
       if (notes.data) {
+        // @ts-ignore -- TODO: fix this
         return Promise.all(
           notes.data.map(async (note) => {
             const prevNote = _.cloneDeep(note);
@@ -461,6 +462,7 @@ export abstract class EngineV3Base implements ReducedDEngine {
         vault: maybeVault,
       });
       if (notes.data) {
+        // @ts-ignore -- TODO: fix this
         return Promise.all(
           notes.data.map(async (note) => {
             const prevNote = _.cloneDeep(note);

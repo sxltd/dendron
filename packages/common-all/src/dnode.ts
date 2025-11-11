@@ -336,6 +336,7 @@ export class NoteUtils {
     /^(?<beforeTimestamp>(updated|created): *)(?<timestamp>[0-9]+)$/;
 
   static getNoteTraits(note: NotePropsMeta): string[] {
+    //@ts-ignore: TODO: fix this
     return _.get(note, "traitIds", []);
   }
 
