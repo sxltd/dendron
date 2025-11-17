@@ -1476,7 +1476,7 @@
   "scripts": {
     "webpack": "cross-env DETECT_CIRCULAR_DEPS=1 webpack --config webpack.dev.js",
     "webpack:dev:watch": "yarn webpack --watch",
-    "webpack:prod": "webpack --config webpack.prod.js",
+    "webpack:prod": "yarn copy-assets && webpack --config webpack.prod.js",
     "watch": "yarn compile --watch",
     "buildCI": "yarn rimraf out && yarn compile",
     "build": "yarn compile",
@@ -1501,7 +1501,10 @@
     "open-in-browser": "vscode-test-web --extensionDevelopmentPath=. ~/dendron-20/",
     "test-in-browser": "mkdir -p testOutput && vscode-test-web --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js --headless testOutput",
     "download-sqlite-binary": "node-pre-gyp install",
-    "perf-test": "node ./out/src/test/runPerfTest.js"
+    "perf-test": "node ./out/src/test/runPerfTest.js",
+    "copy-assets:common:css" : "rsync -a ../common-assets/assets/css/* ./assets/static/",
+    "copy-assets:shim": "cp ../engine-server/src/drivers/prisma-shim.js ./dist/ && cp ../engine-server/src/drivers/adm-zip.js ./dist/",
+    "copy-assets": "yarn copy-assets:common:css && yarn copy-assets:shim"
   },
   "devDependencies": {
     "@sxltd/common-test-utils": "workspace:*",
