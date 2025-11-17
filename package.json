@@ -33,10 +33,8 @@
     "vsce": "^2.10.0"
   },
   "scripts": {
-    "setup": "yarn && yarn bootstrap:bootstrap && yarn bootstrap:build && yarn setup:cli",
-    "setup:cli": "./bootstrap/scripts/chmod-cli.js",
+    "setup": "yarn && yarn bootstrap:build",
     "gen:data": "yarn dendron dev generate_json_schema_from_config",
-    "bootstrap:bootstrap": "npx yarn --network-timeout 600000 --frozen-lockfile && yarn gen:meta",
     "bootstrap:build": "node bootstrap/scripts/buildAll.js",
     "bootstrap:build:fast": "yarn bootstrap:build:common-all && yarn bootstrap:build:common-server && yarn bootstrap:build:common-test-utils && yarn bootstrap:build:engine-server &&  yarn bootstrap:build:api-server && yarn bootstrap:build:engine-test-utils && yarn bootstrap:build:dendron-cli && yarn bootstrap:build:plugin-core",
     "bootstrap:build:nextjs-template": "yarn bootstrap:build: @sxltd/nextjs-template",
@@ -46,7 +44,6 @@
     "template:start": "yarn --cwd packages/nextjs-template run start",
     "hooks:pre-commit": "node ./hooks/pre-commit.js",
     "hooks:pre-push": "node ./hooks/pre-push.js",
-    "gen:meta": "node ./bootstrap/scripts/genMeta.js",
     "backend:updateDendronDeps": "node bootstrap/backend/updateDendronhqDeps.js",
     "build": "yarn workspaces foreach -ptv --exclude @sxltd/nextjs-template --exclude root --topological-dev run build",
     "clean": "yarn workspaces foreach -ptv --exclude @sxltd/nextjs-template --exclude root run clean",
