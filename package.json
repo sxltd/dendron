@@ -57,18 +57,6 @@
     "dendron": "node packages/dendron-cli/lib/bin/dendron-cli.js",
     "lerna:typecheck": "lerna exec --parallel --ignore @sxltd/common-assets --ignore @sxltd/dendron-plugin-views -- tsc -p tsconfig.build.json --noEmit"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn stash:unstaged && lint-staged && yarn hooks:pre-commit && yarn stash:pop",
-      "pre-push": "yarn hooks:pre-push"
-    }
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "prettier --config prettier.config.js --loglevel debug --write",
-      "eslint"
-    ]
-  },
   "dependencies": {
     "@babel/helper-string-parser": "^7.22.5",
     "@babel/preset-typescript": "7.16.7",
