@@ -4,7 +4,7 @@
     "displayName": "dendron",
     "description": "Dendron is a hierarchical note taking tool that grows as you do.",
     "publisher": "dendron",
-    "version": "0.2.2",
+    "version": "0.3.0",
     "sponsor": {
         "url": "https://accounts.dendron.so/account/subscribe"
     },
@@ -1474,7 +1474,9 @@
         ]
     },
     "scripts": {
-        "copy": "rm -rf dist media && mkdir dist media && cp -r ../plugin-core/dist/* ./dist/ && cp -r ../plugin-core/media/* ./media/"
+        "prepack": "yarn workspace @sxltd/plugin-core run build && yarn copy",
+        "copy": "rm -rf dist media && mkdir dist media && cp -r ../plugin-core/dist/* ./dist/ && cp -r ../plugin-core/media/* ./media/",
+        "package": "vsce package --allow-star-activation --no-dependencies"
     },
     "devDependencies": {
         "@sxltd/common-test-utils": "workspace:*",

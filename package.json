@@ -46,6 +46,7 @@
     "hooks:pre-push": "node ./hooks/pre-push.js",
     "backend:updateDendronDeps": "node bootstrap/backend/updateDendronhqDeps.js",
     "build": "yarn workspaces foreach -ptv --exclude @sxltd/nextjs-template --exclude root --topological-dev run build",
+    "build:plugin": "yarn workspace dendron run package",
     "clean": "yarn workspaces foreach -ptv --exclude @sxltd/nextjs-template --exclude root run clean",
     "test": "LOG_LEVEL=error jest",
     "test:cli": "LOG_LEVEL=error jest --selectProjects non-plugin-tests --forceExit",
