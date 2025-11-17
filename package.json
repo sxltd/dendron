@@ -89,7 +89,8 @@
     "d3-color": "3.1.0",
     "typescript": "5.9.3",
     "@types/lodash": "4.14.187",
-    "@types/babel__traverse": "7.0.6"
+    "@types/babel__traverse": "7.0.6",
+    "undici": "5.29.0"
   },
   "overrides": {
     "trim": "0.0.3",

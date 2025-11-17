@@ -39,6 +39,7 @@ const webExtensionConfig = {
       constants: require.resolve("constants-browserify"),
       stream: require.resolve("stream-browserify"),
       buffer: require.resolve("buffer"),
+      "vm": false,
     },
   },
   module: {

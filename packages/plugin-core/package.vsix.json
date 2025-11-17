@@ -1492,9 +1492,8 @@
     "deploy:vscode:vsix": "vsce --version && vsce publish --packagePath",
     "deploy:ovsx": "ovsx publish --yarn",
     "deploy:ovsx:vsix": "ovsx publish ",
-    "clean": "yarn rimraf out dist node_modules && yarn clean:assets",
+    "clean-old": "yarn rimraf out dist node_modules && yarn clean:assets",
     "clean:assets": "yarn rimraf assets/{static}",
-    "rimraf": "npx rimraf",
     "vscode:prepublish": "npm run package-web",
     "compile-web": "webpack --config webpack.webext.js",
     "watch-web": "webpack --watch --config webpack.webext.js",
@@ -1505,6 +1504,8 @@
     "perf-test": "node ./out/src/test/runPerfTest.js"
   },
   "devDependencies": {
+    "@sxltd/common-test-utils": "workspace:*",
+    "@sxltd/engine-test-utils": "workspace:*",
     "@types/execa": "^2.0.0",
     "@types/fs-extra": "^9.0.1",
     "@types/glob": "^7.1.1",
@@ -1538,18 +1539,20 @@
     "ts-node": "^8.10.2",
     "ts-sinon": "^2.0.2",
     "tsyringe": "^4.7.0",
+    "typescript": "5.9.3",
     "vsce": "^2.10.0",
+    "vscode-test": "^1.3.0",
     "webpack": "^5.56.0",
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.8.0",
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@sxltd/api-server": "^0.1.1",
-    "@sxltd/common-all": "^0.1.0",
-    "@sxltd/common-server": "^0.2.0",
-    "@sxltd/engine-server": "^0.1.1",
-    "@sxltd/pods-core": "^0.1.1",
+    "@sxltd/api-server": "workspace:*",
+    "@sxltd/common-all": "workspace:*",
+    "@sxltd/common-server": "workspace:*",
+    "@sxltd/engine-server": "workspace:*",
+    "@sxltd/pods-core": "workspace:*",
     "@types/vscode": "1.77.0",
     "browserify": "17.0.0",
     "cross-path-sort": "1.0.0",
@@ -1586,5 +1589,14 @@
       "description": "All features are enabled except for hooks.",
       "restrictedConfigurations": []
     }
-  }
+  },
+  "compilerOptions": {
+    "types": [
+      "mocha",
+      "node"
+    ]
+  },
+  "exclude": [
+    "node_modules/@types/jest"
+  ]
 }
