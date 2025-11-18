@@ -1502,7 +1502,7 @@
     "test-in-browser": "mkdir -p testOutput && vscode-test-web --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js --headless testOutput",
     "download-sqlite-binary": "node-pre-gyp install",
     "perf-test": "node ./out/src/test/runPerfTest.js",
-    "copy-assets:common:css": "rsync -a ../common-assets/assets/css/* ./assets/static/",
+    "copy-assets:common:css": "mkdir -p ./assets/static/ && rsync -a ../common-assets/assets/css/* ./assets/static/",
     "copy-assets:common:fonts": "mkdir -p ./assets/static/css/themes/fonts/ && rsync -a ../common-assets/build/assets/css/fonts/* ./assets/static/css/themes/fonts/",
     "copy-assets:common:js": "mkdir -p ./assets/static/js && rsync -a ../common-assets/assets/js/* ./assets/static/js",
     "copy-assets:common": "yarn copy-assets:common:css && yarn copy-assets:common:fonts && yarn copy-assets:common:js",
