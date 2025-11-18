@@ -12,13 +12,12 @@ Version `0.1` of this fork corresponds to Dendron commit [a2f24b0](https://githu
 
 ## Developing
 
-- This repo includes a [.devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) configuration for use with VS Code.
-- The current known passing test suites are:
-  - cli (`yarn ci:test:cli`)
-  - plugin (`yarn ci:test:plugin`)
-- To build a local `.vsix` package for testing:
-  - `cd` to `./packages/plugin-core`
-  - run `./package.sh`
+This repo uses [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) for development, which auto-configures Yarn workspaces in VS Code.
+
+Key commands:
+- `yarn build` - Build all packages
+- `yarn test` - Run tests
+- `yarn build:plugin` - Build .vsix plugin only (output in `packages/plugin-extension/dendron-<ver>.vsix`)
 
 ---
 
