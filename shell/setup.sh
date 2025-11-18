@@ -58,7 +58,10 @@ main_impl(){
   eae yarn
 
   echo "install package dependencies..."
-  eae yarn setup
+  eae yarn install
+
+  echo "first-time build..."
+  eae yarn build
 }
 
 main() {
