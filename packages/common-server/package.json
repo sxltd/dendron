@@ -1,6 +1,6 @@
 {
   "name": "@sxltd/common-server",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "common-server",
   "license": "Apache 2.0",
   "repository": {
@@ -35,7 +35,7 @@
     "watch": "yarn compile --watch"
   },
   "dependencies": {
-    "@sxltd/common-all": "^0.1.0",
+    "@sxltd/common-all": "workspace:*",
     "ajv": "^8.6.0",
     "ajv-errors": "^3.0.0",
     "anymatch": "^3.1.2",

@@ -1,5 +1,6 @@
 {
-  "version": "0.1.0",
+  "private": true,
+  "version": "0.1.1",
   "license": "Apache 2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -37,7 +38,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "dendron-design-system",
+  "name": "@sxltd/dendron-design-system",
   "author": "8brandon",
   "module": "dist/dendron-design-system.esm.js",
   "size-limit": [

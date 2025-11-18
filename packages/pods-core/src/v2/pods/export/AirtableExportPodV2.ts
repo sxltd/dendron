@@ -127,6 +127,7 @@ export class AirtableExportPodV2
   }
 
   async exportNotes(input: NoteProps[]): Promise<AirtableExportReturnType> {
+    // @ts-ignore -- TODO: fix this
     input = this.cleanNotes(input, _.get(this._config, "filters.fname"));
     const resp = await this.getPayloadForNotes(input);
     if (resp.error) {

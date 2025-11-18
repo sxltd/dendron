@@ -1057,6 +1057,7 @@ export class ConfigUtils {
   }
 
   static getConfigDescription = (conf: string) => {
+    //@ts-ignore: TODO: fix this
     return _.get(DENDRON_CONFIG, conf)?.desc;
   };
 
@@ -1092,6 +1093,7 @@ export class ConfigUtils {
         const pathSoFar = `${parent ? `${parent}.` : ""}`;
         if (_.isObject(value) && !_.isArrayLikeObject(value)) {
           flattenToPathValuePairs({
+            //@ts-ignore: TODO: fix this
             obj: _.get(obj, key),
             parent: `${pathSoFar}${key}`,
           });

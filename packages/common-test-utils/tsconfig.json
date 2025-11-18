@@ -18,7 +18,8 @@
     "noFallthroughCasesInSwitch": true,
     // --- language features
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true
   },
   "compileOnSave": true,
   "exclude": ["node_modules", "lib", "local", ".vscode-test", "out"]

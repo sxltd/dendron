@@ -44,10 +44,13 @@ _setup_node_version(){
 }
 
 main_impl(){
+
+  eae corepack enable
+  
   eae _setup_node_version
 
-  eae npm install -g yarn
-  eae npm install -g lerna
+  #eae npm install -g yarn
+  # eae npm install -g lerna
 
   eae cd "${DENDRON_MONOREPO:?}"
 
@@ -55,7 +58,10 @@ main_impl(){
   eae yarn
 
   echo "install package dependencies..."
-  eae yarn setup
+  eae yarn install
+
+  echo "first-time build..."
+  eae yarn build
 }
 
 main() {

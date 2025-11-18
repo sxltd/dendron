@@ -6,5 +6,10 @@
     "skipLibCheck": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*-spec.ts", "lib"]
+  "exclude": [
+    "node_modules", 
+    "**/*-spec.ts", 
+    "lib",
+    "src/drivers/generated-prisma-client"
+  ]
 }

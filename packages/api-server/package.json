@@ -1,6 +1,6 @@
 {
   "name": "@sxltd/api-server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "license": "Apache 2.0",
   "repository": {
@@ -54,10 +54,10 @@
     "access": "public"
   },
   "dependencies": {
-    "@sxltd/common-all": "^0.1.0",
-    "@sxltd/common-server": "^0.2.0",
-    "@sxltd/engine-server": "^0.1.1",
-    "@sxltd/unified": "^0.1.0",
+    "@sxltd/common-all": "workspace:*",
+    "@sxltd/common-server": "workspace:*",
+    "@sxltd/engine-server": "workspace:*",
+    "@sxltd/unified": "workspace:*",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",

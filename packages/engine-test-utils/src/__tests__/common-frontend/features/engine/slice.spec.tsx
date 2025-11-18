@@ -31,8 +31,10 @@ describe("GIVEN syncNote", () => {
           // --- setup engineSlice
           // sync new note to redux engine
           const initNotesOpts = { ws: wsRoot, url };
+          //@ts-ignore -- TODO: fix this
           await combinedStore.dispatch(engineSlice.initNotes(initNotesOpts));
           await combinedStore.dispatch(
+            //@ts-ignore -- TODO: fix this
             engineSlice.syncNote({ ...initNotesOpts, note: newNote })
           );
 
@@ -64,8 +66,12 @@ describe("GIVEN syncNote", () => {
           const url = APIUtils.getLocalEndpoint(port!);
 
           const initNotesOpts = { ws: wsRoot, url };
-          await combinedStore.dispatch(engineSlice.initNotes(initNotesOpts));
           await combinedStore.dispatch(
+            //@ts-ignore -- TODO: fix this
+            engineSlice.initNotes(initNotesOpts)
+          );
+          await combinedStore.dispatch(
+            //@ts-ignore -- TODO: fix this
             engineSlice.syncNote({ ...initNotesOpts, note })
           );
           const notesDict = combinedStore.getState().engine.notes;

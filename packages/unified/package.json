@@ -1,6 +1,6 @@
 {
   "name": "@sxltd/unified",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Unified parser utilities for Dendron",
   "license": "Apache 2.0",
   "repository": {
@@ -31,7 +31,7 @@
     "watch": "yarn compile --watch"
   },
   "dependencies": {
-    "@sxltd/common-all": "^0.1.0",
+    "@sxltd/common-all": "workspace:*",
     "@sxltd/remark-mermaid": "^0.4.0",
     "hast-util-parse-selector": "^2.2.4",
     "hast-util-select": "^4.0.0",

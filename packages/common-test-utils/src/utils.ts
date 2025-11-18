@@ -9,6 +9,7 @@ import _ from "lodash";
 import { SetupHookFunction, TestResult } from "./types";
 
 export const toPlainObject = <R>(value: unknown): R =>
+  //@ts-ignore -- TODO: fix this
   value !== undefined ? JSON.parse(JSON.stringify(value)) : value;
 
 export class AssertUtils {

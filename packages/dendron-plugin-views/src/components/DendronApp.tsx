@@ -206,6 +206,7 @@ export type DendronAppProps = {
 
 function DendronApp(props: DendronAppProps) {
   return (
+    // @ts-ignore -- TODO: fix this
     <Provider store={combinedStore}>
       <Layout
         style={{

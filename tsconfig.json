@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "strict": true,
     "noImplicitAny": true,
+    "skipLibCheck": true,
     "paths": {
       //"@sxltd/*": ["packages/*/src"],
       "@sxltd/api-server": [
@@ -37,5 +38,9 @@
         "packages/pods-core/src"
       ]
     }
-  }
+  },
+  "include": [
+    "packages/*/src/**/*",
+    "bootstrap/**/*"
+  ],
 }

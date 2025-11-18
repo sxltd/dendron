@@ -1,0 +1,7 @@
+node_modules
+dist
+media
+templates
+*.vsix
+language-configuration.json
+README.md

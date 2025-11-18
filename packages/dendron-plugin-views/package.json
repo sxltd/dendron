@@ -1,6 +1,6 @@
 {
   "name": "@sxltd/dendron-plugin-views",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "workspaces": {
     "nohoist": [
@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@babel/core": "7.12.3",
-    "@sxltd/common-all": "^0.1.0",
-    "@sxltd/common-frontend": "^0.1.0",
-    "@sxltd/common-server": "^0.2.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@svgr/webpack": "5.5.0",
+    "@sxltd/common-all": "workspace:*",
+    "@sxltd/common-frontend": "workspace:*",
+    "@sxltd/common-server": "workspace:*",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -100,8 +100,7 @@
     "build:index": "node scripts/buildIndex.js",
     "test": "echo 0",
     "test-local": "node scripts/test.js",
-    "clean": "yarn rimraf build public/static public/*.css public/index.html node_modules || 0",
-    "rimraf": "npx rimraf"
+    "clean-old": "yarn rimraf build public/static public/*.css public/index.html node_modules || 0"
   },
   "browserslist": {
     "production": [
