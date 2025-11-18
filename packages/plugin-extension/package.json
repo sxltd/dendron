@@ -1475,7 +1475,9 @@
     },
     "scripts": {
         "prepack": "yarn workspace @sxltd/plugin-core run webpack:prod && yarn workspace @sxltd/plugin-core run vscode:prepublish",
-        "copy": "rm -rf dist media templates && mkdir dist media templates && cp -r ../plugin-core/dist/* ./dist/ && cp -r ../plugin-core/media/* ./media/ && cp -r ../plugin-core/templates/* ./templates/",
+        "copy:misc": "rm -f language-configuration.json README.md && cp ../plugin-core/language-configuration.json ./ && cp ../plugin-core/README.md ./",
+        "copy:dirs": "rm -rf dist media templates && mkdir dist media templates && cp -r ../plugin-core/dist/* ./dist/ && cp -r ../plugin-core/media/* ./media/ && cp -r ../plugin-core/templates/* ./templates/",
+        "copy": "yarn copy:dirs && yarn copy:misc",
         "package": "vsce package --allow-star-activation --no-dependencies",
         "build:plugin": "yarn prepack && yarn copy && yarn package"
     },

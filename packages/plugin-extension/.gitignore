@@ -3,3 +3,5 @@ dist
 media
 templates
 *.vsix
+language-configuration.json
+README.md

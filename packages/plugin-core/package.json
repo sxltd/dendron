@@ -1508,8 +1508,8 @@
     "copy-assets:common": "yarn copy-assets:common:css && yarn copy-assets:common:fonts && yarn copy-assets:common:js",
     "copy-assets:plugin-views:css": "mkdir -p ./assets/static/css && rsync -a ../dendron-plugin-views/build/static/css/* ./assets/static/css",
     "copy-assets:plugin-views:js": "mkdir -p ./assets/static/js && rsync -a ../dendron-plugin-views/build/static/js/* ./assets/static/js",
-    "copy-assets:plugin-views": "yarn copy-assets:plugin-views:js",
-    "copy-assets:shim": "cp ../engine-server/src/drivers/prisma-shim.js ./dist/ && cp ../engine-server/src/drivers/adm-zip.js ./dist/",
+    "copy-assets:plugin-views": "yarn copy-assets:plugin-views:js && yarn copy-assets:plugin-views:css",
+    "copy-assets:shim": "mkdir -p ./dist/ && cp ../engine-server/src/drivers/prisma-shim.js ./dist/ && cp ../engine-server/src/drivers/adm-zip.js ./dist/",
     "copy-assets": "yarn copy-assets:common && yarn copy-assets:plugin-views && yarn copy-assets:shim"
   },
   "devDependencies": {
