@@ -15,7 +15,6 @@ const safePostCssParser = require("postcss-safe-parser");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
-const WatchMissingNodeModulesPlugin = require("react-dev-utils/WatchMissingNodeModulesPlugin");
 const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
 const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent");
 const ESLintPlugin = require("eslint-webpack-plugin");
@@ -24,7 +23,6 @@ const modules = require("./modules");
 const getClientEnvironment = require("./env");
 const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
 const ForkTsCheckerWebpackPlugin = require("react-dev-utils/ForkTsCheckerWebpackPlugin");
-const typescriptFormatter = require("react-dev-utils/typescriptFormatter");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 const postcssNormalize = require("postcss-normalize");
@@ -211,7 +209,6 @@ module.exports = function (webpackEnv) {
         ? "static/js/[name].bundle.js"
         : isEnvDevelopment && "static/js/bundle.js",
       // TODO: remove this when upgrading to webpack 5
-      futureEmitAssets: true,
       // webpack uses `publicPath` to determine where the app is being served from.
       // It requires a trailing slash, or the file assets will get an incorrect path.
       // We inferred the "public path" (such as / or /my-project) from homepage.
@@ -227,7 +224,7 @@ module.exports = function (webpackEnv) {
             path.resolve(info.absoluteResourcePath).replace(/\\/g, "/")),
       // Prevents conflicts when multiple webpack runtimes (from different apps)
       // are used on the same page.
-      jsonpFunction: `webpackJsonp${appPackageJson.name}`,
+      chunkLoadingGlobal: `webpackJsonp${appPackageJson.name}`,
       // this defaults to 'window', but by setting it to 'this' then
       // module chunks which are built will work in web workers as well.
       globalObject: "this",
@@ -305,6 +302,18 @@ module.exports = function (webpackEnv) {
       modules: ["node_modules", paths.appNodeModules].concat(
         modules.additionalModulePaths || []
       ),
+      fallback: {
+        "path": false,
+        "fs": false,
+        "os": false,
+        "crypto": false,
+        "stream": false,
+        "buffer": false,
+        "util": false,
+        "assert": false,
+        "net": false,
+        "tls": false,
+      },
       // These are the reasonable defaults supported by the Node ecosystem.
       // We also include JSX as a common component filename extension to support
       // some tools, although we do not recommend using it, see:
@@ -334,11 +343,13 @@ module.exports = function (webpackEnv) {
         // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
         // please link the files into your node_modules/ and let module-resolution kick in.
         // Make sure your source files are compiled, as they will not be processed in any way.
-        new ModuleScopePlugin(paths.appSrc, [
-          paths.appPackageJson,
-          reactRefreshOverlayEntry,
-        ]),
+        // new ModuleScopePlugin(paths.appSrc, [
+        //   paths.appPackageJson,
+        //   reactRefreshOverlayEntry,
+        //   path.resolve(paths.appNodeModules, '@babel/runtime'),
+        // ]),
       ],
+      exportsFields: [],
     },
     resolveLoader: {
       plugins: [
@@ -615,12 +626,6 @@ module.exports = function (webpackEnv) {
       // a plugin that prints an error when you attempt to do this.
       // See https://github.com/facebook/create-react-app/issues/240
       isEnvDevelopment && new CaseSensitivePathsPlugin(),
-      // If you require a missing module and then `npm install` it, you still have
-      // to restart the development server for webpack to discover it. This plugin
-      // makes the discovery automatic so you don't have to restart.
-      // See https://github.com/facebook/create-react-app/issues/186
-      isEnvDevelopment &&
-        new WatchMissingNodeModulesPlugin(paths.appNodeModules),
       isEnvProduction &&
         new MiniCssExtractPlugin({
           // Options similar to the same options in webpackOptions.output
@@ -656,7 +661,10 @@ module.exports = function (webpackEnv) {
       // solution that requires the user to opt into importing specific locales.
       // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
       // You can remove this if you don't use Moment.js:
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/locale$/,
+        contextRegExp: /moment$/
+      }),
       // Generate a service worker script that will precache, and keep up to date,
       // the HTML & assets that are part of the webpack build.
       isEnvProduction &&
@@ -672,35 +680,37 @@ module.exports = function (webpackEnv) {
         }),
       // TypeScript type checking
       useTypeScript &&
-        new ForkTsCheckerWebpackPlugin({
-          typescript: resolve.sync("typescript", {
-            basedir: paths.appNodeModules,
-          }),
-          async: isEnvDevelopment,
-          checkSyntacticErrors: true,
-          resolveModuleNameModule: process.versions.pnp
-            ? `${__dirname}/pnpTs.js`
-            : undefined,
-          resolveTypeReferenceDirectiveModule: process.versions.pnp
-            ? `${__dirname}/pnpTs.js`
-            : undefined,
-          tsconfig: paths.appTsConfig,
-          reportFiles: [
-            // This one is specifically to match during CI tests,
-            // as micromatch doesn't match
-            // '../cra-template-typescript/template/src/App.tsx'
-            // otherwise.
-            "../**/src/**/*.{ts,tsx}",
-            "**/src/**/*.{ts,tsx}",
-            "!**/src/**/__tests__/**",
-            "!**/src/**/?(*.)(spec|test).*",
-            "!**/src/setupProxy.*",
-            "!**/src/setupTests.*",
-          ],
-          silent: true,
-          // The formatter is invoked directly in WebpackDevServerUtils during development
-          formatter: isEnvProduction ? typescriptFormatter : undefined,
-        }),
+      new ForkTsCheckerWebpackPlugin({
+        async: isEnvDevelopment,
+        // typescript: {
+        //   configFile: paths.appTsConfig,
+        //   typescriptPath: resolve.sync("typescript", {
+        //     basedir: paths.appNodeModules,
+        //   }),
+        //   build: true, // replaces checkSyntacticErrors
+        //   mode: "write-references", // or "write-tsbuildinfo" or "readonly"
+        // },
+        // issue: {
+        //     // This one is specifically to match during CI tests,
+        //     // as micromatch doesn't match
+        //     // '../cra-template-typescript/template/src/App.tsx'
+        //     // otherwise.
+        //   include: [
+        //     { file: "../**/src/**/*.{ts,tsx}" },
+        //     { file: "**/src/**/*.{ts,tsx}" },
+        //   ],
+        //   exclude: [
+        //     { file: "**/src/**/__tests__/**" },
+        //     { file: "**/src/**/?(*.)(spec|test).*" },
+        //     { file: "**/src/setupProxy.*" },
+        //     { file: "**/src/setupTests.*" },
+        //   ],
+        // },
+        // logger: {
+        //   infrastructure: "silent",
+        //   issues: "console",
+        // },
+      }),
       !disableESLintPlugin &&
         new ESLintPlugin({
           // Plugin options
@@ -730,14 +740,9 @@ module.exports = function (webpackEnv) {
     // Some libraries import Node modules but don't use them in the browser.
     // Tell webpack to provide empty mocks for them so importing them works.
     node: {
-      module: "empty",
-      dgram: "empty",
-      dns: "mock",
-      fs: "empty",
-      http2: "empty",
-      net: "empty",
-      tls: "empty",
-      child_process: "empty",
+      __dirname: false,
+      __filename: false,
+      global: false
     },
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
