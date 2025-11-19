@@ -39,8 +39,8 @@ _setup_node_version(){
   #
   # However, it seems more robust to pick a node version that is known to work.
   # Hence, we are setting node version to 16.
-  eae nvm install 16
-  eae nvm use 16
+  eae nvm install 18
+  eae nvm use 18
 }
 
 main_impl(){
