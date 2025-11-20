@@ -459,11 +459,6 @@ export const DENDRON_COMMANDS: { [key: string]: CommandEntry } = {
     title: `${CMD_PREFIX} Browse Note`,
     when: `${DendronContext.PLUGIN_ACTIVE} && shellExecutionSupported`,
   },
-  CONTRIBUTE: {
-    key: "dendron.contributeToCause",
-    title: `${CMD_PREFIX} Contribute `,
-    when: "shellExecutionSupported",
-  },
   GOTO: {
     key: "dendron.goto",
     title: `${CMD_PREFIX} Go to`,
