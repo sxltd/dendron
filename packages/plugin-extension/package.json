@@ -902,14 +902,6 @@
                     "when": "dendron:pluginActive && shellExecutionSupported"
                 },
                 {
-                    "command": "dendron.enableTelemetry",
-                    "when": "shellExecutionSupported"
-                },
-                {
-                    "command": "dendron.disableTelemetry",
-                    "when": "shellExecutionSupported"
-                },
-                {
                     "command": "dendron.openLink",
                     "when": "false"
                 },
