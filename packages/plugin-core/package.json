@@ -218,10 +218,6 @@
         "title": "Dendron: Browse Note"
       },
       {
-        "command": "dendron.contributeToCause",
-        "title": "Dendron: Contribute "
-      },
-      {
         "command": "dendron.goto",
         "title": "Dendron: Go to"
       },
@@ -501,14 +497,6 @@
         "title": "Dendron: Publish Dev"
       },
       {
-        "command": "dendron.signUp",
-        "title": "Dendron: Sign Up"
-      },
-      {
-        "command": "dendron.signIn",
-        "title": "Dendron: Sign In"
-      },
-      {
         "command": "dendron.openLink",
         "title": "Dendron: Open Link"
       },
@@ -648,10 +636,6 @@
         {
           "command": "dendron.browseNote",
           "when": "dendron:pluginActive && shellExecutionSupported"
-        },
-        {
-          "command": "dendron.contributeToCause",
-          "when": "shellExecutionSupported"
         },
         {
           "command": "dendron.goto",
@@ -916,14 +900,6 @@
         {
           "command": "dendron.publishDev",
           "when": "dendron:pluginActive && shellExecutionSupported"
-        },
-        {
-          "command": "dendron.signUp",
-          "when": "shellExecutionSupported"
-        },
-        {
-          "command": "dendron.signIn",
-          "when": "shellExecutionSupported"
         },
         {
           "command": "dendron.enableTelemetry",

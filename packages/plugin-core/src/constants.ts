@@ -459,11 +459,6 @@ export const DENDRON_COMMANDS: { [key: string]: CommandEntry } = {
     title: `${CMD_PREFIX} Browse Note`,
     when: `${DendronContext.PLUGIN_ACTIVE} && shellExecutionSupported`,
   },
-  CONTRIBUTE: {
-    key: "dendron.contributeToCause",
-    title: `${CMD_PREFIX} Contribute `,
-    when: "shellExecutionSupported",
-  },
   GOTO: {
     key: "dendron.goto",
     title: `${CMD_PREFIX} Go to`,
@@ -916,17 +911,6 @@ export const DENDRON_COMMANDS: { [key: string]: CommandEntry } = {
     key: "dendron.publishDev",
     title: `${CMD_PREFIX} Publish Dev`,
     when: `${DendronContext.PLUGIN_ACTIVE} && shellExecutionSupported`,
-  },
-  // --- Accounts
-  SIGNUP: {
-    key: "dendron.signUp",
-    title: `${CMD_PREFIX} Sign Up`,
-    when: "shellExecutionSupported",
-  },
-  SIGNIN: {
-    key: "dendron.signIn",
-    title: `${CMD_PREFIX} Sign In`,
-    when: "shellExecutionSupported",
   },
   // --- Misc
   ENABLE_TELEMETRY: {
