@@ -1,13 +1,9 @@
 import {
-  AppNames,
   Time,
-  VSCodeIdentifyProps,
 } from "@sxltd/common-all";
 import { MetadataService } from "@sxltd/engine-server";
 import _ from "lodash";
 import { Duration } from "luxon";
-import * as vscode from "vscode";
-import { VersionProvider } from "../versionProvider";
 
 export type SegmentContext = Partial<{
   app: Partial<{ name: string; version: string; build: string }>;
@@ -16,55 +12,6 @@ export type SegmentContext = Partial<{
 }>;
 
 export class AnalyticsUtils {
-  static sessionStart = -1;
-
-  static getVSCodeSentryRelease(): string {
-    return `${AppNames.CODE}@${VersionProvider.version()}`;
-  }
-
-  static getVSCodeIdentifyProps(): VSCodeIdentifyProps {
-    const {
-      appName,
-      appHost,
-      isNewAppInstall,
-      language,
-      machineId,
-      shell,
-      isTelemetryEnabled,
-    } = vscode.env;
-
-    return {
-      type: AppNames.CODE,
-      ideVersion: vscode.version,
-      ideFlavor: appName,
-      appVersion: VersionProvider.version(),
-      appHost,
-      userAgent: appName,
-      isNewAppInstall,
-      isTelemetryEnabled,
-      language,
-      machineId,
-      shell,
-    };
-  }
-
-  static getCommonTrackProps() {
-    const firstWeekSinceInstall = AnalyticsUtils.isFirstWeek();
-    const vscodeSessionId = vscode.env.sessionId;
-    const appVersion = VersionProvider.version();
-    return {
-      firstWeekSinceInstall,
-      vscodeSessionId,
-      appVersion,
-    };
-  }
-
-  static getSessionId(): number {
-    if (AnalyticsUtils.sessionStart < 0) {
-      AnalyticsUtils.sessionStart = Math.round(Time.now().toSeconds());
-    }
-    return AnalyticsUtils.sessionStart;
-  }
 
   static isFirstWeek() {
     const metadata = MetadataService.instance().getMeta();

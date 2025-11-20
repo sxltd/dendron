@@ -25,7 +25,6 @@ import { DENDRON_COMMANDS } from "../constants";
 import { IDendronExtension } from "../dendronExtensionInterface";
 import { EditorUtils } from "../utils/EditorUtils";
 import { PluginFileUtils } from "../utils/files";
-import { maybeSendMeetingNoteTelemetry } from "../utils/MeetingTelemHelper";
 import { VSCodeUtils } from "../vsCodeUtils";
 import { WSUtilsV2 } from "../WSUtilsV2";
 import { IWSUtilsV2 } from "../WSUtilsV2Interface";
@@ -324,10 +323,6 @@ export class GotoNoteCommand extends BasicCommand<
               });
             }
             await client.writeNote(note);
-
-            // check if we should send meeting note telemetry.
-            const type = qs.startsWith("user.") ? "userTag" : "general";
-            maybeSendMeetingNoteTelemetry(type);
           } else {
             // should not create note if fname is invalid.
             // let the user know and exit early.
