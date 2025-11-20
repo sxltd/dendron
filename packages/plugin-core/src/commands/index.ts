@@ -68,8 +68,6 @@ import { SetupWorkspaceCommand } from "./SetupWorkspace";
 import { ShowHelpCommand } from "./ShowHelp";
 import { ShowLegacyPreviewCommand } from "./ShowLegacyPreview";
 import { ShowWelcomePageCommand } from "./ShowWelcomePageCommand";
-import { SignInCommand } from "./SignIn";
-import { SignUpCommand } from "./SignUp";
 import { SnapshotVaultCommand } from "./SnapshotVault";
 import { SyncCommand } from "./Sync";
 import { TaskCompleteCommand } from "./TaskComplete";
@@ -150,8 +148,6 @@ const ALL_COMMANDS = [
   SetupWorkspaceCommand,
   ShowHelpCommand,
   ShowLegacyPreviewCommand,
-  SignInCommand,
-  SignUpCommand,
   PublishExportCommand,
   PublishDevCommand,
   SnapshotVaultCommand,

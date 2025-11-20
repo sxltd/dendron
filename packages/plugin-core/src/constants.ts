@@ -917,17 +917,6 @@ export const DENDRON_COMMANDS: { [key: string]: CommandEntry } = {
     title: `${CMD_PREFIX} Publish Dev`,
     when: `${DendronContext.PLUGIN_ACTIVE} && shellExecutionSupported`,
   },
-  // --- Accounts
-  SIGNUP: {
-    key: "dendron.signUp",
-    title: `${CMD_PREFIX} Sign Up`,
-    when: "shellExecutionSupported",
-  },
-  SIGNIN: {
-    key: "dendron.signIn",
-    title: `${CMD_PREFIX} Sign In`,
-    when: "shellExecutionSupported",
-  },
   // --- Misc
   ENABLE_TELEMETRY: {
     key: "dendron.enableTelemetry",
