@@ -2,8 +2,6 @@ import {
   asyncLoop,
   NoteChangeEntry,
   NoteProps,
-  RefactoringCommandUsedPayload,
-  StatisticsUtils,
 } from "@sxltd/common-all";
 import { HistoryEvent } from "@sxltd/engine-server";
 import {
@@ -43,13 +41,6 @@ type CommandOutput = {
 
 export class MergeNoteCommand extends BasicCommand<CommandOpts, CommandOutput> {
   key = DENDRON_COMMANDS.MERGE_NOTE.key;
-  _proxyMetricPayload:
-    | (RefactoringCommandUsedPayload & {
-        extra: {
-          [key: string]: any;
-        };
-      })
-    | undefined;
   private extension: IDendronExtension;
 
   constructor(ext: IDendronExtension) {
@@ -110,10 +101,6 @@ export class MergeNoteCommand extends BasicCommand<CommandOpts, CommandOutput> {
         logger: this.L,
         onDone: async (event: HistoryEvent) => {
           const data: NoteLookupProviderSuccessResp = event.data;
-          await this.prepareProxyMetricPayload({
-            sourceNote: activeNote,
-            destNote: data.selectedItems[0],
-          });
           resolve({
             sourceNote: activeNote,
             destNote: data.selectedItems[0],
@@ -153,56 +140,6 @@ export class MergeNoteCommand extends BasicCommand<CommandOpts, CommandOutput> {
         }
       });
     });
-  }
-
-  private async prepareProxyMetricPayload(opts: {
-    sourceNote: NoteProps | undefined;
-    destNote: NoteProps | undefined;
-  }) {
-    const ctx = `${this.key}:prepareProxyMetricPayload`;
-    const { sourceNote, destNote } = opts;
-    if (sourceNote === undefined || destNote === undefined) {
-      // source or dest note undefined, this could be from cancellation.
-      // just return.
-      return;
-    }
-    const sourceBasicStats = StatisticsUtils.getBasicStatsFromNotes([
-      sourceNote,
-    ]);
-    const destBasicStats = StatisticsUtils.getBasicStatsFromNotes([destNote]);
-    if (sourceBasicStats === undefined || destBasicStats === undefined) {
-      this.L.error({ ctx, message: "failed to get basic stats from notes." });
-      return;
-    }
-
-    const { numChildren, numLinks, numChars, noteDepth } = sourceBasicStats;
-    const {
-      numChildren: destNumChildren,
-      numLinks: destNumLinks,
-      numChars: destNumChars,
-      noteDepth: destNoteDepth,
-    } = destBasicStats;
-
-    const sourceTraits = sourceNote.traits;
-    const destTraits = destNote.traits;
-
-    const engine = this.extension.getEngine();
-    this._proxyMetricPayload = {
-      command: this.key,
-      numVaults: engine.vaults.length,
-      numChildren,
-      numLinks,
-      numChars,
-      noteDepth,
-      traits: sourceTraits || [],
-      extra: {
-        destNumChildren,
-        destNumLinks,
-        destNumChars,
-        destNoteDepth,
-        destTraits: destTraits || [],
-      },
-    };
   }
 
   /**

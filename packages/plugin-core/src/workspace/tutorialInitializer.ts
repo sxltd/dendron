@@ -1,13 +1,10 @@
 import {
   DendronError,
   DWorkspaceV2,
-  ErrorUtils,
   getStage,
-  MAIN_TUTORIAL_TYPE_NAME,
-  TutorialNoteViewedPayload,
   VaultUtils,
 } from "@sxltd/common-all";
-import { file2Note, vault2Path } from "@sxltd/common-server";
+import { vault2Path } from "@sxltd/common-server";
 import {
   MetadataService,
   WorkspaceActivationContext,
@@ -38,7 +35,7 @@ export class TutorialInitializer
   implements WorkspaceInitializer
 {
   static getTutorialType() {
-    return MAIN_TUTORIAL_TYPE_NAME;
+    return "main";
   }
 
   async onWorkspaceCreation(opts: OnWorkspaceCreationOpts): Promise<void> {
@@ -71,59 +68,8 @@ export class TutorialInitializer
     }, 1000 * 60 * 3);
   }
 
-  private getAnalyticsPayloadFromDocument(opts: {
-    document: vscode.TextDocument;
-    ws: DWorkspaceV2;
-  }): TutorialNoteViewedPayload {
-    const { document, ws } = opts;
-    const tutorialType = TutorialInitializer.getTutorialType();
-    const fsPath = document.uri.fsPath;
-    const { vaults, wsRoot } = ws;
-    const vault = VaultUtils.getVaultByFilePath({ vaults, wsRoot, fsPath });
-    const resp = file2Note(fsPath, vault);
-    if (ErrorUtils.isErrorResp(resp)) {
-      throw resp.error;
-    }
-    const note = resp.data;
-    const { fname, custom } = note;
-    const { currentStep, totalSteps } = custom;
-    return {
-      tutorialType,
-      fname,
-      currentStep,
-      totalSteps,
-    };
-  }
-
   async onWorkspaceOpen(opts: { ws: DWorkspaceV2 }): Promise<void> {
     const ctx = "TutorialInitializer.onWorkspaceOpen";
-
-    // Register a special analytics handler for the tutorial:
-    // This needs to be registered before we open any tutorial note.
-    // Otherwise some events may be lost and not reported properly.
-    const disposable = vscode.window.onDidChangeActiveTextEditor((e) => {
-      const document = e?.document;
-
-      if (document !== undefined) {
-        try {
-          const payload = this.getAnalyticsPayloadFromDocument({
-            document,
-            ws: opts.ws,
-          });
-          const { fname } = payload;
-          if (fname.includes("tutorial")) {
-            // Show import notes tip when they're on the final page of the tutorial.
-            if (payload.currentStep === payload.totalSteps) {
-              this.tryShowImportNotesFeatureToaster();
-            }
-          }
-        } catch (err) {
-          Logger.info({ ctx, msg: "Cannot get payload from document." });
-        }
-      }
-    });
-
-    ExtensionProvider.getExtension().context.subscriptions.push(disposable);
 
     const { wsRoot, vaults } = opts.ws;
     const vaultRelPath = VaultUtils.getRelPath(vaults[0]);

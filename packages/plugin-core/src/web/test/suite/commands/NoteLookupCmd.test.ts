@@ -7,7 +7,6 @@ import assert from "assert";
 import sinon from "sinon";
 import { stubInterface } from "ts-sinon";
 import * as vscode from "vscode";
-import { DummyTelemetryClient } from "../../../../telemetry/common/DummyTelemetryClient";
 import { ILookupProvider } from "../../../commands/lookup/ILookupProvider";
 import {
   LookupAcceptPayload,
@@ -41,8 +40,7 @@ suite("GIVEN a NoteLookupCmd", () => {
       factory,
       wsRoot,
       mockEngine,
-      mockNoteProvider,
-      new DummyTelemetryClient()
+      mockNoteProvider
     );
 
     await cmd.run();
@@ -88,8 +86,7 @@ suite("GIVEN a NoteLookupCmd", () => {
       factory,
       wsRoot,
       mockEngine,
-      mockNoteProvider,
-      new DummyTelemetryClient()
+      mockNoteProvider
     );
 
     await cmd.run();
@@ -138,8 +135,7 @@ suite("GIVEN a NoteLookupCmd", () => {
       factory,
       wsRoot,
       mockEngine,
-      mockNoteProvider,
-      new DummyTelemetryClient()
+      mockNoteProvider
     );
 
     await cmd.run();

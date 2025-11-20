@@ -2,7 +2,6 @@ import { DVault, NoteUtils, ReducedDEngine } from "@sxltd/common-all";
 import assert from "assert";
 import sinon, { stubInterface } from "ts-sinon";
 import * as vscode from "vscode";
-import { DummyTelemetryClient } from "../../../../telemetry/common/DummyTelemetryClient";
 import { CopyNoteURLCmd } from "../../../commands/CopyNoteURLCmd";
 import { SiteUtilsWeb } from "../../../utils/SiteUtilsWeb";
 import { WSUtilsWeb } from "../../../utils/WSUtils";
@@ -49,7 +48,6 @@ suite("GIVEN a CopyNoteURLCmd", () => {
     const NoteStub = sinon.stub(wsUtils, "getNoteFromDocument").resolves([foo]);
     const cmd = new CopyNoteURLCmd(
       wsUtils,
-      new DummyTelemetryClient(),
       siteUtils
     );
     const activeTextEditorStub = sinon
@@ -78,7 +76,6 @@ suite("GIVEN a CopyNoteURLCmd", () => {
     const NoteStub = sinon.stub(wsUtils, "getNoteFromDocument").resolves([foo]);
     const cmd = new CopyNoteURLCmd(
       wsUtils,
-      new DummyTelemetryClient(),
       siteUtils
     );
     const activeTextEditorStub = sinon
@@ -107,7 +104,6 @@ suite("GIVEN a CopyNoteURLCmd", () => {
     const NoteStub = sinon.stub(wsUtils, "getNoteFromDocument").resolves([foo]);
     const cmd = new CopyNoteURLCmd(
       wsUtils,
-      new DummyTelemetryClient(),
       siteUtils
     );
     const activeTextEditorStub = sinon
@@ -135,7 +131,6 @@ suite("GIVEN a CopyNoteURLCmd", () => {
     const NoteStub = sinon.stub(wsUtils, "getNoteFromDocument").resolves([foo]);
     const cmd = new CopyNoteURLCmd(
       wsUtils,
-      new DummyTelemetryClient(),
       siteUtils
     );
     const activeTextEditorStub = sinon
@@ -164,7 +159,6 @@ suite("GIVEN a CopyNoteURLCmd", () => {
     const NoteStub = sinon.stub(wsUtils, "getNoteFromDocument").resolves([foo]);
     const cmd = new CopyNoteURLCmd(
       wsUtils,
-      new DummyTelemetryClient(),
       siteUtils
     );
     const activeTextEditorStub = sinon

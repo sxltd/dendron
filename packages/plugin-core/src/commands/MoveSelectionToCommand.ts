@@ -1,7 +1,5 @@
 import {
   NoteProps,
-  RefactoringCommandUsedPayload,
-  StatisticsUtils,
 } from "@sxltd/common-all";
 import _ from "lodash";
 import { DENDRON_COMMANDS } from "../constants";
@@ -15,7 +13,6 @@ import {
   LookupControllerV3CreateOpts,
 } from "../components/lookup/LookupControllerV3Interface";
 import { SelectionExtractBtn } from "../components/lookup/buttons";
-import { RemarkUtils } from "@sxltd/unified";
 import { NoteLookupCommand } from "./NoteLookupCommand";
 
 type CommandInput = {
@@ -32,13 +29,6 @@ export class MoveSelectionToCommand extends BasicCommand<
   CommandOutput
 > {
   key = DENDRON_COMMANDS.MOVE_SELECTION_TO.key;
-  _proxyMetricPayload:
-    | (RefactoringCommandUsedPayload & {
-        extra: {
-          [key: string]: any;
-        };
-      })
-    | undefined;
   private extension: IDendronExtension;
 
   constructor(ext: IDendronExtension) {
@@ -135,55 +125,10 @@ export class MoveSelectionToCommand extends BasicCommand<
     });
   }
 
-  private async prepareProxyMetricPayload(opts: {
-    sourceNote: NoteProps | undefined;
-    selection: vscode.Selection | undefined;
-    selectionText: string | undefined;
-  }) {
-    const ctx = `${this.key}:prepareProxyMetricPayload`;
-    const engine = this.extension.getEngine();
-    const { sourceNote, selection, selectionText } = opts;
-    if (
-      sourceNote === undefined ||
-      selection === undefined ||
-      selectionText === undefined
-    ) {
-      return;
-    }
-
-    const basicStats = StatisticsUtils.getBasicStatsFromNotes([sourceNote]);
-    if (basicStats === undefined) {
-      this.L.error({ ctx, message: "failed to get basic states from note" });
-      return;
-    }
-
-    const { numChildren, numLinks, numChars, noteDepth } = basicStats;
-
-    this._proxyMetricPayload = {
-      command: this.key,
-      numVaults: engine.vaults.length,
-      traits: sourceNote.traits || [],
-      numChildren,
-      numLinks,
-      numChars,
-      noteDepth,
-      extra: {
-        numSelectionChars: selectionText.length,
-        numSelectionAnchors: RemarkUtils.findAnchors(selectionText).length,
-      },
-    };
-  }
-
   async execute(opts: CommandOpts): Promise<CommandOutput> {
     const lookupCmd = new NoteLookupCommand();
     const controller = this.createLookupController();
     const activeNote = await this.extension.wsUtils.getActiveNote();
-    const { selection, text: selectionText } = VSCodeUtils.getSelection();
-    await this.prepareProxyMetricPayload({
-      sourceNote: activeNote,
-      selection,
-      selectionText,
-    });
     const provider = this.createLookupProvider({ activeNote });
     lookupCmd.controller = controller;
     // TODO: don't set custom providers for NoteLookupCommand

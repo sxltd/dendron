@@ -1,7 +1,6 @@
 import {
   DLogger,
   EngineEventEmitter,
-  getStage,
   IDataStore,
   IFileStore,
   INoteStore,
@@ -19,9 +18,6 @@ import { IPreviewLinkHandler } from "../../components/views/IPreviewLinkHandler"
 import { PreviewProxy } from "../../components/views/PreviewProxy";
 import { ITextDocumentService } from "../../services/ITextDocumentService";
 import { TextDocumentService } from "../../services/web/TextDocumentService";
-import { DummyTelemetryClient } from "../../telemetry/common/DummyTelemetryClient";
-import { ITelemetryClient } from "../../telemetry/common/ITelemetryClient";
-import { WebTelemetryClient } from "../../telemetry/web/WebTelemetryClient";
 import { ITreeViewConfig } from "../../views/common/treeview/ITreeViewConfig";
 import { TreeViewDummyConfig } from "../../views/common/treeview/TreeViewDummyConfig";
 import { ILookupProvider } from "../commands/lookup/ILookupProvider";
@@ -134,8 +130,6 @@ export async function setupWebExtContainer(context: vscode.ExtensionContext) {
     useClass: TreeViewDummyConfig,
   });
 
-  setupTelemetry();
-
   container.register<PreviewProxy>("PreviewProxy", {
     useClass: PreviewPanel,
   });
@@ -182,24 +176,6 @@ export async function setupWebExtContainer(context: vscode.ExtensionContext) {
   setupTabAutoComplete(context);
 }
 
-function setupTelemetry() {
-  const stage = getStage();
-
-  switch (stage) {
-    case "prod": {
-      container.register<ITelemetryClient>("ITelemetryClient", {
-        useClass: WebTelemetryClient,
-      });
-      break;
-    }
-    default: {
-      container.register<ITelemetryClient>("ITelemetryClient", {
-        useClass: DummyTelemetryClient,
-      });
-      break;
-    }
-  }
-}
 
 function setupTabAutoComplete(context: vscode.ExtensionContext) {
   const emitter = new vscode.EventEmitter<void>();

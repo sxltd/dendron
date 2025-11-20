@@ -5,8 +5,6 @@ import {
   DNodeUtils,
   DVault,
   NoteUtils,
-  RefactoringCommandUsedPayload,
-  StatisticsUtils,
 } from "@sxltd/common-all";
 import { vault2Path } from "@sxltd/common-server";
 import fs from "fs-extra";
@@ -56,13 +54,6 @@ export class RefactorHierarchyCommandV2 extends BasicCommand<
   CommandOutput
 > {
   key = DENDRON_COMMANDS.REFACTOR_HIERARCHY.key;
-  _proxyMetricPayload:
-    | (RefactoringCommandUsedPayload & {
-        extra: {
-          [key: string]: any;
-        };
-      })
-    | undefined;
 
   entireWorkspaceQuickPickItem = {
     label: "Entire Workspace",
@@ -403,37 +394,6 @@ export class RefactorHierarchyCommandV2 extends BasicCommand<
     return resp === "Proceed";
   }
 
-  prepareProxyMetricPayload(capturedNotes: DNodeProps[]) {
-    const ctx = `${this.key}:prepareProxyMetricPayload`;
-    const engine = ExtensionProvider.getEngine();
-
-    const basicStats = StatisticsUtils.getBasicStatsFromNotes(capturedNotes);
-    if (basicStats === undefined) {
-      this.L.error({ ctx, message: "failed to get basic stats from notes." });
-      return;
-    }
-
-    const { numChildren, numLinks, numChars, noteDepth, ...rest } = basicStats;
-
-    const traitsAcc = capturedNotes.flatMap((note) =>
-      note.traits && note.traits.length > 0 ? note.traits : []
-    );
-    const traitsSet = new Set(traitsAcc);
-    this._proxyMetricPayload = {
-      command: this.key,
-      numVaults: engine.vaults.length,
-      traits: [...traitsSet],
-      numChildren,
-      numLinks,
-      numChars,
-      noteDepth,
-      extra: {
-        numProcessed: capturedNotes.length,
-        ...rest,
-      },
-    };
-  }
-
   async execute(opts: CommandOpts): Promise<any> {
     const ctx = "RefactorHierarchy:execute";
     const { scope, match, replace, noConfirm } = opts;
@@ -446,8 +406,6 @@ export class RefactorHierarchyCommandV2 extends BasicCommand<
       matchRE,
       engine,
     });
-
-    this.prepareProxyMetricPayload(capturedNotes);
 
     const operations = this.getRenameOperations({
       capturedNotes,

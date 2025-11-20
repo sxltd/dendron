@@ -2,13 +2,10 @@ import {
   type ReducedDEngine,
   NoteUtils,
   VaultUtils,
-  VSCodeEvents,
 } from "@sxltd/common-all";
 import { inject, injectable } from "tsyringe";
 import * as vscode from "vscode";
 import { URI, Utils } from "vscode-uri";
-import { DENDRON_COMMANDS } from "../../constants";
-import { type ITelemetryClient } from "../../telemetry/common/ITelemetryClient";
 import { type ILookupProvider } from "./lookup/ILookupProvider";
 import { LookupQuickpickFactory } from "./lookup/LookupQuickpickFactory";
 
@@ -20,11 +17,9 @@ export class NoteLookupCmd {
     @inject("ReducedDEngine")
     private engine: ReducedDEngine,
     @inject("NoteProvider") private noteProvider: ILookupProvider,
-    @inject("ITelemetryClient") private _analytics: ITelemetryClient
   ) {}
 
   public async run() {
-    this._analytics.track(DENDRON_COMMANDS.LOOKUP_NOTE.key);
 
     const result = await this.factory.showLookup({
       provider: this.noteProvider,
@@ -34,6 +29,7 @@ export class NoteLookupCmd {
       return;
     }
 
+    //@ts-ignore: todo - maybe fix/remove this?
     let isNew = false;
 
     await Promise.all(
@@ -88,6 +84,5 @@ export class NoteLookupCmd {
       })
     );
 
-    this._analytics.track(VSCodeEvents.NoteLookup_Accept, { isNew });
   }
 }

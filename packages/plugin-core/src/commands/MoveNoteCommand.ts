@@ -2,10 +2,7 @@ import {
   DendronError,
   DEngineClient,
   NoteChangeEntry,
-  NoteProps,
-  RefactoringCommandUsedPayload,
   RenameNoteOpts,
-  StatisticsUtils,
   VaultUtils,
 } from "@sxltd/common-all";
 import { vault2Path } from "@sxltd/common-server";
@@ -83,14 +80,6 @@ function isMoveNecessary(move: RenameNoteOpts) {
 export class MoveNoteCommand extends BasicCommand<CommandOpts, CommandOutput> {
   key = DENDRON_COMMANDS.MOVE_NOTE.key;
   private extension: IDendronExtension;
-  _proxyMetricPayload:
-    | (RefactoringCommandUsedPayload & {
-        extra: {
-          [key: string]: any;
-        };
-      })
-    | undefined;
-
   constructor(ext: IDendronExtension) {
     super();
     this.extension = ext;
@@ -151,7 +140,6 @@ export class MoveNoteCommand extends BasicCommand<CommandOpts, CommandOutput> {
             resolve(undefined);
             return;
           }
-          await this.prepareProxyMetricPayload(data);
           const opts: CommandOpts = {
             moves: this.getDesiredMoves(data),
           };
@@ -192,60 +180,6 @@ export class MoveNoteCommand extends BasicCommand<CommandOpts, CommandOutput> {
     });
   }
 
-  private async prepareProxyMetricPayload(
-    data: NoteLookupProviderSuccessResp<OldNewLocation>
-  ) {
-    const ctx = `${this.key}:prepareProxyMetricPayload`;
-    const engine = ExtensionProvider.getEngine();
-    let items: NoteProps[];
-    if (data.selectedItems.length === 1) {
-      // single move. find note from resp
-      const { oldLoc } = data.onAcceptHookResp[0];
-      const { fname, vaultName: vname } = oldLoc;
-      if (fname !== undefined && vname !== undefined) {
-        const vault = VaultUtils.getVaultByName({
-          vaults: engine.vaults,
-          vname,
-        });
-        const note = (await engine.findNotes({ fname, vault }))[0];
-        items = [note];
-      } else {
-        items = [];
-      }
-    } else {
-      const notes = data.selectedItems.map(
-        (item): NoteProps => _.omit(item, ["label", "detail", "alwaysShow"])
-      );
-      items = notes;
-    }
-
-    const basicStats = StatisticsUtils.getBasicStatsFromNotes(items);
-    if (basicStats === undefined) {
-      this.L.error({ ctx, message: "failed to get basic stats from notes." });
-      return;
-    }
-
-    const { numChildren, numLinks, numChars, noteDepth, ...rest } = basicStats;
-
-    const traitsAcc = items.flatMap((item) =>
-      item.traits && item.traits.length > 0 ? item.traits : []
-    );
-    const traitsSet = new Set(traitsAcc);
-
-    this._proxyMetricPayload = {
-      command: this.key,
-      numVaults: engine.vaults.length,
-      traits: [...traitsSet],
-      numChildren,
-      numLinks,
-      numChars,
-      noteDepth,
-      extra: {
-        numProcessed: items.length,
-        ...rest,
-      },
-    };
-  }
 
   private getDesiredMoves(
     data: NoteLookupProviderSuccessResp<OldNewLocation>
