@@ -1,11 +1,10 @@
 import "reflect-metadata"; // This needs to be the topmost import for tsyringe to work
 
-import { TreeViewItemLabelTypeEnum, VSCodeEvents } from "@sxltd/common-all";
+import { TreeViewItemLabelTypeEnum} from "@sxltd/common-all";
 import { container } from "tsyringe";
 import * as vscode from "vscode";
 import { NoteLookupAutoCompleteCommand } from "../commands/common/NoteLookupAutoCompleteCommand";
 import { DENDRON_COMMANDS } from "../constants";
-import { ITelemetryClient } from "../telemetry/common/ITelemetryClient";
 import { NativeTreeView } from "../views/common/treeview/NativeTreeView";
 import { CopyNoteURLCmd } from "./commands/CopyNoteURLCmd";
 import { NoteLookupCmd } from "./commands/NoteLookupCmd";
@@ -24,8 +23,6 @@ export async function activate(context: vscode.ExtensionContext) {
     setupCommands(context);
 
     setupViews(context);
-
-    reportActivationTelemetry();
   } catch (error) {
     // TODO: properly detect if we're in a Dendron workspace or not (instead of
     // relying on getWSRoot throwing).
@@ -149,13 +146,4 @@ async function setupTreeView(context: vscode.ExtensionContext) {
       await treeView.expandTreeItem(id);
     }
   );
-}
-
-async function reportActivationTelemetry() {
-  const telemetryClient =
-    container.resolve<ITelemetryClient>("ITelemetryClient");
-
-  await telemetryClient.identify();
-  // TODO: Add workspace properties later.
-  await telemetryClient.track(VSCodeEvents.InitializeWorkspace);
 }

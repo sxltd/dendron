@@ -1,10 +1,8 @@
 import {
   NoteUtils,
-  RefactoringCommandUsedPayload,
 } from "@sxltd/common-all";
 import _ from "lodash";
 import { DENDRON_COMMANDS } from "../constants";
-import { ExtensionProvider } from "../ExtensionProvider";
 import { VSCodeUtils } from "../vsCodeUtils";
 import { BasicCommand } from "./base";
 import {
@@ -28,20 +26,10 @@ export class ArchiveHierarchyCommand extends BasicCommand<
 > {
   key = DENDRON_COMMANDS.ARCHIVE_HIERARCHY.key;
   private refactorCmd: RefactorHierarchyCommandV2;
-  private prepareProxyMetricPayload;
-  _proxyMetricPayload:
-    | (RefactoringCommandUsedPayload & {
-        extra: {
-          [key: string]: any;
-        };
-      })
-    | undefined;
 
   constructor(name?: string) {
     super(name);
     this.refactorCmd = new RefactorHierarchyCommandV2();
-    this.prepareProxyMetricPayload =
-      this.refactorCmd.prepareProxyMetricPayload.bind(this);
   }
 
   async gatherInputs(): Promise<CommandInput | undefined> {
@@ -62,13 +50,6 @@ export class ArchiveHierarchyCommand extends BasicCommand<
   async execute(opts: CommandOpts) {
     const { match } = _.defaults(opts, {});
     const replace = `archive.${match}`;
-    const engine = ExtensionProvider.getEngine();
-    const capturedNotes = await this.refactorCmd.getCapturedNotes({
-      scope: undefined,
-      matchRE: new RegExp(match),
-      engine,
-    });
-    this.prepareProxyMetricPayload(capturedNotes);
     return this.refactorCmd.execute({ match, replace });
   }
 

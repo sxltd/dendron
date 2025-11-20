@@ -2,9 +2,8 @@ import _ from "lodash";
 import { env, window } from "vscode";
 import { WSUtilsWeb } from "../utils/WSUtils";
 import { SiteUtilsWeb } from "../utils/SiteUtilsWeb";
-import { inject, injectable } from "tsyringe";
+import { injectable } from "tsyringe";
 import { DENDRON_COMMANDS } from "../../constants";
-import { type ITelemetryClient } from "../../telemetry/common/ITelemetryClient";
 
 @injectable()
 export class CopyNoteURLCmd {
@@ -12,7 +11,6 @@ export class CopyNoteURLCmd {
 
   constructor(
     private wsUtils: WSUtilsWeb,
-    @inject("ITelemetryClient") private _analytics: ITelemetryClient,
     private siteUtils?: SiteUtilsWeb
   ) {}
 
@@ -21,8 +19,6 @@ export class CopyNoteURLCmd {
   }
 
   async run() {
-    this._analytics.track(CopyNoteURLCmd.key);
-
     const maybeTextEditor = this.getActiveTextEditor();
 
     if (_.isUndefined(maybeTextEditor)) {
