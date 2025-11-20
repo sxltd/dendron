@@ -33,8 +33,6 @@ export const CONSTANTS = {
   DENDRON_USER_FILE: ".dendron.user",
   DENDRON_CACHE_FILE: ".dendron.cache.json",
   DENDRON_ID: ".dendron.uuid",
-  DENDRON_NO_TELEMETRY: ".dendron.no-telemetry",
-  DENDRON_TELEMETRY: ".dendron.telemetry",
   DENDRON_HOOKS_BASE: "hooks",
   DENDRON_USER_NOTE_TRAITS_BASE: "noteTraits",
   DENDRON_LOCAL_SITE_PORT: 8080,
@@ -59,8 +57,6 @@ export const FOLDERS = {
   ASSETS: "assets",
   /** The system-wide folder where Dendron stores metadata and other system-wide files. */
   DENDRON_SYSTEM_ROOT: ".dendron",
-  /** The folder where telemetry payloads that will be sent during next run are temporarily saved. Under {@link FOLDERS.DENDRON_SYSTEM_ROOT}. */
-  SAVED_TELEMETRY: "saved-telemetry",
 };
 
 export enum ERROR_STATUS {

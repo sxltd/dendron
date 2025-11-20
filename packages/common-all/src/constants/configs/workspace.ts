@@ -167,10 +167,6 @@ export const WORKSPACE: DendronConfigEntryCollection<DendronWorkspaceConfig> = {
   scratch: SCRATCH,
   task: TASK,
   graph: GRAPH,
-  disableTelemetry: {
-    label: `Disable Telemetry`,
-    desc: `Disable telemetry that collects usage data to help improve Dendron.`,
-  },
   enableAutoCreateOnDefinition: {
     label: "Enable auto create on definition",
     desc: "Automatically create note when looking up definition",

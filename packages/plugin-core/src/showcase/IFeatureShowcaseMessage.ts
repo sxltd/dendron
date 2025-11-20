@@ -8,26 +8,6 @@ export enum DisplayLocation {
   TipOfTheDayView = "TipOfTheDayView",
 }
 
-/**
- * How did the user respond to the Showcase message. Used in Telemetry
- */
-export enum FeatureShowcaseUserResponse {
-  /**
-   *  User actively closed the UI without selecting an option
-   */
-  dismissed = "dismissed",
-
-  /**
-   * User actively selected the positive option
-   */
-  confirmed = "confirmed",
-
-  /**
-   * User actively selected the negative option
-   */
-  deferred = "deferred",
-}
-
 export interface IFeatureShowcaseMessage {
   /**
    * For the given display location, should we be showing this message. Note

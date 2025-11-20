@@ -666,9 +666,6 @@
         "graph": {
           "$ref": "#/definitions/DendronGraphConfig"
         },
-        "disableTelemetry": {
-          "type": "boolean"
-        },
         "enableAutoCreateOnDefinition": {
           "type": "boolean"
         },

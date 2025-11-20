@@ -23,7 +23,6 @@ export type DendronWorkspaceConfig = {
   scratch: ScratchConfig;
   task: TaskConfig;
   graph: DendronGraphConfig;
-  disableTelemetry?: boolean;
   enableAutoCreateOnDefinition: boolean;
   enableXVaultWikiLink: boolean;
   enableRemoteVaultInit: boolean;
