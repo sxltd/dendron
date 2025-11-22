@@ -100,7 +100,6 @@ const ALL_COMMANDS = [
   ConfigureServiceConnection,
   ConfigureExportPodV2,
   ConfigureGraphStylesCommand,
-  ContributeCommand,
   CopyNoteLinkCommand,
   CopyNoteRefCommand,
   CopyNoteURLCommand,
