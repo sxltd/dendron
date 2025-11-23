@@ -166,7 +166,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
   }
 
   async enrichArgs(args: CommandCLIOpts) {
-    this.addArgsToPayload({ cmd: args.cmd });
     return { data: { ...args } };
   }
 

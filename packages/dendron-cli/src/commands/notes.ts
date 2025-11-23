@@ -212,8 +212,6 @@ export class NoteCLICommand extends CLICommand<CommandOpts, CommandOutput> {
   }
 
   async enrichArgs(args: CommandCLIOpts) {
-    this.addArgsToPayload({ cmd: args.cmd, output: args.output });
-
     // TODO remove after migration to new engine
     if (args.cmd !== NoteCommands.LOOKUP_LEGACY) {
       args.newEngine = true;
