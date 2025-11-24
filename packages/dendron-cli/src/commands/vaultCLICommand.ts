@@ -65,7 +65,6 @@ export class VaultCLICommand extends CLICommand<CommandOpts> {
   }
 
   async enrichArgs(args: CommandCLIOpts) {
-    this.addArgsToPayload({ cmd: args.cmd });
     const engineArgs = await setupEngine(args);
     return { data: { ...args, ...engineArgs } };
   }

@@ -38,7 +38,6 @@ export class WorkspaceCLICommand extends CLICommand<CommandOpts> {
   }
 
   async enrichArgs(args: CommandCLIOpts) {
-    this.addArgsToPayload({ action: args.action });
     const engineArgs = await setupEngine({ ...args, init: false });
     return { data: { ...args, ...engineArgs } };
   }

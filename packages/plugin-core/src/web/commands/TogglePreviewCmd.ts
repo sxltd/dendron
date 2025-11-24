@@ -4,7 +4,6 @@ import * as vscode from "vscode";
 import { TogglePreviewCommandOpts } from "../../commands/ShowPreviewInterface";
 import { type PreviewProxy } from "../../components/views/PreviewProxy";
 import { DENDRON_COMMANDS } from "../../constants";
-import { type ITelemetryClient } from "../../telemetry/common/ITelemetryClient";
 import { WSUtilsWeb } from "../utils/WSUtils";
 
 /**
@@ -19,7 +18,6 @@ export class TogglePreviewCmd {
 
   constructor(
     @inject("PreviewProxy") previewPanel: PreviewProxy,
-    @inject("ITelemetryClient") private _analytics: ITelemetryClient,
     // @inject("wsRoot") private wsRoot: URI, // This will be needed later for openFile functionality
     private wsUtils: WSUtilsWeb
   ) {
@@ -27,10 +25,6 @@ export class TogglePreviewCmd {
   }
 
   async run() {
-    this._analytics.track(DENDRON_COMMANDS.TOGGLE_PREVIEW.key, {
-      providedFile: false,
-    });
-
     if (!this.shouldShowPreview()) {
       return;
     }

@@ -32,11 +32,6 @@ import { URI, Utils } from "vscode-uri";
 import { VersionProvider } from "../versionProvider";
 import { Duration } from "luxon";
 
-/** Before sending saved telemetry events, wait this long (in ms) to make sure
- * the workspace will likely remain open long enough for us to send everything.
- */
-const DELAY_TO_SEND_SAVED_TELEMETRY = 15 * 1000;
-
 async function startServerProcess(): Promise<{
   port: number;
   subprocess?: ExecaChildProcess;
@@ -491,10 +486,6 @@ export class ExtensionUtils {
           maybeLocalConfig.data.workspace.vaults.length;
       }
     }
-
-    setTimeout(() => {
-      Logger.info("sendSavedAnalytics"); // TODO
-    }, DELAY_TO_SEND_SAVED_TELEMETRY);
   }
 
   /**

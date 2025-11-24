@@ -913,16 +913,6 @@ export const DENDRON_COMMANDS: { [key: string]: CommandEntry } = {
     when: `${DendronContext.PLUGIN_ACTIVE} && shellExecutionSupported`,
   },
   // --- Misc
-  ENABLE_TELEMETRY: {
-    key: "dendron.enableTelemetry",
-    title: `${CMD_PREFIX} Enable Telemetry`,
-    when: "shellExecutionSupported",
-  },
-  DISABLE_TELEMETRY: {
-    key: "dendron.disableTelemetry",
-    title: `${CMD_PREFIX} Disable Telemetry`,
-    when: "shellExecutionSupported",
-  },
   OPEN_LINK: {
     key: "dendron.openLink",
     title: `${CMD_PREFIX} Open Link`,

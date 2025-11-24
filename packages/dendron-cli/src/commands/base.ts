@@ -49,7 +49,6 @@ export abstract class CLICommand<
   // TODO: hackish
   protected wsRootOptional?: boolean;
   protected skipValidation?: boolean;
-  protected _analyticsPayload: any = {};
 
   constructor(opts: { name: string; desc: string } & BaseCommandOpts) {
     super(opts.name, opts);
@@ -142,18 +141,6 @@ export abstract class CLICommand<
         );
       }
     }
-  }
-
-  addArgsToPayload(data: any) {
-    this.addToPayload({
-      key: "args",
-      value: data,
-    });
-  }
-
-  addToPayload(opts: { key: string; value: any }) {
-    const { key, value } = opts;
-    _.set(this._analyticsPayload, key, value);
   }
 
   /**

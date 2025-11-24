@@ -145,7 +145,6 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
   }
 
   async enrichArgs(args: CommandCLIOpts) {
-    this.addArgsToPayload({ cmd: args.cmd });
     let error: DendronError | undefined;
     const coverrides: BuildOverrides = {};
     if (!_.isUndefined(args.overrides)) {
