@@ -3,7 +3,7 @@ name: Pod Request Template
 about: 'When requesting a Pod (import/export method for Dendron), use this template. '
 title: "[Pod Request] placeholder"
 labels: ''
-assignees: kpathakota
+assignees: ''
 
 ---
 
