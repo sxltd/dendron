@@ -1,201 +1,201 @@
-# name: CI
+name: CI
 
-# on:
-#   push:
-#     branches:
-#       - master
-#       - release/*
-#   pull_request:
-#     branches:
-#       - "*"
-#       - "*/*"
-#   workflow_dispatch:
+on:
+  push:
+    branches:
+      - master
+      - release/*
+  pull_request:
+    branches:
+      - "*"
+      - "*/*"
+  workflow_dispatch:
 
-# env:
-#   BINARY_CACHE_INDEX: 23 # Rev this if we need a new node cache
+env:
+  BINARY_CACHE_INDEX: 23 # Rev this if we need a new node cache
 
-# jobs:
-#   test:
-#     strategy:
-#       # Allow other matrix jobs to continue after one fails, allowing us to
-#       # isolate platform-specific issues.
-#       fail-fast: false
+jobs:
+  test:
+    strategy:
+      # Allow other matrix jobs to continue after one fails, allowing us to
+      # isolate platform-specific issues.
+      fail-fast: false
 
-#       matrix:
-#         os:
-#           - macos-latest
-#           - ubuntu-latest
-#           - windows-latest
-#         node-version:
-#           - 14.x
-#           - 16.x
-#         suite:
-#           - cli
-#           - plugin
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+        node-version:
+          - 14.x
+          - 16.x
+        suite:
+          - cli
+          - plugin
 
-#         include:
-#           - os: macos-latest
-#             env: env
-#             versions: ""
-#           - os: ubuntu-latest
-#             env: env
-#             versions: ""
-#           # Running natively under Windows requires some further work on paths
-#           # and file access patterns.
-#           - os: windows-latest
-#             env: Get-ChildItem Env:\
-#             versions: choco --version
+        include:
+          - os: macos-latest
+            env: env
+            versions: ""
+          - os: ubuntu-latest
+            env: env
+            versions: ""
+          # Running natively under Windows requires some further work on paths
+          # and file access patterns.
+          - os: windows-latest
+            env: Get-ChildItem Env:\
+            versions: choco --version
 
-#     timeout-minutes: 40
+    timeout-minutes: 40
 
-#     runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
 
-#     steps:
-#       - name: Gather environment data
-#         run: |
-#           ${{ matrix.env }}
-#           node --version
-#           npm --version
-#           yarn --version
+    steps:
+      - name: Gather environment data
+        run: |
+          ${{ matrix.env }}
+          node --version
+          npm --version
+          yarn --version
 
-#       - name: Checkout source
-#         uses: actions/checkout@v3
+      - name: Checkout source
+        uses: actions/checkout@v3
 
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: "${{ matrix.node-version }}"
-#           cache: "yarn"
-#           cache-dependency-path: yarn.lock
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "${{ matrix.node-version }}"
+          cache: "yarn"
+          cache-dependency-path: yarn.lock
 
-#       # Publish tests won't work if we haven't configured our committer details.
-#       - name: Configure Git user
-#         run: |
-#           git config --global user.name CI
-#           git config --global user.email ci@dendron.so
+      # Publish tests won't work if we haven't configured our committer details.
+      - name: Configure Git user
+        run: |
+          git config --global user.name CI
+          git config --global user.email ci@dendron.so
 
-#       - name: Restore typescript lib cache
-#         uses: actions/cache@v3
-#         id: ts-cache
-#         with:
-#           path: |
-#             packages/*/lib/*
-#           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ env.BINARY_CACHE_INDEX }}
-#           restore-keys: |
-#             ${{ runner.os }}-yarn-${{ env.BINARY_CACHE_INDEX }}
+      - name: Restore typescript lib cache
+        uses: actions/cache@v3
+        id: ts-cache
+        with:
+          path: |
+            packages/*/lib/*
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ env.BINARY_CACHE_INDEX }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-${{ env.BINARY_CACHE_INDEX }}
 
-#       - name: Bootstrap
-#         run: yarn bootstrap:bootstrap
-#         shell: bash
+      - name: Bootstrap
+        run: yarn bootstrap:bootstrap
+        shell: bash
 
-#       - name: Build
-#         run: yarn bootstrap:buildCI
-#         shell: bash
+      - name: Build
+        run: yarn bootstrap:buildCI
+        shell: bash
 
-#       - name: Typecheck
-#         run: yarn lerna:typecheck
-#         shell: bash
+      - name: Typecheck
+        run: yarn lerna:typecheck
+        shell: bash
 
-#       - name: Start Xvfb
-#         if: runner.os == 'Linux'
-#         run: |
-#           Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-#           echo 'DISPLAY=:99.0' >>$GITHUB_ENV
-#       - name: Run tests
-#         run: yarn ci:test:${{ matrix.suite }}
-#         timeout-minutes: 30
+      - name: Start Xvfb
+        if: runner.os == 'Linux'
+        run: |
+          Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+          echo 'DISPLAY=:99.0' >>$GITHUB_ENV
+      - name: Run tests
+        run: yarn ci:test:${{ matrix.suite }}
+        timeout-minutes: 30
 
-#   test-plugin-web:
-#     timeout-minutes: 15
+  test-plugin-web:
+    timeout-minutes: 15
 
-#     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Checkout source
-#         uses: actions/checkout@v3
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
 
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: "16.x"
-#           cache: "yarn"
-#           cache-dependency-path: yarn.lock
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          cache: "yarn"
+          cache-dependency-path: yarn.lock
 
-#       - name: Restore typescript lib cache
-#         uses: actions/cache@v3
-#         id: ts-cache
-#         with:
-#           path: |
-#             packages/*/lib/*
-#           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ env.BINARY_CACHE_INDEX }}
-#           restore-keys: |
-#             ${{ runner.os }}-yarn-${{ env.BINARY_CACHE_INDEX }}
+      - name: Restore typescript lib cache
+        uses: actions/cache@v3
+        id: ts-cache
+        with:
+          path: |
+            packages/*/lib/*
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ env.BINARY_CACHE_INDEX }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-${{ env.BINARY_CACHE_INDEX }}
 
-#       - name: Bootstrap
-#         run: yarn bootstrap:bootstrap
-#         shell: bash
+      - name: Bootstrap
+        run: yarn bootstrap:bootstrap
+        shell: bash
 
-#       - name: Build
-#         run: yarn bootstrap:buildCI
-#         shell: bash
+      - name: Build
+        run: yarn bootstrap:buildCI
+        shell: bash
 
-#       - name: Start Xvfb
-#         run: |
-#           Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-#           echo 'DISPLAY=:99.0' >>$GITHUB_ENV
+      - name: Start Xvfb
+        run: |
+          Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+          echo 'DISPLAY=:99.0' >>$GITHUB_ENV
 
-#       - name: Run Plugin-Web tests
-#         run: yarn ci:test:plugin-web
+      - name: Run Plugin-Web tests
+        run: yarn ci:test:plugin-web
 
-#   test-playwright:
-#     timeout-minutes: 15
+  test-playwright:
+    timeout-minutes: 15
 
-#     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Checkout source
-#         uses: actions/checkout@v3
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
 
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: "16.x"
-#           cache: "yarn"
-#           cache-dependency-path: yarn.lock
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          cache: "yarn"
+          cache-dependency-path: yarn.lock
 
-#       - name: Restore typescript lib cache
-#         uses: actions/cache@v3
-#         id: ts-cache
-#         with:
-#           path: |
-#             packages/*/lib/*
-#           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ env.BINARY_CACHE_INDEX }}
-#           restore-keys: |
-#             ${{ runner.os }}-yarn-${{ env.BINARY_CACHE_INDEX }}
+      - name: Restore typescript lib cache
+        uses: actions/cache@v3
+        id: ts-cache
+        with:
+          path: |
+            packages/*/lib/*
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ env.BINARY_CACHE_INDEX }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-${{ env.BINARY_CACHE_INDEX }}
 
-#       - name: Sets env vars for publish test
-#         run: |
-#           echo "TEST_NEXT_TEMPLATE=1" >> $GITHUB_ENV
-#           echo "NODE_OPTIONS=--max_old_space_size=4096" >> $GITHUB_ENV
-#         # if: runner.os == 'Linux'
+      - name: Sets env vars for publish test
+        run: |
+          echo "TEST_NEXT_TEMPLATE=1" >> $GITHUB_ENV
+          echo "NODE_OPTIONS=--max_old_space_size=4096" >> $GITHUB_ENV
+        # if: runner.os == 'Linux'
 
-#       - name: Bootstrap
-#         run: yarn bootstrap:bootstrap
-#         shell: bash
+      - name: Bootstrap
+        run: yarn bootstrap:bootstrap
+        shell: bash
 
-#       - name: Build
-#         run: yarn bootstrap:buildCI
-#         shell: bash
+      - name: Build
+        run: yarn bootstrap:buildCI
+        shell: bash
 
-#       - name: Export test-workspace
-#         working-directory: ./test-workspace
-#         run: ../node_modules/.bin/dendron exportPod --podId dendron.nextjs --config "dest=../packages/nextjs-template/"
+      - name: Export test-workspace
+        working-directory: ./test-workspace
+        run: ../node_modules/.bin/dendron exportPod --podId dendron.nextjs --config "dest=../packages/nextjs-template/"
 
-#       - name: Install Playwright dependencies
-#         run: npx playwright install --with-deps
+      - name: Install Playwright dependencies
+        run: npx playwright install --with-deps
 
-#       - name: Run Playwright tests
-#         run: yarn ci:test:template
+      - name: Run Playwright tests
+        run: yarn ci:test:template
 
-#       - name: Upload Playwright test results
-#         uses: actions/upload-artifact@v3
-#         with:
-#           name: test-artifact
-#           path: ./packages/nextjs-template/test-results/
+      - name: Upload Playwright test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-artifact
+          path: ./packages/nextjs-template/test-results/
