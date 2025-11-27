@@ -3914,7 +3914,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jcoreio/async-throttle@npm:^1.3.2, @jcoreio/async-throttle@npm:^1.4.3":
+"@jcoreio/async-throttle@npm:^1.4.3":
   version: 1.6.1
   resolution: "@jcoreio/async-throttle@npm:1.6.1"
   dependencies:
@@ -7314,35 +7314,27 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sxltd/dendron-cli@workspace:packages/dendron-cli"
   dependencies:
-    "@jcoreio/async-throttle": ^1.3.2
     "@sxltd/api-server": "workspace:*"
     "@sxltd/common-all": "workspace:*"
     "@sxltd/common-server": "workspace:*"
     "@sxltd/dendron-viz": "workspace:*"
     "@sxltd/engine-server": "workspace:*"
     "@sxltd/pods-core": "workspace:*"
-    "@types/execa": ^2.0.0
     "@types/fs-extra": ^9.0.1
     "@types/lodash": ^4.14.158
     "@types/node": 13.11.0
     "@types/prompts": ^2.0.14
-    "@types/rsync": ^0.4.30
-    "@types/semver": ^7.3.8
     "@types/yargs": ^15.0.5
     clipboardy: 2.3.0
-    coveralls: ^3.0.2
     fs-extra: ^9.0.1
-    gray-matter: ^4.0.2
     lodash: ^4.17.19
     ora: 5.4.1
     prompts: ^2.4.2
-    rimraf: ^3.0.2
-    rsync: ^0.6.1
     ts-json-schema-generator: ^0.95.0
     ts-node: ^7.0.1
     tslint: ^5.11.0
     tslint-config-prettier: ^1.15.0
-    vsce: ^2.10.0
+    typescript: ^5.9.3
     yargs: ^15.4.1
   bin:
     dendron: ./lib/bin/dendron-cli.js
@@ -9007,15 +8999,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/rsync@npm:^0.4.30":
-  version: 0.4.36
-  resolution: "@types/rsync@npm:0.4.36"
-  dependencies:
-    "@types/node": "*"
-  checksum: d7a67f072e5cbc8e0fad3b511e2dd68cca2681d888f6f38f5fb2990a1c2c1728f1d3a00e8f702d808f33c571b1486e8648e596c0b5fee70d964ca67daeeb471e
-  languageName: node
-  linkType: hard
-
 "@types/scheduler@npm:*":
   version: 0.26.0
   resolution: "@types/scheduler@npm:0.26.0"
@@ -9030,7 +9013,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/semver@npm:^7.3.1, @types/semver@npm:^7.3.12, @types/semver@npm:^7.3.4, @types/semver@npm:^7.3.8":
+"@types/semver@npm:^7.3.1, @types/semver@npm:^7.3.12, @types/semver@npm:^7.3.4":
   version: 7.7.1
   resolution: "@types/semver@npm:7.7.1"
   checksum: 76d218e414482a398148d5c28f2bfa017108869f3fc18cda379c9d8d062348f8b9653ae2fa8642d3b5b52e211928fe8be34f22da4e1f08245c84e0e51e040673
@@ -35300,13 +35283,6 @@ __metadata:
   version: 4.8.5
   resolution: "rsvp@npm:4.8.5"
   checksum: 2d8ef30d8febdf05bdf856ccca38001ae3647e41835ca196bc1225333f79b94ae44def733121ca549ccc36209c9b689f6586905e2a043873262609744da8efc1
-  languageName: node
-  linkType: hard
-
-"rsync@npm:^0.6.1":
-  version: 0.6.1
-  resolution: "rsync@npm:0.6.1"
-  checksum: 791fe50be3bdd1f95cf2c270c0ac693975ae3630f53597f47f2549011d9c02e4e0adf3ba3842904e2d31556c47dee045eeb835a3101c8cffa8223a178f0eea9b
   languageName: node
   linkType: hard
 
