@@ -6,7 +6,6 @@ import {
   NoteProps,
   NoteUtils,
   stringifyError,
-  TimeUtils,
 } from "@sxltd/common-all";
 import {
   DConfig,
@@ -23,12 +22,6 @@ import _ from "lodash";
 import path from "path";
 import yargs from "yargs";
 import { setupEngine } from "..";
-import {
-  BuildUtils,
-  ExtensionType,
-  PublishEndpoint,
-  SemverVersion,
-} from "../utils/build";
 import { CLICommand, CommandCommonProps } from "./base";
 
 type CommandCLIOpts = {
@@ -37,32 +30,17 @@ type CommandCLIOpts = {
 
 export enum DevCommands {
   GENERATE_JSON_SCHEMA_FROM_CONFIG = "generate_json_schema_from_config",
-  BUILD = "build",
   CREATE_TEST_VAULT = "create_test_vault",
-  BUMP_VERSION = "bump_version",
-  PUBLISH = "publish",
-  PACKAGE_PLUGIN = "package_plugin",
-  INSTALL_PLUGIN = "install_plugin",
   SHOW_MIGRATIONS = "show_migrations",
   RUN_MIGRATION = "run_migration",
 }
 
 type CommandOpts = CommandCLIOpts &
   CommandCommonProps &
-  Partial<BuildCmdOpts> &
   Partial<RunMigrationOpts> &
   Partial<CreateTestVaultOpts>;
 
 type CommandOutput = Partial<{ error: DendronError; data: any }>;
-
-type BuildCmdOpts = {
-  publishEndpoint: PublishEndpoint;
-  fast?: boolean;
-  extensionType: ExtensionType;
-  extensionTarget?: string;
-  skipSentry?: boolean;
-} & BumpVersionOpts &
-  PrepPluginOpts;
 
 type CreateTestVaultOpts = {
   wsRoot: string;
@@ -70,14 +48,6 @@ type CreateTestVaultOpts = {
    * Location of json data
    */
   jsonData: string;
-} & CommandCLIOpts;
-
-type BumpVersionOpts = {
-  upgradeType: SemverVersion;
-} & CommandCLIOpts;
-
-type PrepPluginOpts = {
-  extensionType: ExtensionType;
 } & CommandCLIOpts;
 
 type RunMigrationOpts = {
@@ -110,14 +80,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     this.skipValidation = true;
   }
 
-  private setEndpoint(publishEndpoint: PublishEndpoint) {
-    this.print(`setting endpoint to ${publishEndpoint}...`);
-    if (publishEndpoint === PublishEndpoint.LOCAL) {
-      BuildUtils.prepPublishLocal();
-    } else {
-      BuildUtils.prepPublishRemote();
-    }
-  }
 
   buildArgs(args: yargs.Argv) {
     super.buildArgs(args);
@@ -125,29 +87,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
       describe: "a command to run",
       choices: Object.values(DevCommands),
       type: "string",
-    });
-    args.option("upgradeType", {
-      describe: "how to do upgrade",
-      choices: Object.values(SemverVersion),
-    });
-    args.option("publishEndpoint", {
-      describe: "where to publish",
-      choices: Object.values(PublishEndpoint),
-    });
-    args.option("extensionType", {
-      describe:
-        "extension name to publish in the marketplace (Dendron / Nightly)",
-      choices: Object.values(ExtensionType),
-    });
-    args.option("extensionTarget", {
-      describe:
-        "extension target to pass to vsce to specify platform and architecture",
-    });
-    args.option("fast", {
-      describe: "skip some checks",
-    });
-    args.option("skipSentry", {
-      describe: "skip upload source map to sentry",
     });
     args.option("migrationVersion", {
       describe: "migration version to run",
@@ -264,17 +203,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
           await this.generateJSONSchemaFromConfig();
           return { error: null };
         }
-        case DevCommands.BUILD: {
-          if (!this.validateBuildArgs(opts)) {
-            return {
-              error: new DendronError({
-                message: "missing options for build command",
-              }),
-            };
-          }
-          await this.build(opts);
-          return { error: null };
-        }
         case DevCommands.CREATE_TEST_VAULT: {
           if (!this.validateCreateTestVaultArgs(opts)) {
             return {
@@ -293,35 +221,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
             this.print("closing server...");
             server.close();
           }
-          return { error: null };
-        }
-        case DevCommands.BUMP_VERSION: {
-          if (!this.validateBumpVersionArgs(opts)) {
-            return {
-              error: new DendronError({
-                message: "missing options for build command",
-              }),
-            };
-          }
-          await this.bumpVersion(opts);
-          return { error: null };
-        }
-        case DevCommands.PACKAGE_PLUGIN: {
-          if (!opts.fast) {
-            this.print("install deps...");
-            BuildUtils.installPluginDependencies();
-          }
-
-          this.print("compiling plugin...");
-          await BuildUtils.compilePlugin(opts);
-
-          this.print("package deps...");
-          await BuildUtils.packagePluginDependencies(opts);
-          return { error: null };
-        }
-        case DevCommands.INSTALL_PLUGIN: {
-          const currentVersion = BuildUtils.getCurrentVersion();
-          await BuildUtils.installPluginLocally(currentVersion);
           return { error: null };
         }
         case DevCommands.SHOW_MIGRATIONS: {
@@ -353,89 +252,9 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     }
   }
 
-  async build(opts: BuildCmdOpts) {
-    const ctx = "build";
-    // get package version
-    const currentVersion = BuildUtils.getCurrentVersion();
-    const nextVersion = BuildUtils.genNextVersion({
-      currentVersion,
-      upgradeType: opts.upgradeType,
-    });
-    const shouldPublishLocal = opts.publishEndpoint === PublishEndpoint.LOCAL;
-    this.L.info({ ctx, currentVersion, nextVersion });
-
-    this.print(`prep publish ${opts.publishEndpoint}...`);
-    if (shouldPublishLocal) {
-      this.print("setting endpoint to local");
-      await BuildUtils.prepPublishLocal();
-    } else {
-      this.print("setting endpoint to remote");
-      await BuildUtils.prepPublishRemote();
-    }
-
-
-    this.print("sync assets...");
-    await this.syncAssets(opts);
-
-    if (!shouldPublishLocal) {
-      this.print(
-        "sleeping 2 mins for remote npm registry to have packages ready"
-      );
-      await TimeUtils.sleep(2 * 60 * 1000);
-    } else {
-      const localSleepSeconds = 15;
-      this.print(
-        `sleeping ${localSleepSeconds}s for local npm registry to have packages ready`
-      );
-      await TimeUtils.sleep(localSleepSeconds * 1000);
-    }
-
-    this.print("install deps...");
-    BuildUtils.installPluginDependencies();
-
-    this.print("compiling plugin...");
-    await BuildUtils.compilePlugin(opts);
-
-    this.print("package deps...");
-    await BuildUtils.packagePluginDependencies(opts);
-
-    this.print("setRegRemote...");
-    BuildUtils.setRegRemote();
-
-    if (!opts.fast) {
-      this.print("restore package.json...");
-      BuildUtils.restorePluginPkgJson();
-    } else {
-      this.print("skip restore package.json...");
-    }
-
-    this.L.info("done");
-  }
-
-  validateBuildArgs(opts: CommandOpts): opts is BuildCmdOpts {
-    if (!opts.upgradeType || !opts.publishEndpoint) {
-      return false;
-    }
-    return true;
-  }
-
-  validateBumpVersionArgs(opts: CommandOpts): opts is BumpVersionOpts {
-    if (!opts.upgradeType) {
-      return false;
-    }
-    return true;
-  }
-
   validateCreateTestVaultArgs(opts: CommandOpts): opts is CreateTestVaultOpts {
     if (!opts.wsRoot || !opts.jsonData) {
       return false;
-    }
-    return true;
-  }
-
-  validatePrepPluginArgs(opts: CommandOpts): opts is PrepPluginOpts {
-    if (opts.extensionType) {
-      return Object.values(ExtensionType).includes(opts.extensionType);
     }
     return true;
   }
