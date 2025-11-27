@@ -21,16 +21,13 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "clean": "rimraf lib && rimraf coverage",
+    "clean": "rm -rf lib coverage",
     "format": "echo nop",
     "lint": "echo stub",
-    "prepublishOnly": "yarn build",
     "prebuild": "yarn clean && yarn format && yarn lint && echo Using TypeScript && tsc --version",
-    "build": "yarn compile",
-    "buildCI": "yarn clean && yarn compile",
-    "compile": "tsc -p tsconfig.build.json ",
+    "build": "tsc -p tsconfig.build.json",
     "coverage": "jest --coverage",
-    "watch": "yarn compile --watch"
+    "watch": "yarn build --watch"
   },
   "devDependencies": {
     "@testing-library/react": "12.1.0",
@@ -38,7 +35,8 @@
     "@types/fs-extra": "^9.0.1",
     "@types/lodash": "^4.14.161",
     "@types/node": "13.11.0",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=12.0.0"
