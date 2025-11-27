@@ -33,12 +33,10 @@
     "lint": "echo stub",
     "prepublishOnly": "yarn build",
     "prebuild": "yarn clean && yarn format && yarn lint && echo Using TypeScript && tsc --version",
-    "build": "yarn compile",
-    "buildCI": "yarn compile",
-    "compile": "tsc -p tsconfig.build.json ",
+    "build": "tsc -p tsconfig.build.json",
+    "watch": "yarn build --watch",
     "test": "echo 'nop'",
-    "test:unit:all": "cross-env LOG_LEVEL=error yarn test",
-    "watch": "yarn compile --watch"
+    "test:unit:all": "cross-env LOG_LEVEL=error yarn test"
   },
   "dependencies": {
     "@jcoreio/async-throttle": "^1.3.2",

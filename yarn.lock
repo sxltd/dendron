@@ -16455,9 +16455,7 @@ __metadata:
     "@sxltd/api-server": "workspace:*"
     "@sxltd/common-all": "workspace:*"
     "@sxltd/common-server": "workspace:*"
-    "@sxltd/common-test-utils": "workspace:*"
     "@sxltd/engine-server": "workspace:*"
-    "@sxltd/engine-test-utils": "workspace:*"
     "@sxltd/pods-core": "workspace:*"
     "@types/execa": ^2.0.0
     "@types/fs-extra": ^9.0.1
@@ -16517,7 +16515,6 @@ __metadata:
     util: 0.12.4
     vsce: ^2.10.0
     vscode-languageclient: 6.1.3
-    vscode-test: ^1.3.0
     vscode-uri: 3.0.3
     webpack: ^5.56.0
     webpack-bundle-analyzer: ^4.4.2
