@@ -26,7 +26,6 @@ import { setupEngine } from "..";
 import {
   BuildUtils,
   ExtensionType,
-  LernaUtils,
   PublishEndpoint,
   SemverVersion,
 } from "../utils/build";
@@ -42,9 +41,6 @@ export enum DevCommands {
   CREATE_TEST_VAULT = "create_test_vault",
   BUMP_VERSION = "bump_version",
   PUBLISH = "publish",
-  SYNC_ASSETS = "sync_assets",
-  SYNC_TUTORIAL = "sync_tutorial",
-  PREP_PLUGIN = "prep_plugin",
   PACKAGE_PLUGIN = "package_plugin",
   INSTALL_PLUGIN = "install_plugin",
   SHOW_MIGRATIONS = "show_migrations",
@@ -310,44 +306,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
           await this.bumpVersion(opts);
           return { error: null };
         }
-        case DevCommands.SYNC_ASSETS: {
-          await this.syncAssets(opts);
-          return { error: null };
-        }
-        case DevCommands.SYNC_TUTORIAL: {
-          this.syncTutorial();
-          return { error: null };
-        }
-        case DevCommands.PUBLISH: {
-          if (!opts.publishEndpoint) {
-            return {
-              error: new DendronError({
-                message: "missing options for cmd",
-              }),
-            };
-          }
-          try {
-            this.setEndpoint(opts.publishEndpoint);
-            await LernaUtils.publishVersion(opts.publishEndpoint);
-          } finally {
-            if (opts.publishEndpoint === PublishEndpoint.LOCAL) {
-              BuildUtils.setRegRemote();
-            }
-          }
-          return { error: null };
-        }
-        case DevCommands.PREP_PLUGIN: {
-          if (!this.validatePrepPluginArgs(opts)) {
-            return {
-              error: new DendronError({
-                message: "missing options for prep_plugin command",
-              }),
-            };
-          }
-
-          await BuildUtils.prepPluginPkg(opts.extensionType);
-          return { error: null };
-        }
         case DevCommands.PACKAGE_PLUGIN: {
           if (!opts.fast) {
             this.print("install deps...");
@@ -395,11 +353,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     }
   }
 
-  async bumpVersion(opts: BumpVersionOpts) {
-    this.print("bump version...");
-    LernaUtils.bumpVersion(opts.upgradeType);
-  }
-
   async build(opts: BuildCmdOpts) {
     const ctx = "build";
     // get package version
@@ -420,23 +373,9 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
       await BuildUtils.prepPublishRemote();
     }
 
-    if (!opts.fast) {
-      this.print("run type-check...");
-      BuildUtils.runTypeCheck();
-    } else {
-      this.print("skipping type-check...");
-    }
-
-    this.bumpVersion(opts);
-
-    this.print("publish version...");
-    await LernaUtils.publishVersion(opts.publishEndpoint);
 
     this.print("sync assets...");
     await this.syncAssets(opts);
-
-    this.print("prep repo...");
-    await BuildUtils.prepPluginPkg(opts.extensionType);
 
     if (!shouldPublishLocal) {
       this.print(
@@ -471,81 +410,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     }
 
     this.L.info("done");
-  }
-
-  /**
-   * Takes assets from different monorepo packages and copies them over to the plugin
-   * @param param0
-   * @returns
-   */
-  async syncAssets({ fast }: { fast?: boolean }) {
-    if (!fast) {
-      this.print("build plugin views for prod...");
-      BuildUtils.buildPluginViews();
-    }
-    this.print("sync static...");
-    const { staticPath } = await BuildUtils.syncStaticAssets();
-    await BuildUtils.syncStaticAssetsToNextjsTemplate();
-    return { staticPath };
-  }
-
-  syncTutorial() {
-    const dendronSiteVaultPath = path.join(
-      BuildUtils.getLernaRoot(),
-      "docs",
-      "seeds",
-      "dendron.dendron-site",
-      "vault"
-    );
-
-    const tutorialDirPath = path.join(
-      BuildUtils.getPluginRootPath(),
-      "assets",
-      "dendron-ws",
-      "tutorial"
-    );
-
-    const commonDirPath = path.join(tutorialDirPath, "common");
-
-    // wipe everything in /assets/dendron-ws/tutorial/treatments
-    const treatmentsDirPath = path.join(tutorialDirPath, "treatments");
-
-    fs.removeSync(treatmentsDirPath);
-    fs.ensureDirSync(treatmentsDirPath);
-
-    // grab everything from `tutorial.*` hierarchy
-    const tutorialNotePaths = fs
-      .readdirSync(dendronSiteVaultPath)
-      .filter((basename) => {
-        return (
-          basename.startsWith("tutorial.") &&
-          basename.endsWith(".md") &&
-          basename !== "tutorial.md"
-        );
-      });
-    // determine treatment name
-    const treatmentNames = _.uniq(
-      tutorialNotePaths.map((basename) => basename.split(".")[1])
-    );
-
-    treatmentNames.forEach((treatmentName) => {
-      // create directories for treatment
-      const treatmentNameDirPath = path.join(treatmentsDirPath, treatmentName);
-      fs.ensureDirSync(treatmentNameDirPath);
-      // copy in commons (root, schema, assetdir)
-      fs.copySync(commonDirPath, treatmentNameDirPath);
-      // copy in individual treated tutorial notes
-      tutorialNotePaths
-        .filter((basename) => basename.startsWith(`tutorial.${treatmentName}`))
-        .forEach((basename) => {
-          const src = path.join(dendronSiteVaultPath, basename);
-          const dest = path.join(
-            treatmentNameDirPath,
-            basename.replace(`tutorial.${treatmentName}`, "tutorial")
-          );
-          fs.copyFileSync(src, dest);
-        });
-    });
   }
 
   validateBuildArgs(opts: CommandOpts): opts is BuildCmdOpts {

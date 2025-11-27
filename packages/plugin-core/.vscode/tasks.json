@@ -30,12 +30,6 @@
       "type": "shell",
       "command": "node out/scripts/genConfig.js",
       "problemMatcher": []
-    },
-    {
-      "label": "sync:tutorial",
-      "type": "shell",
-      "command": "node ../dendron-cli/lib/bin/dendron-cli.js dev sync_tutorial",
-      "problemMatcher": []
     }
   ]
 }

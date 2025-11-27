@@ -7,7 +7,6 @@ import {
   DevCLICommand,
   DevCLICommandOpts,
   DevCommands,
-  LernaUtils,
   PublishEndpoint,
   SemverVersion,
 } from "@sxltd/dendron-cli";
@@ -40,11 +39,6 @@ describe("build", () => {
           "prepPublishLocal"
         ).returns(undefined);
 
-        const typecheckStub = stub(BuildUtils, "runTypeCheck").returns();
-        const bumpVersionStub = stub(LernaUtils, "bumpVersion").returns();
-        const publishVersionStub = stub(LernaUtils, "publishVersion").returns(
-          Promise.resolve()
-        );
         const buildPluginViewsStub = stub(
           BuildUtils,
           "buildPluginViews"
@@ -57,9 +51,6 @@ describe("build", () => {
           BuildUtils,
           "syncStaticAssetsToNextjsTemplate"
         ).returns(Promise.resolve());
-        const prepPluginPkgStub = stub(BuildUtils, "prepPluginPkg").returns(
-          Promise.resolve()
-        );
         const installPluginDependenciesStub = stub(
           BuildUtils,
           "installPluginDependencies"
@@ -91,7 +82,6 @@ describe("build", () => {
           buildPluginViewsStub,
           syncStaticAssetsStub,
           syncStaticAssetsToNextjsTemplateStub,
-          prepPluginPkgStub,
           installPluginDependenciesStub,
           compilePluginStub,
           packagePluginDependenciesStub,
