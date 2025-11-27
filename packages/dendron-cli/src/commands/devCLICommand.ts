@@ -6,7 +6,6 @@ import {
   NoteProps,
   NoteUtils,
   stringifyError,
-  TimeUtils,
 } from "@sxltd/common-all";
 import {
   DConfig,
@@ -23,13 +22,6 @@ import _ from "lodash";
 import path from "path";
 import yargs from "yargs";
 import { setupEngine } from "..";
-import {
-  BuildUtils,
-  ExtensionType,
-  LernaUtils,
-  PublishEndpoint,
-  SemverVersion,
-} from "../utils/build";
 import { CLICommand, CommandCommonProps } from "./base";
 
 type CommandCLIOpts = {
@@ -38,35 +30,17 @@ type CommandCLIOpts = {
 
 export enum DevCommands {
   GENERATE_JSON_SCHEMA_FROM_CONFIG = "generate_json_schema_from_config",
-  BUILD = "build",
   CREATE_TEST_VAULT = "create_test_vault",
-  BUMP_VERSION = "bump_version",
-  PUBLISH = "publish",
-  SYNC_ASSETS = "sync_assets",
-  SYNC_TUTORIAL = "sync_tutorial",
-  PREP_PLUGIN = "prep_plugin",
-  PACKAGE_PLUGIN = "package_plugin",
-  INSTALL_PLUGIN = "install_plugin",
   SHOW_MIGRATIONS = "show_migrations",
   RUN_MIGRATION = "run_migration",
 }
 
 type CommandOpts = CommandCLIOpts &
   CommandCommonProps &
-  Partial<BuildCmdOpts> &
   Partial<RunMigrationOpts> &
   Partial<CreateTestVaultOpts>;
 
 type CommandOutput = Partial<{ error: DendronError; data: any }>;
-
-type BuildCmdOpts = {
-  publishEndpoint: PublishEndpoint;
-  fast?: boolean;
-  extensionType: ExtensionType;
-  extensionTarget?: string;
-  skipSentry?: boolean;
-} & BumpVersionOpts &
-  PrepPluginOpts;
 
 type CreateTestVaultOpts = {
   wsRoot: string;
@@ -74,14 +48,6 @@ type CreateTestVaultOpts = {
    * Location of json data
    */
   jsonData: string;
-} & CommandCLIOpts;
-
-type BumpVersionOpts = {
-  upgradeType: SemverVersion;
-} & CommandCLIOpts;
-
-type PrepPluginOpts = {
-  extensionType: ExtensionType;
 } & CommandCLIOpts;
 
 type RunMigrationOpts = {
@@ -114,14 +80,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     this.skipValidation = true;
   }
 
-  private setEndpoint(publishEndpoint: PublishEndpoint) {
-    this.print(`setting endpoint to ${publishEndpoint}...`);
-    if (publishEndpoint === PublishEndpoint.LOCAL) {
-      BuildUtils.prepPublishLocal();
-    } else {
-      BuildUtils.prepPublishRemote();
-    }
-  }
 
   buildArgs(args: yargs.Argv) {
     super.buildArgs(args);
@@ -129,29 +87,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
       describe: "a command to run",
       choices: Object.values(DevCommands),
       type: "string",
-    });
-    args.option("upgradeType", {
-      describe: "how to do upgrade",
-      choices: Object.values(SemverVersion),
-    });
-    args.option("publishEndpoint", {
-      describe: "where to publish",
-      choices: Object.values(PublishEndpoint),
-    });
-    args.option("extensionType", {
-      describe:
-        "extension name to publish in the marketplace (Dendron / Nightly)",
-      choices: Object.values(ExtensionType),
-    });
-    args.option("extensionTarget", {
-      describe:
-        "extension target to pass to vsce to specify platform and architecture",
-    });
-    args.option("fast", {
-      describe: "skip some checks",
-    });
-    args.option("skipSentry", {
-      describe: "skip upload source map to sentry",
     });
     args.option("migrationVersion", {
       describe: "migration version to run",
@@ -268,17 +203,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
           await this.generateJSONSchemaFromConfig();
           return { error: null };
         }
-        case DevCommands.BUILD: {
-          if (!this.validateBuildArgs(opts)) {
-            return {
-              error: new DendronError({
-                message: "missing options for build command",
-              }),
-            };
-          }
-          await this.build(opts);
-          return { error: null };
-        }
         case DevCommands.CREATE_TEST_VAULT: {
           if (!this.validateCreateTestVaultArgs(opts)) {
             return {
@@ -297,73 +221,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
             this.print("closing server...");
             server.close();
           }
-          return { error: null };
-        }
-        case DevCommands.BUMP_VERSION: {
-          if (!this.validateBumpVersionArgs(opts)) {
-            return {
-              error: new DendronError({
-                message: "missing options for build command",
-              }),
-            };
-          }
-          await this.bumpVersion(opts);
-          return { error: null };
-        }
-        case DevCommands.SYNC_ASSETS: {
-          await this.syncAssets(opts);
-          return { error: null };
-        }
-        case DevCommands.SYNC_TUTORIAL: {
-          this.syncTutorial();
-          return { error: null };
-        }
-        case DevCommands.PUBLISH: {
-          if (!opts.publishEndpoint) {
-            return {
-              error: new DendronError({
-                message: "missing options for cmd",
-              }),
-            };
-          }
-          try {
-            this.setEndpoint(opts.publishEndpoint);
-            await LernaUtils.publishVersion(opts.publishEndpoint);
-          } finally {
-            if (opts.publishEndpoint === PublishEndpoint.LOCAL) {
-              BuildUtils.setRegRemote();
-            }
-          }
-          return { error: null };
-        }
-        case DevCommands.PREP_PLUGIN: {
-          if (!this.validatePrepPluginArgs(opts)) {
-            return {
-              error: new DendronError({
-                message: "missing options for prep_plugin command",
-              }),
-            };
-          }
-
-          await BuildUtils.prepPluginPkg(opts.extensionType);
-          return { error: null };
-        }
-        case DevCommands.PACKAGE_PLUGIN: {
-          if (!opts.fast) {
-            this.print("install deps...");
-            BuildUtils.installPluginDependencies();
-          }
-
-          this.print("compiling plugin...");
-          await BuildUtils.compilePlugin(opts);
-
-          this.print("package deps...");
-          await BuildUtils.packagePluginDependencies(opts);
-          return { error: null };
-        }
-        case DevCommands.INSTALL_PLUGIN: {
-          const currentVersion = BuildUtils.getCurrentVersion();
-          await BuildUtils.installPluginLocally(currentVersion);
           return { error: null };
         }
         case DevCommands.SHOW_MIGRATIONS: {
@@ -395,183 +252,9 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     }
   }
 
-  async bumpVersion(opts: BumpVersionOpts) {
-    this.print("bump version...");
-    LernaUtils.bumpVersion(opts.upgradeType);
-  }
-
-  async build(opts: BuildCmdOpts) {
-    const ctx = "build";
-    // get package version
-    const currentVersion = BuildUtils.getCurrentVersion();
-    const nextVersion = BuildUtils.genNextVersion({
-      currentVersion,
-      upgradeType: opts.upgradeType,
-    });
-    const shouldPublishLocal = opts.publishEndpoint === PublishEndpoint.LOCAL;
-    this.L.info({ ctx, currentVersion, nextVersion });
-
-    this.print(`prep publish ${opts.publishEndpoint}...`);
-    if (shouldPublishLocal) {
-      this.print("setting endpoint to local");
-      await BuildUtils.prepPublishLocal();
-    } else {
-      this.print("setting endpoint to remote");
-      await BuildUtils.prepPublishRemote();
-    }
-
-    if (!opts.fast) {
-      this.print("run type-check...");
-      BuildUtils.runTypeCheck();
-    } else {
-      this.print("skipping type-check...");
-    }
-
-    this.bumpVersion(opts);
-
-    this.print("publish version...");
-    await LernaUtils.publishVersion(opts.publishEndpoint);
-
-    this.print("sync assets...");
-    await this.syncAssets(opts);
-
-    this.print("prep repo...");
-    await BuildUtils.prepPluginPkg(opts.extensionType);
-
-    if (!shouldPublishLocal) {
-      this.print(
-        "sleeping 2 mins for remote npm registry to have packages ready"
-      );
-      await TimeUtils.sleep(2 * 60 * 1000);
-    } else {
-      const localSleepSeconds = 15;
-      this.print(
-        `sleeping ${localSleepSeconds}s for local npm registry to have packages ready`
-      );
-      await TimeUtils.sleep(localSleepSeconds * 1000);
-    }
-
-    this.print("install deps...");
-    BuildUtils.installPluginDependencies();
-
-    this.print("compiling plugin...");
-    await BuildUtils.compilePlugin(opts);
-
-    this.print("package deps...");
-    await BuildUtils.packagePluginDependencies(opts);
-
-    this.print("setRegRemote...");
-    BuildUtils.setRegRemote();
-
-    if (!opts.fast) {
-      this.print("restore package.json...");
-      BuildUtils.restorePluginPkgJson();
-    } else {
-      this.print("skip restore package.json...");
-    }
-
-    this.L.info("done");
-  }
-
-  /**
-   * Takes assets from different monorepo packages and copies them over to the plugin
-   * @param param0
-   * @returns
-   */
-  async syncAssets({ fast }: { fast?: boolean }) {
-    if (!fast) {
-      this.print("build plugin views for prod...");
-      BuildUtils.buildPluginViews();
-    }
-    this.print("sync static...");
-    const { staticPath } = await BuildUtils.syncStaticAssets();
-    await BuildUtils.syncStaticAssetsToNextjsTemplate();
-    return { staticPath };
-  }
-
-  syncTutorial() {
-    const dendronSiteVaultPath = path.join(
-      BuildUtils.getLernaRoot(),
-      "docs",
-      "seeds",
-      "dendron.dendron-site",
-      "vault"
-    );
-
-    const tutorialDirPath = path.join(
-      BuildUtils.getPluginRootPath(),
-      "assets",
-      "dendron-ws",
-      "tutorial"
-    );
-
-    const commonDirPath = path.join(tutorialDirPath, "common");
-
-    // wipe everything in /assets/dendron-ws/tutorial/treatments
-    const treatmentsDirPath = path.join(tutorialDirPath, "treatments");
-
-    fs.removeSync(treatmentsDirPath);
-    fs.ensureDirSync(treatmentsDirPath);
-
-    // grab everything from `tutorial.*` hierarchy
-    const tutorialNotePaths = fs
-      .readdirSync(dendronSiteVaultPath)
-      .filter((basename) => {
-        return (
-          basename.startsWith("tutorial.") &&
-          basename.endsWith(".md") &&
-          basename !== "tutorial.md"
-        );
-      });
-    // determine treatment name
-    const treatmentNames = _.uniq(
-      tutorialNotePaths.map((basename) => basename.split(".")[1])
-    );
-
-    treatmentNames.forEach((treatmentName) => {
-      // create directories for treatment
-      const treatmentNameDirPath = path.join(treatmentsDirPath, treatmentName);
-      fs.ensureDirSync(treatmentNameDirPath);
-      // copy in commons (root, schema, assetdir)
-      fs.copySync(commonDirPath, treatmentNameDirPath);
-      // copy in individual treated tutorial notes
-      tutorialNotePaths
-        .filter((basename) => basename.startsWith(`tutorial.${treatmentName}`))
-        .forEach((basename) => {
-          const src = path.join(dendronSiteVaultPath, basename);
-          const dest = path.join(
-            treatmentNameDirPath,
-            basename.replace(`tutorial.${treatmentName}`, "tutorial")
-          );
-          fs.copyFileSync(src, dest);
-        });
-    });
-  }
-
-  validateBuildArgs(opts: CommandOpts): opts is BuildCmdOpts {
-    if (!opts.upgradeType || !opts.publishEndpoint) {
-      return false;
-    }
-    return true;
-  }
-
-  validateBumpVersionArgs(opts: CommandOpts): opts is BumpVersionOpts {
-    if (!opts.upgradeType) {
-      return false;
-    }
-    return true;
-  }
-
   validateCreateTestVaultArgs(opts: CommandOpts): opts is CreateTestVaultOpts {
     if (!opts.wsRoot || !opts.jsonData) {
       return false;
-    }
-    return true;
-  }
-
-  validatePrepPluginArgs(opts: CommandOpts): opts is PrepPluginOpts {
-    if (opts.extensionType) {
-      return Object.values(ExtensionType).includes(opts.extensionType);
     }
     return true;
   }

@@ -1,7 +1,7 @@
 {
   "name": "@sxltd/engine-test-utils",
   "private": true,
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "",
   "license": "Apache 2.0",
   "repository": {
@@ -21,24 +21,19 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "clean": "rimraf lib && rimraf coverage",
+    "clean": "rm -rf lib coverage",
     "format": "echo nop",
     "lint": "echo stub",
-    "prepublishOnly": "yarn build",
     "prebuild": "yarn clean && yarn format && yarn lint && echo Using TypeScript && tsc --version",
-    "build": "yarn compile",
-    "buildCI": "yarn clean && yarn compile",
-    "compile": "tsc -p tsconfig.build.json ",
+    "build": "tsc -p tsconfig.build.json",
     "coverage": "jest --coverage",
-    "watch": "yarn compile --watch"
+    "watch": "yarn build --watch"
   },
   "devDependencies": {
-    "@testing-library/react": "12.1.0",
-    "@testing-library/react-hooks": "7.0.2",
     "@types/fs-extra": "^9.0.1",
     "@types/lodash": "^4.14.161",
     "@types/node": "13.11.0",
-    "rimraf": "^2.6.2"
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=12.0.0"
@@ -58,15 +53,12 @@
     "@sxltd/pods-core": "workspace:*",
     "@sxltd/unified": "workspace:*",
     "@types/sinon": "^9.0.9",
-    "cross-env": "^7.0.3",
     "fs-extra": "^9.0.1",
     "jest": "^28.1.0",
-    "jest-mock-extended": "^2.0.7",
     "lodash": "^4.17.20",
     "prompts": "^2.4.2",
     "react": "^17.0.2",
     "react-redux": "^7.2.4",
-    "react-test-renderer": "^17.0.2",
     "sinon": "^9.2.1"
   }
 }
