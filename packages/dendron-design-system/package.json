@@ -14,15 +14,12 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "test": "jest",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook -s ./public",
-    "deploy-storybook": "yarn build && yarn build-storybook",
-    "format": "echo nop"
+    "deploy-storybook": "yarn build && yarn build-storybook"
   },
   "peerDependencies": {
     "react": ">=16"
