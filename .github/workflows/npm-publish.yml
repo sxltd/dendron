@@ -1,4 +1,4 @@
-name: publish npm package (test)
+name: publish npm package ${{ github.ref_name }} (test)
 
 on:
   push:
@@ -6,9 +6,27 @@ on:
       - "*"
 
 jobs:
-  clone:
+  test:
     runs-on: ubuntu-latest
 
     steps:
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16.20.2'
+          cache: 'yarn'
+
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: build package
+        run: yarn workspace ${{ github.ref_name }} build
+
+      - name: run tests
+        run: yarn worksapce ${{ github.ref_name }} test
+
+    #publish   
