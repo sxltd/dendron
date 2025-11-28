@@ -6,8 +6,8 @@ on:
       - "*"
 
 jobs:
-  name: publish ${{ github.ref_name }} to npm
   test:
+    name: publish ${{ github.ref_name }} to npm
     runs-on: ubuntu-latest
 
     steps:
