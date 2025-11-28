@@ -1,0 +1,14 @@
+name: publish npm package (test)
+
+on:
+  push:
+    tags:
+      - "@sxltd.*"
+
+jobs:
+  clone:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
