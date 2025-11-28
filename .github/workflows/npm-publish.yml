@@ -3,7 +3,7 @@ name: publish npm package (test)
 on:
   push:
     tags:
-      - ".*"
+      - "*"
 
 jobs:
   clone:
