@@ -1,4 +1,4 @@
-name: publish npm package ${{ github.ref_name }} (test)
+name: publish npm package (test)
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
       - "*"
 
 jobs:
+  name: publish ${{ github.ref_name }} to npm
   test:
     runs-on: ubuntu-latest
 
