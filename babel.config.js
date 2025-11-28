@@ -1,9 +1,4 @@
-module.exports = {
-  presets: [
-    [
-      "@babel/preset-env",
-      { targets: { node: "current" }, modules: "commonjs" },
-    ],
-    "@babel/preset-typescript",
-  ],
-};
+transform: {
+  '^.+\\.[tj]sx?$': ['babel-jest', { presets: ['@babel/preset-env', '@babel/preset-typescript'] }],
+},
+extensionsToTreatAsEsm: ['.ts', '.tsx'],

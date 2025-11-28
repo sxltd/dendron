@@ -92,15 +92,15 @@
     "start": "yarn build:index && node scripts/start.js",
     "setup": "yarn build:index && yarn build:styles",
     "build:old": "yarn build:dev && yarn build:styles",
-    "build": "webpack",
-    "buildCI": "echo nop",
+    "build": "yarn copy-assets && yarn webpack",
     "build:dev": "yarn setup && npx cross-env BUILD_DEV=1 NODE_OPTIONS=--openssl-legacy-provider node scripts/build.js",
     "build:prod": "yarn setup && GENERATE_SOURCEMAP=false node scripts/build.js",
     "build:styles": "node scripts/buildStyles.js",
     "build:index": "node scripts/buildIndex.js",
     "test": "echo 0",
     "test-local": "node scripts/test.js",
-    "clean-old": "yarn rimraf build public/static public/*.css public/index.html node_modules || 0"
+    "clean-old": "yarn rimraf build public/static public/*.css public/index.html node_modules || 0",
+    "copy-assets": "mkdir -p ./src/styles/scss && rsync -a ../common-assets/styles/scss/* ./src/styles/scss"
   },
   "browserslist": {
     "production": [

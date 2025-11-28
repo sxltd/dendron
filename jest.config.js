@@ -8,12 +8,12 @@ const commonConfig = {
   testEnvironment: "node",
   testPathIgnorePatterns: ["utils.ts"],
   transformIgnorePatterns: [
-    // These are ESM modules that need to be transpiled before Jest can run them
     "/node_modules/(?!(d3.*|internmap|delaunator|robust-predicates)/)",
   ],
 };
 
 module.exports = {
+  ...commonConfig,
   coverageDirectory: "coverage",
   coverageReporters: ["text", "clover"],
   coverageThreshold: {
@@ -30,10 +30,15 @@ module.exports = {
       displayName: "non-plugin-tests",
       testMatch: [
         "<rootDir>/packages/engine-test-utils/**/?(*.)+(spec|test).[jt]s?(x)",
-        // see https://github.com/facebook/jest/issues/7914
         "<rootDir>/packages/engine-test-utils/**/__tests__/**/*.[jt]s?(x)",
         "<rootDir>/packages/engine-test-utils/**/*(*.)@(spec|test).[tj]s?(x)",
       ],
+
+      // put transform HERE
+      transform: {
+        "^.+\\.[tj]sx?$": "babel-jest",
+      },
+
       ...commonConfig,
     },
   ],
