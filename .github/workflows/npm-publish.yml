@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: publish ${{ github.ref_name }} to npm ??
+    name: publish to npm ??
     runs-on: ubuntu-latest
 
     steps:
