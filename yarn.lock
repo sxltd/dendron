@@ -8801,18 +8801,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@types/react-dom@npm:>=16.9.0":
-  version: 19.2.3
-  resolution: "@types/react-dom@npm:19.2.3"
-  peerDependencies:
-    "@types/react": ^19.2.0
-  checksum: b9c548f7378979cd8384444ae6c96f7a933b98e341c271c33e74231f27bf3082f04ad7c2927f1b1e6d8af35ccf83e549fce4978ebe0a02ded5a8803aa5f80e06
-  languageName: node
-  linkType: hard
-
->>>>>>> fc0ede696 (changes before storybook?)
 "@types/react-dom@npm:^17.0.0, @types/react-dom@npm:^17.0.3":
   version: 17.0.26
   resolution: "@types/react-dom@npm:17.0.26"
@@ -8852,15 +8840,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@types/react@npm:*":
-  version: 19.2.2
-  resolution: "@types/react@npm:19.2.2"
-=======
-"@types/react@npm:*, @types/react@npm:>=16.9.0":
   version: 19.2.6
   resolution: "@types/react@npm:19.2.6"
->>>>>>> fc0ede696 (changes before storybook?)
   dependencies:
     csstype: ^3.2.2
   checksum: 76b726fc5069e9445b884734642b2b11424839d9335b80ee327d25a78f1c040c40d6a7103f9a1e07502a119c4cf34fd05d8aad7a6a3f278138c95b91f67ce3fd
@@ -33240,22 +33222,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-"react-error-overlay@npm:^6.0.9":
-=======
-"react-error-boundary@npm:^3.1.0":
-  version: 3.1.4
-  resolution: "react-error-boundary@npm:3.1.4"
-  dependencies:
-    "@babel/runtime": ^7.12.5
-  peerDependencies:
-    react: ">=16.13.1"
-  checksum: f36270a5d775a25c8920f854c0d91649ceea417b15b5bc51e270a959b0476647bb79abb4da3be7dd9a4597b029214e8fe43ea914a7f16fa7543c91f784977f1b
-  languageName: node
-  linkType: hard
-
 "react-error-overlay@npm:^6.0.11":
->>>>>>> fc0ede696 (changes before storybook?)
   version: 6.1.0
   resolution: "react-error-overlay@npm:6.1.0"
   checksum: 4f0785ea14390e333d040e7d7d6f8b915ad9bd4b8ae6eb28e1a5338f23a0325798d20deea7572c3c129bd1d32c432b01e7a4d40ca99710e2fa1f8157929e6cda
