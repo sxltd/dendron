@@ -6,8 +6,7 @@
   "license": "Apache 2.0",
   "scripts": {
     "watch": "echo nop",
-    "build": "node scripts/buildStyles.js && gulp less js",
-    "buildCI": "yarn build"
+    "build": "node scripts/buildStyles.js && gulp less js"
   },
   "gitHead": "4ba39ff9fcec3bd1f0ba4fbd663cb3b49449609b",
   "devDependencies": {
