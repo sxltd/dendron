@@ -5,7 +5,6 @@ const commonConfig = {
   notify: true,
   notifyMode: "always",
   snapshotSerializers: ["jest-serializer-path"],
-  testEnvironment: "node",
   testPathIgnorePatterns: ["utils.ts"],
   transformIgnorePatterns: [
     // These are ESM modules that need to be transpiled before Jest can run them
@@ -35,6 +34,15 @@ module.exports = {
         "<rootDir>/packages/engine-test-utils/**/*(*.)@(spec|test).[tj]s?(x)",
       ],
       ...commonConfig,
+      testEnvironment: "node",
     },
+    {
+      displayName: "design-system-tests",
+      testMatch:[
+        "<rootDir>/packages/dendron-design-system/**/?(*.)+(spec|test).[jt]s?(x)",
+      ],
+      ...commonConfig,
+      testEnvironment: "jsdom",
+    }
   ],
 };

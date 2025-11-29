@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "Apache 2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -12,25 +12,16 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "start": "yarn build --watch",
+    "build": "tsc -p tsconfig.json",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook -s ./public",
-    "deploy-storybook": "yarn build && yarn build-storybook",
-    "format": "echo nop"
+    "deploy-storybook": "yarn build && yarn build-storybook"
   },
   "peerDependencies": {
     "react": ">=16"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
   },
   "prettier": {
     "printWidth": 80,
@@ -62,16 +53,19 @@
     "@storybook/addons": "^6.2.2",
     "@storybook/react": "^6.2.2",
     "@storybook/theming": "^6.2.2",
+    "@types/jest": "^30.0.0",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "babel-loader": "^8.2.2",
     "husky": "^6.0.0",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "28",
+    "jsdom": "^27.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
     "size-limit": "^4.10.2",
     "storybook-addon-performance": "^0.15.2",
-    "tsdx": "^0.14.1",
     "tslib": "^2.1.0",
     "typescript": "^4.2.3"
   },
