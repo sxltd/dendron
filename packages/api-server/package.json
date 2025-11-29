@@ -20,16 +20,10 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "clean": "rimraf lib && rimraf coverage",
-    "format": "echo nop",
-    "lint": "echo stub",
-    "prepublishOnly": "yarn build",
+    "clean": "rm -rf lib coverage",
     "prebuild": "yarn clean && yarn format && yarn lint && echo Using TypeScript && tsc --version",
-    "build": "yarn compile",
-    "buildCI": "yarn compile",
-    "compile": "tsc -p tsconfig.build.json ",
-    "coverage": "echo no-op",
-    "watch": "yarn compile --watch",
+    "build": "tsc -p tsconfig.build.json",
+    "watch": "yarn build --watch",
     "start:local:old": "cross-env PORT=3005 LOG_LEVEL=info npx ts-node ./src/start.ts",
     "start:local": "cross-env PORT=3005 LOG_LEVEL=info nodemon --watch 'src/**/*.ts' lib/start.js",
     "local:dev:custom": "env AWS_PROFILE=dendron-dev LOCAL=true PORT=3005 LOG_LEVEL=info nodemon --watch 'server/**/*.ts' dist/server/index.js | pino-pretty | tee /tmp/out.txt",
@@ -44,8 +38,8 @@
     "@types/morgan": "^1.9.1",
     "@types/node": "13.11.0",
     "nodemon": "^2.0.4",
-    "rimraf": "^2.6.2",
-    "ts-node": "^8.10.2"
+    "ts-node": "^8.10.2",
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=12.0.0"

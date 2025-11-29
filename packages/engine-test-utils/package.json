@@ -22,8 +22,6 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "clean": "rm -rf lib coverage",
-    "format": "echo nop",
-    "lint": "echo stub",
     "prebuild": "yarn clean && yarn format && yarn lint && echo Using TypeScript && tsc --version",
     "build": "tsc -p tsconfig.build.json",
     "coverage": "jest --coverage",
