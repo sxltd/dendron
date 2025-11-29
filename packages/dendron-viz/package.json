@@ -22,11 +22,9 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "clean": "rimraf lib && rimraf coverage",
-    "prepublishOnly": "yarn build",
+    "clean": "rm -rf lib coverage",
     "prebuild": "yarn clean",
     "build": "yarn copyNonTSFiles && yarn compile",
-    "buildCI": "yarn copyNonTSFiles && yarn compile",
     "copyNonTSFiles": "node ./ensureDir && node copy",
     "compile": "tsc -p tsconfig.build.json",
     "watch": "yarn copyNonTSFiles && yarn compile --watch"
@@ -43,7 +41,7 @@
   },
   "devDependencies": {
     "@types/micromatch": "^4.0.2",
-    "rimraf": "^2.6.2"
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=14.0.0"
