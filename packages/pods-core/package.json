@@ -22,15 +22,13 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "clean": "rimraf lib && rimraf coverage",
+    "clean": "rm -rf lib coverage",
     "format": "echo nop",
     "lint": "echo stub",
     "prepublishOnly": "yarn build",
     "prebuild": "yarn clean && yarn format && yarn lint && echo Using TypeScript && tsc --version",
-    "build": "yarn compile",
-    "buildCI": "yarn compile",
-    "compile": "tsc -p tsconfig.build.json ",
-    "watch": "yarn compile --watch",
+    "build": "tsc -p tsconfig.build.json ",
+    "watch": "yarn build --watch",
     "test:unit:debug": "NODE_ENV=test node --inspect-brk node_modules/.bin/jest --runInBand"
   },
   "devDependencies": {
@@ -41,8 +39,8 @@
     "@types/lodash": "^4.14.161",
     "@types/node": "13.11.0",
     "@types/through2": "^2.0.36",
-    "rimraf": "^2.6.2",
-    "ts-node": "^8.10.2"
+    "ts-node": "^8.10.2",
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=12.0.0"

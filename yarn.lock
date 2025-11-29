@@ -7738,9 +7738,9 @@ __metadata:
     klaw: ^3.0.0
     limiter: ^2.1.0
     lodash: ^4.17.20
-    rimraf: ^2.6.2
     through2: ^4.0.2
     ts-node: ^8.10.2
+    typescript: ^5.9.3
     vscode-uri: ^2.1.2
   languageName: unknown
   linkType: soft
