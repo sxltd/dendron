@@ -7154,8 +7154,8 @@ __metadata:
     morgan: ^1.10.0
     nodemon: ^2.0.4
     querystring: ^0.2.1
-    rimraf: ^2.6.2
     ts-node: ^8.10.2
+    typescript: ^5.9.3
   languageName: unknown
   linkType: soft
 
