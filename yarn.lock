@@ -7192,12 +7192,12 @@ __metadata:
     neverthrow: ^5.0.0
     normalize-path: ^3.0.0
     qs: ^6.10.1
-    rimraf: ^2.6.2
     semver: ^7.3.2
     spark-md5: ^3.0.2
     title: ^3.4.4
     tslint: ^5.11.0
     tslint-config-prettier: ^1.15.0
+    typescript: ^5.9.3
     vscode-uri: ^3.0.3
     zod: 3.19.1
     zod-validation-error: ^0.1.1
