@@ -7295,9 +7295,9 @@ __metadata:
     fs-extra: ^9.0.1
     jest: ^28.1.0
     lodash: ^4.17.20
-    rimraf: ^2.6.2
     sinon: ^9.2.1
     ts-node: ^8.10.2
+    typescript: ^5.9.3
   languageName: unknown
   linkType: soft
 
