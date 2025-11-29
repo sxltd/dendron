@@ -7785,7 +7785,7 @@ __metadata:
     remark-toc: ^7.0.0
     remark-variables: ^1.4.9
     remark-wiki-link: ^0.0.4
-    rimraf: ^2.6.2
+    typescript: ^5.9.3
     unified: ^9.2.2
     unified-engine: ^8.0.0
     unist-util-select: ^3.0.1

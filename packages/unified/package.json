@@ -22,13 +22,10 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "clean": "rimraf lib && rimraf coverage",
-    "prepublishOnly": "yarn build",
+    "clean": "rm -rf lib coverage",
     "prebuild": "yarn clean",
-    "build": "yarn compile",
-    "buildCI": "yarn compile",
-    "compile": "tsc -p tsconfig.build.json",
-    "watch": "yarn compile --watch"
+    "build": "tsc -p tsconfig.build.json",
+    "watch": "yarn build --watch"
   },
   "dependencies": {
     "@sxltd/common-all": "workspace:*",
@@ -65,7 +62,7 @@
   "devDependencies": {
     "@types/mdast": "^3.0.10",
     "@types/unist": "^2.0.6",
-    "rimraf": "^2.6.2"
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=14.0.0"
