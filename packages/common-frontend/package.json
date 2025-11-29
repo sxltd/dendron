@@ -23,14 +23,9 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "clean": "rm -rf lib coverage",
-    "format": "echo nop",
-    "lint": "echo stub",
-    "prepublishOnly": "yarn build",
     "prebuild": "yarn clean && yarn format && yarn lint && echo Using TypeScript && tsc --version",
-    "build": "yarn compile",
-    "buildCI": "yarn compile",
-    "compile": "tsc -p tsconfig.build.json ",
-    "watch": "yarn compile --watch"
+    "build": "tsc -p tsconfig.build.json ",
+    "watch": "yarn build --watch"
   },
   "dependencies": {
     "@aws-amplify/core": "^4.0.2",
@@ -47,7 +42,8 @@
     "@types/lodash": "^4.14.161",
     "@types/node": "^14.11.2",
     "@types/react": "^17.0.5",
-    "@types/redux-logger": "^3.0.9"
+    "@types/redux-logger": "^3.0.9",
+    "typescript": "^5.9.3"
   },
   "nohoist": [
     "**/common-all",
