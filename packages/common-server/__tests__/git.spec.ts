@@ -7,8 +7,7 @@ import {
 import { GitUtils } from "@sxltd/common-server";
 import _ from "lodash";
 import path from "path";
-import { runEngineTestV5, testWithEngine } from "../../engine";
-import { ENGINE_HOOKS } from "../../presets";
+import { runEngineTestV5, testWithEngine, ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 
 describe("GitUtils", () => {
   describe("getGithubEditUrl", () => {
