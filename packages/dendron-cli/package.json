@@ -52,6 +52,7 @@
     "yargs": "^15.4.1"
   },
   "devDependencies": {
+    "@sxltd/nodep-test-utils": "workspace:*",
     "@types/fs-extra": "^9.0.1",
     "@types/lodash": "^4.14.158",
     "@types/node": "13.11.0",

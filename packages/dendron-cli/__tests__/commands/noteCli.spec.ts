@@ -12,9 +12,9 @@ import {
   createEngineFromServer,
   createEngineV3FromEngine,
   runEngineTestV5,
-  ENGINE_HOOKS, ENGINE_HOOKS_MULTI,
-  checkString
+  ENGINE_HOOKS, ENGINE_HOOKS_MULTI
 } from "@sxltd/engine-test-utils";
+import { checkString } from "@sxltd/nodep-test-utils";
 
 const runCmd = (opts: Omit<NoteCLICommandOpts, "port" | "server">) => {
   const cmd = new NoteCLICommand();
