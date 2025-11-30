@@ -23,9 +23,10 @@ import {
 import _ from "lodash";
 import { TestConfigUtils,
  runEngineTestV5, testWithEngine,
- ENGINE_HOOKS,
- checkString, TestUnifiedUtils,
- checkNotInVFile, checkVFile } from "@sxltd/engine-test-utils";
+ ENGINE_HOOKS
+  } from "@sxltd/engine-test-utils";
+import { checkNotInVFile, checkVFile } from "./utils";
+import { checkString, TestUnifiedUtils } from "@sxltd/nodep-test-utils";
 
 function proc({
   noteToRender,
