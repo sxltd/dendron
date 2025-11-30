@@ -13,10 +13,7 @@ import {
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
-import { TestConfigUtils } from "../../config";
-import { createPublishingConfig, runEngineTestV5 } from "../../engine";
-import { ENGINE_HOOKS } from "../../presets";
-import { checkNotInString, checkString, TestSeedUtils } from "../../utils";
+import { TestConfigUtils, createPublishingConfig, runEngineTestV5, ENGINE_HOOKS, checkNotInString, checkString, TestSeedUtils } from "@sxltd/engine-test-utils";
 
 const setupBasic = async (opts: WorkspaceOpts) => {
   const { wsRoot, vaults } = opts;

@@ -7,8 +7,7 @@ import {
   PodUtils,
 } from "@sxltd/pods-core";
 import _ from "lodash";
-import { runEngineTestV5 } from "../../engine";
-import { ENGINE_HOOKS_MULTI } from "../../presets";
+import { runEngineTestV5, ENGINE_HOOKS_MULTI } from "@sxltd/engine-test-utils";
 
 class DummyExportPod extends ExportPod {
   get config(): JSONSchemaType<ExportPodConfig> {

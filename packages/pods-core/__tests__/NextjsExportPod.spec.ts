@@ -12,15 +12,13 @@ import { tmpDir } from "@sxltd/common-server";
 import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { NextjsExportConfig, NextjsExportPod } from "@sxltd/pods-core";
 import path from "path";
-import { TestConfigUtils } from "../../config";
-import { runEngineTestV5 } from "../../engine";
-import { ENGINE_HOOKS, ENGINE_HOOKS_MULTI } from "../../presets";
-import {
+import { TestConfigUtils, runEngineTestV5,
+  ENGINE_HOOKS, ENGINE_HOOKS_MULTI,
   checkDir,
   checkFile,
   checkNotInDir,
   TestUnifiedUtils,
-} from "../../utils";
+} from "@sxltd/engine-test-utils";
 import fs from "fs-extra";
 import _ from "lodash";
 

@@ -23,8 +23,7 @@ import {
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
-import { runEngineTestV5 } from "../../engine";
-import { ENGINE_HOOKS } from "../../presets";
+import { runEngineTestV5, ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 
 /**
  * ConfigFileUtils

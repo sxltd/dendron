@@ -1,5 +1,4 @@
-import { ENGINE_HOOKS } from "../../presets";
-import { runEngineTestV5 } from "../../engine";
+import { ENGINE_HOOKS, runEngineTestV5 } from "@sxltd/engine-test-utils";
 import {
   GithubIssueImportPod,
   GithubIssuePublishPod,

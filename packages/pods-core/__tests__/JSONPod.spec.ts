@@ -5,8 +5,7 @@ import {
   JSONPublishPod,
 } from "@sxltd/pods-core";
 import _ from "lodash";
-import { runEngineTestV5 } from "../../engine";
-import { ENGINE_HOOKS, PODS_CORE } from "../../presets";
+import { runEngineTestV5, ENGINE_HOOKS, PODS_CORE } from "@sxltd/engine-test-utils";
 
 const podsDict = {
   IMPORT: () => new JSONImportPod(),

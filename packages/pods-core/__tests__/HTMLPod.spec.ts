@@ -1,7 +1,6 @@
 import { VaultUtils } from "@sxltd/common-all";
 import { HTMLPublishPod } from "@sxltd/pods-core";
-import { runEngineTestV5 } from "../../engine";
-import { ENGINE_HOOKS } from "../../presets";
+import { runEngineTestV5, ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 
 describe("WHEN using html publish pod to publish note", () => {
   test("THEN generate correct HTML", async () => {

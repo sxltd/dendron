@@ -2,10 +2,9 @@ import { ENGINE_HOOKS } from "../../presets";
 import { runEngineTestV5 } from "../../engine";
 import { GDocImportPod, PodUtils, PROMPT } from "@sxltd/pods-core";
 import { Time, VaultUtils } from "@sxltd/common-all";
-import { response, comments, existingNote } from "../../utils/GDocMockResult";
+import { response, comments, existingNote, window } from "@sxltd/engine-test-utils";
 import axios from "axios";
 import sinon from "sinon";
-import { window } from "../../__mocks__/vscode";
 
 jest.mock("axios");
 
