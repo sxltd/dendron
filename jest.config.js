@@ -43,6 +43,15 @@ module.exports = {
       ],
       ...commonConfig,
       testEnvironment: "jsdom",
-    }
+    },
+    {
+      displayName: "api-server",
+      testMatch: [
+        // see https://github.com/facebook/jest/issues/7914
+        "<rootDir>/packages/api-server/**/__tests__/**/*.[jt]s?(x)",
+      ],
+      ...commonConfig,
+      testEnvironment: "node",
+    },
   ],
 };

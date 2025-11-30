@@ -9,9 +9,7 @@ import {
 } from "@sxltd/common-all";
 import { tmpDir, vault2Path } from "@sxltd/common-server";
 import path from "path";
-import { createServer, runEngineTestV5 } from "../../engine";
-import { ENGINE_HOOKS } from "../../presets";
-import { checkFile, checkString } from "../../utils";
+import { createServer, runEngineTestV5, ENGINE_HOOKS, checkFile, checkString } from "@sxltd/engine-test-utils";
 
 async function initRemoteWorkspace({
   wsRoot,

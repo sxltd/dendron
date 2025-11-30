@@ -7,8 +7,7 @@ import {
   NotePropsMeta,
   RenderNoteResp,
 } from "@sxltd/common-all";
-import { createServer, runEngineTestV5 } from "../../engine";
-import { ENGINE_HOOKS } from "../../presets";
+import { createServer, runEngineTestV5, ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 
 async function getApiWithInitializedWS(wsRoot: string, vaults: DVault[]) {
   const { port } = await createServer({ wsRoot, vaults });

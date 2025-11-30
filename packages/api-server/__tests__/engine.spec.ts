@@ -1,6 +1,6 @@
 import _ from "lodash";
-import { createEngineFromServer, runEngineTestV5 } from "../../engine";
-import { ENGINE_CONFIG_PRESETS, ENGINE_PRESETS } from "../../presets";
+import { createEngineFromServer, runEngineTestV5, ENGINE_CONFIG_PRESETS, ENGINE_PRESETS } from "@sxltd/engine-test-utils";
+
 
 const createEngine = createEngineFromServer;
 

@@ -39,7 +39,8 @@
     "@types/node": "13.11.0",
     "nodemon": "^2.0.4",
     "ts-node": "^8.10.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "@sxltd/common-test-utils": "workspace:*"
   },
   "engines": {
     "node": ">=12.0.0"

@@ -7133,7 +7133,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sxltd/dendron-cli@workspace:*, @sxltd/dendron-cli@workspace:packages/dendron-cli":
+"@sxltd/dendron-cli@workspace:packages/dendron-cli":
   version: 0.0.0-use.local
   resolution: "@sxltd/dendron-cli@workspace:packages/dendron-cli"
   dependencies:
@@ -7391,15 +7391,6 @@ __metadata:
   resolution: "@sxltd/engine-test-utils@workspace:packages/engine-test-utils"
   dependencies:
     "@reduxjs/toolkit": ^1.6.0
-    "@sxltd/api-server": "workspace:*"
-    "@sxltd/common-all": "workspace:*"
-    "@sxltd/common-frontend": "workspace:*"
-    "@sxltd/common-server": "workspace:*"
-    "@sxltd/common-test-utils": "workspace:*"
-    "@sxltd/dendron-cli": "workspace:*"
-    "@sxltd/engine-server": "workspace:*"
-    "@sxltd/pods-core": "workspace:*"
-    "@sxltd/unified": "workspace:*"
     "@types/fs-extra": ^9.0.1
     "@types/lodash": ^4.14.161
     "@types/node": 13.11.0
