@@ -80,5 +80,14 @@ module.exports = {
       ...commonConfig,
       testEnvironment: "node",
     },
+    {
+      displayName: "dendron-cli",
+      testMatch: [
+        // see https://github.com/facebook/jest/issues/7914
+        "<rootDir>/packages/dendron-cli/**/__tests__/**/*.[jt]s?(x)",
+      ],
+      ...commonConfig,
+      testEnvironment: "node",
+    },
   ],
 };

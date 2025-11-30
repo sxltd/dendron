@@ -3,8 +3,7 @@ import {
   VaultCLICommandOpts,
   VaultCommands,
 } from "@sxltd/dendron-cli";
-import { createEngineFromServer, runEngineTestV5 } from "../../../engine";
-import { checkVaults } from "../../../utils";
+import { createEngineFromServer, runEngineTestV5, checkVaults } from "@sxltd/engine-test-utils";
 
 const runCmd = (opts: Omit<VaultCLICommandOpts, "port" | "server">) => {
   const cmd = new VaultCLICommand();

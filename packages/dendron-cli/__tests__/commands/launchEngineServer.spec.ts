@@ -1,7 +1,7 @@
 import { LaunchEngineServerCommand } from "@sxltd/dendron-cli";
 import { EngineUtils } from "@sxltd/engine-server";
 import fs from "fs-extra";
-import { runEngineTestV5 } from "../../../engine";
+import { runEngineTestV5 } from "@sxltd/engine-test-utils";
 
 describe("GIVEN LaunchEngineServer cmd", () => {
   describe("WHEN args enriched", () => {

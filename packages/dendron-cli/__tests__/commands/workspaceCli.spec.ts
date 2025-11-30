@@ -7,9 +7,7 @@ import {
 import { getCachePath } from "@sxltd/engine-server";
 import fs from "fs-extra";
 import path from "path";
-import { GitTestUtils, setupWS } from "../../..";
-import { createEngineFromServer, runEngineTestV5 } from "../../../engine";
-import { checkFile } from "../../../utils";
+import { GitTestUtils, setupWS, createEngineFromServer, runEngineTestV5, checkFile } from "@sxltd/engine-test-utils";
 
 const runCmd = (opts: Omit<WorkspaceCLICommandOpts, "port" | "server">) => {
   const cmd = new WorkspaceCLICommand();

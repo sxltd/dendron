@@ -12,9 +12,9 @@ import {
   createEngineFromServer,
   createEngineV3FromEngine,
   runEngineTestV5,
-} from "../../../engine";
-import { ENGINE_HOOKS, ENGINE_HOOKS_MULTI } from "../../../presets";
-import { checkString } from "../../../utils";
+  ENGINE_HOOKS, ENGINE_HOOKS_MULTI,
+  checkString
+} from "@sxltd/engine-test-utils";
 
 const runCmd = (opts: Omit<NoteCLICommandOpts, "port" | "server">) => {
   const cmd = new NoteCLICommand();

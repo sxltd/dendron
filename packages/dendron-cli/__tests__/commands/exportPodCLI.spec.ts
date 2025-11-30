@@ -2,7 +2,7 @@ import { ERROR_SEVERITY } from "@sxltd/common-all";
 import { writeYAML } from "@sxltd/common-server";
 import { PodSource, PublishPodCLICommand } from "@sxltd/dendron-cli";
 import path from "path";
-import { runEngineTestV5 } from "../../..";
+import { runEngineTestV5 } from "@sxltd/engine-test-utils";
 
 describe("GIVEN export one", () => {
   describe("WHEN enrichPodArgs ", () => {

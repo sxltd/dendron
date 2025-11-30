@@ -15,9 +15,8 @@ import { AssertUtils, NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { DoctorCLICommand, DoctorCLICommandOpts } from "@sxltd/dendron-cli";
 import path from "path";
 import fs from "fs-extra";
-import { createEngineFromServer, runEngineTestV5 } from "../../../engine";
+import { createEngineFromServer, runEngineTestV5, GitTestUtils, TestConfigUtils } from "@sxltd/engine-test-utils";
 import _ from "lodash";
-import { GitTestUtils, TestConfigUtils } from "../../..";
 
 const setupBasic = async (opts: WorkspaceOpts) => {
   const { wsRoot, vaults } = opts;

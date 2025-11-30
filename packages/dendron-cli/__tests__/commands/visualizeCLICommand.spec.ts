@@ -3,7 +3,7 @@ import {
   VisualizeCLICommandOpts,
 } from "@sxltd/dendron-cli";
 import _ from "lodash";
-import { runEngineTestV5 } from "../../../engine";
+import { runEngineTestV5 } from "@sxltd/engine-test-utils";
 import * as fs from "fs";
 import { tmpDir } from "@sxltd/common-server";
 import * as path from "path";

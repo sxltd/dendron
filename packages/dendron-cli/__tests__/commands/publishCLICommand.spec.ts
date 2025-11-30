@@ -11,9 +11,7 @@ import _ from "lodash";
 import path from "path";
 import prompts from "prompts";
 import sinon, { stub } from "sinon";
-import { ENGINE_HOOKS, TestConfigUtils } from "../../..";
-import { runEngineTestV5 } from "../../../engine";
-import { checkString } from "../../../utils";
+import { ENGINE_HOOKS, TestConfigUtils, runEngineTestV5, checkString } from "@sxltd/engine-test-utils";
 
 export const runPublishCmd = ({
   cmd,

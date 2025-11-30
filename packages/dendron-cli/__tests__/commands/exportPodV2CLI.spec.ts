@@ -6,7 +6,7 @@ import {
   PodUtils,
   PodV2Types,
 } from "@sxltd/pods-core";
-import { runEngineTestV5 } from "../../..";
+import { runEngineTestV5 } from "@sxltd/engine-test-utils";
 import fs from "fs-extra";
 import { ERROR_SEVERITY, Time } from "@sxltd/common-all";
 import path from "path";
