@@ -17,19 +17,17 @@ import {
   NoteProps,
   ProcFlavor,
 } from "@sxltd/common-all";
-import { runEngineTestV5 } from "../../../engine";
-import { ENGINE_HOOKS } from "../../../presets";
-import {
+import { runEngineTestV5,
+ ENGINE_HOOKS,
   checkNotInVFile,
   checkVFile,
   createProcCompileTests,
   createProcForTest,
   createProcTests,
   ProcTests,
-} from "./utils";
-import { TestConfigUtils } from "../../..";
-import { TestUnifiedUtils } from "../../../utils";
-import { getOpts, runTestCases } from "./v5/utils";
+ TestConfigUtils,
+ TestUnifiedUtils,
+ getOpts, runTestCases } from "@sxltd/engine-test-utils";
 import { DConfig } from "@sxltd/common-server";
 
 const { getDescendantNode } = TestUnifiedUtils;

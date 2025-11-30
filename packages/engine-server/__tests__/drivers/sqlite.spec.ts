@@ -3,7 +3,7 @@ import { SQLiteMetadataStore } from "@sxltd/engine-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import sinon from "sinon";
-import { ENGINE_HOOKS, runEngineTestV5 } from "../../..";
+import { ENGINE_HOOKS, runEngineTestV5 } from "@sxltd/engine-test-utils";
 // import os from "os";
 
 // current issue with windows test

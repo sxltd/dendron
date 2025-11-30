@@ -8,10 +8,10 @@ import {
   UnistNode,
 } from "@sxltd/unified";
 import _ from "lodash";
-import { runEngineTestV5 } from "../../../engine";
-import { ENGINE_HOOKS } from "../../../presets";
-import { TestUnifiedUtils } from "../../../utils";
-import { createProcForTest, createProcTests, ProcTests } from "./utils";
+import { runEngineTestV5,
+ ENGINE_HOOKS,
+ TestUnifiedUtils,
+ createProcForTest, createProcTests, ProcTests } from "@sxltd/engine-test-utils";
 
 const { getDescendantNode } = TestUnifiedUtils;
 

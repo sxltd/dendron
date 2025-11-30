@@ -4,10 +4,10 @@ import {
   NoteTestUtilsV4,
   TestPresetEntryV4,
 } from "@sxltd/common-test-utils";
-import { DendronASTDest } from "@sxltd/unified";
-import { runEngineTestV5 } from "../../../engine";
-import { ENGINE_HOOKS } from "../../../presets";
-import { createProcForTest, createProcTests } from "./utils";
+import { DendronASTDest,
+ runEngineTestV5,
+ ENGINE_HOOKS,
+ createProcForTest, createProcTests } from "@sxltd/engine-test-utils";
 
 describe("footnotes", () => {
   const BASIC = createProcTests({

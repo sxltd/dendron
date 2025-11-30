@@ -21,11 +21,11 @@ import {
   VFile,
 } from "@sxltd/unified";
 import _ from "lodash";
-import { TestConfigUtils } from "../../../config";
-import { runEngineTestV5, testWithEngine } from "../../../engine";
-import { ENGINE_HOOKS } from "../../../presets";
-import { checkString, TestUnifiedUtils } from "../../../utils";
-import { checkNotInVFile, checkVFile } from "./utils";
+import { TestConfigUtils,
+ runEngineTestV5, testWithEngine,
+ ENGINE_HOOKS,
+ checkString, TestUnifiedUtils,
+ checkNotInVFile, checkVFile } from "@sxltd/engine-test-utils";
 
 function proc({
   noteToRender,

@@ -14,9 +14,9 @@ import {
   MDUtilsV5,
   ProcDataFullOptsV5,
 } from "@sxltd/unified";
-import { runEngineTestV5 } from "../../../engine";
-import { ENGINE_HOOKS } from "../../../presets";
-import { checkNotInVFile, checkVFile, createProcTests } from "./utils";
+import { runEngineTestV5,
+ ENGINE_HOOKS,
+ checkNotInVFile, checkVFile, createProcTests } from "@sxltd/engine-test-utils";
 
 function procDendronForPublish(
   opts: Omit<ProcDataFullOptsV5, "dest"> & {

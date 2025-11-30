@@ -15,11 +15,9 @@ import {
 } from "@sxltd/common-test-utils";
 import { DConfig } from "@sxltd/common-server";
 import { getParsingDependencyDicts, MDUtilsV5 } from "@sxltd/unified";
-import { TestConfigUtils } from "../../../config";
-import { runEngineTestV5 } from "../../../engine";
-import { ENGINE_HOOKS, ENGINE_SERVER } from "../../../presets";
-import { checkNotInString, checkString } from "../../../utils";
-import {
+import { TestConfigUtils,
+ runEngineTestV5,
+ ENGINE_HOOKS, ENGINE_SERVER,
   checkNotInVFile,
   checkVFile,
   createProcCompileTests,
@@ -28,8 +26,8 @@ import {
   processNote,
   processTextV2,
   ProcTests,
-} from "./utils";
-import { getOpts, runTestCases } from "./v5/utils";
+  getOpts, runTestCases } from "@sxltd/engine-test-utils";
+import { checkNotInString, checkString } from "@sxltd/nodep-test-utils";
 
 function runAllTests(opts: {
   name: string;
