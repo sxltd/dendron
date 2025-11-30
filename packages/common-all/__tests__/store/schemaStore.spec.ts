@@ -8,7 +8,7 @@ import { vault2Path } from "@sxltd/common-server";
 import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { NodeJSFileStore } from "@sxltd/engine-server";
 import _ from "lodash";
-import { runEngineTestV5 } from "../../../engine";
+import { runEngineTestV5 } from "@sxltd/engine-test-utils";
 import fs from "fs-extra";
 
 describe("GIVEN SchemaStore", () => {

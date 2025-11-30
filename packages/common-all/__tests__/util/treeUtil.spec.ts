@@ -1,8 +1,7 @@
 import { NoteDictsUtils, TreeUtils } from "@sxltd/common-all";
 import type { Sidebar } from "@sxltd/common-all";
 import _ from "lodash";
-import { runEngineTestV5 } from "../../../engine";
-import { ENGINE_HOOKS } from "../../../presets";
+import { runEngineTestV5, ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 
 describe("GIVEN sidebar", () => {
   const sidebar: Sidebar = [

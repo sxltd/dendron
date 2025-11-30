@@ -1,7 +1,7 @@
 import { InvalidFilenameReason, NoteUtils } from "@sxltd/common-all";
 import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import _ from "lodash";
-import { runEngineTestV5 } from "../../..";
+import { runEngineTestV5 } from "@sxltd/engine-test-utils";
 
 const validFnames = ["foo", "bar", "foo.bar", "foo bar"];
 const invalidFnamesAndReasons = {
