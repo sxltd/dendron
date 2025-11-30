@@ -6960,6 +6960,7 @@ __metadata:
     "@sxltd/common-all": "workspace:*"
     "@sxltd/common-server": "workspace:*"
     "@sxltd/engine-server": "workspace:*"
+    "@sxltd/nodep-test-utils": "workspace:*"
     "@sxltd/unified": "workspace:*"
     "@types/cors": ^2.8.10
     "@types/express": ^4.17.8
@@ -7449,7 +7450,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sxltd/nodep-test-utils@workspace:packages/nodep-test-utils":
+"@sxltd/nodep-test-utils@workspace:*, @sxltd/nodep-test-utils@workspace:packages/nodep-test-utils":
   version: 0.0.0-use.local
   resolution: "@sxltd/nodep-test-utils@workspace:packages/nodep-test-utils"
   dependencies:
