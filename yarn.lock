@@ -7398,6 +7398,7 @@ __metadata:
     "@sxltd/common-test-utils": "workspace:*"
     "@sxltd/dendron-cli": "workspace:*"
     "@sxltd/engine-server": "workspace:*"
+    "@sxltd/nodep-test-utils": "workspace:*"
     "@types/fs-extra": ^9.0.1
     "@types/lodash": ^4.14.161
     "@types/node": 13.11.0
