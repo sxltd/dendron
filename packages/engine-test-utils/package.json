@@ -41,6 +41,12 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.0",
+    "@sxltd/api-server": "workspace:*",
+    "@sxltd/common-all": "workspace:*",
+    "@sxltd/common-server": "workspace:*",
+    "@sxltd/common-test-utils": "workspace:*",
+    "@sxltd/dendron-cli": "workspace:*",
+    "@sxltd/engine-server": "workspace:*",
     "@types/sinon": "^9.0.9",
     "fs-extra": "^9.0.1",
     "jest": "^28.1.0",
