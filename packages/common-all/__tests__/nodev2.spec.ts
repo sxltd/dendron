@@ -4,7 +4,7 @@ import {
   SetupHookFunction,
 } from "@sxltd/common-test-utils";
 import { tmpdir } from "os";
-import { runEngineTestV5 } from "../../engine";
+import { runEngineTestV5 } from "@sxltd/engine-test-utils";
 
 const preSetupHook: SetupHookFunction = async ({ vaults, wsRoot }) => {
   await NoteTestUtilsV4.createNote({ fname: "foo", vault: vaults[0], wsRoot });

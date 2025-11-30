@@ -3,8 +3,7 @@ import {
   DefaultSidebar,
   NoteDictsUtils,
 } from "@sxltd/common-all";
-import { runEngineTestV5 } from "../../engine";
-import { ENGINE_HOOKS } from "../../presets";
+import { runEngineTestV5, ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 
 /*
  * See [[dendron://dendron.dendron-site/dendron.topic.publish.sidebar#complex-sidebar-example]] for sidebar docs and example

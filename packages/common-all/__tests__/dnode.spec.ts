@@ -6,8 +6,7 @@ import {
   SchemaUtils,
 } from "@sxltd/common-all";
 import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
-import { runEngineTestV5 } from "../../engine";
-import { makeSchemaTests, SchemaTest } from "../../utils/schema";
+import { runEngineTestV5, makeSchemaTests, SchemaTest } from "@sxltd/engine-test-utils";
 
 describe(`NoteUtils tests:`, () => {
   describe(`genSchemaDesc tests`, () => {

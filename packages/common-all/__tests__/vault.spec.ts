@@ -1,7 +1,7 @@
 import { DendronError, DVault, VaultUtils } from "@sxltd/common-all";
 import _ from "lodash";
 import path from "path";
-import { runEngineTestV5 } from "../../engine";
+import { runEngineTestV5 } from "@sxltd/engine-test-utils";
 
 describe("VaultUtils", () => {
   describe("getVaultByPath", () => {
