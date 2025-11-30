@@ -13,7 +13,6 @@ export * from "./topics";
 export {
   GitTestUtils,
   checkVaults,
-  checkNotInString,
   TestSeedUtils,
 } from "./utils";
 export * from "./presets";

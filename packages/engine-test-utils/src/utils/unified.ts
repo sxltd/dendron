@@ -1,6 +1,6 @@
 import _ from "lodash";
 import { Node as UnistNode } from "unist";
-import { checkString } from ".";
+import { checkString } from "@sxltd/nodep-test-utils"
 
 export class TestUnifiedUtils {
   /**
