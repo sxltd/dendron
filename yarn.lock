@@ -6961,6 +6961,7 @@ __metadata:
     "@sxltd/common-server": "workspace:*"
     "@sxltd/common-test-utils": "workspace:*"
     "@sxltd/engine-server": "workspace:*"
+    "@sxltd/engine-test-utils": "workspace:*"
     "@sxltd/unified": "workspace:*"
     "@types/cors": ^2.8.10
     "@types/express": ^4.17.8
