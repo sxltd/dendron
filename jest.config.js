@@ -37,7 +37,7 @@ module.exports = {
       testEnvironment: "node",
     },
     {
-      displayName: "design-system-tests",
+      displayName: "dendron-design-system",
       testMatch:[
         "<rootDir>/packages/dendron-design-system/**/?(*.)+(spec|test).[jt]s?(x)",
       ],
