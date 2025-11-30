@@ -3,7 +3,7 @@ import {
   BackupService,
   DConfig,
 } from "@sxltd/common-server";
-import { runEngineTestV5 } from "../..";
+import { runEngineTestV5 } from "@sxltd/engine-test-utils";
 import path from "path";
 import fs from "fs-extra";
 

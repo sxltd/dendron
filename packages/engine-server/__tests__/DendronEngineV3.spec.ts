@@ -8,12 +8,11 @@ import {
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
-import { createEngineV3FromEngine, runEngineTestV5 } from "../../engine";
-import {
+import { createEngineV3FromEngine, runEngineTestV5,
   ENGINE_HOOKS,
   ENGINE_PRESETS,
   ENGINE_PRESETS_MULTI,
-} from "../../presets";
+ } from "@sxltd/engine-test-utils";
 
 const createEngine = createEngineV3FromEngine;
 

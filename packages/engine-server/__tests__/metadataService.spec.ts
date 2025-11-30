@@ -1,6 +1,6 @@
 import { MetadataService } from "@sxltd/engine-server";
 import sinon from "sinon";
-import { TestEngineUtils } from "../..";
+import { TestEngineUtils } from "@sxltd/engine-test-utils";
 
 describe("GIVEN Metadata Service", () => {
   let homeDirStub: sinon.SinonStub;

@@ -8,13 +8,12 @@ import {
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
-import { runEngineTestV5 } from "../../engine";
-import {
+import { runEngineTestV5, 
   ENGINE_CONFIG_PRESETS,
   ENGINE_HOOKS,
   ENGINE_PRESETS,
   ENGINE_PRESETS_MULTI,
-} from "../../presets";
+} from "@sxltd/engine-test-utils";
 
 describe("engine, schemas/", () => {
   const nodeType = "SCHEMAS";

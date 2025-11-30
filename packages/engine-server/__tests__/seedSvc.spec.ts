@@ -7,9 +7,10 @@ import {
 import { DConfig, tmpDir } from "@sxltd/common-server";
 import { SeedInitMode, SeedService, SeedUtils } from "@sxltd/engine-server";
 import path from "path";
-import { runEngineTestV5 } from "../../engine";
-import { checkDir, checkFile, checkNotInDir, checkVaults } from "../../utils";
-import { TestSeedUtils } from "../../utils/seed";
+import { runEngineTestV5,
+  checkDir, checkFile, checkNotInDir, checkVaults,
+  TestSeedUtils 
+ } from "@sxltd/engine-test-utils";
 
 const BAD_SEED_ID = () => "dendron.no-exist";
 

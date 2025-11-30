@@ -2,9 +2,7 @@ import { ConfigUtils, DendronConfig } from "@sxltd/common-all";
 import { DConfig, LocalConfigScope } from "@sxltd/common-server";
 import _ from "lodash";
 import Sinon from "sinon";
-import { TestEngineUtils } from "../../engine";
-import { VAULTS } from "../../presets";
-import { TestWorkspaceUtils } from "../../utils/workspace";
+import { TestEngineUtils, VAULTS, TestWorkspaceUtils } from "@sxltd/engine-test-utils";
 
 function getDefaultConfig() {
   const defaultConfig: DendronConfig = {

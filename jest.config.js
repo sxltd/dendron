@@ -89,5 +89,14 @@ module.exports = {
       ...commonConfig,
       testEnvironment: "node",
     },
+    {
+      displayName: "engine-server",
+      testMatch: [
+        // see https://github.com/facebook/jest/issues/7914
+        "<rootDir>/packages/engine-server/**/__tests__/**/*.[jt]s?(x)",
+      ],
+      ...commonConfig,
+      testEnvironment: "node",
+    },
   ],
 };

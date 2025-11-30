@@ -15,15 +15,13 @@ import {
 } from "@sxltd/engine-server";
 import fs from "fs-extra";
 import path from "path";
-import { runEngineTestV5, TestEngineUtils, testWithEngine } from "../../engine";
-import {
+import { runEngineTestV5, TestEngineUtils, testWithEngine,
   checkDir,
   checkFile,
   checkNotInDir,
   checkVaults,
   GitTestUtils,
-} from "../../utils";
-import { TestSeedUtils } from "../../utils/seed";
+  TestSeedUtils } from "@sxltd/engine-test-utils";
 import sinon from "sinon";
 
 describe("WorkspaceUtils", () => {

@@ -8,7 +8,7 @@ import {
   testAssertsInsideCallback,
 } from "@sxltd/common-test-utils";
 import { DendronEngineClient } from "@sxltd/engine-server";
-import { createEngineFromServer, ENGINE_HOOKS, runEngineTestV5 } from "../..";
+import { createEngineFromServer, ENGINE_HOOKS, runEngineTestV5 } from "@sxltd/engine-test-utils";
 
 /**
  * Tests that the EngineEvents interface of the client-side DendronEngineClient signals properly
