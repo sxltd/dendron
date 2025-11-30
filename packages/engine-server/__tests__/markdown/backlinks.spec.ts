@@ -3,7 +3,6 @@ import { DConfig } from "@sxltd/common-server";
 import { AssertUtils, NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { getParsingDependencyDicts, MDUtilsV5 } from "@sxltd/unified";
 import { runEngineTestV5, TestConfigUtils } from "@sxltd/engine-test-utils";
-import { TestConfigUtils } from "./helpers/workspace";
 
 describe("backlinks", () => {
   describe("frontmatter tags", () => {
