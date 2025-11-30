@@ -62,5 +62,14 @@ module.exports = {
       ...commonConfig,
       testEnvironment: "node",
     },
+    {
+      displayName: "common-frontend",
+      testMatch: [
+        // see https://github.com/facebook/jest/issues/7914
+        "<rootDir>/packages/common-frontend/**/__tests__/**/*.[jt]s?(x)",
+      ],
+      ...commonConfig,
+      testEnvironment: "node",
+    },
   ],
 };

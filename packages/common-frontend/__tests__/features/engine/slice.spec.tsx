@@ -1,8 +1,7 @@
 import { APIUtils } from "@sxltd/common-all";
 import { combinedStore, engineSlice } from "@sxltd/common-frontend";
 import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
-import { createEngineFromServer, runEngineTestV5 } from "../../../../engine";
-import { ENGINE_HOOKS } from "../../../../presets";
+import { createEngineFromServer, runEngineTestV5, ENGINE_HOOKS  } from "@sxltd/engine-test-utils";
 
 describe("GIVEN syncNote", () => {
   afterEach(() => {

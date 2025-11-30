@@ -6959,6 +6959,7 @@ __metadata:
   dependencies:
     "@sxltd/common-all": "workspace:*"
     "@sxltd/common-server": "workspace:*"
+    "@sxltd/common-test-utils": "workspace:*"
     "@sxltd/engine-server": "workspace:*"
     "@sxltd/unified": "workspace:*"
     "@types/cors": ^2.8.10
@@ -6986,6 +6987,8 @@ __metadata:
   resolution: "@sxltd/common-all@workspace:packages/common-all"
   dependencies:
     "@swc/helpers": ^0.3.2
+    "@sxltd/common-test-utils": "workspace:*"
+    "@sxltd/engine-test-utils": "workspace:*"
     "@types/fast-levenshtein": ^0.0.2
     "@types/github-slugger": ^1.3.0
     "@types/js-yaml": ^4.0.5
