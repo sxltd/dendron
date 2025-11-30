@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "outDir": "lib",
+      "rootDir": "src",
+      "module": "commonjs",
+      "target": "ES2019",
+      "lib": ["es2019", "dom"],
+      "sourceMap": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "strict": true,
+      "declaration": true,
+      // --- checks
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noImplicitAny": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      // --- language features
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "skipLibCheck": true
+    },
+    "compileOnSave": true,
+    "exclude": ["node_modules", "lib", "local", ".vscode-test", "out"]
+  }
+  

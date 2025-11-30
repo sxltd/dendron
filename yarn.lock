@@ -7449,6 +7449,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@sxltd/nodep-test-utils@workspace:packages/nodep-test-utils":
+  version: 0.0.0-use.local
+  resolution: "@sxltd/nodep-test-utils@workspace:packages/nodep-test-utils"
+  dependencies:
+    typescript: ^5.9.3
+  languageName: unknown
+  linkType: soft
+
 "@sxltd/plugin-core@workspace:packages/plugin-core":
   version: 0.0.0-use.local
   resolution: "@sxltd/plugin-core@workspace:packages/plugin-core"
