@@ -10,11 +10,12 @@ import {
   UnistNode,
 } from "@sxltd/unified";
 import _ from "lodash";
-import { TestConfigUtils } from "../../..";
-import { runEngineTestV5 } from "../../../engine";
-import { ENGINE_HOOKS } from "../../../presets";
-import { TestUnifiedUtils } from "../../../utils";
-import { createProcForTest, createProcTests, ProcTests } from "./utils";
+import { TestConfigUtils,
+ runEngineTestV5,
+ ENGINE_HOOKS,
+ createProcForTest, ProcTests } from "@sxltd/engine-test-utils";
+import { TestUnifiedUtils } from "@sxltd/nodep-test-utils";
+import { createProcTests } from "./utils";
 
 const { getDescendantNode } = TestUnifiedUtils;
 

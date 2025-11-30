@@ -1,6 +1,6 @@
 import _ from "lodash";
 import { Node as UnistNode } from "unist";
-import { checkString } from "@sxltd/nodep-test-utils"
+import { checkString } from "./check"
 
 export class TestUnifiedUtils {
   /**
@@ -26,7 +26,7 @@ export class TestUnifiedUtils {
     return checkString(contents, 'class="private"', value + " (Private)");
   };
 
-  /** Gets the descendent (child, or child of child...) node of a given node.
+  /** Gets the descendant (child, or child of child...) node of a given node.
    *
    * @param node The root node to start descending from.
    * @param indices Left-to-right indexes for children, e.g. first index is for the root, second is for the child of the root...
