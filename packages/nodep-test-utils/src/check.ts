@@ -34,3 +34,25 @@ export async function checkNotInString(body: string, ...nomatch: string[]) {
       })
     ).toBeTruthy();
   }
+
+export async function checkDir(
+    { fpath, snapshot }: { fpath: string; snapshot?: boolean; msg?: string },
+    ...match: string[]
+  ) {
+    const body = fs.readdirSync(fpath).join(" ");
+    if (snapshot) {
+      expect(body).toMatchSnapshot();
+    }
+    return checkString(body, ...match);
+  }
+
+export async function checkNotInDir(
+    { fpath, snapshot }: { fpath: string; snapshot?: boolean; msg?: string },
+    ...match: string[]
+  ) {
+    const body = fs.readdirSync(fpath).join(" ");
+    if (snapshot) {
+      expect(body).toMatchSnapshot();
+    }
+    return checkNotInString(body, ...match);
+  }

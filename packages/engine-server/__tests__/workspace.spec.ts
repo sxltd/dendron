@@ -16,12 +16,10 @@ import {
 import fs from "fs-extra";
 import path from "path";
 import { runEngineTestV5, TestEngineUtils, testWithEngine,
-  checkDir,
-  checkFile,
-  checkNotInDir,
   checkVaults,
   GitTestUtils,
   TestSeedUtils } from "@sxltd/engine-test-utils";
+import { checkDir, checkFile, checkNotInDir } from "@sxltd/nodep-test-utils";
 import sinon from "sinon";
 
 describe("WorkspaceUtils", () => {

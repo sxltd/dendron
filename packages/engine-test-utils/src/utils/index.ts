@@ -12,7 +12,6 @@ import {
 import { DConfig, readYAML } from "@sxltd/common-server";
 import { AssertUtils } from "@sxltd/common-test-utils";
 import { WorkspaceUtils } from "@sxltd/engine-server";
-import { checkString, checkNotInString} from "@sxltd/nodep-test-utils"
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
@@ -21,27 +20,8 @@ export * from "./git";
 export * from "./seed";
 export * from "./unified";
 
-export async function checkDir(
-  { fpath, snapshot }: { fpath: string; snapshot?: boolean; msg?: string },
-  ...match: string[]
-) {
-  const body = fs.readdirSync(fpath).join(" ");
-  if (snapshot) {
-    expect(body).toMatchSnapshot();
-  }
-  return checkString(body, ...match);
-}
 
-export async function checkNotInDir(
-  { fpath, snapshot }: { fpath: string; snapshot?: boolean; msg?: string },
-  ...match: string[]
-) {
-  const body = fs.readdirSync(fpath).join(" ");
-  if (snapshot) {
-    expect(body).toMatchSnapshot();
-  }
-  return checkNotInString(body, ...match);
-}
+
 
 /** The regular version of this only works in engine tests. If the test has to run in the plugin too, use this version. Make sure to check the return value! */
 export async function checkFileNoExpect({
