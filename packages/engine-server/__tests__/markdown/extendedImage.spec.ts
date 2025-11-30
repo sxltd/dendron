@@ -10,8 +10,9 @@ import {
 import _ from "lodash";
 import { runEngineTestV5,
  ENGINE_HOOKS,
- TestUnifiedUtils,
- createProcForTest, createProcTests, ProcTests } from "@sxltd/engine-test-utils";
+ ProcTests } from "@sxltd/engine-test-utils";
+import { TestUnifiedUtils } from "@sxltd/nodep-test-utils";
+import { createProcForTest, createProcTests } from "./utils";
 
 const { getDescendantNode } = TestUnifiedUtils;
 
