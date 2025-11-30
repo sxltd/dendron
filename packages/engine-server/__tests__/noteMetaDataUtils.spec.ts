@@ -7,7 +7,8 @@ import {
   NotemetadataExtractScalarProps,
   NoteMetadataUtils,
 } from "@sxltd/engine-server";
-import { runEngineTestV5, checkString } from "@sxltd/engine-test-utils";
+import { runEngineTestV5 } from "@sxltd/engine-test-utils";
+import { checkString } from "@sxltd/nodep-test-utils";
 
 const preSetupHookForLinksAndTags: SetupHookFunction = async ({
   wsRoot,
