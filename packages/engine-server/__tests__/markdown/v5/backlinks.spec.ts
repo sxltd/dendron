@@ -7,8 +7,7 @@ import {
 import { note2File } from "@sxltd/common-server";
 import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { DendronASTDest, MDUtilsV5, ProcFlavor } from "@sxltd/unified";
-import { TestConfigUtils } from "../../../../config";
-import { ENGINE_HOOKS, ENGINE_HOOKS_MULTI } from "../../../../presets";
+import { TestConfigUtils, ENGINE_HOOKS, ENGINE_HOOKS_MULTI } from "@sxltd/engine-test-utils";
 import { checkNotInVFile, checkVFile, createProcCompileTests } from "../utils";
 import { getOpts, runTestCases } from "./utils";
 

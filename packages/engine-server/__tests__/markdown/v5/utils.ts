@@ -8,7 +8,7 @@ import {
   createEngineFromServer,
   runEngineTestV5,
   WorkspaceOpts,
-} from "../../../../engine";
+} from "@sxltd/engine-test-utils";
 import { ProcTests } from "../utils";
 
 export const getOpts = (opts: any) => {

@@ -1,8 +1,7 @@
 import { ProcFlavor } from "@sxltd/common-all";
 import { AssertUtils, TestPresetEntryV4 } from "@sxltd/common-test-utils";
 import { BacklinkOpts, DendronASTDest } from "@sxltd/unified";
-import { runEngineTestV5 } from "../../../../engine";
-import { ENGINE_HOOKS } from "../../../../presets";
+import { runEngineTestV5, ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import { createProcCompileTests, ProcTests } from "../utils";
 import { getOpts, runTestCases } from "./utils";
 

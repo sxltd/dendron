@@ -1,8 +1,7 @@
 import { NoteUtils, WorkspaceOpts } from "@sxltd/common-all";
 import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { DendronASTDest, ProcFlavor } from "@sxltd/unified";
-import { TestConfigUtils } from "../../../../config";
-import { ENGINE_HOOKS } from "../../../../presets";
+import { TestConfigUtils, ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import { checkNotInVFile, checkVFile, createProcCompileTests } from "../utils";
 import { getOpts, runTestCases } from "./utils";
 

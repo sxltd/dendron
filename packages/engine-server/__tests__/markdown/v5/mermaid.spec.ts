@@ -2,8 +2,8 @@ import { NoteProps } from "@sxltd/common-all";
 import { DendronASTDest, ProcFlavor } from "@sxltd/unified";
 import fs from "fs-extra";
 import path from "path";
-import { ENGINE_HOOKS } from "../../../../presets";
-import { checkString } from "../../../../utils";
+import { ENGINE_HOOKS } from "@sxltd/engine-test-utils";
+import { checkString } from "@sxltd/nodep-test-utils";
 import { createProcCompileTests } from "../utils";
 import { getOpts, modifyFooInVaultOne, runTestCases } from "./utils";
 

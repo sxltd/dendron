@@ -1,9 +1,8 @@
 import { ConfigUtils } from "@sxltd/common-all";
 import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { DendronASTDest, ProcFlavor } from "@sxltd/unified";
-import { TestConfigUtils } from "../../../..";
-import { ENGINE_HOOKS } from "../../../../presets";
-import { checkNotInString, checkString } from "../../../../utils";
+import { TestConfigUtils, ENGINE_HOOKS } from "@sxltd/engine-test-utils";
+import { checkNotInString, checkString } from "@sxltd/nodep-test-utils";
 import { checkVFile, createProcCompileTests } from "../utils";
 import { getOpts, runTestCases } from "./utils";
 
