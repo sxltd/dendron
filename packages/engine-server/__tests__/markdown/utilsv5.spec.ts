@@ -6,9 +6,8 @@ import {
   ProcFlavor,
 } from "@sxltd/unified";
 import path from "path";
-import { createEngineFromServer, runEngineTestV5 } from "../../../engine";
-import { ENGINE_HOOKS } from "../../../presets";
-import { checkString } from "../../../utils";
+import { createEngineFromServer, runEngineTestV5, ENGINE_HOOKS } from "@sxltd/engine-test-utils";
+import { checkString } from "@sxltd/nodep-test-utils";
 import { cleanVerifyOpts, createProcCompileTests } from "./utils";
 
 const getOpts = (opts: any) => {

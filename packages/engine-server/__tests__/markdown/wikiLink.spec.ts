@@ -12,8 +12,7 @@ import {
   WikiLinkNoteV4,
 } from "@sxltd/unified";
 import _ from "lodash";
-import { runEngineTestV5 } from "../../../engine";
-import { ENGINE_HOOKS } from "../../../presets";
+import { runEngineTestV5, ENGINE_HOOKS } from "@sxltd/engine-test-utils";
 import { checkVFile, createProcForTest, createProcTests } from "./utils";
 
 function proc() {
