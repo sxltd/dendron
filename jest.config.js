@@ -10,6 +10,7 @@ const commonConfig = {
     // These are ESM modules that need to be transpiled before Jest can run them
     "/node_modules/(?!(d3.*|internmap|delaunator|robust-predicates)/)",
   ],
+  setupFiles: ["./jest.setup.js"],
 };
 
 module.exports = {
