@@ -16,8 +16,10 @@ This repo uses [Dev Containers](https://code.visualstudio.com/docs/devcontainers
 
 Key commands:
 - `yarn build` - Build all packages
-- `yarn test` - Run tests
 - `yarn build:plugin` - Build .vsix plugin only (output in `packages/plugin-extension/dendron-<ver>.vsix`)
+- `yarn test` - Run tests
+- `yarn test:plugin` - Run tests for just the plugin
+- `yarn test --selectProjects <workspace>` - Run tests for specific workspace
 
 ---
 
