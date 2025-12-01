@@ -21,14 +21,16 @@ import { runEngineTestV5,
  ENGINE_HOOKS,
   checkNotInVFile,
   checkVFile,
-  createProcCompileTests,
-  createProcForTest,
-  createProcTests,
   ProcTests,
  TestConfigUtils,
- TestUnifiedUtils,
- getOpts, runTestCases } from "@sxltd/engine-test-utils";
+ getOpts } from "@sxltd/engine-test-utils";
 import { DConfig } from "@sxltd/common-server";
+
+import { TestUnifiedUtils } from "@sxltd/nodep-test-utils";
+import { createProcCompileTests,
+  createProcForTest,
+  createProcTests,
+runTestCases } from "./utils";
 
 const { getDescendantNode } = TestUnifiedUtils;
 

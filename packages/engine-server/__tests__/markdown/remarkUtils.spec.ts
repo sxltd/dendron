@@ -15,9 +15,8 @@ import {
   RemarkUtils,
 } from "@sxltd/unified";
 import _ from "lodash";
-import { runEngineTestV5, testWithEngine } from "../../../engine";
-import { ENGINE_HOOKS } from "../../../presets";
-import { checkString } from "../../../utils";
+import { runEngineTestV5, testWithEngine, ENGINE_HOOKS } from "@sxltd/engine-test-utils";
+import { checkString } from "@sxltd/nodep-test-utils";
 
 const checkLink = ({ src, target }: { src: Partial<DLink>; target: DLink }) => {
   const allTrue = _.every([
