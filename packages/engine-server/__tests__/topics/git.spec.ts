@@ -1,9 +1,8 @@
 import { tmpDir } from "@sxltd/common-server";
 import { Git } from "@sxltd/engine-server";
-import { GitTestUtils } from "../../../utils";
 import fs from "fs-extra";
 import path from "path";
-import { testWithEngine } from "../../../engine";
+import { GitTestUtils, testWithEngine } from "@sxltd/engine-test-utils";
 
 describe("isRepo", () => {
   test("no repo", async () => {

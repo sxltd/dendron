@@ -11,13 +11,11 @@ import { AssertUtils } from "@sxltd/common-test-utils";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
-import { TestConfigUtils } from "../../../config";
-import {
+import { TestConfigUtils,
   createEngineFromServer,
   runEngineTestV5,
   testWithEngine,
-} from "../../../engine";
-import { TestHookUtils } from "../../../topics";
+  TestHookUtils } from "@sxltd/engine-test-utils";
 
 const execaHookPayload = `module.exports = async function({note, execa, _}) {
     const {stdout} = await execa('echo', ['hello']);
