@@ -1,0 +1,1 @@
+This package exists to contain utility functions that have no dependencies on other workspaces in this repositry.
