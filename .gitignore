@@ -40,4 +40,13 @@ packages/nextjs-template/styles/scss/
 packages/nextjs-template/next-env.d.ts
 packages/nextjs-template/tsconfig.tsbuildinfo
 **/*.tgz
-.yarn
+
+
+# yarn stuff but keep what's important
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
