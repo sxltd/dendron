@@ -47,7 +47,6 @@ module.exports = {
     {
       displayName: "api-server",
       testMatch: [
-        // see https://github.com/facebook/jest/issues/7914
         "<rootDir>/packages/api-server/**/__tests__/**/*.[jt]s?(x)",
       ],
       ...commonConfig,
@@ -64,7 +63,6 @@ module.exports = {
     {
       displayName: "common-frontend",
       testMatch: [
-        // see https://github.com/facebook/jest/issues/7914
         "<rootDir>/packages/common-frontend/**/__tests__/**/*.[jt]s?(x)",
       ],
       ...commonConfig,
@@ -73,7 +71,6 @@ module.exports = {
     {
       displayName: "common-server",
       testMatch: [
-        // see https://github.com/facebook/jest/issues/7914
         "<rootDir>/packages/common-server/**/__tests__/**/*.[jt]s?(x)",
       ],
       ...commonConfig,
@@ -82,7 +79,6 @@ module.exports = {
     {
       displayName: "dendron-cli",
       testMatch: [
-        // see https://github.com/facebook/jest/issues/7914
         "<rootDir>/packages/dendron-cli/**/__tests__/**/*.[jt]s?(x)",
       ],
       ...commonConfig,
@@ -91,7 +87,6 @@ module.exports = {
     {
       displayName: "engine-server",
       testMatch: [
-        // see https://github.com/facebook/jest/issues/7914
         "<rootDir>/packages/engine-server/**/__tests__/**/*.(spec|test).[jt]s?(x)",
       ],
       ...commonConfig,
@@ -100,7 +95,6 @@ module.exports = {
     {
       displayName: "pods-core",
       testMatch: [
-        // see https://github.com/facebook/jest/issues/7914
         "<rootDir>/packages/pods-core/**/__tests__/**/*.(spec|test).[jt]s?(x)",
       ],
       ...commonConfig,
