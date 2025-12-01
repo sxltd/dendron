@@ -1,8 +1,8 @@
-import { ENGINE_HOOKS } from "../../presets";
-import { runEngineTestV5 } from "../../engine";
+import { ENGINE_HOOKS, runEngineTestV5 } from "@sxltd/engine-test-utils";
 import { GDocImportPod, PodUtils, PROMPT } from "@sxltd/pods-core";
 import { Time, VaultUtils } from "@sxltd/common-all";
-import { response, comments, existingNote, window } from "@sxltd/engine-test-utils";
+import { response, comments, existingNote } from "./GDocMockResult";
+import { window } from "../__mocks__/vscode";
 import axios from "axios";
 import sinon from "sinon";
 
