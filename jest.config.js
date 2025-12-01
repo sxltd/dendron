@@ -26,7 +26,7 @@ module.exports = {
   ...commonConfig,
   projects: [
     {
-      displayName: "non-plugin-tests",
+      displayName: "engine-test-utils",
       testMatch: [
         "<rootDir>/packages/engine-test-utils/**/?(*.)+(spec|test).[jt]s?(x)",
         // see https://github.com/facebook/jest/issues/7914
