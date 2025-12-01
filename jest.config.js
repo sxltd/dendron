@@ -101,7 +101,7 @@ module.exports = {
       displayName: "pods-core",
       testMatch: [
         // see https://github.com/facebook/jest/issues/7914
-        "<rootDir>/packages/pods-core/**/__tests__/**/*.[jt]s?(x)",
+        "<rootDir>/packages/pods-core/**/__tests__/**/*.(spec|test).[jt]s?(x)",
       ],
       ...commonConfig,
       testEnvironment: "node",

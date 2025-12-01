@@ -4,7 +4,8 @@ import { GraphvizExportConfig, GraphvizExportPod } from "@sxltd/pods-core";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
-import { runEngineTestV5, WorkspaceOpts, checkNotInString, checkString} from "@sxltd/engine-test-utils";
+import { runEngineTestV5, WorkspaceOpts} from "@sxltd/engine-test-utils";
+import { checkNotInString, checkString } from "@sxltd/nodep-test-utils";
 
 const setupBasic = async (opts: WorkspaceOpts) => {
   const { wsRoot, vaults } = opts;

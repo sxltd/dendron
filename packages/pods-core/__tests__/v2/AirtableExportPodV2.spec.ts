@@ -15,9 +15,8 @@ import {
   SrcFieldMapping,
 } from "@sxltd/pods-core";
 import _ from "lodash";
-import { TestEngineUtils } from "../../..";
-import { runEngineTestV5 } from "../../../engine";
-import { checkString } from "../../../utils";
+import { TestEngineUtils, runEngineTestV5 } from "@sxltd/engine-test-utils";
+import { checkString } from "@sxltd/nodep-test-utils";
 
 const FakeAirtableBase = () => ({
   create: (allRecords: AirtableFieldsMap[]) => {
