@@ -6960,6 +6960,7 @@ __metadata:
     "@sxltd/common-all": "workspace:*"
     "@sxltd/common-server": "workspace:*"
     "@sxltd/engine-server": "workspace:*"
+    "@sxltd/nodep-test-utils": "workspace:*"
     "@sxltd/unified": "workspace:*"
     "@types/cors": ^2.8.10
     "@types/express": ^4.17.8
@@ -7142,6 +7143,7 @@ __metadata:
     "@sxltd/common-server": "workspace:*"
     "@sxltd/dendron-viz": "workspace:*"
     "@sxltd/engine-server": "workspace:*"
+    "@sxltd/nodep-test-utils": "workspace:*"
     "@sxltd/pods-core": "workspace:*"
     "@types/fs-extra": ^9.0.1
     "@types/lodash": ^4.14.158
@@ -7393,13 +7395,11 @@ __metadata:
     "@reduxjs/toolkit": ^1.6.0
     "@sxltd/api-server": "workspace:*"
     "@sxltd/common-all": "workspace:*"
-    "@sxltd/common-frontend": "workspace:*"
     "@sxltd/common-server": "workspace:*"
     "@sxltd/common-test-utils": "workspace:*"
     "@sxltd/dendron-cli": "workspace:*"
     "@sxltd/engine-server": "workspace:*"
-    "@sxltd/pods-core": "workspace:*"
-    "@sxltd/unified": "workspace:*"
+    "@sxltd/nodep-test-utils": "workspace:*"
     "@types/fs-extra": ^9.0.1
     "@types/lodash": ^4.14.161
     "@types/node": 13.11.0
@@ -7449,6 +7449,14 @@ __metadata:
     react-redux: ^7.2.3
     sass: ^1.41.1
     typescript: ^4.4.3
+  languageName: unknown
+  linkType: soft
+
+"@sxltd/nodep-test-utils@workspace:*, @sxltd/nodep-test-utils@workspace:packages/nodep-test-utils":
+  version: 0.0.0-use.local
+  resolution: "@sxltd/nodep-test-utils@workspace:packages/nodep-test-utils"
+  dependencies:
+    typescript: ^5.9.3
   languageName: unknown
   linkType: soft
 

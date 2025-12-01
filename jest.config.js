@@ -26,7 +26,7 @@ module.exports = {
   ...commonConfig,
   projects: [
     {
-      displayName: "non-plugin-tests",
+      displayName: "engine-test-utils",
       testMatch: [
         "<rootDir>/packages/engine-test-utils/**/?(*.)+(spec|test).[jt]s?(x)",
         // see https://github.com/facebook/jest/issues/7914
@@ -37,12 +37,68 @@ module.exports = {
       testEnvironment: "node",
     },
     {
-      displayName: "design-system-tests",
+      displayName: "dendron-design-system",
       testMatch:[
         "<rootDir>/packages/dendron-design-system/**/?(*.)+(spec|test).[jt]s?(x)",
       ],
       ...commonConfig,
       testEnvironment: "jsdom",
-    }
+    },
+    {
+      displayName: "api-server",
+      testMatch: [
+        "<rootDir>/packages/api-server/**/__tests__/**/*.[jt]s?(x)",
+      ],
+      ...commonConfig,
+      testEnvironment: "node",
+    },
+    {
+      displayName: "common-all",
+      testMatch: [
+        "<rootDir>/packages/common-all/**/__tests__/**/*.spec.[jt]s?(x)",
+      ],
+      ...commonConfig,
+      testEnvironment: "node",
+    },
+    {
+      displayName: "common-frontend",
+      testMatch: [
+        "<rootDir>/packages/common-frontend/**/__tests__/**/*.[jt]s?(x)",
+      ],
+      ...commonConfig,
+      testEnvironment: "node",
+    },
+    {
+      displayName: "common-server",
+      testMatch: [
+        "<rootDir>/packages/common-server/**/__tests__/**/*.[jt]s?(x)",
+      ],
+      ...commonConfig,
+      testEnvironment: "node",
+    },
+    {
+      displayName: "dendron-cli",
+      testMatch: [
+        "<rootDir>/packages/dendron-cli/**/__tests__/**/*.[jt]s?(x)",
+      ],
+      ...commonConfig,
+      testEnvironment: "node",
+    },
+    {
+      displayName: "engine-server",
+      testMatch: [
+        "<rootDir>/packages/engine-server/**/__tests__/**/*.(spec|test).[jt]s?(x)",
+      ],
+      ...commonConfig,
+      testEnvironment: "node",
+    },
+    {
+      displayName: "pods-core",
+      testMatch: [
+        "<rootDir>/packages/pods-core/**/__tests__/**/*.(spec|test).[jt]s?(x)",
+      ],
+      ...commonConfig,
+      testEnvironment: "node",
+    },
   ],
 };
