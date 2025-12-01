@@ -19,18 +19,18 @@ import {
 } from "@sxltd/common-all";
 import { runEngineTestV5,
  ENGINE_HOOKS,
-  checkNotInVFile,
-  checkVFile,
-  ProcTests,
  TestConfigUtils,
- getOpts } from "@sxltd/engine-test-utils";
+  } from "@sxltd/engine-test-utils";
 import { DConfig } from "@sxltd/common-server";
 
 import { TestUnifiedUtils } from "@sxltd/nodep-test-utils";
 import { createProcCompileTests,
   createProcForTest,
-  createProcTests,
-runTestCases } from "./utils";
+  createProcTests, 
+  checkNotInVFile,
+  checkVFile, 
+  ProcTests} from "./utils";
+import { getOpts, runTestCases } from "./v5/utils";
 
 const { getDescendantNode } = TestUnifiedUtils;
 
