@@ -19,8 +19,7 @@ import {
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
-import { runEngineTestV5 } from "../../../engine";
-import { ENGINE_HOOKS, ENGINE_HOOKS_MULTI } from "../../../presets";
+import { runEngineTestV5, ENGINE_HOOKS, ENGINE_HOOKS_MULTI } from "@sxltd/engine-test-utils";
 import { checkVFile, createProcTests } from "./utils";
 
 async function processText({ text, proc }: { text: string; proc: Processor }) {
