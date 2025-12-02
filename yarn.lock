@@ -7521,7 +7521,7 @@ __metadata:
     "@types/open-graph-scraper": ^4.7.0
     "@types/semver": ^7.3.1
     "@types/string-similarity": ^4.0.0
-    "@types/vscode": 1.77.0
+    "@types/vscode": 1.82.0
     "@types/webpack-env": ^1.17.0
     "@vscode/test-web": ^0.0.27
     browserify: 17.0.0
@@ -8982,10 +8982,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/vscode@npm:1.77.0":
-  version: 1.77.0
-  resolution: "@types/vscode@npm:1.77.0"
-  checksum: 169dbced32d3f84aad6a41f0d099343ff2a2a86005e309e48192db500cd846423e0e5848f20a6c1aab71329915423255dd9a083974d6f3eb4bb085c278435b98
+"@types/vscode@npm:1.82.0":
+  version: 1.82.0
+  resolution: "@types/vscode@npm:1.82.0"
+  checksum: 2c546b61a0f52c8153bf52645e230e192609a77cd482c96a8eaa5f7008763b25bab684c688a77713dcb087464f99ff979a232bf145038f9cb91a395feb6a09d9
   languageName: node
   linkType: hard
 
@@ -15963,7 +15963,7 @@ __metadata:
     "@types/open-graph-scraper": ^4.7.0
     "@types/semver": ^7.3.1
     "@types/string-similarity": ^4.0.0
-    "@types/vscode": 1.77.0
+    "@types/vscode": 1.82.0
     "@types/webpack-env": ^1.17.0
     "@vscode/test-web": ^0.0.27
     browserify: 17.0.0
