@@ -1,7 +1,7 @@
 {
   "name": "@sxltd/engine-test-utils",
   "private": true,
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "",
   "license": "Apache 2.0",
   "repository": {
@@ -55,6 +55,6 @@
     "prompts": "^2.4.2",
     "react": "^17.0.2",
     "react-redux": "^7.2.4",
-    "sinon": "^9.2.1"
+    "sinon": "16.1.3"
   }
 }
