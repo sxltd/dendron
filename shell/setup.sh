@@ -30,15 +30,6 @@ _setup_node_version(){
   # We need to source verification of NVM due to subshell issue mentioned above.
   source_robust "${DENDRON_MONOREPO:?}"/shell/_verify_nvm_source_me.sh
 
-  # There is an issue with node 17+ and `yarn setup` that causes an error.
-  # Node 16 is the latest version that works with `yarn setup` with
-  # current dendron setup.
-  #
-  # Another option to try is to use later node version with:
-  # export NODE_OPTIONS=--openssl-legacy-provider
-  #
-  # However, it seems more robust to pick a node version that is known to work.
-  # Hence, we are setting node version to 16.
   eae nvm install 18
   eae nvm use 18
 }
@@ -55,7 +46,7 @@ main_impl(){
   eae cd "${DENDRON_MONOREPO:?}"
 
   echo "install workspace dependencies..."
-  eae yarn
+  COREPACK_ENABLE_DOWNLOAD_PROMPT=0 eae yarn
 
   echo "install package dependencies..."
   eae yarn install
