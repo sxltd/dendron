@@ -1,7 +1,7 @@
 {
     "name": "@sxltd/nodep-test-utils",
     "private": true,
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "",
     "license": "Apache 2.0",
     "repository": {
@@ -28,7 +28,7 @@
         "typescript": "^5.9.3"
     },
     "engines": {
-        "node": ">=12.0.0"
+        "node": ">=18.0.0"
     },
     "publishConfig": {
         "access": "public"

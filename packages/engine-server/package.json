@@ -1,6 +1,6 @@
 {
   "name": "@sxltd/engine-server",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "dendron-engine",
   "license": "Apache 2.0",
   "repository": {
@@ -103,7 +103,7 @@
     "typescript": "^5.9.3"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=18.0.0"
   },
   "publishConfig": {
     "access": "public"
