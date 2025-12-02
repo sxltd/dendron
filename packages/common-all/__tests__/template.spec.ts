@@ -51,7 +51,11 @@ describe(`WHEN running applyTemplate tests`, () => {
   describe("WHEN using handlebar helpers", () => {
     beforeEach(async () => {
       targetNote = await noteFactory.createForFName("new note");
-      clock = sinon.useFakeTimers(currentDate);
+      clock = sinon.useFakeTimers({
+        now: currentDate,
+        shouldAdvanceTime: false,
+        toFake: ['Date', 'setTimeout', 'clearTimeout', 'setInterval', 'clearInterval']}
+      );
     });
     afterEach(() => {
       sinon.restore();
@@ -231,7 +235,11 @@ describe(`WHEN running applyTemplate tests`, () => {
   describe("WHEN handlebars enabled", () => {
     beforeEach(async () => {
       targetNote = await noteFactory.createForFName("new note");
-      clock = sinon.useFakeTimers(currentDate);
+      clock = sinon.useFakeTimers({
+        now: currentDate,
+        shouldAdvanceTime: false,
+        toFake: ['Date', 'setTimeout', 'clearTimeout', 'setInterval', 'clearInterval']}
+      );
     });
     afterEach(() => {
       sinon.restore();

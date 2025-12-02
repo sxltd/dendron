@@ -4,12 +4,12 @@
     "displayName": "dendron",
     "description": "Dendron is a hierarchical note taking tool that grows as you do.",
     "publisher": "dendron",
-    "version": "0.2.5",
+    "version": "0.3.0",
     "sponsor": {
         "url": "https://accounts.dendron.so/account/subscribe"
     },
     "engines": {
-        "vscode": "^1.77.0"
+        "vscode": "^1.82.0"
     },
     "categories": [
         "Other"
@@ -1496,7 +1496,7 @@
         "@sxltd/common-server": "workspace:*",
         "@sxltd/engine-server": "workspace:*",
         "@sxltd/pods-core": "workspace:*",
-        "@types/vscode": "1.77.0",
+        "@types/vscode": "1.82.0",
         "browserify": "17.0.0",
         "cross-path-sort": "1.0.0",
         "execa": "4.0.2",

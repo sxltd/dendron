@@ -1,6 +1,6 @@
 {
   "name": "@sxltd/common-server",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "common-server",
   "license": "Apache 2.0",
   "repository": {
@@ -70,6 +70,6 @@
     "access": "public"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=18.0.0"
   }
 }

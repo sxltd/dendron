@@ -8,7 +8,7 @@
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
 		"ghcr.io/devcontainers/features/node:1": {
-			"version": "16.20.2",
+			"version": "18.20.8",
 			"pnpmVersion": "latest",
 			"nvmVersion": "latest"
 		},
@@ -33,6 +33,7 @@
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
 	"containerEnv": {
-    	"DISPLAY": ":99.0"
+    	"DISPLAY": ":99.0",
+		"NODE_OPTIONS": "--openssl-legacy-provider"
 	}
 }
