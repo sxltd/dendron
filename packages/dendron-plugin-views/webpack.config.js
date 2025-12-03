@@ -1,11 +1,16 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.tsx',
+    target: 'web',
+    entry: {
+      index: './src/index.tsx'
+    },
     output: {
       path: path.resolve(__dirname, 'build'),
       filename: 'static/js/[name].bundle.js',
+      assetModuleFilename: 'static/media/[name].[hash][ext]'
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.jsx', '.scss', '.css'],
@@ -35,7 +40,7 @@ module.exports = {
         {
             test: /\.module\.scss$/,
             use: [
-              'style-loader',
+              MiniCssExtractPlugin.loader,
               {
                 loader: 'css-loader',
                 options: {
@@ -48,12 +53,17 @@ module.exports = {
           {
             test: /\.scss$/,
             exclude: /\.module\.scss$/,
-            use: ['style-loader', 'css-loader', 'sass-loader']
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
           },
           {
             test: /\.css$/,
-            use: ['style-loader', 'css-loader']
+            use: [MiniCssExtractPlugin.loader, 'css-loader']
           }
     ]
-    }
+    },
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: 'static/css/[name].styles.css'
+      })
+    ]
 };
