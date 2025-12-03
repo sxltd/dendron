@@ -86,7 +86,7 @@
   "scripts": {
     "start": "yarn build:index && node scripts/start.js",
     "setup": "yarn build:index && yarn build:styles",
-    "build": "NODE_ENV=development webpack",
+    "build": "yarn setup && NODE_ENV=development webpack",
     "build:old": "yarn build:dev && yarn build:styles",
     "build:dev": "yarn setup && npx cross-env BUILD_DEV=1 node scripts/build.js",
     "build:prod": "yarn setup && GENERATE_SOURCEMAP=false node scripts/build.js",

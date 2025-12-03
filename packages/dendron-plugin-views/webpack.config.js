@@ -1,11 +1,14 @@
+const path = require('path');
+
 module.exports = {
     mode: 'development',
     entry: './src/index.tsx',
     output: {
-        filename: 'bundle.js'
+      path: path.resolve(__dirname, 'build'),
+      filename: 'static/js/[name].bundle.js',
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js', '.jsx'],
+        extensions: ['.tsx', '.ts', '.js', '.jsx', '.scss', '.css'],
         fallback: {
           path: require.resolve('path-browserify')
         },
