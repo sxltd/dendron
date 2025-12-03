@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack')
 
 module.exports = {
     mode: 'development',
@@ -15,7 +16,8 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.jsx', '.scss', '.css'],
         fallback: {
-          path: require.resolve('path-browserify')
+          path: require.resolve('path-browserify'),
+          process: require.resolve('process/browser')
         },
         alias: {
           'cytoscape/dist/cytoscape.umd.js': require.resolve('cytoscape')
@@ -64,6 +66,9 @@ module.exports = {
     plugins: [
       new MiniCssExtractPlugin({
         filename: 'static/css/[name].styles.css'
+      }),
+      new webpack.ProvidePlugin({
+        process: 'process/browser'
       })
     ]
 };
