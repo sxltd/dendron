@@ -26,3 +26,5 @@ public/*.css
 public/index.html
 # migrated from packages/dendron-cli/src/utils/build.ts
 src/styles/scss/
+
+dist/
