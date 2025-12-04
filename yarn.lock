@@ -6998,22 +6998,21 @@ __metadata:
     "@sxltd/common-server": "workspace:*"
     "@sxltd/engine-server": "workspace:*"
     "@sxltd/nodep-test-utils": "workspace:*"
-    "@sxltd/unified": "workspace:*"
     "@types/cors": ^2.8.10
     "@types/express": ^4.17.8
     "@types/fs-extra": ^9.0.1
     "@types/lodash": ^4.14.161
     "@types/morgan": ^1.9.1
     "@types/node": 13.11.0
+    axios: ^0.21.4
     cors: ^2.8.5
+    execa: ^5.0.0
     express: ^4.17.1
     express-async-handler: ^1.1.4
     fs-extra: ^9.0.1
-    klaw: ^3.0.0
     lodash: ^4.17.20
     morgan: ^1.10.0
     nodemon: ^2.0.4
-    querystring: ^0.2.1
     ts-node: ^8.10.2
     typescript: ^5.9.3
   languageName: unknown
@@ -31345,7 +31344,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"querystring@npm:^0.2.0, querystring@npm:^0.2.1":
+"querystring@npm:^0.2.0":
   version: 0.2.1
   resolution: "querystring@npm:0.2.1"
   checksum: 7b83b45d641e75fd39cd6625ddfd44e7618e741c61e95281b57bbae8fde0afcc12cf851924559e5cc1ef9baa3b1e06e22b164ea1397d65dd94b801f678d9c8ce
