@@ -6976,7 +6976,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sxltd/airtable@npm:^0.11.1":
+"@sxltd/airtable@npm:0.11.1, @sxltd/airtable@npm:^0.11.1":
   version: 0.11.1
   resolution: "@sxltd/airtable@npm:0.11.1"
   dependencies:
@@ -7160,6 +7160,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sxltd/dendron-cli@workspace:packages/dendron-cli"
   dependencies:
+    "@sxltd/airtable": 0.11.1
     "@sxltd/api-server": "workspace:*"
     "@sxltd/common-all": "workspace:*"
     "@sxltd/common-server": "workspace:*"
@@ -7178,9 +7179,6 @@ __metadata:
     ora: 5.4.1
     prompts: ^2.4.2
     ts-json-schema-generator: ^0.95.0
-    ts-node: ^7.0.1
-    tslint: ^5.11.0
-    tslint-config-prettier: ^1.15.0
     typescript: ^5.9.3
     yargs: ^15.4.1
   bin:
@@ -12211,7 +12209,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buffer-from@npm:^1.0.0, buffer-from@npm:^1.1.0":
+"buffer-from@npm:^1.0.0":
   version: 1.1.2
   resolution: "buffer-from@npm:1.1.2"
   checksum: 0448524a562b37d4d7ed9efd91685a5b77a50672c556ea254ac9a6d30e3403a517d8981f10e565db24e8339413b43c97ca2951f10e399c6125a0d8911f5679bb
@@ -16310,7 +16308,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"diff@npm:3.5.0, diff@npm:^3.1.0, diff@npm:^3.5.0":
+"diff@npm:3.5.0, diff@npm:^3.5.0":
   version: 3.5.0
   resolution: "diff@npm:3.5.0"
   checksum: 00842950a6551e26ce495bdbce11047e31667deea546527902661f25cc2e73358967ebc78cf86b1a9736ec3e14286433225f9970678155753a6291c3bca5227b
@@ -37111,24 +37109,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "ts-node@npm:7.0.1"
-  dependencies:
-    arrify: ^1.0.0
-    buffer-from: ^1.1.0
-    diff: ^3.1.0
-    make-error: ^1.1.1
-    minimist: ^1.2.0
-    mkdirp: ^0.5.1
-    source-map-support: ^0.5.6
-    yn: ^2.0.0
-  bin:
-    ts-node: dist/bin.js
-  checksum: 07ed6ea1805361828737a767cfd6c57ea6e267ee8679282afb933610af02405e1a87c1f2aea1d38ed8e66b34fcbf6272b6021ab95d78849105d2e57fc283870b
-  languageName: node
-  linkType: hard
-
 "ts-node@npm:^8.10.2":
   version: 8.10.2
   resolution: "ts-node@npm:8.10.2"
@@ -40435,13 +40415,6 @@ __metadata:
   version: 3.1.1
   resolution: "yn@npm:3.1.1"
   checksum: 2c487b0e149e746ef48cda9f8bad10fc83693cd69d7f9dcd8be4214e985de33a29c9e24f3c0d6bcf2288427040a8947406ab27f7af67ee9456e6b84854f02dd6
-  languageName: node
-  linkType: hard
-
-"yn@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "yn@npm:2.0.0"
-  checksum: 9d49527cb3e9a0948cc057223810bf30607bf04b9ff7666cc1681a6501d660b60d90000c16f9e29311b0f28d8a06222ada565ccdca5f1049cdfefb1908217572
   languageName: node
   linkType: hard
 
