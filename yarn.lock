@@ -7161,16 +7161,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sxltd/conventional-changelog-dendron@npm:^5.0.11":
-  version: 5.0.11
-  resolution: "@sxltd/conventional-changelog-dendron@npm:5.0.11"
-  dependencies:
-    compare-func: ^2.0.0
-    q: ^1.5.1
-  checksum: 9928315555e9881d024be1568df4caebe5182acc3455b4ed6dfb83fb7a4081ecd028cbe9376af418bcf41c64e4a4c31137bf768e7209f080a13a5711fb2f5fcf
-  languageName: node
-  linkType: hard
-
 "@sxltd/dendron-cli@workspace:*, @sxltd/dendron-cli@workspace:packages/dendron-cli":
   version: 0.0.0-use.local
   resolution: "@sxltd/dendron-cli@workspace:packages/dendron-cli"
@@ -33808,7 +33798,6 @@ __metadata:
     "@babel/helper-string-parser": ^7.22.5
     "@babel/preset-typescript": 7.16.7
     "@babel/types": 7.17.10
-    "@sxltd/conventional-changelog-dendron": ^5.0.11
     "@typescript-eslint/eslint-plugin": ^5.39.0
     "@typescript-eslint/parser": ^5.39.0
     chalk: ^4.1.1
