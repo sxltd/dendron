@@ -46,7 +46,7 @@
     "qs": "^6.10.1",
     "semver": "^7.3.2",
     "spark-md5": "^3.0.2",
-    "title": "^3.4.4",
+    "title": "^4.0.0",
     "vscode-uri": "^3.0.3",
     "zod": "3.19.1",
     "zod-validation-error": "^0.1.1"

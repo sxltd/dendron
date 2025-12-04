@@ -69,6 +69,14 @@ module.exports = {
       }),
       new webpack.ProvidePlugin({
         process: 'process/browser'
+      }),
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+        'process.env.STAGE': JSON.stringify(process.env.STAGE || 'dev'),
+        'process.env.REACT_APP_STAGE': JSON.stringify(process.env.REACT_APP_STAGE || 'dev'),
+        'process.env.BUILD_STAGE': JSON.stringify(process.env.BUILD_STAGE),
+        'process.env.GITHUB_ACTIONS': JSON.stringify(process.env.GITHUB_ACTIONS),
+        'process.env.stage': JSON.stringify(process.env.stage)
       })
     ]
 };
