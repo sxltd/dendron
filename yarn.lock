@@ -7086,9 +7086,7 @@ __metadata:
     "@types/react": ^17.0.5
     "@types/redux-logger": ^3.0.9
     lodash: ^4.17.20
-    querystring: ^0.2.1
     react: ^17.0.2
-    react-dom: ^17.0.2
     react-redux: ^7.2.3
     redux-logger: ^3.0.6
     typescript: ^5.9.3
