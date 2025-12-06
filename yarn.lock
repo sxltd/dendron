@@ -7645,9 +7645,14 @@ __metadata:
     remark-variables: ^1.4.9
     typescript: ^5.9.3
     unified: ^9.2.2
+    unist: ^0.0.1
+    unist-builder: ^2.0.0
     unist-util-select: ^3.0.1
     unist-util-visit: ^2.0.3
+    unist-util-visit-parents: ^3.0.0
+    vfile: ^4.0.0
     vscode-uri: 3.0.3
+    yaml-unist-parser: ^1.3.1
   languageName: unknown
   linkType: soft
 
@@ -38090,6 +38095,13 @@ __metadata:
   dependencies:
     unist-util-visit-parents: ^2.0.0
   checksum: e9395205b6908c8d0fe71bc44e65d89d4781d1bb2d453a33cb67ed4124bad0b89d6b1d526ebaecb82a7c48e211bdf6f24351449b8cc115327b345f4617c18728
+  languageName: node
+  linkType: hard
+
+"unist@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "unist@npm:0.0.1"
+  checksum: a72ee608cf025fae2776951bc44ab176f221c8f606b2417fe7581390a7b09cdb812c87c36b5df17ae917cbc0a3df910e26e05df718c0d20ade1b93664725b0fb
   languageName: node
   linkType: hard
 
