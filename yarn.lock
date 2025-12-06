@@ -7614,8 +7614,6 @@ __metadata:
     hast-util-select: ^4.0.0
     mdast: ^3.0.0
     mdast-builder: ^1.1.1
-    mdast-util-compact: ^2.0.1
-    mdast-util-inject: ^1.1.0
     rehype-autolink-headings: ^5.0.1
     rehype-katex: 5
     rehype-raw: ^5.0.0
@@ -7623,19 +7621,14 @@ __metadata:
     rehype-stringify: ^8.0.0
     remark: ^12.0.1
     remark-abbr: ^1.4.0
-    remark-containers: ^1.2.0
     remark-footnotes: 2
     remark-frontmatter: ^2.0.0
     remark-math: 3
     remark-parse: ^8.0.3
     remark-rehype: ^8.0.0
-    remark-stringify: ^9.0.1
-    remark-toc: ^7.0.0
     remark-variables: ^1.4.9
-    remark-wiki-link: ^0.0.4
     typescript: ^5.9.3
     unified: ^9.2.2
-    unified-engine: ^8.0.0
     unist-util-select: ^3.0.1
     unist-util-visit: ^2.0.3
     vscode-uri: 3.0.3
