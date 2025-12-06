@@ -4600,6 +4600,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mapbox/rehype-prism@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "@mapbox/rehype-prism@npm:0.9.0"
+  dependencies:
+    hast-util-to-string: ^1.0.4
+    refractor: ^3.4.0
+    unist-util-visit: ^2.0.3
+  checksum: faf2d814e2a5907fb2669e205f3a8d243211554b664d88f80fa28082c4b8f1c39f57f6bc415b6fd1bab8892413d20ed806e4893ebe2c95ced0dc721cdbb48077
+  languageName: node
+  linkType: hard
+
 "@mdx-js/mdx@npm:^1.6.22":
   version: 1.6.22
   resolution: "@mdx-js/mdx@npm:1.6.22"
@@ -7606,14 +7617,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sxltd/unified@workspace:packages/unified"
   dependencies:
+    "@mapbox/rehype-prism": ^0.9.0
     "@sxltd/common-all": "workspace:*"
     "@sxltd/remark-mermaid": ^0.4.0
     "@types/mdast": ^3.0.10
     "@types/unist": ^2.0.6
+    hast: ^1.0.0
     hast-util-parse-selector: ^2.2.4
     hast-util-select: ^4.0.0
+    js-yaml: ^4.1.1
+    lodash: ^4.17.21
     mdast: ^3.0.0
     mdast-builder: ^1.1.1
+    mdast-util-to-string: ^2.0.0
     rehype-autolink-headings: ^5.0.1
     rehype-katex: 5
     rehype-raw: ^5.0.0
@@ -20944,7 +20960,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hast-util-to-string@npm:^1.0.0, hast-util-to-string@npm:^1.0.3":
+"hast-util-to-string@npm:^1.0.0, hast-util-to-string@npm:^1.0.3, hast-util-to-string@npm:^1.0.4":
   version: 1.0.4
   resolution: "hast-util-to-string@npm:1.0.4"
   checksum: 8132508d5c08d542b64979ad558e474f481011c29d5fce9b1a1fe779fc97e151b734b5c6d94f4937c4ec978b1d641977ee7f9f5ed61ea0611600764abdff7cbb
@@ -20966,6 +20982,13 @@ __metadata:
   version: 1.0.4
   resolution: "hast-util-whitespace@npm:1.0.4"
   checksum: b7f4a1942bc78239a6fe4741aca34e3e7f84487e15e2cd2b6ca07bbba3055571763d877d7c077d7a2a029ede7500bc50a62af7b6dfe88e0644b16228b91dee0d
+  languageName: node
+  linkType: hard
+
+"hast@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "hast@npm:1.0.0"
+  checksum: 3891e00e634172029d92fd49cc3b62ad99b1e6e8833ea626ca5ffe1c5c631a9a52c439e296c7e2984ddcf23b04c8dd1f57fda251996081ccb3dca9ec38cff730
   languageName: node
   linkType: hard
 
@@ -24310,6 +24333,17 @@ __metadata:
   bin:
     js-yaml: bin/js-yaml.js
   checksum: c7830dfd456c3ef2c6e355cc5a92e6700ceafa1d14bba54497b34a99f0376cecbb3e9ac14d3e5849b426d5a5140709a66237a8c991c675431271c4ce5504151a
+  languageName: node
+  linkType: hard
+
+"js-yaml@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "js-yaml@npm:4.1.1"
+  dependencies:
+    argparse: ^2.0.1
+  bin:
+    js-yaml: bin/js-yaml.js
+  checksum: ea2339c6930fe048ec31b007b3c90be2714ab3e7defcc2c27ebf30c74fd940358f29070b4345af0019ef151875bf3bc3f8644bea1bab0372652b5044813ac02d
   languageName: node
   linkType: hard
 
@@ -32794,7 +32828,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"refractor@npm:^3.0.0":
+"refractor@npm:^3.0.0, refractor@npm:^3.4.0":
   version: 3.6.0
   resolution: "refractor@npm:3.6.0"
   dependencies:
