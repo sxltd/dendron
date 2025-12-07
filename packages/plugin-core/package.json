@@ -1532,6 +1532,7 @@
     "@sxltd/common-server": "workspace:*",
     "@sxltd/engine-server": "workspace:*",
     "@sxltd/pods-core": "workspace:*",
+    "@sxltd/unified": "workspace:*",
     "anymatch": "^3.1.2",
     "comment-json": "4.2.0",
     "constants-browserify": "~1.0.0",
@@ -1540,6 +1541,7 @@
     "domain-browser": "^1.2.0",
     "execa": "4.0.2",
     "fs-extra": "9.1.0",
+    "https-browserify": "^1.0.0",
     "is-url": "1.2.4",
     "js-yaml": "^4.1.0",
     "lodash": "4.17.15",
@@ -1556,6 +1558,7 @@
     "stream-http": "3.2.0",
     "string-similarity": "4.0.4",
     "unist-util-visit": "2.0.3",
+    "vscode-jsonrpc": "8.2.0",
     "vscode-uri": "3.0.3"
   },
   "repository": {
