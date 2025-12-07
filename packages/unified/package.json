@@ -64,6 +64,7 @@
   },
   "devDependencies": {
     "@types/mdast": "^3.0.10",
+    "@types/remark-abbr": "^1.4.0",
     "@types/unist": "^2.0.6",
     "typescript": "^5.9.3"
   },

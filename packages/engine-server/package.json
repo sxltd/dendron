@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@jcoreio/async-throttle": "^1.4.3",
+    "@prisma/client": "4.16.2",
     "@sxltd/common-all": "workspace:*",
     "@sxltd/common-server": "workspace:*",
     "@sxltd/unified": "workspace:*",
@@ -47,26 +48,13 @@
     "vscode-uri": "3.0.3"
   },
   "devDependencies": {
-    "@prisma/client": "^4.1.1",
     "@types/execa": "^2.0.0",
     "@types/fs-extra": "^9.0.1",
-    "@types/klaw": "^3.0.1",
     "@types/lodash": "^4.14.156",
-    "@types/lru-cache": "^5.1.1",
     "@types/mdast": "^3.0.3",
     "@types/node": "13.11.0",
-    "@types/pino": "^6.3.0",
-    "@types/remark-abbr": "^1.4.0",
-    "@types/spark-md5": "^3.0.2",
-    "@types/sqlite3": "^3.1.8",
-    "@types/through2": "^2.0.36",
     "@types/unist": "^2.0.3",
-    "coveralls": "^3.0.2",
-    "cross-env": "^7.0.2",
     "prisma": "^4.1.1",
-    "ts-node": "^8.10.2",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.15.0",
     "typescript": "^5.9.3"
   },
   "engines": {
