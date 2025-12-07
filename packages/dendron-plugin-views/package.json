@@ -17,11 +17,6 @@
     "@sxltd/common-server": "workspace:*",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
-    "@types/cytoscape": "^3.19.4",
-    "@types/cytoscape-popper": "^2.0.0",
-    "@types/jest": "^26.0.15",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
     "antd": "^4.21.4",
     "babel-jest": "^26.6.0",
     "babel-loader": "8.1.0",
@@ -170,8 +165,13 @@
     ]
   },
   "devDependencies": {
+    "@types/cytoscape": "^3.19.4",
+    "@types/cytoscape-popper": "^2.0.0",
+    "@types/jest": "^26.0.15",
     "@types/lodash": "^4.14.176",
     "@types/mermaid": "^8.2.9",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "cross-env": "^7.0.3",
     "rimraf": "^3.0.2"
   }
