@@ -6815,10 +6815,8 @@ __metadata:
     jsdom: ^27.2.0
     react: ^17.0.2
     react-dom: ^17.0.2
-    react-is: ^17.0.2
     size-limit: ^4.10.2
     storybook-addon-performance: ^0.15.2
-    tslib: ^2.1.0
     typescript: ^4.2.3
   peerDependencies:
     react: ">=16"
