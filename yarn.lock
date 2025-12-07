@@ -6895,6 +6895,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sxltd/plugin-core@workspace:packages/plugin-core"
   dependencies:
+    "@sxltd/airtable": ^0.11.1
     "@sxltd/api-server": "workspace:*"
     "@sxltd/common-all": "workspace:*"
     "@sxltd/common-server": "workspace:*"
@@ -6918,16 +6919,22 @@ __metadata:
     "@types/vscode": 1.82.0
     "@types/webpack-env": ^1.17.0
     "@vscode/test-web": ^0.0.27
+    anymatch: ^3.1.2
     circular-dependency-plugin: ^5.2.2
+    comment-json: 4.2.0
+    constants-browserify: ~1.0.0
     copy-webpack-plugin: ^9.0.1
     cross-env: ^7.0.3
     cross-path-sort: 1.0.0
+    crypto-browserify: ^3.0.0
     crypto-randomuuid: ^1.0.0
+    domain-browser: ^1.2.0
     execa: 4.0.2
     fs-extra: 9.1.0
     glob: ^7.1.6
     ignore-loader: ^0.1.2
     is-url: 1.2.4
+    js-yaml: ^4.1.0
     lodash: 4.17.15
     luxon: 1.25.0
     markdown-it: 11.0.0
@@ -6936,6 +6943,7 @@ __metadata:
     node-pre-gyp: ^0.17.0
     open: 8.2.1
     open-graph-scraper: 4.7.1
+    os-browserify: ^0.3.0
     ovsx: ^0.5.1
     path-browserify: 1.0.1
     query-string: 7.0.1
@@ -6943,6 +6951,7 @@ __metadata:
     rimraf: ^3.0.2
     semver: 7.3.2
     source-map-loader: ^3.0.0
+    spark-md5: ^3.0.2
     stream-browserify: 3.0.0
     stream-http: 3.2.0
     string-similarity: 4.0.4
