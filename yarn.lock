@@ -6837,13 +6837,11 @@ __metadata:
     "@sxltd/common-server": "workspace:*"
     "@testing-library/jest-dom": ^5.11.4
     "@testing-library/react": ^11.1.0
-    "@testing-library/user-event": ^12.1.10
     "@types/cytoscape": ^3.19.4
     "@types/cytoscape-popper": ^2.0.0
     "@types/jest": ^26.0.15
     "@types/lodash": ^4.14.176
     "@types/mermaid": ^8.2.9
-    "@types/node": ^12.0.0
     "@types/react": ^17.0.0
     "@types/react-dom": ^17.0.0
     antd: ^4.21.4
@@ -6888,10 +6886,8 @@ __metadata:
     postcss-normalize: 8.0.1
     postcss-preset-env: 6.7.0
     postcss-safe-parser: 5.0.2
-    prompts: 2.4.0
     react: ^17.0.2
     react-app-polyfill: ^2.0.0
-    react-css-theme-switcher: ^0.3.0
     react-dev-utils: ^11.0.3
     react-dom: ^17.0.2
     react-refresh: ^0.8.3
@@ -6905,7 +6901,6 @@ __metadata:
     terser-webpack-plugin: 4.2.3
     tippy.js: ^6.3.7
     ts-pnp: 1.2.0
-    typescript: ^4.1.2
     url-loader: 4.1.1
     web-vitals: ^1.0.1
     webpack: 4.44.2
@@ -7256,17 +7251,6 @@ __metadata:
     react: "*"
     react-dom: "*"
   checksum: 64e07cb96e40dbdbd3c46a09c47bed14446b30efafaa65a5d4fed5a7553878990cda108578f2b114422a775f31c635d51fd50b752f6163ddd6b8474e0e5fc2ce
-  languageName: node
-  linkType: hard
-
-"@testing-library/user-event@npm:^12.1.10":
-  version: 12.8.3
-  resolution: "@testing-library/user-event@npm:12.8.3"
-  dependencies:
-    "@babel/runtime": ^7.12.5
-  peerDependencies:
-    "@testing-library/dom": ">=7.21.4"
-  checksum: c9fb5ee07cbe79ddf32d81e1a353e556d02a1f1619456ccfad6abcdf1b7db400fdc9d7a8e0be3994f456e7135a0dfb7fa10b29fb98a0f5fc417b99fce0ce8166
   languageName: node
   linkType: hard
 
@@ -7988,13 +7972,6 @@ __metadata:
   version: 14.18.63
   resolution: "@types/node@npm:14.18.63"
   checksum: be909061a54931778c71c49dc562586c32f909c4b6197e3d71e6dac726d8bd9fccb9f599c0df99f52742b68153712b5097c0f00cac4e279fa894b0ea6719a8fd
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^12.0.0":
-  version: 12.20.55
-  resolution: "@types/node@npm:12.20.55"
-  checksum: e4f86785f4092706e0d3b0edff8dca5a13b45627e4b36700acd8dfe6ad53db71928c8dee914d4276c7fd3b6ccd829aa919811c9eb708a2c8e4c6eb3701178c37
   languageName: node
   linkType: hard
 
@@ -35214,7 +35191,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.1.2, typescript@npm:^4.2.3, typescript@npm:^4.4.3":
+"typescript@npm:^4.2.3, typescript@npm:^4.4.3":
   version: 4.9.5
   resolution: "typescript@npm:4.9.5"
   bin:
@@ -35254,7 +35231,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.1.2#~builtin<compat/typescript>, typescript@patch:typescript@^4.2.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.2.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>":
   version: 4.9.5
   resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"
   bin:
