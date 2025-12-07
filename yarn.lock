@@ -6797,7 +6797,9 @@ __metadata:
   resolution: "@sxltd/dendron-design-system@workspace:packages/dendron-design-system"
   dependencies:
     "@babel/core": ^7.13.14
+    "@chakra-ui/image": 1.1.10
     "@chakra-ui/react": ^1.4.2
+    "@chakra-ui/system": 1.12.1
     "@emotion/react": ^11
     "@emotion/styled": ^11
     "@fontsource/montserrat": ^4.2.2
