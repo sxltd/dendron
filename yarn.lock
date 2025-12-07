@@ -6687,6 +6687,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sxltd/dendron-plugin-views@workspace:packages/dendron-plugin-views"
   dependencies:
+    "@ant-design/icons": ^4.8.2
     "@babel/core": 7.12.3
     "@pmmmwh/react-refresh-webpack-plugin": 0.4.3
     "@sxltd/common-all": "workspace:*"
@@ -6709,6 +6710,7 @@ __metadata:
     bfj: ^7.0.2
     camelcase: ^6.1.0
     case-sensitive-paths-webpack-plugin: 2.3.0
+    classnames: 2.5.1
     cross-env: ^7.0.3
     css-loader: 4.3.0
     cytoscape: 3.19.0
@@ -6716,6 +6718,7 @@ __metadata:
     cytoscape-popper: ^2.0.0
     dotenv: 8.2.0
     dotenv-expand: 5.1.0
+    eslint: ^7.32.0
     eslint-config-react-app: ^6.0.0
     eslint-plugin-flowtype: ^5.2.0
     eslint-plugin-import: ^2.22.1
@@ -6733,6 +6736,7 @@ __metadata:
     jest-resolve: 26.6.0
     jest-watch-typeahead: 0.6.1
     lodash: ^4.17.21
+    luxon: ^1.25.0
     mermaid: ^9.1.2
     mini-css-extract-plugin: 0.11.3
     optimize-css-assets-webpack-plugin: 5.0.4
@@ -6742,6 +6746,7 @@ __metadata:
     postcss-normalize: 8.0.1
     postcss-preset-env: 6.7.0
     postcss-safe-parser: 5.0.2
+    rc-picker: 2.7.6
     react: ^17.0.2
     react-app-polyfill: ^2.0.0
     react-dev-utils: ^11.0.3
@@ -12225,7 +12230,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"classnames@npm:2.x, classnames@npm:^2.2.1, classnames@npm:^2.2.3, classnames@npm:^2.2.5, classnames@npm:^2.2.6, classnames@npm:^2.3.1, classnames@npm:^2.3.2":
+"classnames@npm:2.5.1, classnames@npm:2.x, classnames@npm:^2.2.1, classnames@npm:^2.2.3, classnames@npm:^2.2.5, classnames@npm:^2.2.6, classnames@npm:^2.3.1, classnames@npm:^2.3.2":
   version: 2.5.1
   resolution: "classnames@npm:2.5.1"
   checksum: da424a8a6f3a96a2e87d01a432ba19315503294ac7e025f9fece656db6b6a0f7b5003bb1fbb51cbb0d9624d964f1b9bb35a51c73af9b2434c7b292c42231c1e5
@@ -29745,7 +29750,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rc-picker@npm:~2.7.6":
+"rc-picker@npm:2.7.6, rc-picker@npm:~2.7.6":
   version: 2.7.6
   resolution: "rc-picker@npm:2.7.6"
   dependencies:
