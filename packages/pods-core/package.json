@@ -39,7 +39,6 @@
     "@types/lodash": "^4.14.161",
     "@types/node": "13.11.0",
     "@types/through2": "^2.0.36",
-    "ts-node": "^8.10.2",
     "typescript": "^5.9.3"
   },
   "engines": {
@@ -57,11 +56,10 @@
     "@sxltd/common-server": "workspace:*",
     "@sxltd/engine-server": "workspace:*",
     "@sxltd/unified": "workspace:*",
-    "@types/airtable": "^0.10.1",
-    "airtable": "^0.11.1",
     "ajv": "^8.6.0",
     "ajv-formats": "^2.1.0",
     "async": "^3.2.4",
+    "axios": "^0.21.1",
     "csv-writer": "^1.6.0",
     "emailjs": "^3.4.0",
     "form-data": "^4.0.0",

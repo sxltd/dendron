@@ -7512,7 +7512,6 @@ __metadata:
     "@sxltd/common-server": "workspace:*"
     "@sxltd/engine-server": "workspace:*"
     "@sxltd/unified": "workspace:*"
-    "@types/airtable": ^0.10.1
     "@types/async": ^3.2.15
     "@types/form-data": ^2.5.0
     "@types/fs-extra": ^9.0.1
@@ -7520,10 +7519,10 @@ __metadata:
     "@types/lodash": ^4.14.161
     "@types/node": 13.11.0
     "@types/through2": ^2.0.36
-    airtable: ^0.11.1
     ajv: ^8.6.0
     ajv-formats: ^2.1.0
     async: ^3.2.4
+    axios: ^0.21.1
     csv-writer: ^1.6.0
     emailjs: ^3.4.0
     form-data: ^4.0.0
@@ -7534,7 +7533,6 @@ __metadata:
     limiter: ^2.1.0
     lodash: ^4.17.20
     through2: ^4.0.2
-    ts-node: ^8.10.2
     typescript: ^5.9.3
     vscode-uri: ^2.1.2
   languageName: unknown
@@ -7677,15 +7675,6 @@ __metadata:
   version: 0.2.0
   resolution: "@trysound/sax@npm:0.2.0"
   checksum: 11226c39b52b391719a2a92e10183e4260d9651f86edced166da1d95f39a0a1eaa470e44d14ac685ccd6d3df7e2002433782872c0feeb260d61e80f21250e65c
-  languageName: node
-  linkType: hard
-
-"@types/airtable@npm:^0.10.1":
-  version: 0.10.5
-  resolution: "@types/airtable@npm:0.10.5"
-  dependencies:
-    airtable: "*"
-  checksum: 25994acb28c32e62fa58709db043583632b2e8f04cacdac02008e7d6e230b6aa58185be6dc8397cd6fca0ff5ad63a75580b1746334cf6fca11d578b1af30a43c
   languageName: node
   linkType: hard
 
@@ -9902,32 +9891,6 @@ __metadata:
     string.prototype.padstart: ^3.0.0
     symbol.prototype.description: ^1.0.0
   checksum: bdd96e4cac75a8a942fb93cb8b7150573363a9fb40ab8528997bc067f24ae83d3031165635075b1326e463dcf840cc036b2ceb554563e75a38faf0ca288407a3
-  languageName: node
-  linkType: hard
-
-"airtable@npm:*":
-  version: 0.12.2
-  resolution: "airtable@npm:0.12.2"
-  dependencies:
-    "@types/node": ">=8.0.0 <15"
-    abort-controller: ^3.0.0
-    abortcontroller-polyfill: ^1.4.0
-    lodash: ^4.17.21
-    node-fetch: ^2.6.7
-  checksum: 72e2e0d8e5e088dbb073f9fd1e7794e55af3b7d1074aefaffe537179f071e13be525d5e1c3bc59195d8dee2b4069ee34bd7f0ca765ad561d59ec28a76c097ef7
-  languageName: node
-  linkType: hard
-
-"airtable@npm:^0.11.1":
-  version: 0.11.6
-  resolution: "airtable@npm:0.11.6"
-  dependencies:
-    "@types/node": ">=8.0.0 <15"
-    abort-controller: ^3.0.0
-    abortcontroller-polyfill: ^1.4.0
-    lodash: ^4.17.21
-    node-fetch: ^2.6.7
-  checksum: 758d3109914b09d2216645d10b7cff3a2a7f1821184e71dc012407b034174a1b3ada26206ea4a9eaf586a5da05178ee4ca0c76b71630c858e998e4f4d1208942
   languageName: node
   linkType: hard
 
@@ -19033,7 +18996,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:9.1.0, fs-extra@npm:^9.0.0, fs-extra@npm:^9.0.1, fs-extra@npm:^9.1.0":
+"fs-extra@npm:9.1.0, fs-extra@npm:^9.0.0, fs-extra@npm:^9.0.1":
   version: 9.1.0
   resolution: "fs-extra@npm:9.1.0"
   dependencies:
@@ -19333,9 +19296,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "generator-dendron@workspace:packages/generator-dendron"
   dependencies:
-    "@types/fs-extra": ^9.0.1
     "@types/yeoman-generator": ^4.11.3
-    fs-extra: ^9.1.0
     yeoman-generator: ^3.1.1
   languageName: unknown
   linkType: soft
