@@ -54,8 +54,12 @@
     "@types/mdast": "^3.0.3",
     "@types/node": "13.11.0",
     "@types/unist": "^2.0.3",
+    "js-yaml": "^4.1.0",
+    "luxon": "^1.25.0",
     "prisma": "^4.1.1",
-    "typescript": "^5.9.3"
+    "semver": "^7.3.4",
+    "typescript": "^5.9.3",
+    "unist": "^0.0.1"
   },
   "engines": {
     "node": ">=18.0.0"
