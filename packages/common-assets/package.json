@@ -1,7 +1,7 @@
 {
   "name": "@sxltd/common-assets",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "index.js",
   "license": "Apache 2.0",
   "scripts": {
@@ -19,6 +19,9 @@
     "less-plugin-npm-import": "2.1.0"
   },
   "dependencies": {
-    "postcss": "8.2.13"
+    "fs-extra": "^9.0.1",
+    "lodash": "^4.17.21",
+    "postcss": "8.2.13",
+    "sass": "^1.94.1"
   }
 }

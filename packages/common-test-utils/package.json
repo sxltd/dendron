@@ -1,7 +1,7 @@
 {
   "name": "@sxltd/common-test-utils",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "license": "Apache 2.0",
   "repository": {
@@ -30,7 +30,6 @@
     "@types/fs-extra": "^9.0.1",
     "@types/lodash": "^4.14.161",
     "@types/node": "13.11.0",
-    "ts-node": "^8.10.2",
     "typescript": "^5.9.3"
   },
   "engines": {
@@ -45,7 +44,6 @@
     "@sxltd/pods-core": "workspace:*",
     "@types/sinon": "^9.0.9",
     "fs-extra": "^9.0.1",
-    "jest": "^28.1.0",
     "lodash": "^4.17.20",
     "sinon": "16.1.3"
   },

@@ -60,7 +60,6 @@
     "@babel/helper-string-parser": "^7.22.5",
     "@babel/preset-typescript": "7.16.7",
     "@babel/types": "7.17.10",
-    "@sxltd/conventional-changelog-dendron": "^5.0.11",
     "chalk": "^4.1.1",
     "cross-env": "^7.0.3",
     "execa": "^5.0.0",
