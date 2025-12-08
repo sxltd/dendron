@@ -6713,7 +6713,7 @@ __metadata:
     classnames: 2.5.1
     cross-env: ^7.0.3
     css-loader: 4.3.0
-    cytoscape: 3.19.0
+    cytoscape: ^3.23.0
     cytoscape-euler: ^1.2.2
     cytoscape-popper: ^2.0.0
     dotenv: 8.2.0
@@ -13890,16 +13890,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cytoscape@npm:3.19.0":
-  version: 3.19.0
-  resolution: "cytoscape@npm:3.19.0"
-  dependencies:
-    heap: ^0.2.6
-    lodash.debounce: ^4.0.8
-  checksum: 00935c8aa81636a94d7bbf1b33320a1301874c3b7cf26f263dccbb0bea2300751cc8a84fa472cf4c01937bc80f03513b1635552c50f250ec63c7224388497d1c
-  languageName: node
-  linkType: hard
-
 "cytoscape@npm:^3.23.0":
   version: 3.33.1
   resolution: "cytoscape@npm:3.33.1"
@@ -19689,13 +19679,6 @@ __metadata:
   bin:
     he: bin/he
   checksum: 3d4d6babccccd79c5c5a3f929a68af33360d6445587d628087f39a965079d84f18ce9c3d3f917ee1e3978916fc833bb8b29377c3b403f919426f91bc6965e7a7
-  languageName: node
-  linkType: hard
-
-"heap@npm:^0.2.6":
-  version: 0.2.7
-  resolution: "heap@npm:0.2.7"
-  checksum: b0f3963a799e02173f994c452921a777f2b895b710119df999736bfed7477235c2860c423d9aea18a9f3b3d065cb1114d605c208cfcb8d0ac550f97ec5d28cb0
   languageName: node
   linkType: hard
 

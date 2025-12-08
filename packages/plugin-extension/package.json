@@ -27,7 +27,7 @@
     "activationEvents": [
         "*"
     ],
-    "main": "./out/src/extension.js",
+    "main": "./dist/extension.js",
     "browser": "./dist/web/extension.js",
     "extensionPack": [
         "dendron.dendron-paste-image"
