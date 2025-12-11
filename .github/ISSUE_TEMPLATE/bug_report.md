@@ -18,8 +18,11 @@ Describe what's broken
 Any relevant context: when it last worked, related code/modules, error messages, etc. -->
 
 <!-- 
-## Fix Plan (optional)
 
-If you already know how this can be fixed, note it here (and please uncomment this section)
+(Please uncomment this section if you fill out this part)
+
+## Fix Plan
+
+If you already know how this can be fixed, note it here 
 
 -->
