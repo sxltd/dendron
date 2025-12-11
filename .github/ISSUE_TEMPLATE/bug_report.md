@@ -1,69 +1,28 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Report a bug
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
-<!--
- Do not Remove this block!
+## Description
 
- Select something by placing an 'x' or 'X' inside the brackets.
- Look here -> [triage](https://docs.dendron.so/notes/1e6c8b49-ef88-4e79-b2df-e9d614c38a53/)
- for help with choosing.
- Needed for Auto labeling:
- issue_labeler_regex_version=4
+<!-- 
+Describe what's broken 
+-->
 
- - [X] Bug
- - [ ] IsTriaged
- -->
+## Context
 
-## Please select the area your bug applies to. (Multiple selections are Possible. You can leave blank if you're not sure.)
+<!-- 
+Any relevant context: when it last worked, related code/modules, error messages, etc. -->
 
-- [ ] Workspace.  VSCode workspace, vaults, Intellisense/autocomplete, Dendron settings
-- [ ] Lookup.  Dendron's Lookup Command
-- [ ] Views.  Dendron Preview, Tree View, Side Panels in the UI
-- [ ] Schema.  Dendron Schemas
-- [ ] Pod.  Data import from / export to Dendron
-- [ ] Publish.  External Site Publish
-- [ ] Markdown.  Markdown features, such as syntax support and features
+<!-- 
 
-## Describe the bug
+(Please uncomment this section if you fill out this part)
 
-A clear and concise description of what the bug is.
+## Fix Plan
 
-## To Reproduce
+If you already know how this can be fixed, note it here 
 
-Steps to reproduce the behavior:
-
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
-
-## Expected behavior
-
-A clear and concise description of what you expected to happen.
-
-## Screenshots
-
-If applicable, add screenshots to help explain your problem.
-
-## Desktop (please complete the following information)
-
-- OS: [e.g. iOS]
-- Browser (if with published websites; include version): [e.g. chrome, safari]
-- Versions (all that apply to bug):
-  - Dendron Extension:
-  - VS Code version:
-  - Dendron CLI:
-
-## Additional context
-
-Add any other context about the problem here.
-
-## Dendron Log file
-
-Please attach the output of `> Dendron:Dev: Open Logs` here
+-->
