@@ -4,7 +4,14 @@ import { NoteTestUtilsV4 } from "@sxltd/common-test-utils";
 import { createEngineFromServer, runEngineTestV5, ENGINE_HOOKS  } from "@sxltd/engine-test-utils";
 
 describe("GIVEN syncNote", () => {
+  beforeEach(() => {
+    consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation();
+  });
+  
   afterEach(() => {
+    expect(consoleErrorSpy).not.toHaveBeenCalled();
+    consoleErrorSpy.mockRestore();
+
     combinedStore.dispatch(engineSlice.tearDown());
   });
 
