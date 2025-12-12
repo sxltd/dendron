@@ -32,7 +32,7 @@ export const initNotes = createAsyncThunk(
     });
     logger.info({ state: "pre:workspaceSync" });
     const resp = await api.workspaceSync({ ws });
-    const schemaQueryResp = await api.schemaQuery({ qs: "*" });
+    const schemaQueryResp = await api.schemaQuery({ ws, qs: "*" });
     logger.info({ state: "post:workspaceSync" });
     if (resp.error) {
       dispatch(setError(stringifyError(resp.error)));
