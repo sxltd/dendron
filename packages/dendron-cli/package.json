@@ -32,7 +32,7 @@
     "format": "echo nop",
     "lint": "echo stub",
     "prebuild": "yarn clean && yarn format && yarn lint && echo Using TypeScript && tsc --version",
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json && chmod +x ./lib/bin/dendron-cli.js",
     "watch": "yarn build --watch"
   },
   "dependencies": {
