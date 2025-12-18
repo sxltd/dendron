@@ -43,6 +43,7 @@ import { URI } from "vscode-uri";
 import { ExportPod, ExportPodConfig, ExportPodPlantOpts } from "../basev3";
 import { PodUtils } from "../utils";
 
+
 const ID = "dendron.nextjs";
 
 const TEMPLATE_REMOTE = "origin";
@@ -133,7 +134,13 @@ export class NextjsExportPodUtils {
   };
 
   static getNextRoot = (wsRoot: string) => {
-    return path.join(wsRoot, ".next");
+
+    if (path.isAbsolute(wsRoot)){
+      return path.join(wsRoot, ".next");
+    }
+    else{
+      return path.join(path.resolve(wsRoot), ".next");
+    }
   };
 
   static async nextPathExists(opts: { nextPath: string }) {

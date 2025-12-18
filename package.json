@@ -47,14 +47,11 @@
     "build:plugin": "yarn workspace dendron build:plugin",
     "clean": "yarn workspaces foreach -ptv --exclude @sxltd/nextjs-template --exclude root run clean",
     "test": "LOG_LEVEL=error jest",
-    "test:cli": "LOG_LEVEL=error jest --selectProjects non-plugin-tests --forceExit",
     "test:plugin": "xvfb-run yarn workspace @sxltd/plugin-core test",
     "test:cli:update-snapshots": "yarn test:cli -u",
-    "format": "lerna exec --parallel -- yarn format",
     "format:pkg": "prettier --write",
     "lint": "eslint . --ext ts,tsx",
-    "dendron": "node packages/dendron-cli/lib/bin/dendron-cli.js",
-    "lerna:typecheck": "lerna exec --parallel --ignore @sxltd/common-assets --ignore @sxltd/dendron-plugin-views -- tsc -p tsconfig.build.json --noEmit"
+    "dendron": "node -r ./jest.setup.js packages/dendron-cli/lib/bin/dendron-cli.js"
   },
   "dependencies": {
     "@babel/helper-string-parser": "^7.22.5",
