@@ -83,9 +83,6 @@ type ExportCmdOpts = DevCmdOpts & { target?: PublishTarget; yes?: boolean };
 export { CommandOpts as PublishCLICommandOpts };
 export { CommandCLIOpts as PublishCLICommandCLIOpts };
 
-const getNextRoot = (wsRoot: string) => {
-  return path.join(wsRoot, ".next");
-};
 
 const isBuildOverrideKey = (key: string): key is keyof BuildOverrides => {
   const allowedKeys = [
@@ -248,7 +245,7 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     const cli = new ExportPodCLICommand();
     // create config string
     const podConfig: NextjsExportConfig = {
-      dest: dest || getNextRoot(wsRoot),
+      dest: dest || NextjsExportPodUtils.getNextRoot(wsRoot),
     };
     const resp = await cli.enrichArgs({
       podId: NextjsExportPod.id,

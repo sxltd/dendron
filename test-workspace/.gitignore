@@ -8,3 +8,4 @@ pods/*
 .history
 .backup
 *.svg
+.next
