@@ -93,7 +93,8 @@
     "build:index": "node scripts/buildIndex.js",
     "test": "echo 0",
     "test-local": "node scripts/test.js",
-    "clean-old": "yarn rimraf build public/static public/*.css public/index.html node_modules || 0"
+    "clean-old": "yarn rimraf build public/static public/*.css public/index.html node_modules || 0",
+    "clean": "rm -rf build public/static"
   },
   "browserslist": {
     "production": [
