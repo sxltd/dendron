@@ -1,5 +1,6 @@
 import { SeedConfig, SEED_REGISTRY } from "@sxltd/common-all";
-import { Avatar, Card, Layout, List, PageHeader } from "antd";
+import { Avatar, Card, Layout, List } from "antd";
+import { PageHeader } from '@ant-design/pro-components';
 import _ from "lodash";
 import seedStyles from "../styles/scss/seeds.module.scss";
 import { DendronComponent } from "../types";

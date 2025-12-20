@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "antd/dist/antd.css";
 import {
   Layout,
   Input,

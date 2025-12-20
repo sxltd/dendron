@@ -12,7 +12,6 @@ import {
 import { debounce } from "lodash";
 import { useState } from "react";
 import { Config } from "../utils/dendronConfig";
-import "antd/dist/antd.css";
 import { DeleteOutlined } from "@ant-design/icons";
 import { postVSCodeMessage } from "../utils/vscode";
 import {
