@@ -1447,7 +1447,8 @@
         "copy:dirs": "rm -rf dist media templates && mkdir dist media templates && cp -r ../plugin-core/dist/* ./dist/ && cp -r ../plugin-core/media/* ./media/ && cp -r ../plugin-core/templates/* ./templates/",
         "copy": "yarn copy:dirs && yarn copy:misc",
         "package": "vsce package --allow-star-activation --no-dependencies",
-        "build:plugin": "yarn prepack && yarn copy && yarn package"
+        "build:plugin": "yarn prepack && yarn copy && yarn package",
+        "clean": "rm -rf dist"
     },
     "devDependencies": {
         "@sxltd/common-test-utils": "workspace:*",
