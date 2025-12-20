@@ -1,3 +1,6 @@
+@use "./layout" as *;
+@use "../variables" as *;
+
 // Font size
 
 @mixin fs-1 {

@@ -1,4 +1,8 @@
 @charset "UTF-8";
+@use "./support/variables" as *;
+@use "./support/mixins/typography" as *;
+@use "./support/mixins/layout" as *;
+@use "./variables" as *;
 
 //
 // Styles for rendered markdown in the .main-content container
