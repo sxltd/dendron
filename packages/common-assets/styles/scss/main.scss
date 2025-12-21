@@ -1,24 +1,24 @@
 //
 // Base
 //
-@import "./support/support";
+@use "./support/support" as *;
 
 //
 // Modules
 //
-@import "./variables";
-@import "./base";
-@import "./content";
+@use "./variables" as *;
+@use "./base" as *;
+@use "./content" as *;
 // @import "variables.scss";
-@import "./typography";
-@import "./utilities/utilities";
+@use "./typography" as *;
+@use "./utilities/utilities" as *;
 
 // Portal Start
 $base-line-height: 1 !default;
 $spacing-unit: 30px !default;
 $text-color: #111 !default;
 // Portal end
-@import "portal.scss";
+@use "portal.scss" as *;
 
 // for task links, the decorations around the links
 .task-before {

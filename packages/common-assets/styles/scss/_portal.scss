@@ -1,4 +1,6 @@
 @use "sass:math";
+@use "sass:color";
+@use "./main" as *;
 
 // Clear normal iframe styles
 iframe {
@@ -109,7 +111,7 @@ iframe {
 // making quoted text look like a link.
 .portal-quote-text {
   background-color: #c2dfe3;
-  color: lighten($text-color, 15%);
+  color: color.scale($text-color, $lightness: 16.0714285714%);
 
   // This fixes hovers behaving wrong on safari when using an <a> tag to highlight
   &:hover {
