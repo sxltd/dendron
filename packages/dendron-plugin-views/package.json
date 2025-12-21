@@ -9,6 +9,7 @@
     ]
   },
   "dependencies": {
+    "@mermaid-js/mermaid-zenuml": "^0.2.2",
     "@sxltd/common-all": "workspace:*",
     "@sxltd/common-frontend": "workspace:*",
     "@sxltd/common-server": "workspace:*",
