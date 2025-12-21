@@ -4,7 +4,7 @@
   "displayName": "dendron",
   "description": "Dendron is a hierarchical note taking tool that grows as you do.",
   "publisher": "dendron",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "sponsor": {
     "url": "https://accounts.dendron.so/account/subscribe"
   },
@@ -1552,6 +1552,7 @@
     "os-browserify": "^0.3.0",
     "path-browserify": "1.0.1",
     "query-string": "7.0.1",
+    "querystring-es3": "^0.2.1",
     "semver": "7.3.2",
     "spark-md5": "^3.0.2",
     "stream-browserify": "3.0.0",
