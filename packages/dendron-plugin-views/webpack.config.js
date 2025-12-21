@@ -60,7 +60,9 @@ module.exports = {
               {
                 loader: 'css-loader',
                 options: {
-                  modules: true
+                  modules: {
+                    namedExport: false  // This restores the default export behavior
+                  }
                 }
               },
               'sass-loader'
@@ -69,11 +71,29 @@ module.exports = {
           {
             test: /\.scss$/,
             exclude: /\.module\.scss$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+            use: [MiniCssExtractPlugin.loader, 
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: {
+                    namedExport: false  // This restores the default export behavior
+                  }
+                }
+              },
+               'sass-loader']
           },
           {
             test: /\.css$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader']
+            use: [MiniCssExtractPlugin.loader, 
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: {
+                    namedExport: false  // This restores the default export behavior
+                  }
+                }
+              },
+            ]
           }
     ]
     },
