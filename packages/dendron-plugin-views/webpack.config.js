@@ -62,7 +62,7 @@ module.exports = {
                 loader: 'css-loader',
                 options: {
                   modules: {
-                    namedExport: false  // This restores the default export behavior
+                    namedExport: false
                   }
                 }
               },
@@ -77,7 +77,7 @@ module.exports = {
                 loader: 'css-loader',
                 options: {
                   modules: {
-                    namedExport: false  // This restores the default export behavior
+                    namedExport: false 
                   }
                 }
               },
@@ -90,7 +90,7 @@ module.exports = {
                 loader: 'css-loader',
                 options: {
                   modules: {
-                    namedExport: false  // This restores the default export behavior
+                    namedExport: false
                   }
                 }
               },

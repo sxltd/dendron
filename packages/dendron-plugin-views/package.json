@@ -42,7 +42,6 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "serve": "NODE_ENV=development webpack serve",
     "start": "yarn build:index && node scripts/start.js",
     "setup": "yarn build:index && yarn build:styles",
     "build": "yarn setup && NODE_ENV=development webpack && yarn build:styles && yarn copy",

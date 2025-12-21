@@ -40,6 +40,7 @@ const webExtensionConfig = {
       stream: require.resolve("stream-browserify"),
       buffer: require.resolve("buffer"),
       "vm": false,
+      querystring: require.resolve("querystring-es3")
     },
   },
   module: {
