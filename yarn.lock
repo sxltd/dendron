@@ -6524,7 +6524,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sxltd/dendron-plugin-views@workspace:^, @sxltd/dendron-plugin-views@workspace:packages/dendron-plugin-views":
+"@sxltd/dendron-plugin-views@workspace:packages/dendron-plugin-views":
   version: 0.0.0-use.local
   resolution: "@sxltd/dendron-plugin-views@workspace:packages/dendron-plugin-views"
   dependencies:
@@ -29180,7 +29180,6 @@ __metadata:
     "@babel/helper-string-parser": ^7.22.5
     "@babel/preset-typescript": 7.16.7
     "@babel/types": 7.17.10
-    "@sxltd/dendron-plugin-views": "workspace:^"
     "@typescript-eslint/eslint-plugin": ^5.39.0
     "@typescript-eslint/parser": ^5.39.0
     chalk: ^4.1.1
@@ -29209,7 +29208,6 @@ __metadata:
     typescript: 5.9
     vsce: ^2.10.0
     webpack: ^5.74.0
-    workspace: ^0.0.1-preview.2
   languageName: unknown
   linkType: soft
 
@@ -34215,13 +34213,6 @@ __metadata:
   dependencies:
     microevent.ts: ~0.1.1
   checksum: 8f8607506172f44c05490f3ccf13e5c1f430eeb9b6116a405919c186b8b17add13bbb22467a0dbcd18ec7fcb080709a15738182e0003c5fbe2144721ea00f357
-  languageName: node
-  linkType: hard
-
-"workspace@npm:^0.0.1-preview.2":
-  version: 0.0.1-preview.2
-  resolution: "workspace@npm:0.0.1-preview.2"
-  checksum: babec73d1f1bc619a18e40dc9865f5a9edbee8ddb1ac1dd5e650729ecb1247fa8db1d110d354faef2af409a7fc3ebae2b65225e198f57bd639e70580b8fc2f9a
   languageName: node
   linkType: hard
 
