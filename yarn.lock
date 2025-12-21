@@ -6541,7 +6541,6 @@ __metadata:
     "@types/cytoscape-popper": ^2.0.0
     "@types/jest": ^26.0.15
     "@types/lodash": ^4.14.176
-    "@types/mermaid": ^8.2.9
     "@types/node": ^12.0.0
     "@types/react": ^17.0.0
     "@types/react-dom": ^17.0.0
@@ -6563,7 +6562,7 @@ __metadata:
     jest-resolve: 26.6.0
     jest-watch-typeahead: 0.6.1
     lodash: ^4.17.21
-    mermaid: ^9.1.2
+    mermaid: 10.0.1
     mini-css-extract-plugin: ^2.9.4
     path-browserify: ^1.0.1
     process: ^0.11.10
@@ -7544,13 +7543,6 @@ __metadata:
     "@types/node": "*"
     "@types/vinyl": "*"
   checksum: 8d296481b013f0c4e7b771b84043dec78738148c7d83a5a85e4665ee8710e8296953779f608fabe5987e8f4bf6bbc8c66d52bc0f137dece92affa3a5534c133a
-  languageName: node
-  linkType: hard
-
-"@types/mermaid@npm:^8.2.9":
-  version: 8.2.9
-  resolution: "@types/mermaid@npm:8.2.9"
-  checksum: 5602d4bc3a1ae9cbe7b5f674cdf19c1d0334e1be6c35546ca216ae28763cf1693c2d1f8364c5c801d73c1ff85bf37d77a07abc832ffcbe0450453ceb39907ec8
   languageName: node
   linkType: hard
 
@@ -23613,9 +23605,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mermaid@npm:^9.1.2":
-  version: 9.4.3
-  resolution: "mermaid@npm:9.4.3"
+"mermaid@npm:10.0.1":
+  version: 10.0.1
+  resolution: "mermaid@npm:10.0.1"
   dependencies:
     "@braintree/sanitize-url": ^6.0.0
     cytoscape: ^3.23.0
@@ -23633,7 +23625,7 @@ __metadata:
     ts-dedent: ^2.2.0
     uuid: ^9.0.0
     web-worker: ^1.2.0
-  checksum: 9e29177f289cc268ea4a2ca7a45ec0ca06f678007eae15a7cd54c682148a71367e861d2c9c0afa9f7474da154d9920524e59722186820e9bc0d79989305a7064
+  checksum: 0672e284db725a7d32cc320d7f12c3c1d466d36d75a6fed46de1fe0daced422ee681b1871b06acbb1780a1521ae7c205f52b44da89963014e07f4de78af592ee
   languageName: node
   linkType: hard
 

@@ -26,6 +26,7 @@ module.exports = {
       assetModuleFilename: 'static/media/[name].[hash][ext]'
     },
     resolve: {
+        fullySpecified: false,
         extensions: ['.tsx', '.ts', '.js', '.jsx', '.scss', '.css'],
         fallback: {
           path: require.resolve('path-browserify'),
@@ -38,6 +39,12 @@ module.exports = {
     },
     module: {
     rules: [
+        {
+          test: /\.m?js$/,
+          resolve: {
+            fullySpecified: false
+          }
+        },
         {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
