@@ -105,7 +105,6 @@ export const useMermaid = ({
   React.useEffect(() => {
     const logger = createLogger("useMermaid");
 
-    logger.info("gonna register mermaid");
     //mermaid.registerExternalDiagrams([zenuml]);
     mermaid.registerExternalDiagrams([zenuml]).then(() => {
       mermaid.initialize({
@@ -125,8 +124,6 @@ export const useMermaid = ({
       logger.error('Failed to register ZenUML:', err);
     });
 
-    logger.info("done register mermaid")
-    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [noteRenderedBody, themeType]);
 };
