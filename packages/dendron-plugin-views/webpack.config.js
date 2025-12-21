@@ -10,8 +10,8 @@ module.exports = {
 
     devServer: {
       static: {
-        directory: path.join(__dirname, 'dist'), // or your static dir
-        serveIndex: false, // Disable serve-index middleware,
+        directory: path.join(__dirname, 'dist'),
+        serveIndex: false,
       },
     },
   
@@ -47,7 +47,7 @@ module.exports = {
             presets: [
                 '@babel/preset-env',
                 ['@babel/preset-react', {
-                  runtime: 'automatic'  // Add this!
+                  runtime: 'automatic'
                 }],
                 '@babel/preset-typescript'
             ]
