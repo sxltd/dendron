@@ -29,7 +29,8 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js', '.jsx', '.scss', '.css'],
         fallback: {
           path: require.resolve('path-browserify'),
-          process: require.resolve('process/browser')
+          process: require.resolve('process/browser'),
+          querystring: require.resolve("querystring-es3")
         },
         alias: {
           'cytoscape/dist/cytoscape.umd.js': require.resolve('cytoscape')

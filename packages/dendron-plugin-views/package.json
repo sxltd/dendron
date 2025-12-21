@@ -9,7 +9,6 @@
     ]
   },
   "dependencies": {
-    "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@sxltd/common-all": "workspace:*",
     "@sxltd/common-frontend": "workspace:*",
     "@sxltd/common-server": "workspace:*",
@@ -32,6 +31,7 @@
     "jest-watch-typeahead": "0.6.1",
     "lodash": "^4.17.21",
     "mermaid": "^9.1.2",
+    "querystring-es3": "^0.2.1",
     "react": "^17.0.2",
     "react-app-polyfill": "^2.0.0",
     "react-dev-utils": "^11.0.3",
