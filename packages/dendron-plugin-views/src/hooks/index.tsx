@@ -7,6 +7,7 @@ import {
 import  Mermaid from "mermaid";
 import React from "react";
 import { DendronProps, WorkspaceProps } from "../types";
+import zenuml from '@mermaid-js/mermaid-zenuml';
 
 export const useCurrentTheme = () => {
   const [currentTheme, setCurrentTheme] = React.useState<"light" | "dark">(
@@ -21,9 +22,6 @@ export const useCurrentTheme = () => {
   }, [window.currentTheme]);
   return { currentTheme, setCurrentTheme };
 };
-import zenuml from '@mermaid-js/mermaid-zenuml';
-
-
 
 export const useWorkspaceProps = (): [WorkspaceProps] => {
   const elem = window.document.getElementById("root")!;
