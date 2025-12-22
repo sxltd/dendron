@@ -7148,6 +7148,7 @@ __metadata:
     rehype-stringify: ^8.0.0
     remark: ^12.0.1
     remark-abbr: ^1.4.0
+    remark-emoji: ^2.0.1
     remark-footnotes: 2
     remark-frontmatter: ^2.0.0
     remark-math: 3
@@ -15671,6 +15672,13 @@ __metadata:
   version: 3.0.0
   resolution: "emojis-list@npm:3.0.0"
   checksum: ddaaa02542e1e9436c03970eeed445f4ed29a5337dfba0fe0c38dfdd2af5da2429c2a0821304e8a8d1cadf27fdd5b22ff793571fa803ae16852a6975c65e8e70
+  languageName: node
+  linkType: hard
+
+"emoticon@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "emoticon@npm:3.2.0"
+  checksum: f30649d18b672ab3139e95cb04f77b2442feb95c99dc59372ff80fbfd639b2bf4018bc68ab0b549bd765aecf8230d7899c43f86cfcc7b6370c06c3232783e24f
   languageName: node
   linkType: hard
 
@@ -25541,6 +25549,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-emoji@npm:^1.10.0":
+  version: 1.11.0
+  resolution: "node-emoji@npm:1.11.0"
+  dependencies:
+    lodash: ^4.17.21
+  checksum: e8c856c04a1645062112a72e59a98b203505ed5111ff84a3a5f40611afa229b578c7d50f1e6a7f17aa62baeea4a640d2e2f61f63afc05423aa267af10977fb2b
+  languageName: node
+  linkType: hard
+
 "node-environment-flags@npm:1.0.6":
   version: 1.0.6
   resolution: "node-environment-flags@npm:1.0.6"
@@ -29665,6 +29682,17 @@ __metadata:
   dependencies:
     unist-util-visit: ^2.0.3
   checksum: 02765be8cb6154e88776044a54de48c8ea6bc28dc03f512c0db0f5c0211eadcefcf285466ebb02e2f96a1a5fc5dcef067f2fa6676e8b40b73c1b368999e750bb
+  languageName: node
+  linkType: hard
+
+"remark-emoji@npm:^2.0.1":
+  version: 2.2.0
+  resolution: "remark-emoji@npm:2.2.0"
+  dependencies:
+    emoticon: ^3.2.0
+    node-emoji: ^1.10.0
+    unist-util-visit: ^2.0.3
+  checksum: 638d4be72eb4110a447f389d4b8c454921f188c0acabf1b6579f3ddaa301ee91010173d6eebd975ea622ae3de7ed4531c0315a4ffd4f9653d80c599ef9ec21a8
   languageName: node
   linkType: hard
 
