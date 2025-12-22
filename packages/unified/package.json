@@ -1,6 +1,6 @@
 {
   "name": "@sxltd/unified",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Unified parser utilities for Dendron",
   "license": "Apache 2.0",
   "repository": {
@@ -46,6 +46,7 @@
     "rehype-stringify": "^8.0.0",
     "remark": "^12.0.1",
     "remark-abbr": "^1.4.0",
+    "remark-emoji": "^2.0.1",
     "remark-footnotes": "2",
     "remark-frontmatter": "^2.0.0",
     "remark-math": "3",

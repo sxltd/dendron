@@ -49,6 +49,7 @@ import { wikiLinks, WikiLinksOpts } from "./remark/wikiLinks";
 import { DendronASTDest, UnistNode } from "./types";
 import path from "path";
 import { Parent } from "unist";
+import emoji from 'remark-emoji';
 
 export { ProcFlavor };
 
@@ -281,6 +282,7 @@ export class MDUtilsV5 {
       .use(footnotes)
       .use(variables)
       .use(backlinksHover, data.backlinkHoverOpts)
+      .use(emoji)
       .data("errors", errors);
 
     //do not convert wikilinks if convertLinks set to false. Used by gdoc export pod. It uses HTMLPublish pod to do the md-->html conversion
