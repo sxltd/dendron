@@ -21,6 +21,9 @@ export const useCurrentTheme = () => {
   }, [window.currentTheme]);
   return { currentTheme, setCurrentTheme };
 };
+import zenuml from '@mermaid-js/mermaid-zenuml';
+
+
 
 export const useWorkspaceProps = (): [WorkspaceProps] => {
   const elem = window.document.getElementById("root")!;
@@ -104,19 +107,23 @@ export const useMermaid = ({
   React.useEffect(() => {
     const logger = createLogger("useMermaid");
 
-    mermaid.initialize({
-      startOnLoad: true,
-      // Cast here because the type definitions seem to be incorrect. I can't
-      // get a value for the mermaid Theme enum, it's always undefined at
-      // runtime.
-      theme: (themeType === "light" ? "forest" : "dark") as any,
+    mermaid.registerExternalDiagrams([zenuml]).then(() => {
+      mermaid.initialize({
+        startOnLoad: true,
+        // Cast here because the type definitions seem to be incorrect. I can't
+        // get a value for the mermaid Theme enum, it's always undefined at
+        // runtime.
+        theme: (themeType === "light" ? "forest" : "dark") as any,
+      });
+      // use for debugging
+      // @ts-ignore
+      window._mermaid = mermaid;
+      // @ts-ignore
+      mermaid.init();
+      logger.info({ msg: "init mermaid library", themeType });
+    }).catch(err => {
+      logger.error('Failed to register ZenUML:', err);
     });
-    // use for debugging
-    // @ts-ignore
-    window._mermaid = mermaid;
-    // @ts-ignore
-    mermaid.init();
-    logger.info({ msg: "init mermaid library", themeType });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [noteRenderedBody, themeType]);
