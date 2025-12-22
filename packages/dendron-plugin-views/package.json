@@ -1,6 +1,6 @@
 {
   "name": "@sxltd/dendron-plugin-views",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": true,
   "workspaces": {
     "nohoist": [
@@ -9,6 +9,7 @@
     ]
   },
   "dependencies": {
+    "@mermaid-js/mermaid-zenuml": "^0.2.2",
     "@sxltd/common-all": "workspace:*",
     "@sxltd/common-frontend": "workspace:*",
     "@sxltd/common-server": "workspace:*",
