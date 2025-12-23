@@ -12,13 +12,13 @@
 // @import "variables.scss";
 @use "./typography" as *;
 @use "./utilities/utilities" as *;
+@use "./portal" as *;
 
 // Portal Start
-$base-line-height: 1 !default;
+
 $spacing-unit: 30px !default;
-$text-color: #111 !default;
+
 // Portal end
-@use "portal.scss" as *;
 
 // for task links, the decorations around the links
 .task-before {

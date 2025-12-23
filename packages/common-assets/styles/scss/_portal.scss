@@ -1,6 +1,9 @@
 @use "sass:math";
 @use "sass:color";
-@use "./main" as *;
+//@use "./main" as *;
+
+$text-color: #111 !default;
+$base-line-height: 1 !default;
 
 // Clear normal iframe styles
 iframe {
