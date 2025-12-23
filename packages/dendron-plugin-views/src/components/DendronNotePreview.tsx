@@ -15,6 +15,7 @@ import React from "react";
 import { useCurrentTheme, useMermaid, useRenderedNoteBody } from "../hooks";
 import { DendronComponent } from "../types";
 import { postVSCodeMessage } from "../utils/vscode";
+import "../styles/scss/main-plugin.scss";
 
 function isHTMLAnchorElement(element: Element): element is HTMLAnchorElement {
   return element.nodeName === "A";

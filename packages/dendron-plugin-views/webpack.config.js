@@ -82,9 +82,7 @@ module.exports = {
               {
                 loader: 'css-loader',
                 options: {
-                  modules: {
-                    namedExport: false 
-                  }
+                  modules: false,
                 }
               },
                'sass-loader']
