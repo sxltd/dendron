@@ -47,7 +47,7 @@ import { PodUtils } from "../utils";
 const ID = "dendron.nextjs";
 
 const TEMPLATE_REMOTE_DEFAULT = "origin";
-const TEMPLATE_REMOTE_URL_DEFAULT = "https://github.com/dendronhq/nextjs-template.git";
+const TEMPLATE_REMOTE_URL_DEFAULT = "https://github.com/sxltd/nextjs-template.git";
 const TEMPLATE_BRANCH_DEFAULT = "main";
 
 const $$ = execa.command;
