@@ -136,6 +136,7 @@ export class NextJSPublishUtils {
       async () => {
         const out = await NextjsExportPodUtils.cloneTemplate({
           nextPath,
+          templateRemoteUrl: "",
         });
         return out;
       }

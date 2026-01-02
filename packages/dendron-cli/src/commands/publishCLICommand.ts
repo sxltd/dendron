@@ -336,7 +336,10 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
       try {
         await this._updateNextTemplate({
           nextPath,
-          spinner,
+          templateRemoteURL: "", 
+          templateRemote: "", 
+          templateBranch: "",
+          spinner
         });
       } catch (err) {
         SpinnerUtils.renderAndContinue({
@@ -394,15 +397,17 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     return nextPathExists;
   }
 
-  async _updateNextTemplate(opts: { nextPath: string; spinner: ora.Ora }) {
-    const { spinner, nextPath } = opts;
+  async _updateNextTemplate(opts: { 
+    nextPath: string, templateRemote: 
+    string | undefined, templateRemoteURL: 
+    string | undefined, templateBranch: 
+    string | undefined; spinner: ora.Ora }) {
+    const spinner= opts.spinner;
     SpinnerUtils.renderAndContinue({
       spinner,
       text: `updating NextJS template.`,
     });
-    await NextjsExportPodUtils.updateTemplate({
-      nextPath,
-    });
+    await NextjsExportPodUtils.updateTemplate(opts);
     await this._installDependencies(opts);
     SpinnerUtils.renderAndContinue({
       spinner,
@@ -437,7 +442,7 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     spinner.stop();
     spinner.start("Cloning NextJS template...");
 
-    await NextjsExportPodUtils.cloneTemplate({ nextPath });
+    await NextjsExportPodUtils.cloneTemplate({ nextPath, templateRemoteUrl: "" });
     SpinnerUtils.renderAndContinue({
       spinner,
       text: "Successfully cloned.",

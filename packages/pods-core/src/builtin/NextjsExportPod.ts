@@ -46,9 +46,9 @@ import { PodUtils } from "../utils";
 
 const ID = "dendron.nextjs";
 
-const TEMPLATE_REMOTE = "origin";
-const TEMPLATE_REMOTE_URL = "https://github.com/dendronhq/nextjs-template.git";
-const TEMPLATE_BRANCH = "main";
+const TEMPLATE_REMOTE_DEFAULT = "origin";
+const TEMPLATE_REMOTE_URL_DEFAULT = "https://github.com/dendronhq/nextjs-template.git";
+const TEMPLATE_BRANCH_DEFAULT = "main";
 
 const $$ = execa.command;
 
@@ -159,36 +159,40 @@ export class NextjsExportPodUtils {
     await $$("npm install", { cwd: nextPath });
   }
 
-  static async cloneTemplate(opts: { nextPath: string }) {
-    const { nextPath } = opts;
+  static async cloneTemplate(opts: { nextPath: string, templateRemoteUrl: string | undefined }) {
+    const nextPath =  opts.nextPath;
+    const templateRemoteUrl = opts.templateRemoteUrl ?? TEMPLATE_REMOTE_URL_DEFAULT;
 
     await fs.ensureDir(nextPath);
     const git = simpleGit({ baseDir: nextPath });
-    await git.clone(TEMPLATE_REMOTE_URL, nextPath);
+    await git.clone(templateRemoteUrl, nextPath);
 
     return { error: null };
   }
 
-  static async updateTemplate(opts: { nextPath: string }) {
-    const { nextPath } = opts;
+  static async updateTemplate(opts: { nextPath: string, templateRemote: string | undefined, templateRemoteURL: string | undefined, templateBranch: string | undefined }) {
+    const nextPath = opts.nextPath;
+    const templateRemote = opts.templateRemote ?? TEMPLATE_REMOTE_DEFAULT
+    const templateRemoteUrl = opts.templateRemoteURL ?? TEMPLATE_REMOTE_URL_DEFAULT
+    const templateBranch = opts.templateBranch ?? TEMPLATE_BRANCH_DEFAULT
     const git = simpleGit({ baseDir: nextPath });
 
     const remotes = await git.getRemotes(true);
     if (
       remotes.length !== 1 ||
-      remotes[0].name !== TEMPLATE_REMOTE ||
-      remotes[0].refs.fetch !== TEMPLATE_REMOTE_URL ||
-      remotes[0].refs.push !== TEMPLATE_REMOTE_URL
+      remotes[0].name !== templateRemote ||
+      remotes[0].refs.fetch !== templateRemoteUrl ||
+      remotes[0].refs.push !== templateRemoteUrl
     ) {
       throw new Error("remotes not set up correctly");
     }
 
     let status = await git.status();
-    if (status.current !== TEMPLATE_BRANCH) {
-      await git.checkout(TEMPLATE_REMOTE_URL);
+    if (status.current !== templateBranch) {
+      await git.checkout(templateRemote);
       status = await git.status();
     }
-    const remoteBranch = `${TEMPLATE_REMOTE}/${TEMPLATE_BRANCH}`;
+    const remoteBranch = `${templateRemote}/${templateBranch}`;
     if (status.tracking !== remoteBranch) {
       throw new Error(`${status.tracking} is not expected remote branch`);
     }
