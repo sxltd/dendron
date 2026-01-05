@@ -165,6 +165,7 @@ export class NextjsExportPodUtils {
     await fs.ensureDir(nextPath);
     const git = simpleGit({ baseDir: nextPath });
     await git.clone(TEMPLATE_REMOTE_URL, nextPath);
+    await git.checkout(TEMPLATE_BRANCH);
 
     return { error: null };
   }
@@ -185,7 +186,7 @@ export class NextjsExportPodUtils {
 
     let status = await git.status();
     if (status.current !== TEMPLATE_BRANCH) {
-      await git.checkout(TEMPLATE_REMOTE_URL);
+      await git.checkout(TEMPLATE_BRANCH, ['-f']);
       status = await git.status();
     }
     const remoteBranch = `${TEMPLATE_REMOTE}/${TEMPLATE_BRANCH}`;

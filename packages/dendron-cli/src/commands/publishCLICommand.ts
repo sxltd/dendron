@@ -332,12 +332,15 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
       spinner,
     });
 
+    let shouldInit = true;
+
     if (nextPathExists) {
       try {
         await this._updateNextTemplate({
           nextPath,
           spinner,
         });
+        shouldInit = false;
       } catch (err) {
         SpinnerUtils.renderAndContinue({
           spinner,
@@ -347,9 +350,10 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
           nextPath,
           spinner,
         });
-        await this._initialize({ nextPath, spinner });
       }
-    } else {
+    }
+
+    if (shouldInit) {
       await this._initialize({ nextPath, spinner });
     }
 
