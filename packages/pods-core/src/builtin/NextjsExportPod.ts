@@ -186,7 +186,7 @@ export class NextjsExportPodUtils {
 
     let status = await git.status();
     if (status.current !== TEMPLATE_BRANCH) {
-      await git.checkout(TEMPLATE_REMOTE_URL);
+      await git.checkout(TEMPLATE_BRANCH, ['-f']);
       status = await git.status();
     }
     const remoteBranch = `${TEMPLATE_REMOTE}/${TEMPLATE_BRANCH}`;
