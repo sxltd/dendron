@@ -48,7 +48,7 @@ const ID = "dendron.nextjs";
 
 const TEMPLATE_REMOTE = "origin";
 const TEMPLATE_REMOTE_URL = "https://github.com/sxltd/nextjs-template.git";
-const TEMPLATE_BRANCH = "v0.1.0";
+const TEMPLATE_REF = "v0.1.0";
 
 const $$ = execa.command;
 
@@ -165,7 +165,7 @@ export class NextjsExportPodUtils {
     await fs.ensureDir(nextPath);
     const git = simpleGit({ baseDir: nextPath });
     await git.clone(TEMPLATE_REMOTE_URL, nextPath);
-    await git.checkout(TEMPLATE_BRANCH);
+    await git.checkout(TEMPLATE_REF);
 
     return { error: null };
   }
@@ -194,11 +194,11 @@ export class NextjsExportPodUtils {
 
     //it doesn't matter what ref we're on, get latest and checkout anyways
     await git.fetch();
-    await git.checkout(TEMPLATE_BRANCH, ['-f']);
+    await git.checkout(TEMPLATE_REF, ['-f']);
 
     let currentRef = await NextjsExportPodUtils.getCurrentRef(git);
-    if (currentRef !== TEMPLATE_BRANCH) {
-      throw new Error(`${currentRef} is not expected remote ref (${TEMPLATE_BRANCH})`);
+    if (currentRef !== TEMPLATE_REF) {
+      throw new Error(`${currentRef} is not expected remote ref (${TEMPLATE_REF})`);
     }
   }
 
