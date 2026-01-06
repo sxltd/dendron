@@ -25,8 +25,8 @@ import {
 } from "@sxltd/common-all";
 import {
   DConfig,
+  SimpleGit,
   simpleGit,
-  SimpleGitResetMode,
 } from "@sxltd/common-server";
 import { execa, SiteUtils } from "@sxltd/engine-server";
 import {
@@ -48,7 +48,7 @@ const ID = "dendron.nextjs";
 
 const TEMPLATE_REMOTE = "origin";
 const TEMPLATE_REMOTE_URL = "https://github.com/sxltd/nextjs-template.git";
-const TEMPLATE_BRANCH = "main";
+const TEMPLATE_BRANCH = "v0.1.0";
 
 const $$ = execa.command;
 
@@ -170,6 +170,14 @@ export class NextjsExportPodUtils {
     return { error: null };
   }
 
+  static async getCurrentRef(git: SimpleGit) {
+    try {
+      return (await git.raw(['symbolic-ref', '--short', 'HEAD'])).trim();
+    } catch {
+      return (await git.raw(['describe', '--tags', '--exact-match', 'HEAD'])).trim();
+    }
+  }
+  
   static async updateTemplate(opts: { nextPath: string }) {
     const { nextPath } = opts;
     const git = simpleGit({ baseDir: nextPath });
@@ -184,18 +192,14 @@ export class NextjsExportPodUtils {
       throw new Error("remotes not set up correctly");
     }
 
-    let status = await git.status();
-    if (status.current !== TEMPLATE_BRANCH) {
-      await git.checkout(TEMPLATE_BRANCH, ['-f']);
-      status = await git.status();
-    }
-    const remoteBranch = `${TEMPLATE_REMOTE}/${TEMPLATE_BRANCH}`;
-    if (status.tracking !== remoteBranch) {
-      throw new Error(`${status.tracking} is not expected remote branch`);
-    }
-
+    //it doesn't matter what ref we're on, get latest and checkout anyways
     await git.fetch();
-    await git.reset(SimpleGitResetMode.HARD, [remoteBranch]);
+    await git.checkout(TEMPLATE_BRANCH, ['-f']);
+
+    let currentRef = await NextjsExportPodUtils.getCurrentRef(git);
+    if (currentRef !== TEMPLATE_BRANCH) {
+      throw new Error(`${currentRef} is not expected remote ref (${TEMPLATE_BRANCH})`);
+    }
   }
 
   static async isInitialized(opts: { wsRoot: string }) {
