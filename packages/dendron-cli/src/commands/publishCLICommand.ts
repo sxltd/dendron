@@ -44,6 +44,8 @@ type CommandCLIOpts = {
 
 type CommandCLIOnlyOpts = {
   overrides?: string;
+  remoteUrl?: string;
+  ref?: string;
 };
 
 export enum PublishCommands {
@@ -158,7 +160,6 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
   async enrichArgs(args: CommandCLIOpts) {
     let error: DendronError | undefined;
     const coverrides: BuildOverrides = {};
-    const templateOpts = NextJsTemplateConfigDefault;
 
     if (!_.isUndefined(args.overrides)) {
       args.overrides.split(",").map((ent) => {
@@ -176,8 +177,14 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     if (error) {
       return { error };
     }
+    
+    const templateOpts: NextjsTemplateConfig = {
+      remote: NextJsTemplateConfigDefault.remote,
+      remoteUrl: args.remoteUrl ?? NextJsTemplateConfigDefault.remoteUrl,
+      ref: args.ref ?? NextJsTemplateConfigDefault.ref,
+    }
     return {
-      data: { ..._.omit(args, "overrides"), overrides: coverrides, templateOpts },
+      data: { ..._.omit(args, "overrides"), overrides: coverrides, templateOpts},
     };
   }
 
@@ -259,7 +266,7 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     overrides,
   }: {
     stage: Stage;
-  } & Pick<CommandOpts, "attach" | "dest" | "wsRoot" | "overrides">) {
+  } & Pick<CommandOpts, "attach" | "dest" | "wsRoot" | "overrides" | "templateOpts">) {
     const cli = new ExportPodCLICommand();
     // create config string
     const podConfig: NextjsExportConfig = {
