@@ -14,6 +14,8 @@ import {
   NextjsExportPodUtils,
   BuildOverrides,
   PublishTarget,
+  NextJsTemplateConfigDefault,
+  NextjsTemplateConfig
 } from "@sxltd/pods-core";
 import _ from "lodash";
 import path from "path";
@@ -76,6 +78,10 @@ type BuildCmdOpts = Omit<CommandCLIOpts, keyof CommandCLIOnlyOpts> & {
    * Override site config with custom values
    */
   overrides?: BuildOverrides;
+  /**
+   * Override nextjs template repository config with custom values
+   */
+  templateOpts?: NextjsTemplateConfig;
 };
 type DevCmdOpts = BuildCmdOpts & { noBuild?: boolean };
 type ExportCmdOpts = DevCmdOpts & { target?: PublishTarget; yes?: boolean };
@@ -93,7 +99,7 @@ const isBuildOverrideKey = (key: string): key is keyof BuildOverrides => {
 };
 
 /**
- * To use when working on dendron
+ * To use when publishing vaults
  */
 export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
   constructor() {
@@ -139,17 +145,28 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
       describe: "generates a sitemap: https://en.wikipedia.org/wiki/Site_map",
       type: "boolean",
     });
+    args.option("remoteUrl", {
+      describe: "the git repository URL used for the nextjs template",
+      type: "string",
+    });
+    args.option("ref", {
+      describe: "the git ref to be used for the nextjs template",
+      type: "string",
+    });
   }
 
   async enrichArgs(args: CommandCLIOpts) {
     let error: DendronError | undefined;
     const coverrides: BuildOverrides = {};
+    const templateOpts = NextJsTemplateConfigDefault;
+
     if (!_.isUndefined(args.overrides)) {
       args.overrides.split(",").map((ent) => {
         const [k, v] = _.trim(ent).split("=");
         if (isBuildOverrideKey(k)) {
           coverrides[k] = v;
-        } else {
+        } 
+        else {
           error = new DendronError({
             message: `bad key for override. ${k} is not a valid key`,
           });
@@ -160,19 +177,20 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
       return { error };
     }
     return {
-      data: { ..._.omit(args, "overrides"), overrides: coverrides },
+      data: { ..._.omit(args, "overrides"), overrides: coverrides, templateOpts },
     };
   }
 
   async execute(opts: CommandOpts) {
     const { cmd } = opts;
+    const templateOpts = opts.templateOpts ?? NextJsTemplateConfigDefault;
     const ctx = "execute";
     this.L.info({ ctx });
     const spinner = ora().start();
     try {
       switch (cmd) {
         case PublishCommands.INIT: {
-          const out = await this.init({ ...opts, spinner });
+          const out = await this.init({ ...opts, templateOpts, spinner});
           spinner.stop();
           return out;
         }
@@ -184,7 +202,7 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
           const { wsRoot } = opts;
           const isInitialized = await this._isInitialized({ wsRoot, spinner });
           if (!isInitialized) {
-            await this.init({ ...opts, spinner });
+            await this.init({ ...opts, templateOpts, spinner });
           }
           if (opts.noBuild) {
             SpinnerUtils.renderAndContinue({
@@ -202,7 +220,7 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
           const { wsRoot } = opts;
           const isInitialized = await this._isInitialized({ wsRoot, spinner });
           if (!isInitialized) {
-            await this.init({ ...opts, spinner });
+            await this.init({ ...opts, templateOpts, spinner });
           }
           if (opts.noBuild) {
             SpinnerUtils.renderAndContinue({
@@ -322,8 +340,8 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     }
   }
 
-  async init(opts: { wsRoot: string; spinner: ora.Ora }) {
-    const { wsRoot, spinner } = opts;
+  async init(opts: { wsRoot: string; templateOpts: NextjsTemplateConfig; spinner: ora.Ora;}) {
+    const { wsRoot, templateOpts, spinner } = opts;
     GitUtils.addToGitignore({ addPath: ".next", root: wsRoot });
     const nextPath = NextjsExportPodUtils.getNextRoot(wsRoot);
 
@@ -339,6 +357,7 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
         await this._updateNextTemplate({
           nextPath,
           spinner,
+          templateOpts
         });
         shouldInit = false;
       } catch (err) {
@@ -354,7 +373,7 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     }
 
     if (shouldInit) {
-      await this._initialize({ nextPath, spinner });
+      await this._initialize({ nextPath, spinner, templateOpts });
     }
 
     return { error: null };
@@ -398,14 +417,15 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     return nextPathExists;
   }
 
-  async _updateNextTemplate(opts: { nextPath: string; spinner: ora.Ora }) {
-    const { spinner, nextPath } = opts;
+  async _updateNextTemplate(opts: { nextPath: string; spinner: ora.Ora; templateOpts: NextjsTemplateConfig }) {
+    const { spinner, nextPath, templateOpts } = opts;
     SpinnerUtils.renderAndContinue({
       spinner,
       text: `updating NextJS template.`,
     });
     await NextjsExportPodUtils.updateTemplate({
       nextPath,
+      templateOpts
     });
     await this._installDependencies(opts);
     SpinnerUtils.renderAndContinue({
@@ -426,7 +446,7 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     });
   }
 
-  async _initialize(opts: { nextPath: string; spinner: ora.Ora }) {
+  async _initialize(opts: { nextPath: string; spinner: ora.Ora; templateOpts: NextjsTemplateConfig }) {
     const { spinner } = opts;
     SpinnerUtils.renderAndContinue({
       spinner,
@@ -436,12 +456,12 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     await this._installDependencies(opts);
   }
 
-  async _cloneTemplate(opts: { nextPath: string; spinner: ora.Ora }) {
-    const { nextPath, spinner } = opts;
+  async _cloneTemplate(opts: { nextPath: string; spinner: ora.Ora; templateOpts: NextjsTemplateConfig }) {
+    const { nextPath, spinner, templateOpts } = opts;
     spinner.stop();
     spinner.start("Cloning NextJS template...");
 
-    await NextjsExportPodUtils.cloneTemplate({ nextPath });
+    await NextjsExportPodUtils.cloneTemplate({ nextPath, templateOpts });
     SpinnerUtils.renderAndContinue({
       spinner,
       text: "Successfully cloned.",

@@ -9,6 +9,7 @@ import {
   NextjsExportConfig,
   NextjsExportPod,
   NextjsExportPodUtils,
+  NextjsTemplateConfig,
   podClassEntryToPodItemV4,
   PodItemV4,
   PublishTarget,
@@ -126,7 +127,7 @@ export class NextJSPublishUtils {
     );
   }
 
-  static async clone(nextPath: string) {
+  static async clone(nextPath: string, templateOpts: NextjsTemplateConfig) {
     await window.withProgress(
       {
         location: ProgressLocation.Notification,
@@ -136,14 +137,15 @@ export class NextJSPublishUtils {
       async () => {
         const out = await NextjsExportPodUtils.cloneTemplate({
           nextPath,
+          templateOpts
         });
         return out;
       }
     );
   }
 
-  static async initialize(nextPath: string) {
-    await NextJSPublishUtils.clone(nextPath);
+  static async initialize(nextPath: string, templateOpts: NextjsTemplateConfig) {
+    await NextJSPublishUtils.clone(nextPath, templateOpts);
     await NextJSPublishUtils.install(nextPath);
   }
 
