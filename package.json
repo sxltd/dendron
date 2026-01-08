@@ -42,7 +42,6 @@
     "template:build": "yarn --cwd packages/nextjs-template run build",
     "template:export": "yarn --cwd packages/nextjs-template run export",
     "template:start": "yarn --cwd packages/nextjs-template run start",
-    "backend:updateDendronDeps": "node bootstrap/backend/updateDendronhqDeps.js",
     "build": "yarn workspaces foreach -ptv --exclude @sxltd/nextjs-template --exclude root --topological-dev run build",
     "build:plugin": "yarn workspace dendron build:plugin",
     "clean": "yarn workspaces foreach -ptv --exclude @sxltd/nextjs-template --exclude root run clean",
