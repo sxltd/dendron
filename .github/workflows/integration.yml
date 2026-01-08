@@ -1,12 +1,10 @@
 name: Integration Tests
 
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - "*"
+  workflow_run:
+    workflows: ["Unit Tests"]
+    types: 
+      - completed
 
 jobs:
   test:
