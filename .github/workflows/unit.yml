@@ -1,0 +1,35 @@
+name: Unit Tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check out repository
+        uses: actions/checkout@v4
+
+      - name: setup node.js
+        uses: actions/setup-node@v4
+
+      # Publish tests won't work if we haven't configured our committer details.
+      - name: configure git user
+        run: |
+          git config --global user.name ci
+          git config --global user.email ci
+      
+      - name: install dependencies
+        run: yarn install --immutable
+
+      - name: build
+        run: yarn build
+
+      - name: test
+        run: yarn test --ci --reporters=github-actions
