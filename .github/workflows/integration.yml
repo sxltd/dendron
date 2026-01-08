@@ -5,9 +5,6 @@ on:
     workflows: ["Unit Tests"]
     types: 
       - completed
-  push:
-    branches:
-      - "*"
 
 jobs:
   test:
