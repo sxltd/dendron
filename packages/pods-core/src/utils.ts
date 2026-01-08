@@ -118,6 +118,18 @@ export class PodUtils {
             },
           },
         },
+        remoteUrl: {
+          type: "string",
+          default: "https://github.com/sxltd/nextjs-template.git",
+          description: "the URL of the nextjs template to use when publishing",
+          nullable: false,
+        },
+        ref: {
+          type: "string",
+          default: "v0.1.0",
+          description: "the git ref of the template being used",
+          nullable: false,
+        },
         ...opts.properties,
       },
     };

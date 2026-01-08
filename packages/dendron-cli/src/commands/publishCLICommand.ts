@@ -166,8 +166,7 @@ export class PublishCLICommand extends CLICommand<CommandOpts, CommandOutput> {
         const [k, v] = _.trim(ent).split("=");
         if (isBuildOverrideKey(k)) {
           coverrides[k] = v;
-        } 
-        else {
+        } else {
           error = new DendronError({
             message: `bad key for override. ${k} is not a valid key`,
           });
