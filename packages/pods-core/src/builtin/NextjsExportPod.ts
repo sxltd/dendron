@@ -46,9 +46,7 @@ import { PodUtils } from "../utils";
 
 const ID = "dendron.nextjs";
 
-const TEMPLATE_REMOTE = "origin";
-const TEMPLATE_REMOTE_URL = "https://github.com/sxltd/nextjs-template.git";
-const TEMPLATE_REF = "v0.1.0";
+
 
 const $$ = execa.command;
 
@@ -114,6 +112,19 @@ async function validateSiteConfig({
   return { data: undefined };
 }
 
+export type NextjsTemplateConfig =
+{
+  remote: string;
+  remoteUrl: string;
+  ref: string;
+}
+
+export const NextJsTemplateConfigDefault: NextjsTemplateConfig = {
+    remote: "origin",
+    remoteUrl: "https://github.com/sxltd/nextjs-template.git",
+    ref: "v0.1.0",
+}
+
 export type NextjsExportConfig = ExportPodConfig & NextjsExportPodCustomOpts;
 
 type NextjsExportPlantOpts = ExportPodPlantOpts<NextjsExportConfig>;
@@ -159,13 +170,13 @@ export class NextjsExportPodUtils {
     await $$("npm install", { cwd: nextPath });
   }
 
-  static async cloneTemplate(opts: { nextPath: string }) {
-    const { nextPath } = opts;
+  static async cloneTemplate(opts: { nextPath: string, templateOpts: NextjsTemplateConfig }) {
+    const { nextPath, templateOpts}= opts
 
     await fs.ensureDir(nextPath);
     const git = simpleGit({ baseDir: nextPath });
-    await git.clone(TEMPLATE_REMOTE_URL, nextPath);
-    await git.checkout(TEMPLATE_REF);
+    await git.clone(templateOpts.remoteUrl, nextPath);
+    await git.checkout(templateOpts.ref);
 
     return { error: null };
   }
@@ -178,27 +189,27 @@ export class NextjsExportPodUtils {
     }
   }
   
-  static async updateTemplate(opts: { nextPath: string }) {
-    const { nextPath } = opts;
+  static async updateTemplate(opts: { nextPath: string, templateOpts: NextjsTemplateConfig }) {
+    const { nextPath, templateOpts } = opts;
     const git = simpleGit({ baseDir: nextPath });
 
     const remotes = await git.getRemotes(true);
     if (
       remotes.length !== 1 ||
-      remotes[0].name !== TEMPLATE_REMOTE ||
-      remotes[0].refs.fetch !== TEMPLATE_REMOTE_URL ||
-      remotes[0].refs.push !== TEMPLATE_REMOTE_URL
+      remotes[0].name !== templateOpts.remote ||
+      remotes[0].refs.fetch !== templateOpts.remoteUrl ||
+      remotes[0].refs.push !== templateOpts.remoteUrl
     ) {
       throw new Error("remotes not set up correctly");
     }
 
     //it doesn't matter what ref we're on, get latest and checkout anyways
     await git.fetch();
-    await git.checkout(TEMPLATE_REF, ['-f']);
+    await git.checkout(templateOpts.ref, ['-f']);
 
     let currentRef = await NextjsExportPodUtils.getCurrentRef(git);
-    if (currentRef !== TEMPLATE_REF) {
-      throw new Error(`${currentRef} is not expected remote ref (${TEMPLATE_REF})`);
+    if (currentRef !== templateOpts.ref) {
+      throw new Error(`${currentRef} is not expected remote ref (${templateOpts.ref})`);
     }
   }
 
