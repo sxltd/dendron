@@ -26,10 +26,6 @@ export const DEV: DendronConfigEntryCollection<DendronDevConfig> = {
     label: "Enable Export Pod V2",
     desc: "Enable experimental Export V2 command",
   },
-  enableSelfContainedVaults: {
-    label: "Enable self contained vaults",
-    desc: "If enabled, Dendron will create self contained vaults. Dendron can still read self contained vaults even if this is disabled.",
-  },
   forceWatcherType: {
     label: "Specify the file watcher type",
     desc: "plugin: Uses VSCode's builtin watcher, engine: Uses the engine watcher, watching the files directly without VSCode",

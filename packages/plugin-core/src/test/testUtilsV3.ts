@@ -98,13 +98,6 @@ type PostSetupWorkspaceHook = (opts: WorkspaceOpts) => Promise<void>;
 type SetupWorkspaceType = {
   /** The type of workspace to create for the test, Native (w/o dendron.code-worksace) or Code (w/ dendron.code-workspace) */
   workspaceType?: WorkspaceType;
-  /** If true, create a self contained vault as the workspace.
-   *
-   * Setting this option will also override the VSCode setting `dendron.enableSelfContainedVaultWorkspace`.
-   *
-   * TODO: This option is temporary until self contained vaults become the default, at which point this should be removed and all tests should default to self contained.
-   */
-  selfContained?: boolean;
 };
 
 export type SetupLegacyWorkspaceOpts = SetupCodeConfigurationV2 &
@@ -185,14 +178,7 @@ export async function setupLegacyWorkspace(
     selfContained: true,
   });
   const wsRoot = tmpDir().name;
-  if (opts.selfContained) {
-    // If self contained, also override the self contained vaults VSCode config.
-    // This will make SetupWorkspaceCommand create self contained vaults.
-    if (!opts.configOverride) opts.configOverride = {};
-    opts.configOverride[
-      DENDRON_VSCODE_CONFIG_KEYS.ENABLE_SELF_CONTAINED_VAULTS_WORKSPACE
-    ] = true;
-  }
+
   await fs.ensureDir(wsRoot);
   if (copts.workspaceType === WorkspaceType.CODE) stubWorkspaceFile(wsRoot);
   setupCodeConfiguration(opts);
@@ -246,11 +232,6 @@ export async function setupLegacyWorkspaceMulti(
   const { preSetupHook, postSetupHook, wsSettingsOverride } = copts;
 
   if (!opts.configOverride) opts.configOverride = {};
-  // Always override the self contained config, otherwise it picks up the
-  // setting in the developer's machine during testing.
-  opts.configOverride[
-    DENDRON_VSCODE_CONFIG_KEYS.ENABLE_SELF_CONTAINED_VAULTS_WORKSPACE
-  ] = !!opts.selfContained;
 
   let workspaceFile: Uri | undefined;
   // check where the keyboard shortcut is configured

@@ -92,7 +92,6 @@ describe("ConfigUtils", () => {
           },
         };
         config.dev = {
-          enableSelfContainedVaults: false,
         };
         const output = ConfigUtils.findDifference({ config });
         expect(output.length).toEqual(0);

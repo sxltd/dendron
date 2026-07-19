@@ -42,8 +42,11 @@ export class VaultUtils {
     return VaultUtils.getRelPath(vaultSrc) === VaultUtils.getRelPath(vaultCmp);
   }
 
+  //all vaults are self contained
+  //this just temporarily exists until logic using it can be removed
+  //@ts-ignore
   static isSelfContained(vault: DVault): vault is SelfContainedVault {
-    return vault.selfContained === true;
+    return true;
   }
 
   static isSeed(vault: DVault): vault is SeedVault {

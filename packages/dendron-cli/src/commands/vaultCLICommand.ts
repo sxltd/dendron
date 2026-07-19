@@ -8,7 +8,6 @@ import {
 import yargs from "yargs";
 import { CLICommand, CommandCommonProps } from "./base";
 import { setupEngine, setupEngineArgs, SetupEngineResp } from "./utils";
-import { DConfig } from "@sxltd/common-server";
 
 type CommandCLIOpts = {
   wsRoot: string;
@@ -70,7 +69,7 @@ export class VaultCLICommand extends CLICommand<CommandOpts> {
   }
 
   async execute(opts: CommandOpts) {
-    const { cmd, wsRoot, vaultPath, noAddToConfig } = opts;
+    const { cmd, wsRoot, vaultPath } = opts;
 
     try {
       switch (cmd) {
@@ -79,27 +78,18 @@ export class VaultCLICommand extends CLICommand<CommandOpts> {
 
           const wsService = new WorkspaceService({ wsRoot });
           let resp: DVault;
-          if (DConfig.readConfigSync(wsRoot).dev?.enableSelfContainedVaults) {
-            const vault: SelfContainedVault = {
-              fsPath: vaultPath,
-              selfContained: true,
-            };
-            resp = await wsService.createSelfContainedVault({
-              vault,
-              addToConfig: true,
-              addToCodeWorkspace: true,
-              newVault: true,
-            });
-          } else {
-            const vault: DVault = {
-              fsPath: vaultPath,
-            };
-            resp = await wsService.createVault({
-              vault,
-              noAddToConfig,
-              addToCodeWorkspace: true,
-            });
-          }
+          const vault: SelfContainedVault = {
+            fsPath: vaultPath,
+            selfContained: true,
+          };
+          // eslint-disable-next-line prefer-const
+          resp = await wsService.createSelfContainedVault({
+            vault,
+            addToConfig: true,
+            addToCodeWorkspace: true,
+            newVault: true,
+          });
+
           this.print(`${vaultPath} created`);
           return { vault: resp, error: undefined };
         }

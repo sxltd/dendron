@@ -120,7 +120,7 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     });
     const svc = await WorkspaceService.createWorkspace({
       additionalVaults: vaults,
-      wsVault: { fsPath: "notes", selfContained: true },
+      wsVault: { fsPath: "notes"},
       wsRoot,
       createCodeWorkspace: false,
       useSelfContainedVault: true,

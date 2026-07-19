@@ -155,7 +155,6 @@ export class ConvertVaultCommand extends BasicCommand<
       }
     }
 
-    if (this._ext.getDWorkspace().config.dev?.enableSelfContainedVaults) {
       // If self contained vaults are enabled, we'll move the vault into the
       // `dependencies` folder. We should ask the user if they are okay with us
       // moving the folder.
@@ -164,7 +163,7 @@ export class ConvertVaultCommand extends BasicCommand<
         remoteUrl ?? null
       );
       if (!acceptedMove) return;
-    }
+    
 
     return { type, vault, remoteUrl };
   }

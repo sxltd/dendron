@@ -23,7 +23,6 @@ import {
 import {
   createDisposableLogger,
   DConfig,
-  isSelfContainedVaultFolder,
   pathForVaultRoot,
 } from "@sxltd/common-server";
 import throttle from "@jcoreio/async-throttle";
@@ -167,18 +166,27 @@ export class DoctorService implements Disposable {
     return uniqueCandidates;
   }
 
+  //todo: with the removal of the `selfContained` flag
+  //this needs to be done differently
+  //maybe it should be `find misconfigured vaults` and it should expect a directory structure
+  //and then can give a blurb about the deprecation
+  //@ts-ignore
   async findMisconfiguredSelfContainedVaults(wsRoot: string, vaults: DVault[]) {
     return (
       await Promise.all(
+        //@ts-ignore
         vaults.map(async (vault) => {
+          /*
           if (vault.selfContained || vault.workspace || vault.seed) return;
           if (
             await isSelfContainedVaultFolder(path.join(wsRoot, vault.fsPath))
           ) {
             return vault;
           }
+          */
           return;
         })
+          
       )
     ).filter(isNotUndefined);
   }
@@ -528,11 +536,12 @@ export class DoctorService implements Disposable {
             const config = workspaceService.config;
             this.L.info({
               ctx,
+              //@ts-ignore
               vaultName: VaultUtils.getName(vault),
               msg: "marking vault as self contained vault",
             });
+            //@ts-ignore
             ConfigUtils.updateVault(config, vault, (vault) => {
-              vault.selfContained = true;
               return vault;
             });
             await workspaceService.setConfig(config);

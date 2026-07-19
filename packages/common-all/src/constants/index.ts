@@ -123,7 +123,6 @@ export enum DENDRON_EMOJIS {
 }
 
 export enum DENDRON_VSCODE_CONFIG_KEYS {
-  ENABLE_SELF_CONTAINED_VAULTS_WORKSPACE = "dendron.enableSelfContainedVaultWorkspace",
 }
 
 /**

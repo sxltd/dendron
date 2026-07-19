@@ -85,76 +85,6 @@ export class AddExistingVaultCommand extends BasicCommand<
     ]);
   };
 
-  /** A regular, non-self contained vault. */
-  async gatherVaultStandard(
-    sourceType: VaultRemoteSource
-  ): Promise<CommandOpts | undefined> {
-    let sourceName: string | undefined;
-    let vaultDestination: string | undefined;
-    if (sourceType === VaultType.REMOTE) {
-      // eslint-disable-next-line  no-async-promise-executor
-      const out = new Promise<CommandOpts | undefined>(async (resolve) => {
-        const qp = VSCodeUtils.createQuickPick<SourceQuickPickEntry>();
-        qp.ignoreFocusOut = true;
-        qp.placeholder = "choose a preset or enter a custom git endpoint";
-        qp.items = this.generateRemoteEntries();
-        qp.onDidAccept(async () => {
-          const value = qp.value;
-          const selected = qp.selectedItems[0];
-          if (selected.label === "custom") {
-            if (PickerUtilsV2.isInputEmpty(value)) {
-              return window.showInformationMessage("please enter an endpoint");
-            }
-            selected.src = qp.value;
-          }
-          const sourceRemotePath = selected.src;
-
-          const placeHolder =
-            selected.label === "custom"
-              ? GitUtils.getRepoNameFromURL(sourceRemotePath)
-              : selected.label;
-
-          const out = await VSCodeUtils.showInputBox({
-            prompt: "Path to your new vault (relative to your workspace root)",
-            placeHolder: path.basename(placeHolder),
-            value: placeHolder,
-          });
-
-          if (PickerUtilsV2.isInputEmpty(out)) {
-            return resolve(undefined);
-          }
-          vaultDestination = path.join(this._ext.getDWorkspace().wsRoot, out);
-
-          sourceName = await VSCodeUtils.showInputBox({
-            prompt: "Name of new vault (optional, press enter to skip)",
-            value: placeHolder,
-          });
-          qp.hide();
-          return resolve({
-            type: sourceType,
-            name: sourceName,
-            path: vaultDestination,
-            pathRemote: sourceRemotePath,
-          });
-        });
-        qp.show();
-      });
-      return out;
-    }
-
-    vaultDestination = await this.gatherDestinationFolder();
-    if (!vaultDestination) return;
-    const placeHolder = path.basename(vaultDestination);
-    sourceName = await VSCodeUtils.showInputBox({
-      prompt: "Name of new vault (optional, press enter to skip)",
-      placeHolder,
-    });
-    return {
-      type: sourceType,
-      name: sourceName,
-      path: vaultDestination,
-    };
-  }
 
   async gatherDestinationFolder() {
     const defaultUri = Uri.file(this._ext.getDWorkspace().wsRoot);
@@ -257,62 +187,8 @@ export class AddExistingVaultCommand extends BasicCommand<
     }
     const sourceType = sourceTypeSelected.label;
 
-    const { config } = this._ext.getDWorkspace();
-    if (config.dev?.enableSelfContainedVaults) {
-      return this.gatherVaultSelfContained(sourceType);
-    } else {
-      // A "standard", non self contained vault
-      return this.gatherVaultStandard(sourceType);
-    }
-  }
+    return this.gatherVaultSelfContained(sourceType);
 
-  async handleRemoteRepo(
-    opts: CommandOpts
-  ): Promise<{ vaults: DVault[]; workspace?: DWorkspace }> {
-    const { vaults, workspace } = await window.withProgress(
-      {
-        location: ProgressLocation.Notification,
-        title: "Adding remote vault",
-        cancellable: false,
-      },
-      async (progress) => {
-        progress.report({
-          message: "cloning repo",
-        });
-        const baseDir = this._ext.getDWorkspace().wsRoot;
-        const git = simpleGit({ baseDir });
-        await git.clone(opts.pathRemote!, opts.path);
-        const { vaults, workspace } = await GitUtils.getVaultsFromRepo({
-          repoPath: opts.path,
-          wsRoot: this._ext.getDWorkspace().wsRoot,
-          repoUrl: opts.pathRemote!,
-        });
-        if (_.size(vaults) === 1 && opts.name) {
-          vaults[0].name = opts.name;
-        }
-        // add all vaults
-        progress.report({
-          message: "adding vault",
-        });
-        const wsRoot = this._ext.getDWorkspace().wsRoot;
-        const wsService = new WorkspaceService({ wsRoot });
-
-        if (workspace) {
-          await wsService.addWorkspace({ workspace });
-          await this.addWorkspaceToWorkspace(workspace);
-        } else {
-          // Some things, like updating config, can't be parallelized so needs to be done one at a time
-          for (const vault of vaults) {
-            // eslint-disable-next-line no-await-in-loop
-            await wsService.createVault({ vault });
-            // eslint-disable-next-line no-await-in-loop
-            await this.addVaultToWorkspace(vault);
-          }
-        }
-        return { vaults, workspace };
-      }
-    );
-    return { vaults, workspace };
   }
 
   async handleRemoteRepoSelfContained(

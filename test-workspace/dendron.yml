@@ -2,7 +2,6 @@ version: 5
 dev:
   enablePreviewV2: true
   enableExportPodV2: true
-  enableSelfContainedVaults: true
   enableEngineV3: true
   enableExperimentalInlineNoteRef: true
 commands:

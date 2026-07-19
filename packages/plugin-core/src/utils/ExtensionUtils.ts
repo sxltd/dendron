@@ -403,8 +403,6 @@ export class ExtensionUtils {
       workspaceType,
       codeWorkspacePresent,
       configVersion,
-      selfContainedVaultsEnabled:
-        dendronConfig.dev?.enableSelfContainedVaults || false,
       numSelfContainedVaults: vaults.filter(VaultUtils.isSelfContained).length,
       numRemoteVaults: vaults.filter(VaultUtils.isRemote).length,
       numWorkspaceVaults: vaults.filter(

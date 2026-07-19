@@ -16,7 +16,6 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggest.showSnippets": true,
     "editor.tabCompletion": "on",
-    "dendron.enableSelfContainedVaultWorkspace": true
   },
   "extensions": {
     "recommendations": [

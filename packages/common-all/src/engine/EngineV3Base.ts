@@ -296,10 +296,6 @@ export abstract class EngineV3Base implements ReducedDEngine {
   async queryNotes(opts: QueryNotesOpts): Promise<QueryNotesResp> {
     // const ctx = "Engine:queryNotes";
     const { qs, vault, onlyDirectChildren, originalQS } = opts;
-    // Need to ignore this because the engine stringifies this property, so the types are incorrect.
-    // @ts-ignore
-    if (vault?.selfContained === "true" || vault?.selfContained === "false")
-      vault.selfContained = vault.selfContained === "true";
 
     const response = await this.queryStore.queryNotes(qs, {
       onlyDirectChildren,

@@ -221,21 +221,11 @@ suite("AddExistingVaultCommand", function () {
   });
 });
 
-function enableSelfContainedVaults(config: DendronConfig) {
-  config.dev!.enableSelfContainedVaults = true;
-  return config;
-}
-
-function disableSelfContainedVaults(config: DendronConfig) {
-  config.dev!.enableSelfContainedVaults = false;
-  return config;
-}
 
 describe("GIVEN Add Existing Vault Command is run with self contained vaults enabled", function () {
   describeSingleWS(
     "WHEN adding a standard local vault", // not self conatined
     {
-      modConfigCb: enableSelfContainedVaults,
       timeout,
     },
     () => {
@@ -279,7 +269,6 @@ describe("GIVEN Add Existing Vault Command is run with self contained vaults ena
           vaults: ConfigUtils.getVaults(config),
           vname: vaultName,
         });
-        expect(vault?.selfContained).toBeFalsy();
         expect(vault?.name).toEqual(vaultName);
         expect(vault?.fsPath).toEqual(
           // vault paths always use UNIX style
@@ -296,7 +285,6 @@ describe("GIVEN Add Existing Vault Command is run with self contained vaults ena
   describeSingleWS(
     "WHEN adding a local self conatined vault",
     {
-      modConfigCb: enableSelfContainedVaults,
       timeout,
     },
     () => {

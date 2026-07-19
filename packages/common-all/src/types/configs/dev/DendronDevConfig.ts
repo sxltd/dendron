@@ -37,12 +37,6 @@ export type DendronDevConfig = {
    */
   enableExportPodV2?: boolean;
   /**
-   * Sets self contained vaults as the default vault type. Dendron can read
-   * self-contained vaults even if this option is not enabled, but it will only
-   * create self contained vaults if this option is enabled.
-   */
-  enableSelfContainedVaults?: boolean;
-  /**
    * Feature flag for iframe note references.
    * True -> renders note references as an iframe when publishing to nextjs.
    * False (Default) -> renders note references inline.

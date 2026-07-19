@@ -133,9 +133,6 @@ export class GitUtils {
         fsPath: path.relative(wsRoot, repoPath),
         remote: { type: "git", url: opts.repoUrl },
       };
-      if (await fs.pathExists(path.join(repoPath, FOLDERS.NOTES))) {
-        vault.selfContained = true;
-      }
       return {
         vaults: [vault],
       };

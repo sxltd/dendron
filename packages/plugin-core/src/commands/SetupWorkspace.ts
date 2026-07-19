@@ -196,10 +196,7 @@ export class SetupWorkspaceCommand extends BasicCommand<
   ): Promise<{ wsVault?: DVault; additionalVaults?: DVault[] }> {
     const ctx = "SetupWorkspaceCommand";
     // This command can run before the extension is registered, especially during testing
-    const defaultSelfContained =
-      VSCodeUtils.getWorkspaceConfig().get<boolean>(
-        DENDRON_VSCODE_CONFIG_KEYS.ENABLE_SELF_CONTAINED_VAULTS_WORKSPACE
-      ) ?? false;
+    const defaultSelfContained = true;
     const {
       rootDirRaw: rootDir,
       skipOpenWs,

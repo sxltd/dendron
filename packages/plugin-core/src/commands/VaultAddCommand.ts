@@ -39,7 +39,6 @@ type CommandOpts = {
   path: string;
   pathRemote?: string;
   name?: string;
-  isSelfContained?: boolean;
 };
 
 type CommandOutput = { vaults: DVault[] };
@@ -71,78 +70,6 @@ export class VaultAddCommand extends BasicCommand<CommandOpts, CommandOutput> {
     ]);
   };
 
-  /** A regular, non-self contained vault. */
-  async gatherVaultStandard(
-    sourceType: VaultRemoteSource
-  ): Promise<CommandOpts | undefined> {
-    const localVaultPathPlaceholder = "vault2";
-    let sourcePath: string;
-    let sourceName: string | undefined;
-    if (sourceType === VaultType.REMOTE) {
-      // eslint-disable-next-line  no-async-promise-executor
-      const out = new Promise<CommandOpts | undefined>(async (resolve) => {
-        const qp = VSCodeUtils.createQuickPick<SourceQuickPickEntry>();
-        qp.ignoreFocusOut = true;
-        qp.placeholder = "choose a preset or enter a custom git endpoint";
-        qp.items = this.generateRemoteEntries();
-        qp.onDidAccept(async () => {
-          const value = qp.value;
-          const selected = qp.selectedItems[0];
-          if (selected.label === "custom") {
-            if (PickerUtilsV2.isInputEmpty(value)) {
-              return window.showInformationMessage("please enter an endpoint");
-            }
-            selected.src = qp.value;
-          }
-          const sourceRemotePath = selected.src;
-          const path2Vault =
-            selected.label === "custom"
-              ? GitUtils.getRepoNameFromURL(sourceRemotePath)
-              : selected.label;
-          const placeHolder = path2Vault;
-
-          const out = await VSCodeUtils.showInputBox({
-            prompt: "Path to your new vault (relative to your workspace root)",
-            placeHolder: localVaultPathPlaceholder,
-            value: path2Vault,
-          });
-          if (PickerUtilsV2.isInputEmpty(out)) {
-            resolve(undefined);
-          }
-          sourcePath = out!;
-
-          sourceName = await VSCodeUtils.showInputBox({
-            prompt: "Name of new vault (optional, press enter to skip)",
-            value: placeHolder,
-          });
-          qp.hide();
-          return resolve({
-            type: sourceType!,
-            name: sourceName,
-            path: sourcePath,
-            pathRemote: sourceRemotePath,
-          });
-        });
-        qp.show();
-      });
-      return out;
-    } else {
-      const out = await VSCodeUtils.showInputBox({
-        prompt: "Path to your new vault (relative to your workspace root)",
-        placeHolder: localVaultPathPlaceholder,
-      });
-      if (PickerUtilsV2.isInputEmpty(out)) return;
-      sourcePath = out!;
-    }
-    sourceName = await VSCodeUtils.showInputBox({
-      prompt: "Name of new vault (optional, press enter to skip)",
-    });
-    return {
-      type: sourceType,
-      name: sourceName,
-      path: sourcePath,
-    };
-  }
 
   async gatherVaultSelfContained(
     sourceType: VaultRemoteSource
@@ -217,62 +144,8 @@ export class VaultAddCommand extends BasicCommand<CommandOpts, CommandOutput> {
     }
     const sourceType = sourceTypeSelected.label;
 
-    const { config } = ExtensionProvider.getDWorkspace();
-    if (config.dev?.enableSelfContainedVaults) {
       return this.gatherVaultSelfContained(sourceType);
-    } else {
-      // A "standard", non self contained vault
-      return this.gatherVaultStandard(sourceType);
-    }
-  }
 
-  async handleRemoteRepo(
-    opts: CommandOpts
-  ): Promise<{ vaults: DVault[]; workspace?: DWorkspace }> {
-    const { vaults, workspace } = await window.withProgress(
-      {
-        location: ProgressLocation.Notification,
-        title: "Adding remote vault",
-        cancellable: false,
-      },
-      async (progress) => {
-        progress.report({
-          message: "cloning repo",
-        });
-        const baseDir = ExtensionProvider.getDWorkspace().wsRoot;
-        const git = simpleGit({ baseDir });
-        await git.clone(opts.pathRemote!, opts.path);
-        const { vaults, workspace } = await GitUtils.getVaultsFromRepo({
-          repoPath: path.join(baseDir, opts.path),
-          wsRoot: ExtensionProvider.getDWorkspace().wsRoot,
-          repoUrl: opts.pathRemote!,
-        });
-        if (_.size(vaults) === 1 && opts.name) {
-          vaults[0].name = opts.name;
-        }
-        // add all vaults
-        progress.report({
-          message: "adding vault",
-        });
-        const wsRoot = ExtensionProvider.getDWorkspace().wsRoot;
-        const wsService = new WorkspaceService({ wsRoot });
-
-        if (workspace) {
-          await wsService.addWorkspace({ workspace });
-          await this.addWorkspaceToWorkspace(workspace);
-        } else {
-          // Some things, like updating config, can't be parallelized so needs to be done one at a time
-          for (const vault of vaults) {
-            // eslint-disable-next-line no-await-in-loop
-            await wsService.createVault({ vault });
-            // eslint-disable-next-line no-await-in-loop
-            await this.addVaultToWorkspace(vault);
-          }
-        }
-        return { vaults, workspace };
-      }
-    );
-    return { vaults, workspace };
   }
 
   async handleRemoteRepoSelfContained(
@@ -458,11 +331,7 @@ export class VaultAddCommand extends BasicCommand<CommandOpts, CommandOutput> {
     let vaults: DVault[] = [];
     Logger.info({ ctx, msg: "enter", opts });
     if (opts.type === VaultType.REMOTE) {
-      if (opts.isSelfContained) {
         ({ vaults } = await this.handleRemoteRepoSelfContained(opts));
-      } else {
-        ({ vaults } = await this.handleRemoteRepo(opts));
-      }
     } else {
       const wsRoot = ExtensionProvider.getDWorkspace().wsRoot;
       const fsPath = VaultUtils.normVaultPath({
@@ -473,10 +342,6 @@ export class VaultAddCommand extends BasicCommand<CommandOpts, CommandOutput> {
       const vault: DVault = {
         fsPath,
       };
-      // Make sure these don't get set to undefined, or serialization breaks
-      if (opts.isSelfContained) {
-        vault.selfContained = true;
-      }
       if (opts.name) {
         vault.name = opts.name;
       }

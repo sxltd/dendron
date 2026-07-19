@@ -1268,14 +1268,7 @@ export const CONFIG: { [key: string]: ConfigEntry } = {
     type: "number",
     description:
       "port for server. If not set, will be randomly generated at startup.",
-  },
-  ENABLE_SELF_CONTAINED_VAULT_WORKSPACE: {
-    key: DENDRON_VSCODE_CONFIG_KEYS.ENABLE_SELF_CONTAINED_VAULTS_WORKSPACE,
-    type: "boolean",
-    default: true,
-    description:
-      "When enabled, newly created workspaces will be created as self contained vaults.",
-  },
+  }
 };
 
 export const gdocRequiredScopes = [

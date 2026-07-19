@@ -48,20 +48,6 @@ export class CreateNewVaultCommand extends BasicCommand<
     return folder;
   }
 
-  async gatherVaultStandard(): Promise<CommandOpts | undefined> {
-    const vaultDestination = await this.gatherDestinationFolder();
-    if (!vaultDestination) return;
-    const sourceName = await VSCodeUtils.showInputBox({
-      prompt: "Name of new vault (optional, press enter to skip)",
-      placeHolder: path.basename(vaultDestination),
-    });
-
-    return {
-      name: sourceName,
-      path: vaultDestination,
-    };
-  }
-
   async gatherVaultSelfContained(): Promise<CommandOpts | undefined> {
     const vaultName = await VSCodeUtils.showInputBox({
       title: "Vault name",
@@ -84,13 +70,8 @@ export class CreateNewVaultCommand extends BasicCommand<
   }
 
   async gatherInputs(): Promise<CommandOpts | undefined> {
-    const { config } = this._ext.getDWorkspace();
-    if (config.dev?.enableSelfContainedVaults) {
       return this.gatherVaultSelfContained();
-    } else {
-      // A "standard", non self contained vault
-      return this.gatherVaultStandard();
-    }
+
   }
 
   async addVaultToWorkspace(vault: DVault) {

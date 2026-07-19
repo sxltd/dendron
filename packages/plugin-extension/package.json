@@ -1294,11 +1294,6 @@
                 "dendron.serverPort": {
                     "type": "number",
                     "description": "port for server. If not set, will be randomly generated at startup."
-                },
-                "dendron.enableSelfContainedVaultWorkspace": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "When enabled, newly created workspaces will be created as self contained vaults."
                 }
             }
         },

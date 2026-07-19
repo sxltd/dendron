@@ -1,7 +1,6 @@
-version: 5
+version: 6
 dev:
     enablePreviewV2: true
-    enableSelfContainedVaults: true
 commands:
     lookup:
         note:
