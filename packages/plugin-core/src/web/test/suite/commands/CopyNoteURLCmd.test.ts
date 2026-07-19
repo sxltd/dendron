@@ -27,7 +27,6 @@ suite("GIVEN a CopyNoteURLCmd", () => {
   const mockEngine = stubInterface<ReducedDEngine>();
   const vault: DVault[] = [
     {
-      selfContained: true,
       fsPath: "path",
     },
   ];

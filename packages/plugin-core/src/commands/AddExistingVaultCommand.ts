@@ -15,7 +15,6 @@ import {
   DConfig,
   GitUtils,
   pathForVaultRoot,
-  simpleGit,
 } from "@sxltd/common-server";
 import {
   Git,
@@ -374,11 +373,7 @@ export class AddExistingVaultCommand extends BasicCommand<
     let vaults: DVault[] = [];
     Logger.info({ ctx, msg: "enter", opts });
     if (opts.type === VaultType.REMOTE) {
-      if (opts.isSelfContained) {
         ({ vaults } = await this.handleRemoteRepoSelfContained(opts));
-      } else {
-        ({ vaults } = await this.handleRemoteRepo(opts));
-      }
     } else {
       const wsRoot = this._ext.getDWorkspace().wsRoot;
       const fsPath = VaultUtils.normVaultPath({
@@ -389,10 +384,6 @@ export class AddExistingVaultCommand extends BasicCommand<
       const vault: DVault = {
         fsPath,
       };
-      // Make sure these don't get set to undefined, or serialization breaks
-      if (await fs.pathExists(path.join(opts.path, FOLDERS.NOTES))) {
-        vault.selfContained = true;
-      }
       if (opts.name) {
         vault.name = opts.name;
       }

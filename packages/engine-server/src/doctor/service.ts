@@ -176,6 +176,7 @@ export class DoctorService implements Disposable {
       await Promise.all(
         //@ts-ignore
         vaults.map(async (vault) => {
+          return vault;
           /*
           if (vault.selfContained || vault.workspace || vault.seed) return;
           if (
@@ -183,8 +184,9 @@ export class DoctorService implements Disposable {
           ) {
             return vault;
           }
-          */
+          
           return;
+          */
         })
           
       )

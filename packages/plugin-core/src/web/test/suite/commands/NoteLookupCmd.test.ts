@@ -64,7 +64,6 @@ suite("GIVEN a NoteLookupCmd", () => {
     } as unknown as LookupQuickpickFactory;
 
     const vault: DVault = {
-      selfContained: true,
       fsPath: "path",
     };
     const lookupReturn: LookupAcceptPayload = {
@@ -111,7 +110,6 @@ suite("GIVEN a NoteLookupCmd", () => {
     } as unknown as LookupQuickpickFactory;
 
     const vault: DVault = {
-      selfContained: true,
       fsPath: "path",
     };
     const lookupReturn: LookupAcceptPayload = {

@@ -22,7 +22,6 @@ suite("GIVEN a workspace folder", () => {
 
     assert.strictEqual(vaults.length, 1);
     assert(vaults[0].fsPath.endsWith("test"));
-    assert(!vaults[0].selfContained);
     assert.strictEqual(vaults[0].name, "test-name");
   });
 
@@ -45,7 +44,6 @@ suite("GIVEN a workspace folder", () => {
 
     assert.strictEqual(vaults.length, 1);
     assert(vaults[0].fsPath.endsWith("test"));
-    assert(vaults[0].selfContained);
   });
 
   test("WHEN there are multiple vaults THEN all vaults are returned correctly", async () => {
@@ -70,9 +68,7 @@ suite("GIVEN a workspace folder", () => {
 
     assert.strictEqual(vaults.length, 2);
     assert(vaults[0].fsPath.endsWith("test"));
-    assert(vaults[0].selfContained);
 
     assert(vaults[1].fsPath.endsWith("legacy"));
-    assert(!vaults[1].selfContained);
   });
 });

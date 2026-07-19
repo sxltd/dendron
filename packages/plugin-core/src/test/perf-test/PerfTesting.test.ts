@@ -39,7 +39,6 @@ suite("Performance testing", function () {
           modConfigCb: (config) => {
             const newVault: DVault = {
               fsPath: "10000-markdown-files",
-              selfContained: true,
             };
             const vaults = ConfigUtils.getVaults(config);
             vaults.push(newVault);

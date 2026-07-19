@@ -1,6 +1,5 @@
 import {
   ConfigUtils,
-  DENDRON_VSCODE_CONFIG_KEYS,
   DEngine,
   DEngineClient,
   Disposable,

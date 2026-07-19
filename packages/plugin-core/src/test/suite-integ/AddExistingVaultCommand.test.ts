@@ -38,7 +38,6 @@ suite("AddExistingVaultCommand", function () {
     describeSingleWS(
       "WHEN a remote workspace vault is added",
       {
-        modConfigCb: disableSelfContainedVaults,
         timeout: 1e6,
       },
       () => {
@@ -84,7 +83,6 @@ suite("AddExistingVaultCommand", function () {
                 {
                   fsPath: "notes",
                   name: "dendron",
-                  selfContained: true,
                   workspace: "vaultRemote",
                 },
                 vaults[0],
@@ -111,7 +109,6 @@ suite("AddExistingVaultCommand", function () {
     describeSingleWS(
       "WHEN adding a standard local vault", // not self conatined
       {
-        modConfigCb: disableSelfContainedVaults,
         timeout,
       },
       () => {
@@ -149,7 +146,6 @@ suite("AddExistingVaultCommand", function () {
             vaults: ConfigUtils.getVaults(config),
             vname: vaultName,
           });
-          expect(vault?.selfContained).toBeFalsy();
           expect(vault?.name).toEqual(vaultName);
           expect(vault?.fsPath).toEqual(vaultName);
         });
@@ -159,7 +155,6 @@ suite("AddExistingVaultCommand", function () {
     describeSingleWS(
       "WHEN adding a local self conatined vault with enableSelfConatinedVaults config set to false",
       {
-        modConfigCb: disableSelfContainedVaults,
         timeout,
       },
       () => {
@@ -197,7 +192,6 @@ suite("AddExistingVaultCommand", function () {
             vaults: ConfigUtils.getVaults(config),
             vname: vaultName,
           });
-          expect(vault?.selfContained).toBeTruthy();
           expect(vault?.name).toEqual(vaultName);
           expect(vault?.fsPath).toEqual(vaultName);
         });
@@ -328,7 +322,6 @@ describe("GIVEN Add Existing Vault Command is run with self contained vaults ena
           vaults: ConfigUtils.getVaults(config),
           vname: vaultName,
         });
-        expect(vault?.selfContained).toBeTruthy();
         expect(vault?.name).toEqual(vaultName);
         expect(vault?.fsPath).toEqual(
           // vault paths always use UNIX style
@@ -357,7 +350,7 @@ describe("GIVEN Add Existing Vault Command is run with self contained vaults ena
 
   describeSingleWS(
     "WHEN adding a remote self contained vault",
-    { modConfigCb: enableSelfContainedVaults, timeout },
+    { timeout },
     () => {
       let vaultName: string;
       let remoteDir: string;
@@ -381,7 +374,6 @@ describe("GIVEN Add Existing Vault Command is run with self contained vaults ena
             name: vaultName,
             path: vaultPath,
             pathRemote: remoteDir,
-            isSelfContained: true,
           })
         );
         await cmd.run();
@@ -404,7 +396,6 @@ describe("GIVEN Add Existing Vault Command is run with self contained vaults ena
           vaults: ConfigUtils.getVaults(config),
           vname: vaultName,
         });
-        expect(vault?.selfContained).toBeTruthy();
         expect(vault?.name).toEqual(vaultName);
         expect(vault?.fsPath).toEqual(
           // vault paths always use UNIX style
@@ -431,7 +422,7 @@ describe("GIVEN Add Existing Vault Command is run with self contained vaults ena
 
   describeSingleWS(
     "WHEN adding a remote workspace vault",
-    { modConfigCb: enableSelfContainedVaults, timeout },
+    { timeout },
     () => {
       let vaultName: string;
       let remoteDir: string;
@@ -478,7 +469,6 @@ describe("GIVEN Add Existing Vault Command is run with self contained vaults ena
         const vault = ConfigUtils.getVaults(config).find(
           (vault) => vault.workspace === vaultName
         );
-        expect(vault?.selfContained).toBeFalsy();
         expect(vault?.fsPath).toEqual("vault");
         expect(config.workspace.workspaces).toBeTruthy();
         expect(config.workspace.workspaces![vaultName]).toBeTruthy();
@@ -506,7 +496,7 @@ describe("GIVEN Add Existing Vault Command is run with self contained vaults ena
 
   describeSingleWS(
     "WHEN adding a remote regular (non self contained) vault",
-    { modConfigCb: enableSelfContainedVaults, timeout },
+    { timeout },
     () => {
       let vaultName: string;
       let remoteDir: string;
@@ -555,7 +545,6 @@ describe("GIVEN Add Existing Vault Command is run with self contained vaults ena
           vname: vaultName,
         });
 
-        expect(vault?.selfContained).toBeFalsy();
         expect(vault?.fsPath).toEqual(
           // vault paths always use UNIX style
           path.posix.join(FOLDERS.DEPENDENCIES, vaultName)

@@ -99,10 +99,6 @@ export class CreateNewVaultCommand extends BasicCommand<
     const vault: DVault = {
       fsPath,
     };
-    // Make sure these don't get set to undefined, or serialization breaks
-    if (opts.isSelfContained) {
-      vault.selfContained = true;
-    }
     if (opts.name) {
       vault.name = opts.name;
     }

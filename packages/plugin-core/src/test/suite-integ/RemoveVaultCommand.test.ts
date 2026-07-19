@@ -211,7 +211,7 @@ suite("GIVEN RemoveVaultCommand", function () {
 
   describeMultiWS(
     "WHEN removing a self contained vault",
-    { selfContained: true },
+    { },
     () => {
       test("THEN the vault is removed", async () => {
         const { vaults, wsRoot } = ExtensionProvider.getDWorkspace();
@@ -252,7 +252,7 @@ suite("GIVEN RemoveVaultCommand", function () {
 
   describeMultiWS(
     "WHEN removing the top level self contained vault",
-    { selfContained: true },
+    {  },
     () => {
       test("THEN the vault is removed", async () => {
         const { vaults, wsRoot } = ExtensionProvider.getDWorkspace();

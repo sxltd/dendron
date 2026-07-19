@@ -1,6 +1,5 @@
 import {
   CONSTANTS,
-  DENDRON_VSCODE_CONFIG_KEYS,
   DVault,
   ErrorFactory,
   WorkspaceType,

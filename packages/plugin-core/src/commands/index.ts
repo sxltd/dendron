@@ -38,7 +38,6 @@ import { InsertNoteIndexCommand } from "./InsertNoteIndexCommand";
 import { InsertNoteLinkCommand } from "./InsertNoteLink";
 import { InstrumentedWrapperCommand } from "./InstrumentedWrapperCommand";
 import { LaunchTutorialWorkspaceCommand } from "./LaunchTutorialWorkspaceCommand";
-import { MigrateSelfContainedVaultCommand } from "./MigrateSelfContainedVault";
 import { MoveHeaderCommand } from "./MoveHeader";
 import { MoveNoteCommand } from "./MoveNoteCommand";
 import { NoteLookupAutoCompleteCommand } from "./node/NoteLookupAutoCompleteCommand";
@@ -106,7 +105,6 @@ const ALL_COMMANDS = [
   CopyToClipboardCommand,
   CreateDailyJournalCommand,
   CreateHookCommand,
-  MigrateSelfContainedVaultCommand,
   CreateSchemaFromHierarchyCommand,
   DeleteHookCommand,
   DeleteCommand,

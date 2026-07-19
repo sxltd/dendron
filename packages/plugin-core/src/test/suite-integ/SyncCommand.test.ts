@@ -1220,7 +1220,6 @@ suite("workspace sync command", function () {
     "WHEN using a self contained vault, it is treated as a regular vault",
     {
       ctx,
-      selfContained: true,
       modConfigCb: (config) => {
         ConfigUtils.setWorkspaceProp(config, "workspaceVaultSyncMode", "skip");
         return config;

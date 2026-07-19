@@ -3,7 +3,6 @@ import {
   CONSTANTS,
   DVault,
   FOLDERS,
-  DendronConfig,
   normalizeUnixPath,
   NoteUtils,
   SchemaUtils,
@@ -86,7 +85,6 @@ suite("VaultAddCommand", function () {
               {
                 fsPath: "notes",
                 name: "dendron",
-                selfContained: true,
                 workspace: "vaultRemote",
               },
               vaults[0],
@@ -270,7 +268,6 @@ suite("VaultAddCommand", function () {
     describeSingleWS(
       "WHEN add to existing folder",
       {
-        modConfigCb: disableSelfContainedVaults,
         postSetupHook: async ({ wsRoot }) => {
           const vpath = path.join(wsRoot, "vault2");
           fs.ensureDirSync(vpath);
@@ -329,8 +326,9 @@ suite("VaultAddCommand", function () {
 
     describeSingleWS(
       "AND WHEN add absolute path inside wsRoot",
-      { modConfigCb: disableSelfContainedVaults },
+      { },
       () => {
+        //bruh
         test("THEN do right thing", async () => {
           const { wsRoot } = ExtensionProvider.getDWorkspace();
           const vpath = path.join(wsRoot, "vault2");
@@ -362,7 +360,7 @@ suite("VaultAddCommand", function () {
 
     describeSingleWS(
       "AND WHEN add rel path inside wsRoot",
-      { modConfigCb: disableSelfContainedVaults, timeout: 1e4 },
+      { timeout: 1e4 },
       () => {
         test("THEN do right thing", async () => {
           const { wsRoot } = ExtensionProvider.getDWorkspace();
@@ -394,7 +392,6 @@ suite("VaultAddCommand", function () {
     describeSingleWS(
       "AND WHEN add absolute path outside of wsRoot",
       {
-        modConfigCb: disableSelfContainedVaults,
       },
       () => {
         test("THEN do right thing", async () => {
@@ -425,16 +422,6 @@ suite("VaultAddCommand", function () {
     );
   });
 });
-
-function enableSelfCOntainedVaults(config: DendronConfig) {
-  config.dev!.enableSelfContainedVaults = true;
-  return config;
-}
-
-function disableSelfContainedVaults(config: DendronConfig) {
-  config.dev!.enableSelfContainedVaults = false;
-  return config;
-}
 
 describe("GIVEN a workspace with local override", function () {
   const beforeHook = () => {
@@ -513,7 +500,6 @@ describe("GIVEN VaultAddCommand with self contained vaults enabled", function ()
   describeSingleWS(
     "WHEN creating and adding a local vault",
     {
-      modConfigCb: enableSelfCOntainedVaults,
     },
     () => {
       const vaultName = "my-self-contained-vault";
@@ -551,7 +537,6 @@ describe("GIVEN VaultAddCommand with self contained vaults enabled", function ()
           vaults: ConfigUtils.getVaults(config),
           vname: vaultName,
         });
-        expect(vault?.selfContained).toBeTruthy();
         expect(vault?.name).toEqual(vaultName);
         expect(vault?.fsPath).toEqual(
           // vault paths always use UNIX style
@@ -581,7 +566,7 @@ describe("GIVEN VaultAddCommand with self contained vaults enabled", function ()
 
   describeSingleWS(
     "WHEN creating and adding a remote self contained vault",
-    { modConfigCb: enableSelfCOntainedVaults },
+    { },
     () => {
       let vaultName: string;
       let remoteDir: string;
@@ -622,7 +607,6 @@ describe("GIVEN VaultAddCommand with self contained vaults enabled", function ()
           vaults: ConfigUtils.getVaults(config),
           vname: vaultName,
         });
-        expect(vault?.selfContained).toBeTruthy();
         expect(vault?.name).toEqual(vaultName);
         expect(vault?.fsPath).toEqual(
           // vault paths always use UNIX style
@@ -649,7 +633,7 @@ describe("GIVEN VaultAddCommand with self contained vaults enabled", function ()
 
   describeSingleWS(
     "WHEN adding a remote self contained vault with transitive deps",
-    { modConfigCb: enableSelfCOntainedVaults },
+    { },
     () => {
       let vaultName: string;
       let remoteDir: string;
@@ -723,7 +707,6 @@ describe("GIVEN VaultAddCommand with self contained vaults enabled", function ()
           vaults: ConfigUtils.getVaults(config),
           vname: vaultName,
         });
-        expect(vault?.selfContained).toBeTruthy();
         expect(vault?.name).toEqual(vaultName);
         // vaults always use unix separators in config files. Added in #3096
         expect(vault?.fsPath).toEqual(
@@ -757,7 +740,6 @@ describe("GIVEN VaultAddCommand with self contained vaults enabled", function ()
     describeSingleWS(
       "WHEN creating and adding a remote vault inside a native workspace",
       {
-        modConfigCb: enableSelfCOntainedVaults,
         workspaceType: WorkspaceType.NATIVE,
       },
       () => {
@@ -804,7 +786,6 @@ describe("GIVEN VaultAddCommand with self contained vaults enabled", function ()
             vaults: ConfigUtils.getVaults(config),
             vname: vaultName,
           });
-          expect(vault?.selfContained).toBeTruthy();
           expect(vault?.name).toEqual(vaultName);
           expect(vault?.fsPath).toEqual(
             // vault paths always use UNIX style
@@ -833,7 +814,7 @@ describe("GIVEN VaultAddCommand with self contained vaults enabled", function ()
 
   describeSingleWS(
     "WHEN creating and adding a remote workspace vault",
-    { modConfigCb: enableSelfCOntainedVaults },
+    { },
     () => {
       let vaultName: string;
       let remoteDir: string;
@@ -874,7 +855,6 @@ describe("GIVEN VaultAddCommand with self contained vaults enabled", function ()
         const vault = ConfigUtils.getVaults(config).find(
           (vault) => vault.workspace === vaultName
         );
-        expect(vault?.selfContained).toBeFalsy();
         expect(vault?.fsPath).toEqual("vault");
         expect(config.workspace.workspaces).toBeTruthy();
         expect(config.workspace.workspaces![vaultName]).toBeTruthy();
@@ -902,7 +882,7 @@ describe("GIVEN VaultAddCommand with self contained vaults enabled", function ()
 
   describeSingleWS(
     "WHEN creating and adding a remote regular (non self contained) vault",
-    { modConfigCb: enableSelfCOntainedVaults },
+    { },
     () => {
       let vaultName: string;
       let remoteDir: string;
@@ -945,7 +925,6 @@ describe("GIVEN VaultAddCommand with self contained vaults enabled", function ()
           vname: vaultName,
         });
 
-        expect(vault?.selfContained).toBeFalsy();
         expect(vault?.fsPath).toEqual(
           // vault paths always use UNIX style
           path.posix.join(FOLDERS.DEPENDENCIES, vaultName)

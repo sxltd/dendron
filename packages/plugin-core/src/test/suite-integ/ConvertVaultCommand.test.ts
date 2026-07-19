@@ -107,7 +107,7 @@ suite("GIVEN ConvertVaultCommand", function () {
     {
       preSetupHook: ENGINE_HOOKS_MULTI.setupBasicMulti,
       modConfigCb: (config) => {
-        config.dev = { enableSelfContainedVaults: true };
+        config.dev = {  };
         return config;
       },
     },

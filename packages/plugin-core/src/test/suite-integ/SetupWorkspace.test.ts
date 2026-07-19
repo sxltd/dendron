@@ -205,7 +205,6 @@ suite("GIVEN SetupWorkspace Command", function () {
         preSetupHook: async () => {
           DendronExtension.version = () => "0.0.1";
         },
-        selfContained: false,
       },
       () => {
         test("THEN Dendron initializes", async () => {
@@ -237,7 +236,6 @@ suite("GIVEN SetupWorkspace Command", function () {
           const vault = path.join(wsRoot, VaultUtils.getRelPath(vaults[0]));
           fs.removeSync(path.join(vault, "root.schema.yml"));
         },
-        selfContained: false,
       },
       () => {
         // Question mark because I'm not sure what this test is actually testing for.

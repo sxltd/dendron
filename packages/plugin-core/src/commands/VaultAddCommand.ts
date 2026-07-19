@@ -15,7 +15,6 @@ import {
   DConfig,
   GitUtils,
   pathForVaultRoot,
-  simpleGit,
 } from "@sxltd/common-server";
 import {
   Git,
@@ -97,7 +96,6 @@ export class VaultAddCommand extends BasicCommand<CommandOpts, CommandOutput> {
           FOLDERS.LOCAL_DEPENDENCY,
           vaultName
         ),
-        isSelfContained: true,
       };
     } else {
       // Remote vault
@@ -124,7 +122,6 @@ export class VaultAddCommand extends BasicCommand<CommandOpts, CommandOutput> {
           })
         ),
         pathRemote: remote,
-        isSelfContained: true,
       };
     }
   }

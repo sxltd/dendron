@@ -1,7 +1,6 @@
 import {
   ConfigUtils,
   CONSTANTS,
-  DendronConfig,
   FOLDERS,
   VaultUtils,
 } from "@sxltd/common-all";
@@ -23,7 +22,7 @@ suite("CreateNewVault Command", function () {
   describe("GIVEN Create new vault command is run within a workspace", () => {
     describeSingleWS(
       "WHEN ran inside a workspace with dev.enableSelfContainedVaults config set to false",
-      { modConfigCb: disableSelfContainedVaults, timeout: 1e4 },
+      { timeout: 1e4 },
       () => {
         before(async () => {
           sinon.stub(VSCodeUtils, "showInputBox").resolves();
@@ -63,21 +62,10 @@ suite("CreateNewVault Command", function () {
   });
 });
 
-function enableSelfCOntainedVaults(config: DendronConfig) {
-  config.dev!.enableSelfContainedVaults = true;
-  return config;
-}
-
-function disableSelfContainedVaults(config: DendronConfig) {
-  config.dev!.enableSelfContainedVaults = false;
-  return config;
-}
-
 describe("GIVEN Create existing vault command is run with self contained vaults enabled", function () {
   describeSingleWS(
     "WHEN creating a vault",
     {
-      modConfigCb: enableSelfCOntainedVaults,
       timeout: 5e3,
     },
     () => {
@@ -116,7 +104,6 @@ describe("GIVEN Create existing vault command is run with self contained vaults 
           vaults: ConfigUtils.getVaults(config),
           vname: vaultName,
         });
-        expect(vault?.selfContained).toBeTruthy();
         expect(vault?.name).toEqual(vaultName);
         expect(vault?.fsPath).toEqual(
           // vault paths always use UNIX style

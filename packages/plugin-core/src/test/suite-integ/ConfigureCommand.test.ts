@@ -25,7 +25,6 @@ suite("ConfigureCommand", function () {
     "WHEN there are multiple config files inside the workspace",
     {
       // Self contained workspace with multiple vaults will have a config file in each vault
-      selfContained: true,
     },
     () => {
       before(async () => {

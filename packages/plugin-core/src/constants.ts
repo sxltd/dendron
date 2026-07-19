@@ -1,7 +1,6 @@
 import {
   BacklinkPanelSortOrder,
   DendronTreeViewKey,
-  DENDRON_VSCODE_CONFIG_KEYS,
   isWebViewEntry,
   TreeViewItemLabelTypeEnum,
   TREE_VIEWS,
