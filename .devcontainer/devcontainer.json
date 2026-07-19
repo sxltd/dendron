@@ -34,5 +34,8 @@
 	// "remoteUser": "root"
 	"containerEnv": {
     	"DISPLAY": ":99.0"
-	}
+	},
+	"runArgs": [
+		"--shm-size=1g"
+	]
 }
