@@ -26,7 +26,7 @@ describe("GIVEN GitUtils", () => {
 
     test("THEN `getGithubEditUrl` should return github edit url", () => {
       expect(GitUtils.getGithubEditUrl({ config, note })).toEqual(
-        "/tree/main/fooVault/foo.md"
+        "/tree/main/fooVault/notes/foo.md"
       );
     });
   });
@@ -52,7 +52,7 @@ describe("GIVEN GitUtils", () => {
 
     test("THEN `getGithubEditUrl` should return github edit url", () => {
       expect(GitUtils.getGithubEditUrl({ config, note })).toEqual(
-        "https://github.com/kevinslin/dendron-11ty-test/edit/main/fooVault/foo.md"
+        "https://github.com/kevinslin/dendron-11ty-test/edit/main/fooVault/notes/foo.md"
       );
     });
 
