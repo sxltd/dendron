@@ -390,10 +390,6 @@
         "title": "Dendron: Workspace: Sync"
       },
       {
-        "command": "dendron.vaultAdd",
-        "title": "Dendron: Vault Add"
-      },
-      {
         "command": "dendron.removeVault",
         "title": "Dendron: Remove Vault"
       },
@@ -810,10 +806,6 @@
           "when": "dendron:pluginActive && shellExecutionSupported"
         },
         {
-          "command": "dendron.vaultAdd",
-          "when": "dendron:pluginActive && shellExecutionSupported"
-        },
-        {
           "command": "dendron.removeVault",
           "when": "dendron:pluginActive && shellExecutionSupported"
         },
@@ -1098,11 +1090,6 @@
         }
       ],
       "explorer/context": [
-        {
-          "when": "explorerResourceIsFolder && dendron:pluginActive && workspaceFolderCount > 1 && shellExecutionSupported",
-          "command": "dendron.vaultAdd",
-          "group": "2_workspace"
-        },
         {
           "when": "explorerResourceIsFolder && dendron:pluginActive && shellExecutionSupported",
           "command": "dendron.removeVault",

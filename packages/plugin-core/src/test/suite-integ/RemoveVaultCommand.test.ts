@@ -23,7 +23,6 @@ import { describe } from "mocha";
 import path from "path";
 import sinon from "sinon";
 import * as vscode from "vscode";
-import { VaultAddCommand } from "../../commands/VaultAddCommand";
 import { RemoveVaultCommand } from "../../commands/RemoveVaultCommand";
 import { ExtensionProvider } from "../../ExtensionProvider";
 import { VSCodeUtils } from "../../vsCodeUtils";

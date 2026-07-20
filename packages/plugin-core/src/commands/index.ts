@@ -73,7 +73,6 @@ import { TaskCompleteCommand } from "./TaskComplete";
 import { TaskStatusCommand } from "./TaskStatus";
 import { UpgradeSettingsCommand } from "./UpgradeSettings";
 import { ValidateEngineCommand } from "./ValidateEngineCommand";
-import { VaultAddCommand } from "./VaultAddCommand";
 import { ConvertVaultCommand } from "./ConvertVaultCommand";
 import { RenameNoteCommand } from "./RenameNoteCommand";
 import { CreateNoteCommand } from "./CreateNoteCommand";
@@ -152,7 +151,6 @@ const ALL_COMMANDS = [
   SyncCommand,
   ApplyTemplateCommand,
   UpgradeSettingsCommand,
-  VaultAddCommand,
   CreateNewVaultCommand,
   AddExistingVaultCommand,
   RemoveVaultCommand,

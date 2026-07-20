@@ -60,7 +60,6 @@ import {
   SetupWorkspaceCommand,
   SetupWorkspaceOpts,
 } from "../commands/SetupWorkspace";
-import { VaultAddCommand } from "../commands/VaultAddCommand";
 import { ExtensionProvider } from "../ExtensionProvider";
 import { Logger } from "../logger";
 import { StateService } from "../services/stateService";
