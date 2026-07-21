@@ -1,6 +1,5 @@
 import execa from "execa";
 
-export * from "./changelog/changelog";
 export * from "./drivers/file/storev2";
 export * from "./engineClient";
 export * from "./enginev2";
