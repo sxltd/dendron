@@ -1,5 +1,5 @@
 import { DENDRON_EMOJIS } from "@sxltd/common-all";
-import { NextjsExportPodUtils, PublishTarget } from "@sxltd/pods-core";
+import { NextjsExportPodUtils, NextJsTemplateConfigDefault, PublishTarget } from "@sxltd/pods-core";
 import _ from "lodash";
 import { window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";
@@ -45,7 +45,7 @@ export class PublishExportCommand extends BasicCommand<
     }
 
     // init.
-    await NextJSPublishUtils.initialize(nextPath);
+    await NextJSPublishUtils.initialize(nextPath, NextJsTemplateConfigDefault);
 
     // build
     const skipBuild = await NextJSPublishUtils.promptSkipBuild();
